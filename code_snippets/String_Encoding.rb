@@ -1,6 +1,6 @@
 'foo - baz'.gsub(/\w+/n, '(\0)')
 
-'foo — baz'.gsub(/\w+/n, '(\0)')
+'fox:αλεπού'.scan(/\w+/n)
 
 'fox:αλεπού,eagle:αετός'.scan(/\p{L}+/)
 
