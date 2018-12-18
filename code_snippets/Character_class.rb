@@ -1,6 +1,6 @@
 %w[cute cat cot coat cost scuttle].grep(/c[ou]t/)
 
-%w[meeting coat bet seat foot].grep(/[eo]+t/)
+'meeting cute boat site foot'.gsub(/[aeo]+t/, 'X')
 
 'Sample123string42with777numbers'.scan(/[0123456789]+/)
 
