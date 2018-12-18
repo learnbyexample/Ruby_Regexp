@@ -8,11 +8,11 @@ h.default = 'X'
 
 '9234012'.gsub(/\d/, h)
 
-h = { 'cat' => 'tiger', 'tiger' => 'cat' }
+swap = { 'cat' => 'tiger', 'tiger' => 'cat' }
 
-'cat tiger dog tiger cat'.gsub(/\w+/) { h.key?($&) ? h[$&] : $& }
+'cat tiger dog tiger cat'.gsub(/\w+/) { swap[$&] || $& }
 
-'cat tiger dog tiger cat'.gsub(/cat|tiger/, h)
+'cat tiger dog tiger cat'.gsub(/cat|tiger/, swap)
 
 h = { 'hand' => 1, 'handy' => 2, 'handful' => 3 }
 
@@ -38,13 +38,13 @@ re = Regexp.union(h.keys.sort_by { |w| -w.length })
 
 '((f+x)^y-42)*((3-g)^z+2)'.scan(/\((?:[^()]++|\([^()]++\))++\)/)
 
-'3 * ((r-2)*(t+2)/6)'.scan(/\((?:[^()]++|\([^()]++\))++\)/)
+'a + (b) + ((c)) + (((d)))'.scan(/\((?:[^()]++|\([^()]++\))++\)/)
 
 lvl2 = /\(               #literal (
           (?:            #start of non-capturing group
             [^()]++      #non-parentheses characters
             |            #OR
-            \([^()]++\)  #literal (, non-parentheses characters, literal )
+            \([^()]++\)  #level-one regexp
           )++            #end of non-capturing group, 1 or more times
         \)               #literal )
        /x
@@ -53,22 +53,22 @@ lvl2 = /\(               #literal (
 
 'a + (b) + ((c)) + (((d)))'.scan(lvl2)
 
-lvln = /\(                #literal (
-          (               #start of capture group
-           (?:            #start of non-capturing group
-             [^()]++      #non-parentheses characters
-             |            #OR
-             \(\g<1>++\)  #literal (, recursive backreferencing, literal )
-           )++            #end of non-capturing group, 1 or more times
-          )               #end of capture group
-        \)                #literal )
+lvln = /\(               #literal (
+          (?:            #start of non-capturing group
+            [^()]++      #non-parentheses characters
+            |            #OR
+            \g<0>        #recursive call
+          )++            #end of non-capturing group, 1 or more times
+        \)               #literal )
        /x
 
-'a + (b * c) - (d / e)'.gsub(lvln).to_a
+'a + (b * c) - (d / e)'.scan(lvln)
 
-'((f+x)^y-42)*((3-g)^z+2)'.gsub(lvln).to_a
+'((f+x)^y-42)*((3-g)^z+2)'.scan(lvln)
 
-'(3+a) * ((r-2)*(t+2)/6) + 42 * (a(b(c(d(e)))))'.gsub(lvln).to_a
+'a + (b) + ((c)) + (((d)))'.scan(lvln)
+
+'(3+a) * ((r-2)*(t+2)/6) + 42 * (a(b(c(d(e)))))'.scan(lvln)
 
 num = '4'
 
