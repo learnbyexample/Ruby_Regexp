@@ -442,14 +442,15 @@ other word characters.
 => ["F2H3u%9", "A $B C1234"]
 ```
 
-**c)** Match strings if it doesn't contain whitespace or the string `error` between
-the strings `qty` and `price`
+**c)** Match strings if it contains `qty` followed by `price` but not if
+there is **whitespace** or the string `error` between them.
 
 ```ruby
 >> str1 = '23,qty,price,42'
 >> str2 = 'qty price,oh'
 >> str3 = '3.14,qty,6,errors,9,price,3'
->> str4 = 'qty-6,apple-56,price-234,error'
+>> str4 = "42\nqty-6,apple-56,price-234,error"
+>> str5 = '4,price,3.14,qty,4'
 
 >> neg = //     ##### add your solution here
 >> str1.match?(neg)
@@ -460,6 +461,8 @@ the strings `qty` and `price`
 => false
 >> str4.match?(neg)
 => true
+>> str5.match?(neg)
+=> false
 ```
 
 <br>
