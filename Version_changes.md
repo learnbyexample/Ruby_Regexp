@@ -1,5 +1,14 @@
 <br>
 
+### 1.0
+
+* added exercises
+* some comments for code snippets improved, typos fixed
+* AND conditional examples made as a sub-heading
+* font for code snippets changed to accommodate some Unicode characters
+
+<br>
+
 ### 0.6
 
 * second example for Character class chapter changed from `grep` to `gsub`
