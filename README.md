@@ -15,9 +15,8 @@ See [Version_changes.md](./Version_changes.md) to keep track of changes made to 
 
 # E-book
 
-You can download the book from https://leanpub.com/rubyregexp
-
-Minimum price: Free
+* You can download the book from https://leanpub.com/rubyregexp (Minimum price: Free)
+* For those in India, visit https://www.instamojo.com/learnbyexample/ruby-regexp/
 
 <br>
 
