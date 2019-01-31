@@ -17,6 +17,7 @@ See [Version_changes.md](./Version_changes.md) to keep track of changes made to 
 
 * You can download the book from https://leanpub.com/rubyregexp (Minimum price: Free)
 * For those in India, visit https://www.instamojo.com/learnbyexample/ruby-regexp/
+* You can also get the book as **(Python|Ruby) regex** bundle from https://leanpub.com/b/pythonrubyregex
 
 <br>
 
