@@ -2,8 +2,8 @@
 
 Learn Ruby Regexp step by step from beginner to advanced levels with 200+ examples
 
-<p align="left">
-    <a href="https://leanpub.com/rubyregexp"><img src="./images/Ruby_regexp.png" width="300px" height="400px" /></a>
+<p align="center">
+    <a href="https://leanpub.com/rubyregexp"><img src="./images/Ruby_regexp.png" width="600px" height="400px" /></a>
 </p>
 
 The book also includes exercises to test your understanding, which is presented together
