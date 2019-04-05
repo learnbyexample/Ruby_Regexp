@@ -1,5 +1,13 @@
 <br>
 
+### 1.1
+
+* changed cover image
+* added illustration for recursive matching section
+* external link updates and minor description changes
+
+<br>
+
 ### 1.0
 
 * added exercises
