@@ -3,7 +3,7 @@
 Learn Ruby Regexp step by step from beginner to advanced levels with 200+ examples
 
 <p align="center">
-    <a href="https://leanpub.com/rubyregexp"><img src="./images/Ruby_regexp.png" width="600px" height="400px" /></a>
+    <img src="./images/Ruby_regexp.png" width="320px" height="400px" />
 </p>
 
 The book also includes exercises to test your understanding, which is presented together
@@ -15,12 +15,23 @@ See [Version_changes.md](./Version_changes.md) to keep track of changes made to 
 
 # E-book
 
-
 * You can download the book from any of these links for free or pay what you wish
     * https://leanpub.com/rubyregexp
     * https://gumroad.com/l/rubyregexp
     * For those in India who wish to pay, visit https://www.instamojo.com/learnbyexample/ruby-regexp/
 * You can also get the book as **(Python|Ruby) regex** bundle from https://leanpub.com/b/pythonrubyregex
+
+<br>
+
+# Feedback
+
+Please open an issue if you spot any typo/errors.
+
+I'd also highly appreciate your feedback about the book.
+
+Goodreads: https://www.goodreads.com/book/show/48641238-ruby-regexp
+
+Twitter: https://twitter.com/learn_byexample
 
 <br>
 
@@ -42,6 +53,23 @@ See [Version_changes.md](./Version_changes.md) to keep track of changes made to 
 14. Miscellaneous
 15. Gotchas
 16. Further Reading
+
+<br>
+
+## Acknowledgements
+
+* [ruby-lang documentation](https://www.ruby-lang.org/en/documentation/) — manuals and tutorials
+* [/r/ruby/](https://www.reddit.com/r/ruby/) — helpful forum for beginners and experienced programmers alike
+* [stackoverflow](https://stackoverflow.com/) — for getting answers to pertinent questions on Ruby and regular expressions
+* [tex.stackexchange](https://tex.stackexchange.com/) — for help on `pandoc` and `tex` related questions
+* Cover image:
+    * [draw.io](https://about.draw.io/)
+    * [tree icon](https://www.iconfinder.com/icons/3199231/ellipse_green_nature_tree_icon) by [Gopi Doraisamy](https://www.iconfinder.com/gopidoraisamy) under [Creative Commons Attribution 3.0 Unported](https://creativecommons.org/licenses/by/3.0/)
+    * [wand icon](https://www.iconfinder.com/icons/1679640/design_magic_magician_tool_wand_icon) by [roundicons.com](https://www.iconfinder.com/roundicons)
+* [Warning](https://commons.wikimedia.org/wiki/File:Warning_icon.svg) and [Info](https://commons.wikimedia.org/wiki/File:Info_icon_002.svg) icons by [Amada44](https://commons.wikimedia.org/wiki/User:Amada44) under public domain
+* [softwareengineering.stackexchange](https://softwareengineering.stackexchange.com/questions/39/whats-your-favourite-quote-about-programming) and [skolakoda](https://skolakoda.org/programming-quotes) for programming quotes
+
+Special thanks to Allen Downey, an attempt at translating his book [Think Python](https://greenteapress.com/wp/think-python-2e/) to [Think Ruby](https://github.com/learnbyexample/ThinkRubyBuild) gave me the confidence to publish my own book.
 
 <br>
 
