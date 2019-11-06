@@ -20,17 +20,17 @@
 
 ',1,,,two,3,,'.gsub(/(?<![^,])(?![^,])/, 'nil')
 
-words = %w[sequoia subtle questionable exhibit equation]
-
-words.grep(/(?=.*b)(?=.*e).*t/)
-
-words.grep(/(?=.*a)(?=.*e)(?=.*i)(?=.*o).*u/)
-
 puts 'a b c d e'.gsub(/(\S+\s+)(?=(\S+)\s)/, "\\1\\2\n")
 
 'pore42 car3 pare7 care5'.scan(/(?<=(po|ca)re)\d+/)
 
 'pore42 car3 pare7 care5'.scan(/(?<=(?:po|ca)re)\d+/)
+
+words = %w[sequoia subtle questionable exhibit equation]
+
+words.grep(/(?=.*b)(?=.*e).*t/)
+
+words.grep(/(?=.*a)(?=.*e)(?=.*i)(?=.*o).*u/)
 
 'pore42 car3 pare7 care5'.scan(/(?<=(?:po|ca)re)\d+/)
 

@@ -78,7 +78,7 @@ puts '5ba\babc2'.match(/[a\\b]+/)
 
 'Sample123string42with777numbers'.scan(/[[:alpha:]]+/)
 
-'hi there! how are you?? all fine here.'.gsub(/[[:punct:]]+/, '')
+'"Hi", there! How *are* you? All fine here.'.gsub(/[[:punct:]]+/, '')
 
-'hi there! how are you?? all fine here.'.gsub(/[[^.!]&&[:punct:]]+/, '')
+'"Hi", there! How *are* you? All fine here.'.gsub(/[[^.!?]&&[:punct:]]+/, '')
 

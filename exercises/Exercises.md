@@ -1,6 +1,6 @@
 # Regexp literal and operators
 
-Refer to [exercises folder](https://github.com/learnbyexample/Ruby_Regexp/tree/master/exercises) for input files required to solve the exercises.
+>![info](images/info.svg) Refer to [exercises folder](https://github.com/learnbyexample/Ruby_Regexp/tree/master/exercises) for input files required to solve the exercises.
 
 **a)** For the given input file, print all lines containing the string `two`
 
@@ -10,9 +10,10 @@ Refer to [exercises folder](https://github.com/learnbyexample/Ruby_Regexp/tree/m
 >> word = //    ##### add your solution here
 
 >> puts File.foreach(filename).grep(word)
-"Some people, when confronted with a problem, think - I know, I'll use regular expressions.
-Now they have two problems" by Jamie Zawinski
-"So much complexity in software comes from trying to make one thing do two things" by Ryan Singer
+"Some people, when confronted with a problem, think - I know, I'll use regular
+expressions. Now they have two problems" by Jamie Zawinski
+"So much complexity in software comes from trying to make one thing do two
+things" by Ryan Singer
 ```
 
 **b)** For the given input string, print all lines NOT containing the string `2`
@@ -104,7 +105,6 @@ wall mall ball fall
 
 ```ruby
 >> foo = ['lovely', '1 dentist', '2 lonely', 'eden', 'fly away', 'dent']
-
 >> foo.grep()       ##### add your solution here
 => ["lovely", "2 lonely", "dent"]
 ```
@@ -162,10 +162,7 @@ wall mall ball fall
 
 # Dot metacharacter and Quantifiers
 
-**Note** that some exercises are intentionally designed to be complicated to solve with regular
-expressions alone. Try to use normal string methods, break down the problem into multiple steps, etc.
-Some exercises will become easier to solve with techniques presented in chapters to come. Going through
-the exercises a second time after finishing entire book will be fruitful as well.
+>![info](images/info.svg) Some exercises are intentionally designed to be complicated to solve with regular expressions alone. Try to use normal string methods, break down the problem into multiple steps, etc.  Some exercises will become easier to solve with techniques presented in chapters to come. Going through the exercises a second time after finishing entire book will be fruitful as well.
 
 **a)** Use regular expression to get the output as shown for the given strings.
 
@@ -236,7 +233,7 @@ the exercises a second time after finishing entire book will be fruitful as well
 * `*` is same as
 * `+` is same as
 
-**f)** `(a*|b*)` is same as `(a|b)*` - true or false?
+**f)** `(a*|b*)` is same as `(a|b)*` — true or false?
 
 <br>
 
@@ -287,8 +284,7 @@ the exercises a second time after finishing entire book will be fruitful as well
 => "Hi there. Nice day(a"
 ```
 
-**b)** Output true/false depending upon input string containing any number sequence
-that is greater than `624`
+**b)** Output true/false depending upon input string containing any number sequence that is greater than `624`
 
 ```ruby
 >> str1 = 'hi0000432abcd'
@@ -321,9 +317,7 @@ that is greater than `624`
 
 # Groupings and backreferences
 
-**a)** The given string has fields separated by `:` and each field has a floating point
-number followed by a `,` and a string. If the floating point number has only one digit
-precision, append `0` and swap the strings separated by `,` for that particular field.
+**a)** The given string has fields separated by `:` and each field has a floating point number followed by a `,` and a string. If the floating point number has only one digit precision, append `0` and swap the strings separated by `,` for that particular field.
 
 ```ruby
 >> row = '3.14,hi:42.5,bye:1056.1,cool:00.9,fool'
@@ -334,10 +328,7 @@ precision, append `0` and swap the strings separated by `,` for that particular 
 => "3.14,hi:bye,42.50:cool,1056.10:fool,00.90"
 ```
 
-**b)** Count the number of words that have at least two consecutive repeated alphabets,
-for ex: words like `stillness` and `Committee` but not words like `root` or `readable` or `rotational`.
-Consider word to be as defined in regular expression parlance and word split across two lines as two
-different words.
+**b)** Count the number of words that have at least two consecutive repeated alphabets, for example, words like `stillness` and `Committee` but not words like `root` or `readable` or `rotational`.  Consider word to be as defined in regular expression parlance and word split across two lines as two different words.
 
 ```ruby
 >> require 'open-uri'
@@ -355,10 +346,7 @@ different words.
 219
 ```
 
-**c)** Convert the given **markdown** headers to corresponding **anchor** tag.
-Consider the input to start with one or more `#` characters followed by space and word characters.
-The `name` attribute is constructed by converting the header to lowercase and replacing spaces
-with hyphens. Can you do it without using a capture group?
+**c)** Convert the given **markdown** headers to corresponding **anchor** tag.  Consider the input to start with one or more `#` characters followed by space and word characters.  The `name` attribute is constructed by converting the header to lowercase and replacing spaces with hyphens. Can you do it without using a capture group?
 
 ```ruby
 >> header1 = '# Regular Expressions'
@@ -395,9 +383,7 @@ with hyphens. Can you do it without using a capture group?
 => ["price_42", " ", "roast", ":\t\n:-", "ice", "==", "cat", "\n", "east"]
 ```
 
-**f)** Extract all hex character sequences, with optional prefix. Match the
-characters case insensitively, and the sequences shouldn't be surrounded by
-other word characters.
+**f)** Extract all hex character sequences, with optional prefix. Match the characters case insensitively, and the sequences shouldn't be surrounded by other word characters.
 
 ```ruby
 >> hex_seq = //     ##### add your solution here
@@ -469,9 +455,7 @@ there is **whitespace** or the string `error` between them.
 
 # Modifiers
 
-**a)** Delete from the string `start` if it is at beginning of a line up to
-the next occurrence of the string `end` at end of a line. Match these keywords
-irrespective of case.
+**a)** Delete from the string `start` if it is at beginning of a line up to the next occurrence of the string `end` at end of a line. Match these keywords irrespective of case.
 
 ```ruby
 >> para = %q{good start
@@ -496,10 +480,7 @@ hi there
 bye
 ```
 
-**b)** For the given **markdown** file, replace all occurrences of the string `ruby` (irrespective
-of case) with the string `Ruby`. However, any match within code blocks that start with whole line
-` ```ruby ` and end with whole line ` ``` ` shouldn't be replaced.
-Consider the input file to be small enough to fit memory requirements.
+**b)** For the given **markdown** file, replace all occurrences of the string `ruby` (irrespective of case) with the string `Ruby`. However, any match within code blocks that start with whole line ` ```ruby ` and end with whole line ` ``` ` shouldn't be replaced.  Consider the input file to be small enough to fit memory requirements.
 
 Refer to [exercises folder](https://github.com/learnbyexample/Ruby_Regexp/tree/master/exercises) for input files required to solve the exercises.
 
@@ -536,9 +517,7 @@ Refer to [exercises folder](https://github.com/learnbyexample/Ruby_Regexp/tree/m
 
 # String Encoding
 
-**a)** Output `true` or `false` depending on input string made up of ASCII characters or not.
-Consider the input to be non-empty strings and any character that isn't part of 7-bit ASCII
-set should give `false`
+**a)** Output `true` or `false` depending on input string made up of ASCII characters or not.  Consider the input to be non-empty strings and any character that isn't part of 7-bit ASCII set should give `false`
 
 ```ruby
 >> str1 = '123—456'
@@ -578,14 +557,12 @@ set should give `false`
 
 # Miscellaneous
 
-**a)** Count the maximum depth of nested braces for the given string.
-Unbalanced or wrongly ordered braces should return `-1`
+**a)** Count the maximum depth of nested braces for the given string.  Unbalanced or wrongly ordered braces should return `-1`
 
 ```ruby
 >> def max_nested_braces(ip)
      ##### add your solution here
 >> end
-
 >> max_nested_braces('a*b')
 => 0
 >> max_nested_braces('}a+b{')
@@ -606,15 +583,12 @@ Unbalanced or wrongly ordered braces should return `-1`
 
 ```ruby
 ##### add your solution here
-
 >> str1 = 'apartment has a park'
 >> str1.gsub()      ##### add your solution here
 => "aspartment has a garden"
-
 >> str2 = 'do you have a spare cable'
 >> str2.gsub()      ##### add your solution here
 => "do you have a extra cable"
-
 >> str3 = 'write a parser'
 >> str3.gsub()      ##### add your solution here
 => "write a sparser"
