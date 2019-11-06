@@ -1,5 +1,19 @@
 <br>
 
+### 2.0
+
+* added Table of Contents
+* updated cover image
+* changed book formatting
+    * better contrast for chapter and section names
+    * changed background color of code snippets for better contrast
+    * increased font size and page margins
+* added cheatsheet at end of chapters
+* improved descriptions and examples
+* corrected minor typos and improved grammar
+
+<br>
+
 ### 1.1
 
 * changed cover image
