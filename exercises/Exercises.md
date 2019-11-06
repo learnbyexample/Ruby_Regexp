@@ -1,6 +1,6 @@
 # Regexp literal and operators
 
->![info](images/info.svg) Refer to [exercises folder](https://github.com/learnbyexample/Ruby_Regexp/tree/master/exercises) for input files required to solve the exercises.
+>![info](../images/info.svg) Refer to [exercises folder](https://github.com/learnbyexample/Ruby_Regexp/tree/master/exercises) for input files required to solve the exercises.
 
 **a)** For the given input file, print all lines containing the string `two`
 
@@ -162,7 +162,7 @@ wall mall ball fall
 
 # Dot metacharacter and Quantifiers
 
->![info](images/info.svg) Some exercises are intentionally designed to be complicated to solve with regular expressions alone. Try to use normal string methods, break down the problem into multiple steps, etc.  Some exercises will become easier to solve with techniques presented in chapters to come. Going through the exercises a second time after finishing entire book will be fruitful as well.
+>![info](../images/info.svg) Some exercises are intentionally designed to be complicated to solve with regular expressions alone. Try to use normal string methods, break down the problem into multiple steps, etc.  Some exercises will become easier to solve with techniques presented in chapters to come. Going through the exercises a second time after finishing entire book will be fruitful as well.
 
 **a)** Use regular expression to get the output as shown for the given strings.
 
