@@ -19,8 +19,10 @@ See [Version_changes.md](./Version_changes.md) to keep track of changes made to 
     * https://leanpub.com/rubyregexp
     * https://gumroad.com/l/rubyregexp
     * For those in India who wish to pay, visit https://www.instamojo.com/learnbyexample/ruby-regexp/
-* You can also get the book as **(Python|Ruby) regex** bundle from https://leanpub.com/b/pythonrubyregex
-
+* You can also get the book as bundles:
+    * **Awesome Regex** bundle from https://leanpub.com/b/regex
+    * **(Python|Ruby) regex** bundle from https://leanpub.com/b/pythonrubyregex
+    
 <br>
 
 # Feedback
