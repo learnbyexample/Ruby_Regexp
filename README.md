@@ -15,14 +15,14 @@ See [Version_changes.md](./Version_changes.md) to keep track of changes made to 
 
 # E-book
 
-* You can download the book from any of these links for free or pay what you wish
+* You can download the book from any of these links for free (you can also pay if you wish)
     * https://leanpub.com/rubyregexp
     * https://gumroad.com/l/rubyregexp
-    * For those in India who wish to pay, visit https://www.instamojo.com/learnbyexample/ruby-regexp/
 * You can also get the book as bundles:
     * **Awesome Regex** bundle from https://leanpub.com/b/regex
     * **(Python|Ruby) regex** bundle from https://leanpub.com/b/pythonrubyregex
-    
+* See https://learnbyexample.github.io/books/ for list of other books
+
 <br>
 
 # Feedback
