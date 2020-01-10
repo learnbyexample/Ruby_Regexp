@@ -50,3 +50,13 @@ date
 
 product
 
+'1,2,3,3,5'.match?(/\A([^,]+,){2}([^,]+),\k<-1>,/)
+
+'two one 5 one2 three'.match?(/([a-z]+).*\12/)
+
+'two one 5 one2 three'.match?(/([a-z]+).*\k<1>2/)
+
+puts "\x32"
+
+'two one 5 one2 three'.match?(/([a-z]+).*\1\x32/)
+

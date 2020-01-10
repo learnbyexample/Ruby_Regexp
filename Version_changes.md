@@ -1,5 +1,14 @@
 <br>
 
+### 2.1
+
+* corrected formatting in a code snippet comment
+* changed a character class example to use possessive quantifier instead of greedy
+* added examples for `\k<N>` method of backreferencing
+* added examples for `\X`
+
+<br>
+
 ### 2.0
 
 * added Table of Contents
