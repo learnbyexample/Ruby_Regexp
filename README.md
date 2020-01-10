@@ -23,6 +23,8 @@ See [Version_changes.md](./Version_changes.md) to keep track of changes made to 
     * **(Python|Ruby) regex** bundle from https://leanpub.com/b/pythonrubyregex
 * See https://learnbyexample.github.io/books/ for list of other books
 
+The book can also be [viewed as a single markdown file in this repo](./ruby_regexp.md). See my blogpost on [generating pdf from markdown using pandoc](https://learnbyexample.github.io/tutorial/ebook-generation/customizing-pandoc/) if you are interested in the ebook creation process.
+
 <br>
 
 # Feedback
@@ -82,6 +84,8 @@ Special thanks to Allen Downey, an attempt at translating his book [Think Python
 <br>
 
 # License
+
+The book is licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 The code snippets are licensed under MIT, see [LICENSE](./LICENSE) file
 
