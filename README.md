@@ -19,7 +19,7 @@ See [Version_changes.md](./Version_changes.md) to keep track of changes made to 
     * https://leanpub.com/rubyregexp
     * https://gumroad.com/l/rubyregexp
 * You can also get the book as bundles:
-    * **Awesome Regex** bundle from https://leanpub.com/b/regex
+    * **Awesome Regex** bundle from https://leanpub.com/b/regex or https://gumroad.com/l/regex
     * **(Python|Ruby) regex** bundle from https://leanpub.com/b/pythonrubyregex
 * See https://learnbyexample.github.io/books/ for list of other books
 
