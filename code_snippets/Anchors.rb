@@ -1,3 +1,5 @@
+## String anchors
+
 'cater'.match?(/\Acat/)
 
 'concatenation'.match?(/\Acat/)
@@ -38,6 +40,8 @@ words.grep(/t\z/)
 
 'hack'.sub(/\z/, 'er')
 
+## Line anchors
+
 pets = 'cat and dog'
 
 pets.match?(/^cat/)
@@ -63,6 +67,16 @@ puts str.gsub(/^/, '1: ')
 puts str.gsub(/^/).with_index(1) { |m, i| "#{i}: " }
 
 puts str.gsub(/$/, '.')
+
+puts "1\n2\n".gsub(/^/, 'foo ')
+
+puts "1\n\n".gsub(/^/, 'foo ')
+
+puts "1\n2\n".gsub(/$/, ' baz')
+
+puts "1\n\n".gsub(/$/, ' baz')
+
+## Word anchors
 
 words = 'par spar apparent spare part'
 

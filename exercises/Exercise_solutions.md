@@ -2,7 +2,7 @@
 
 >![info](../images/info.svg) Refer to [exercises folder](https://github.com/learnbyexample/Ruby_Regexp/tree/master/exercises) for input files required to solve the exercises.
 
->![info](../images/info.svg) For solutions, see [Exercise_solutions.md](https://github.com/learnbyexample/Ruby_Regexp/blob/master/exercises/Exercise_solutions.md).
+>![info](../images/info.svg) Solutions for [Exercises.md](https://github.com/learnbyexample/Ruby_Regexp/blob/master/exercises/Exercises.md) is presented here.
 
 **a)** Check whether the given strings contain `0xB0`. Display a boolean result as shown below.
 
@@ -10,9 +10,9 @@
 >> line1 = 'start address: 0xA0, func1 address: 0xC0'
 >> line2 = 'end address: 0xFF, func2 address: 0xB0'
 
->> line1.match?()       ##### add your solution here
+>> line1.match?(/0xB0/)
 => false
->> line2.match?()       ##### add your solution here
+>> line2.match?(/0xB0/)
 => true
 ```
 
@@ -22,7 +22,7 @@
 # note that expected output shown here is wrapped to fit pdf width
 >> filename = 'programming_quotes.txt'
 
->> word =       ##### add your solution here
+>> word = /two/
 
 >> puts File.foreach(filename).grep(word)
 "Some people, when confronted with a problem, think - I know, I'll use regular
@@ -36,7 +36,7 @@ things" by Ryan Singer
 ```ruby
 >> ip = 'They ate 5 apples and 5 oranges'
 
->> ip.gsub(//, 'five')      ##### add your solution here
+>> ip.gsub(/5/, 'five')
 => "They ate five apples and five oranges"
 ```
 
@@ -45,7 +45,7 @@ things" by Ryan Singer
 ```ruby
 >> ip = 'They ate 5 apples and 5 oranges'
 
->> ip.sub(//, 'five')       ##### add your solution here
+>> ip.sub(/5/, 'five')
 => "They ate five apples and 5 oranges"
 ```
 
@@ -54,7 +54,7 @@ things" by Ryan Singer
 ```ruby
 >> items = %w[goal new user sit eat dinner]
 
->> items.grep_v(//)     ##### add your solution here
+>> items.grep_v(/e/)
 => ["goal", "sit"]
 ```
 
@@ -63,7 +63,7 @@ things" by Ryan Singer
 ```ruby
 >> ip = 'This note should not be NoTeD'
 
->> ip.gsub(//, 'X')     ##### add your solution here
+>> ip.gsub(/note/i, 'X')
 => "This X should not be XD"
 ```
 
@@ -77,7 +77,7 @@ things" by Ryan Singer
 '> onion 31
 >> water 10}
 
->> num = //     ##### add your solution here
+>> num = /2/
 
 >> puts purchases.each_line.grep_v(num)
 items qty
@@ -91,7 +91,7 @@ water 10
 ```ruby
 >> items = %w[goal new user sit eat dinner]
 
->> items.filter { }     ##### add your solution here
+>> items.filter { |e| e.match?(/a/) || e.match?(/w/) }
 => ["goal", "new", "eat"]
 ```
 
@@ -100,7 +100,7 @@ water 10
 ```ruby
 >> items = %w[goal new user sit eat dinner]
 
->> items.filter { }     ##### add your solution here
+>> items.filter { |e| e.match?(/e/) && e.match?(/n/) }
 => ["new", "dinner"]
 ```
 
@@ -109,7 +109,7 @@ water 10
 ```ruby
 >> ip = 'start address: 0xA0, func1 address: 0xC0'
 
-##### add your solution here
+>> ip.gsub(/0xA0/, '0x7F').gsub(/0xC0/, '0x1F')
 => "start address: 0x7F, func1 address: 0x1F"
 ```
 
@@ -118,7 +118,7 @@ water 10
 ```ruby
 >> ip = 'match this after the history lesson'
 
-##### add your solution here
+>> ip =~ /is/
 => 8
 ```
 
@@ -134,7 +134,7 @@ water 10
 >> line3 = 'better?'
 >> line4 = 'oh no\nbear spotted'
 
->> pat =        ##### add your solution here
+>> pat = /\Abe/
 
 >> pat.match?(line1)
 => true
@@ -151,7 +151,7 @@ water 10
 ```ruby
 >> words = 'bred red spread credible'
 
->> words.gsub()     ##### add your solution here
+>> words.gsub(/\bred\b/, 'brown')
 => "bred brown spread credible"
 ```
 
@@ -160,7 +160,7 @@ water 10
 ```ruby
 >> items = ['hi42bye', 'nice1423', 'bad42', 'cool_42a', 'fake4b']
 
->> items.grep()     ##### add your solution here
+>> items.grep(/\B42\B/)
 => ["hi42bye", "nice1423", "cool_42a"]
 ```
 
@@ -169,7 +169,7 @@ water 10
 ```ruby
 >> items = ['lovely', "1\ndentist", '2 lonely', 'eden', "fly\n", 'dent']
 
->> items.filter { }     ##### add your solution here
+>> items.filter { |e| e.match?(/\Aden/) || e.match?(/ly\z/) }
 => ["lovely", "2 lonely", "dent"]
 ```
 
@@ -181,7 +181,7 @@ water 10
 '> wall mall ball fall
 >> mallet wallet malls}
 
->> puts para.gsub()     ##### add your solution here
+>> puts para.gsub(/^mall\b/, '1234')
 ball fall wall tall
 1234 call ball pall
 wall mall ball fall
@@ -193,7 +193,7 @@ mallet wallet malls
 ```ruby
 >> items = ['lovely', "1\ndentist", '2 lonely', 'eden', "fly\nfar", 'dent']
 
->> items.filter { }     ##### add your solution here
+>> items.filter { |e| e.match?(/^den/) || e.match?(/ly$/) }
 => ["lovely", "1\ndentist", "2 lonely", "fly\nfar", "dent"]
 ```
 
@@ -202,7 +202,7 @@ mallet wallet malls
 ```ruby
 >> items = ["12\nthree\n", "12\nThree", "12\nthree\n4", "12\nthree"]
 
->> items.grep()     ##### add your solution here
+>> items.grep(/\A12\nthree\z/i)
 => ["12\nThree", "12\nthree"]
 ```
 
@@ -211,7 +211,7 @@ mallet wallet malls
 ```ruby
 >> items = %w[handed hand handy unhanded handle hand-2]
 
->> items.map { }        ##### add your solution here
+>> items.map { |e| e.sub(/\bhand\B/, 'X') }
 => ["Xed", "hand", "Xy", "unhanded", "Xle", "hand-2"]
 ```
 
@@ -220,7 +220,7 @@ mallet wallet malls
 ```ruby
 >> items = %w[handed hand handy unhanded handle hand-2]
 
->> items.filter_map { }     ##### add your solution here
+>> items.filter_map { |e| e.gsub(/e/, 'X') if e.match?(/\Ah/) }
 => ["handXd", "hand", "handy", "handlX", "hand-2"]
 ```
 
@@ -233,7 +233,7 @@ mallet wallet malls
 ```ruby
 >> items = ['lovely', "1\ndentist", '2 lonely', 'eden', "fly\n", 'dent']
 
->> items.grep()     ##### add your solution here
+>> items.grep(/\Aden|ly\z/)
 => ["lovely", "2 lonely", "dent"]
 ```
 
@@ -242,7 +242,7 @@ mallet wallet malls
 ```ruby
 >> items = ['lovely', "1\ndentist", '2 lonely', 'eden', "fly\nfar", 'dent']
 
->> items.grep()     ##### add your solution here
+>> items.grep(/^den|ly$/)
 => ["lovely", "1\ndentist", "2 lonely", "fly\nfar", "dent"]
 ```
 
@@ -252,7 +252,7 @@ mallet wallet malls
 >> s1 = 'creed refuse removed read'
 >> s2 = 'refused reed redo received'
 
->> pat =        ##### add your solution here
+>> pat = /re(mov|ceiv|fus|)ed/
 
 >> s1.gsub(pat, 'X')
 => "cX refuse X read"
@@ -267,7 +267,7 @@ mallet wallet malls
 >> s2 = "slated for later, don't be late"
 >> words = %w[late later slated]
 
->> pat =        ##### add your solution here
+>> pat = Regexp.union(words.sort_by { |w| -w.length })
 
 >> s1.gsub(pat, 'A')
 => "pA full of sA"
@@ -281,7 +281,8 @@ mallet wallet malls
 >> items = ['slate', 'later', 'plate', 'late', 'slates', 'slated ']
 >> words = %w[late later slated]
 
->> pat =        ##### add your solution here
+>> pat = Regexp.union(words.sort_by { |w| -w.length })
+>> pat = /\A(#{pat.source})\z/
 
 >> items.grep(pat)
 => ["later", "late"]
@@ -297,9 +298,9 @@ mallet wallet malls
 >> str1 = '(9-2)*5+qty/3'
 >> str2 = '(qty+4)/2-(9-2)*5+pq/4'
 
->> str1.gsub()      ##### add your solution here
+>> str1.gsub('(9-2)*5', '35')
 => "35+qty/3"
->> str2.gsub()      ##### add your solution here
+>> str2.gsub('(9-2)*5', '35')
 => "(qty+4)/2-35+pq/4"
 ```
 
@@ -310,7 +311,7 @@ mallet wallet malls
 >> s2 = '(4)\|42 - (4)\|3'
 >> s3 = "two - (4)\\|\n"
 
->> pat =        ##### add your solution here
+>> pat = /\A\(4\)\\\||\(4\)\\\|\z/
 
 >> s1.gsub(pat, '2')
 => "2.3/(4)\\|6 foo 5.3-2"
@@ -325,7 +326,7 @@ mallet wallet malls
 ```ruby
 >> items = ['a.b', '3+n', 'x\y\z', 'qty||price', '{n}']
 
->> pat =        ##### add your solution here
+>> pat = Regexp.union(items)
 
 >> '0a.bcd'.gsub(pat, 'X')
 => "0Xcd"
@@ -342,7 +343,7 @@ mallet wallet malls
 >> puts ip
 12456
 
->> ip.gsub()        ##### add your solution here
+>> ip.gsub(/\x08/, ' ')
 => "123 456"
 ```
 
@@ -351,7 +352,7 @@ mallet wallet malls
 ```ruby
 >> ip = 'there are c\omm\on aspects am\ong the alternati\ons'
 
->> ip.gsub()        ##### add your solution here
+>> ip.gsub(/\\o/, 'o')
 => "there are common aspects among the alternations"
 ```
 
@@ -361,7 +362,7 @@ mallet wallet malls
 >> ip = '3-(a^b)+2*(a^b)-(a/b)+3'
 >> eqns = %w[(a^b) (a/b) (a^b)+2]
 
->> pat =        ##### add your solution here
+>> pat = Regexp.union(eqns.sort_by { |w| -w.length })
 
 >> ip.gsub(pat, 'X')
 => "3-X*X-X+3"
@@ -378,7 +379,7 @@ mallet wallet malls
 ```ruby
 >> ip = 'a+42//5-c pressure*3+42/5-14256'
 
->> ip.gsub()        ##### add your solution here
+>> ip.gsub(%r{42//?5}, '8')
 => "a+8-c pressure*3+8-14256"
 ```
 
@@ -387,7 +388,7 @@ mallet wallet malls
 ```ruby
 >> items = %w[handed hand handled handy unhand hands handle]
 
->> items.grep()     ##### add your solution here
+>> items.grep(/\Ahand(.|le)?\z/)
 => ["hand", "handy", "hands", "handle"]
 ```
 
@@ -398,7 +399,7 @@ mallet wallet malls
 >> eqn2 = 'pressure*3+42/5-14256'
 >> eqn3 = 'r*42-5/3+42///5-42/53+a'
 
->> pat =        ##### add your solution here
+>> pat = %r{42//?5}
 
 >> eqn1.split(pat)
 => ["a+", "-c"]
@@ -414,7 +415,7 @@ mallet wallet malls
 >> s1 = 'remove the special meaning of such constructs'
 >> s2 = 'characters while constructing'
 
->> pat =        ##### add your solution here
+>> pat = /i.*/
 
 >> s1.sub(pat, '')
 => "remove the spec"
@@ -429,7 +430,7 @@ mallet wallet malls
 >> str2 = 'a/b(division) + c%d(#modulo)'
 >> str3 = 'Hi there(greeting). Nice day(a(b)'
 
->> remove_parentheses =     ##### add your solution here
+>> remove_parentheses = /\(.*?\)/
 
 >> str1.gsub(remove_parentheses, '')
 => "a+b"
@@ -450,18 +451,20 @@ mallet wallet malls
 => "plXk XcomXg tX wXer X cautX sentient"
 
 # expected output
->> change =     ##### add your solution here
+>> change = /in(ter|co|t|g|k)?|ion/
 >> words.gsub(change, 'X')
 => "plX XmX tX wX X cautX sentient"
 ```
 
 **g)** For the given greedy quantifiers, what would be the equivalent form using `{m,n}` representation?
 
-* `?` is same as
-* `*` is same as
-* `+` is same as
+* `?` is same as `{,1}`
+* `*` is same as `{0,}`
+* `+` is same as `{1,}`
 
 **h)** `(a*|b*)` is same as `(a|b)*` — true or false?
+
+False. Because `(a*|b*)` will match only sequences like `a`, `aaa`, `bb`, `bbbbbbbb`. But `(a|b)*` can match a mixed sequence like `ababbba` too.
 
 **i)** For the given input strings, remove everything from the first occurrence of `test` (irrespective of case) till end of the string, provided `test` isn't at the end of the string.
 
@@ -470,7 +473,7 @@ mallet wallet malls
 >> s2 = 'always test your RE for corner cases'
 >> s3 = 'a TEST of skill tests?'
 
->> pat =        ##### add your solution here
+>> pat = /test.+/i
 
 >> s1.sub(pat, '')
 => "this is a Test"
@@ -485,7 +488,7 @@ mallet wallet malls
 ```ruby
 >> words = %w[sequoia subtle exhibit asset sets tests site]
 
->> words.grep()     ##### add your solution here
+>> words.grep(/\As.*(e.*t|t.*e)/)
 => ["subtle", "sets", "site"]
 ```
 
@@ -494,7 +497,7 @@ mallet wallet malls
 ```ruby
 >> words = %w[sequoia subtle exhibit asset sets tests site]
 
->> words.grep()     ##### add your solution here
+>> words.grep(/.{6,}/)
 => ["sequoia", "subtle", "exhibit"]
 ```
 
@@ -503,11 +506,13 @@ mallet wallet malls
 ```ruby
 >> words = %w[sequoia subtle exhibit asset sets tests site]
 
->> words.grep()     ##### add your solution here
+>> words.grep(/\A(s|t).{,5}\z/)
 => ["subtle", "sets", "tests", "site"]
 ```
 
 **m)** Can you reason out why this code results in the output shown? The aim was to remove all `<characters>` patterns but not the `<>` ones. The expected result was `'a 1<> b 2<> c'`.
+
+The use of `.+` quantifier after `<` means that `<>` cannot be a possible match to satisfy `<.+?>`. So, after matching `<` (which occurs after `1` and `2` in the given input string) the regular expression engine will look for next occurrence of `>` character to satisfy the given pattern. To solve such cases, you need to use character classes, which is discussed in a later chapter, to specify which particular set of characters should be matched by the `+` quantifier instead of `.` metacharacter.
 
 ```ruby
 >> ip = 'a<apple> 1<> b<bye> 2<> c<cat>'
@@ -523,7 +528,7 @@ mallet wallet malls
 >> s2 = 'a::b :: c::d e::f :: 4::5'
 >> s3 = '42:: hi::bye::see :: carefully'
 
->> pat =        ##### add your solution here
+>> pat = / +:: +/
 
 >> s1.split(pat, 2)
 => ["go there", "this :: that"]
@@ -542,7 +547,7 @@ mallet wallet malls
 >> s4 = 'normal string'
 >> s5 = 'nope ## not this'
 
->> pat =        ##### add your solution here
+>> pat = /\A *\#{2,}/
 
 >> s1.match?(pat)
 => true
@@ -566,11 +571,11 @@ mallet wallet malls
 >> str1 = 'This the biggest fruit you have seen?'
 >> str2 = 'Your mission is to read and practice consistently'
 
->> pat =        ##### add your solution here
+>> pat = /is.*t/
 
-##### add your solution here for str1
+>> str1[pat]
 => "is the biggest fruit"
-##### add your solution here for str2
+>> str2[pat]
 => "ission is to read and practice consistent"
 ```
 
@@ -582,15 +587,15 @@ mallet wallet malls
 >> s3 = 'this is good bye then'
 >> s4 = 'who was there to see?'
 
->> pat =        ##### add your solution here
+>> pat = /is|the|was|to/
 
-##### add your solution here for s1
+>> s1 =~ pat
 => 12
-##### add your solution here for s2
+>> s2 =~ pat
 => 4
-##### add your solution here for s3
+>> s3 =~ pat
 => 2
-##### add your solution here for s4
+>> s4 =~ pat
 => 4
 ```
 
@@ -602,15 +607,15 @@ mallet wallet malls
 >> s3 = 'this is good bye then'
 >> s4 = 'who was there to see?'
 
->> pat =        ##### add your solution here
+>> pat = /.*(is|the|was|to)/
 
-##### add your solution here for s1
+>> s1.match(pat).begin(1)
 => 12
-##### add your solution here for s2
+>> s2.match(pat).begin(1)
 => 18
-##### add your solution here for s3
+>> s3.match(pat).begin(1)
 => 17
-##### add your solution here for s4
+>> s4.match(pat).begin(1)
 => 14
 ```
 
@@ -619,7 +624,8 @@ mallet wallet malls
 ```ruby
 >> ip = 'fruits:apple, mango, guava, blueberry'
 
-##### add your solution here
+# can also use: ip[/:(.*)/, 1]
+>> ip.match(/:(.*)/)[1]
 'apple, mango, guava, blueberry'
 ```
 
@@ -629,11 +635,11 @@ mallet wallet malls
 >> s1 = 'first-3.14'
 >> s2 = 'next-123'
 
->> pat =        ##### add your solution here
+>> pat = /-(.+)/
 
-##### add your solution here for s1
+>> s1.sub(pat) { "-#{Math.log($1.to_f)}" }
 => "first-1.144222799920162"
-##### add your solution here for s2
+>> s2.sub(pat) { "-#{Math.log($1.to_f)}" }
 => "next-4.812184355372417"
 ```
 
@@ -644,11 +650,14 @@ mallet wallet malls
 >> str2 = 'do you have a spare cable'
 >> str3 = 'write a parser'
 
-##### add your solution here for str1
+>> pat = /park?|spare/
+>> h = { 'par' => 'spar', 'spare' => 'extra', 'park' => 'garden' }
+
+>> str1.gsub(pat, h)
 => "aspartment has a garden"
-##### add your solution here for str2
+>> str2.gsub(pat, h)
 => "do you have a extra cable"
-##### add your solution here for str3
+>> str3.gsub(pat, h)
 => "write a sparser"
 ```
 
@@ -658,11 +667,11 @@ mallet wallet malls
 >> ip = 'another (way) to reuse (portion) matched (by) capture groups'
 
 # as nested array output
-##### add your solution here
+>> ip.scan(/\((.*?)\)/)
 => [["way"], ["portion"], ["by"]]
 
 # as array of strings output
-##### add your solution here
+>> ip.gsub(/\((.*?)\)/).map { $1 }
 => ["way", "portion", "by"]
 ```
 
@@ -671,7 +680,7 @@ mallet wallet malls
 ```ruby
 >> ip = 'a<apple> 1<> b<bye> 2<> c<cat>'
 
-##### add your solution here
+>> ip.scan(/<.+?>/)
 => ["<apple>", "<> b<bye>", "<> c<cat>"]
 ```
 
@@ -681,7 +690,7 @@ mallet wallet malls
 >> row1 = '-2,5 4,+3 +42,-53 4356246,-357532354 '
 >> row2 = '1.32,-3.14 634,5.63 63.3e3,9907809345343.235 '
 
->> pat =        ##### add your solution here
+>> pat = /(.+?),(.+?) /
 
 >> row1.scan(pat)
 => [["-2", "5"], ["4", "+3"], ["+42", "-53"], ["4356246", "-357532354"]]
@@ -699,12 +708,12 @@ mallet wallet malls
 >> row2 = '1.32,-3.14 634,5.63 63.3e3,9907809345343.235 '
 
 # should be same as previous question
->> pat =        ##### add your solution here
+>> pat = /(.+?),(.+?) /
 
-##### add your solution here for row1
+>> row1.scan(pat).map { |a, b| a.to_i + b.to_i }
 => [3, 7, -11, -353176108]
 
-##### add your solution here for row2
+>> row2.scan(pat).map { |a, b| a.to_f + b.to_f }
 => [-1.82, 639.63, 9907809408643.234]
 ```
 
@@ -713,7 +722,7 @@ mallet wallet malls
 ```ruby
 >> ip = '42:no-output;1000:car-truck;SQEX49801'
 
->> ip.split()       ##### add your solution here
+>> ip.split(/:.+?-(.+?);/)
 => ["42", "output", "1000", "truck", "SQEX49801"]
 ```
 
@@ -723,11 +732,11 @@ mallet wallet malls
 >> row1 = 'name:rohan,maths:75,phy:89,'
 >> row2 = 'name:rose,maths:88,phy:92,'
 
->> pat =        ##### add your solution here
+>> pat = /(.+?):(.+?),/
 
-##### add your solution here for row1
+>> row1.scan(pat).to_h
 => {"name"=>"rohan", "maths"=>"75", "phy"=>"89"}
-##### add your solution here for row2
+>> row2.scan(pat).to_h
 => {"name"=>"rose", "maths"=>"88", "phy"=>"92"}
 ```
 
@@ -740,7 +749,7 @@ mallet wallet malls
 ```ruby
 >> items = %w[-handy hand handy unhand hands handle]
 
-##### add your solution here
+>> items.grep(/\Ahand([sy]|le)\z/)
 => ["handy", "hands", "handle"]
 ```
 
@@ -749,7 +758,7 @@ mallet wallet malls
 ```ruby
 >> ip = 'redo red credible :read: rod reed'
 
-##### add your solution here
+>> ip.gsub(/\bre[ae]?d\b/, 'X')
 => "redo X credible :X: rod X"
 ```
 
@@ -758,7 +767,7 @@ mallet wallet malls
 ```ruby
 >> words = %w[surrender unicorn newer door empty eel pest]
 
-##### add your solution here
+>> words.grep(/[ei].*[ln]/)
 => ["surrender", "unicorn", "eel"]
 ```
 
@@ -767,7 +776,7 @@ mallet wallet malls
 ```ruby
 >> words = %w[surrender unicorn newer door empty eel pest]
 
-##### add your solution here
+>> words.grep(/[ei].*[ln]|[ln].*[ei]/)
 => ["surrender", "unicorn", "newer", "eel"]
 ```
 
@@ -777,11 +786,11 @@ mallet wallet malls
 >> row1 = 'name:rohan,maths:75,phy:89'
 >> row2 = 'name:rose,maths:88,phy:92'
 
->> pat =        ##### add your solution here
+>> pat = /([^:]+):([^,]+),?/
 
-##### add your solution here for row1
+>> row1.scan(pat).to_h
 => {"name"=>"rohan", "maths"=>"75", "phy"=>"89"}
-##### add your solution here for row2
+>> row2.scan(pat).to_h
 => {"name"=>"rose", "maths"=>"88", "phy"=>"92"}
 ```
 
@@ -792,7 +801,7 @@ mallet wallet malls
 >> str2 = 'a/b(division) + c%d(#modulo) - (e+(j/k-3)*4)'
 >> str3 = 'Hi there(greeting). Nice day(a(b)'
 
->> remove_parentheses =     ##### add your solution here
+>> remove_parentheses = /\([^()]*\)/
 
 >> str1.gsub(remove_parentheses, '')
 => "def factorial"
@@ -807,7 +816,7 @@ mallet wallet malls
 ```ruby
 >> words = %w[surrender unicorn newer door empty eel pest]
 
-##### add your solution here
+>> words.grep(/\A[^epu]/)
 => ["surrender", "newer", "door"]
 ```
 
@@ -816,7 +825,7 @@ mallet wallet malls
 ```ruby
 >> words = %w[p-t you tea heel owe new reed ear]
 
-##### add your solution here
+>> words.grep_v(/[uw-]|ee/)
 => ["tea", "ear"]
 ```
 
@@ -826,11 +835,11 @@ mallet wallet malls
 >> row1 = '(2),kite,12,,D,C,,'
 >> row2 = 'hi,bye,sun,moon'
 
->> pat =        ##### add your solution here
+>> pat = /(,[^,]*){3}\z/
 
-##### add your solution here for row1
+>> row1.sub(pat, ',WHTSZ323')
 => "(2),kite,12,,D,WHTSZ323"
-##### add your solution here for row2
+>> row2.sub(pat, ',WHTSZ323')
 => "hi,WHTSZ323"
 ```
 
@@ -840,7 +849,7 @@ mallet wallet malls
 >> str1 = "lion \t Ink32onion Nice"
 >> str2 = "**1\f2\n3star\t7 77\r**"
 
->> pat =        ##### add your solution here
+>> pat = /[\d\s]+/
 
 >> str1.split(pat)
 => ["lion", "Ink", "onion", "Nice"]
@@ -853,11 +862,13 @@ mallet wallet malls
 ```ruby
 >> ip = 'a<apple> 1<> b<bye> 2<> c<cat>'
 
-##### add your solution here
+>> ip.gsub(/<[^>]+>/, '')
 => "a 1<> b 2<> c"
 ```
 
 **l)** `\b[a-z](on|no)[a-z]\b` is same as `\b[a-z][on]{2}[a-z]\b`. True or False? Sample input lines shown below might help to understand the differences, if any.
+
+False. `[on]{2}` will also match `oo` and `nn`.
 
 ```ruby
 >> puts "known\nmood\nknow\npony\ninns"
@@ -873,7 +884,7 @@ inns
 ```ruby
 >> items = ['h0000432ab', 'car00625', '42_624 0512', '96 foo1234baz 3.14 2']
 
-##### add your solution here
+>> items.filter { |e| e.gsub(/\d+/).any? { $&.to_i > 624 } }
 => ["car00625", "96 foo1234baz 3.14 2"]
 ```
 
@@ -881,7 +892,9 @@ inns
 
 ```ruby
 ?> def max_nested_braces(ip)
-##### add your solution here
+?>   cnt = 0
+?>   cnt += 1 while ip.gsub!(/\{[^{}]*\}/, '')
+?>   return ip.match?(/[{}]/) ? -1 : cnt
 >> end
 
 >> max_nested_braces('a*b')
@@ -908,7 +921,7 @@ inns
 >> ip.split
 => ["so", "pole", "lit", "in", "to"]
 
-##### add your solution here
+>> ip.scan(/\S+/)
 => ["so", "pole", "lit", "in", "to"]
 ```
 
@@ -917,10 +930,10 @@ inns
 ```ruby
 >> ip = "price_42 roast^\t\n^-ice==cat\neast"
 
-##### add your solution here
+>> ip.split(/\W+/)
 => ["price_42", "roast", "ice", "cat", "east"]
 
-##### add your solution here
+>> ip.split(/(\W+)/)
 => ["price_42", " ", "roast", "^\t\n^-", "ice", "==", "cat", "\n", "east"]
 ```
 
@@ -929,7 +942,8 @@ inns
 ```ruby
 >> items = ['    #comment', "\t\napple #42", '#oops', 'sure', 'no#1', "\t\r\f"]
 
-##### add your solution here
+# can also use: items.grep(/\A\s*[^#\s]/)
+>> items.grep(/\A\s*+[^#]/)
 => ["\t\napple #42", "sure", "no#1"]
 ```
 
@@ -940,14 +954,14 @@ inns
 >> s2 = 'and then you want to test'
 
 >> ignore = 'aty'
->> pat =        ##### add your solution here
+>> pat = /\b[\w&&[^#{ignore}]]+\b/
 >> s1.scan(pat)
 => ["newline"]
 >> s2.scan(pat)
 => []
 
 >> ignore = 'esw'
->> pat =        ##### add your solution here
+>> pat = /\b[\w&&[^#{ignore}]]+\b/
 >> s1.scan(pat)
 => ["match"]
 >> s2.scan(pat)
@@ -963,7 +977,7 @@ inns
 ```ruby
 >> ip = 'area not a _a2_ roar took 22'
 
->> puts ip.gsub()       ##### add your solution here
+>> puts ip.gsub(/([ar]) /, "\\1\n")
 area
 not a
 _a2_ roar
@@ -975,7 +989,7 @@ took 22
 ```ruby
 >> ip = 'sequoia subtle exhibit asset sets tests site'
 
-##### add your solution here
+>> ip.gsub(/\bs\w*(t\w*e|e\w*t)\w*/, '[\0]')
 => "sequoia [subtle] exhibit asset [sets] tests [site]"
 ```
 
@@ -984,7 +998,7 @@ took 22
 ```ruby
 >> ip = 'oreo not a _a2_ roar took 22'
 
-##### add your solution here
+>> ip.gsub(/\b(\w|(\w)\w*\2)\b/, 'X')
 => "X not X X X took X"
 ```
 
@@ -994,11 +1008,11 @@ took 22
 >> header1 = '# Regular Expressions'
 >> header2 = '## Named capture groups'
 
->> anchor =     ##### add your solution here
+>> anchor = /\w.*/
 
-##### add your solution here for header1
+>> header1.sub(anchor) { "<a name='#{$&.downcase.tr(' ', '-')}'></a>#{$&}" }
 => "# <a name='regular-expressions'></a>Regular Expressions"
-##### add your solution here for header2
+>> header2.sub(anchor) { "<a name='#{$&.downcase.tr(' ', '-')}'></a>#{$&}" }
 => "## <a name='named-capture-groups'></a>Named capture groups"
 ```
 
@@ -1008,11 +1022,11 @@ took 22
 >> anchor1 = "# <a name='regular-expressions'></a>Regular Expressions"
 >> anchor2 = "## <a name='subexpression-calls'></a>Subexpression calls"
 
->> hyperlink =      ##### add your solution here
+>> hyperlink = %r{[^']+'([^']+)'></a>(.+)}
 
-##### add your solution here for anchor1
+>> anchor1.sub(hyperlink, '[\2](#\1)')
 => "[Regular Expressions](#regular-expressions)"
-##### add your solution here for anchor2
+>> anchor2.sub(hyperlink, '[\2](#\1)')
 => "[Subexpression calls](#subexpression-calls)"
 ```
 
@@ -1025,7 +1039,7 @@ took 22
 '> depended successfully succeeded
 >> possession cleanliness suppress}
 
-##### add your solution here
+>> ip.scan(/\b(\w*(\w)\2){2}\w*\b/).size
 => 13
 ```
 
@@ -1034,7 +1048,7 @@ took 22
 ```ruby
 >> ip = '1234 2323 453545354535 9339 11 60260260'
 
-##### add your solution here
+>> ip.gsub(/\b(\d+)\1+\b/, '\1')
 => "1234 23 4535 9339 1 60260260"
 ```
 
@@ -1043,7 +1057,7 @@ took 22
 ```ruby
 >> ip = 'wow:Good:2_two:five: hi-2 bye kite.777.water.'
 
-##### add your solution here
+>> ip.gsub(/(\w+)[:.](\w+[:.])+/, '\1')
 => "wow hi-2 bye kite"
 ```
 
@@ -1052,7 +1066,7 @@ took 22
 ```ruby
 >> ip = 'wow:Good:2_two:five: hi-2 bye kite.777.water.'
 
-##### add your solution here
+>> ip.gsub(/((\w+)[:.])+/, '\2')
 => "five hi-2 bye water"
 ```
 
@@ -1061,7 +1075,7 @@ took 22
 ```ruby
 >> ip = 'firecatlioncatcatcatbearcatcatparrot'
 
-##### add your solution here
+>> ip.split(/(?:cat)+/)
 => ["fire", "lion", "bear", "parrot"]
 ```
 
@@ -1070,14 +1084,14 @@ took 22
 ```ruby
 >> ip = '1234 2323 453545354535 9339 11 60260260'
 
->> pat =        ##### add your solution here
+>> pat = /\b(\d+)\1+\b/
 
 # entire sequences in the output
-##### add your solution here
+>> ip.gsub(pat).map { $& }
 => ["2323", "453545354535", "11"]
 
 # only the unique sequence in the output
-##### add your solution here
+>> ip.gsub(pat).map { $1 }
 => ["23", "4535", "1"]
 ```
 
@@ -1087,11 +1101,11 @@ took 22
 >> row1 = 'rohan,75,89'
 >> row2 = 'rose,88,92'
 
->> pat =        ##### add your solution here
+>> pat = /(?<name>[^,]+),(?<maths>[^,]+),(?<phy>[^,]+)/
 
-##### add your solution here for row1
+>> row1.match(pat).named_captures
 => {"name"=>"rohan", "maths"=>"75", "phy"=>"89"}
-##### add your solution here for row2
+>> row2.match(pat).named_captures
 => {"name"=>"rose", "maths"=>"88", "phy"=>"92"}
 ```
 
@@ -1100,7 +1114,7 @@ took 22
 ```ruby
 >> ip = 'tiger imp goat eagle ant important'
 
-##### add your solution here
+>> ip.gsub(/\b(?:imp|ant|(\w+))\b/, '(\1)')
 => "(tiger) () (goat) (eagle) () (important)"
 ```
 
@@ -1109,7 +1123,7 @@ took 22
 ```ruby
 >> ip = %w[{{apple-150}} {{mango2-100}} {{cherry-200 grape-87 {{go-to}}]
 
-##### add your solution here
+>> ip.grep(/\A({{)?[a-z]+-\d+(?(1)}})\z/)
 => ["{{apple-150}}", "grape-87"]
 ```
 
@@ -1119,7 +1133,7 @@ took 22
 >> str1 = '128A foo 0xfe32 34 0xbar'
 >> str2 = '0XDEADBEEF place 0x0ff1ce bad'
 
->> hex_seq =        ##### add your solution here
+>> hex_seq = /\b(?:0x)?\h+\b/i
 
 >> str1.scan(hex_seq)
 => ["128A", "0xfe32", "34"]
@@ -1133,11 +1147,11 @@ took 22
 >> ip = 'wow:Good:2_two:five: hi-2 bye kite.777.water.'
 
 # first word of the sequence
-##### add your solution here
+>> ip.gsub(/((\w+[:.]))\g<2>+/, '\1')
 => "wow: hi-2 bye kite."
 
 # last word of the sequence
-##### add your solution here
+>> ip.gsub(/(\w+[:.])\g<1>+/, '\1')
 => "five: hi-2 bye water."
 ```
 
@@ -1147,7 +1161,7 @@ took 22
 >> ip1 = 'for (((i*3)+2)/6) if(3-(k*3+4)/12-(r+2/3)) while()'
 >> ip2 = 'if+while if(a(b)c(d(e(f)1)2)3) for(i=1)'
 
->> pat =        ##### add your solution here
+>> pat = /if(\((?:[^()]++|\g<1>)++\))/
 
 >> ip1[pat]
 => "if(3-(k*3+4)/12-(r+2/3))"
@@ -1166,7 +1180,7 @@ took 22
 ```ruby
 >> ip = '(apple) guava berry) apple (mango) (grape'
 
-##### add your solution here
+>> ip.gsub(/(?<!\()\b\w+/, 'X')
 => "(apple) X X) X (mango) (grape"
 ```
 
@@ -1175,7 +1189,7 @@ took 22
 ```ruby
 >> ip = '(apple) guava berry) apple (mango) (grape'
 
-##### add your solution here
+>> ip.gsub(/\b\w+\b(?!\))/, 'X')
 => "(apple) X berry) X (mango) (X"
 ```
 
@@ -1184,7 +1198,7 @@ took 22
 ```ruby
 >> ip = '(apple) guava berry) apple (mango) (grape'
 
-##### add your solution here
+>> ip.gsub(/(?<!\()\b\w+\b(?!\))/, 'X')
 => "(apple) X berry) X (mango) (grape"
 ```
 
@@ -1193,7 +1207,7 @@ took 22
 ```ruby
 >> ip = 'at row on urn e note dust n'
 
-##### add your solution here
+>> ip.scan(/\b\w+\b(?<![en])/)
 => ["at", "row", "dust"]
 ```
 
@@ -1202,7 +1216,7 @@ took 22
 ```ruby
 >> ip = 'at row on urn e note dust n'
 
-##### add your solution here
+>> ip.scan(/(?![adn])\b\w+\b/)
 => ["row", "on", "urn", "e"]
 ```
 
@@ -1211,7 +1225,7 @@ took 22
 ```ruby
 >> ip = 'poke,on=-=so:ink.to/is(vast)ever-sit'
 
-##### add your solution here
+>> ip.scan(/\w+(?=[:,-])/)
 => ["poke", "so", "ever"]
 ```
 
@@ -1220,7 +1234,8 @@ took 22
 ```ruby
 >> ip = 'poke,on=-=so:ink.to/is(vast)ever-sit'
 
-##### add your solution here
+# can also use: ip.scan(%r{[=/-]\K\w+})
+>> ip.scan(%r{(?<=[=/-])\w+})
 => ["so", "is", "sit"]
 ```
 
@@ -1229,7 +1244,8 @@ took 22
 ```ruby
 >> ip = 'poke,on=-=so:ink.to/is(vast)ever-sit'
 
-##### add your solution here
+# can also use: ip.scan(/[=:]\K\w+(?=[:.])/)
+>> ip.scan(/(?<=[=:])\w+(?=[:.])/)
 => ["so", "ink"]
 ```
 
@@ -1238,7 +1254,8 @@ took 22
 ```ruby
 >> ip = 'poke,on=-=so:ink.to/is(vast)ever-sit'
 
-##### add your solution here
+# can also use: ip.scan(%r{[=:.(-]\K\w+\b(?![/.])})
+>> ip.scan(%r{(?<=[=:.(-])\w+\b(?![/.])})
 => ["so", "vast", "sit"]
 ```
 
@@ -1248,7 +1265,7 @@ took 22
 >> csv1 = " comma  ,separated ,values \t\r "
 >> csv2 = 'good bad,nice  ice  , 42 , ,   stall   small'
 
->> remove_whitespace =      ##### add your solution here
+>> remove_whitespace = /(?<![^,])\s+|\s+(?![^,])/
 
 >> csv1.gsub(remove_whitespace, '')
 => "comma,separated,values"
@@ -1266,7 +1283,7 @@ took 22
 ```ruby
 >> pwds = ['hunter2', 'F2H3u%9', "*X3Yz3.14\t", 'r2_d2_42', 'A $B C1234']
 
->> rule_chk =       ##### add your solution here
+>> rule_chk = /(?=(.*[a-zA-Z]){2})(?=(.*\d){3})(?!.*\s\z).*[%*#$]/
 
 >> pwds.grep(rule_chk)
 => ["F2H3u%9", "A $B C1234"]
@@ -1277,7 +1294,7 @@ took 22
 ```ruby
 >> ip = 'part; cat {super} rest_42 par scatter apple spar'
 
-##### add your solution here
+>> ip.gsub(/\b(?!(?:par|cat|apple)\b)\w+\b/, '{\0}')
 => "{part}; cat {{super}} {rest_42} par {scatter} apple {spar}"
 ```
 
@@ -1286,7 +1303,7 @@ took 22
 ```ruby
 >> ip = '12 ab32.4 go 5 2. 46.42 5'
 
-##### add your solution here
+>> ip.scan(/\d+(?=\.\d+)/)
 => ["32", "46"]
 ```
 
@@ -1296,11 +1313,11 @@ took 22
 >> s1 = 'apple'
 >> s2 = '1.2-3:4'
 
->> pat =        ##### add your solution here
+>> pat = /.(?=(.))/
 
-##### add your solution here for s1
+>> s1.gsub(pat).map { $& + $1 }
 => ["ap", "pp", "pl", "le"]
-##### add your solution here for s2
+>> s2.gsub(pat).map { $& + $1 }
 => ["1.", ".2", "2-", "-3", "3:", ":4"]
 ```
 
@@ -1311,13 +1328,13 @@ took 22
 >> s2 = 'twelve:a2b'
 >> s3 = 'we:be:he:0:a:b:bother'
 
->> pat =        ##### add your solution here
+>> pat = /(\d.*):.*/
 
-##### add your solution here for s1
+>> s1.sub(pat, '\1')
 => "42"
-##### add your solution here for s2
+>> s2.sub(pat, '\1')
 => "twelve:a2b"
-##### add your solution here for s3
+>> s3.sub(pat, '\1')
 => "we:be:he:0:a:b"
 ```
 
@@ -1326,7 +1343,7 @@ took 22
 ```ruby
 >> ip = '::very--at<=>row|in.a_b#b2c=>lion----east'
 
-##### add your solution here
+>> ip.scan(/(?<![:#]|<=>|-{4})\b\w+/)
 => ["at", "in", "a_b", "lion"]
 ```
 
@@ -1339,7 +1356,8 @@ took 22
 >> str4 = "42\nqty-6,apple-56,price-234,error"
 >> str5 = '4,price,3.14,qty,4'
 
->> neg =        ##### add your solution here
+# can also use: neg = /qty((?!\s|error).)*price/
+>> neg = /qty(?~\s|error)price/
 
 >> str1.match?(neg)
 => true
@@ -1354,6 +1372,10 @@ took 22
 ```
 
 **r)** Can you reason out why the output shown is different for these two regular expressions?
+
+`\b` matches both the start and end of word locations. In the below example, `\b..\b` doesn't necessarily mean that first `\b` will match only the start of word location and second `\b` will match only the end of word location. They can be any combination! For example, `I` followed by space in the input string here is using start of word location for both whereas space followed by `2` is using end of word location for both.
+
+In contrast, the negative lookarounds only ensure that there are no word characters around any two characters. And these assertions will always be satisfied at the start of string and the end of string respectively. But `\b` depends on the presence of word characters. So, `!` at the end of the input string here matches the lookaround assertion but not word boundary.
 
 ```ruby
 >> ip = 'I have 12, he has 2!'
@@ -1372,7 +1394,7 @@ took 22
 >> row2 = 'um:no:low:3e:s4w:seer'
 >> row3 = 'thr33:f0ur'
 
->> pat =        ##### add your solution here
+>> pat = /\G[^\d:]+:/
 
 >> row1.gsub(pat, '')
 => "a2b2:ride:in:awe:b2b:3list:end"
@@ -1392,7 +1414,7 @@ took 22
 >> s1 = "But Cool THAT\nsee What okay\nwow quite"
 >> s2 = 'it this hat is sliced HIT.'
 
->> pat =        ##### add your solution here
+>> pat = /hat.*it/im
 
 >> s1.sub(pat, '')
 => "But Cool Te"
@@ -1414,7 +1436,7 @@ took 22
 '> finish the End
 >> bye}
 
->> pat =        ##### add your solution here
+>> pat = /^start.*?end$/im
 
 >> puts para.gsub(pat, '')
 good start
@@ -1432,7 +1454,7 @@ Refer to [exercises folder](https://github.com/learnbyexample/Ruby_Regexp/tree/m
 
 ```ruby
 >> ip_str = File.open('sample.md').read
->> pat =        ##### add your solution here
+>> pat = /(^```ruby$.*?^```$)/m
 
 >> File.open('sample_mod.md', 'w') do |f|
 ?>   ip_str.split(pat).each_with_index do |s, i|
@@ -1448,7 +1470,8 @@ Refer to [exercises folder](https://github.com/learnbyexample/Ruby_Regexp/tree/m
 
 ```ruby
 ?> def aLtErNaTe_CaSe(ip_str)
-##### add your solution here
+?>   b = true
+?>   return ip_str.gsub(/[a-z]/i) { (b = !b) ? $&.upcase : $&.downcase }
 >> end
 
 >> aLtErNaTe_CaSe('HI THERE!')
@@ -1469,7 +1492,7 @@ Refer to [exercises folder](https://github.com/learnbyexample/Ruby_Regexp/tree/m
 >> s2 = 'Nice and cool this is'
 >> s3 = 'What is so nice and cool about This?'
 
->> pat =        ##### add your solution here
+>> pat = /(?=.*nice)(?=.*cool)(?-i:.*This)/i
 
 >> s1.match?(pat)
 => true
@@ -1486,7 +1509,7 @@ Refer to [exercises folder](https://github.com/learnbyexample/Ruby_Regexp/tree/m
 >> s2 = "This is a mess\nYeah?\nThereeeee"
 >> s3 = "Oh\nThere goes the fun"
 
->> pat =        ##### add your solution here
+>> pat = /\A(?=Th)(?m:.*^There)/
 
 >> s1.match?(pat)
 => true
@@ -1507,11 +1530,12 @@ Refer to [exercises folder](https://github.com/learnbyexample/Ruby_Regexp/tree/m
 >> str2 = 'good fοοd'
 >> str3 = 'happy learning!'
 
-##### add your solution here for str1
+# can also use ! str1.match?(/[^\u{00}-\u{7f}]/)
+>> str1.ascii_only?
 => false
-##### add your solution here for str2
+>> str2.ascii_only?
 => false
-##### add your solution here for str3
+>> str3.ascii_only?
 => true
 ```
 
@@ -1522,7 +1546,7 @@ Refer to [exercises folder](https://github.com/learnbyexample/Ruby_Regexp/tree/m
 >> s2 = (0x80..0xff).to_a.pack('U*')
 >> s3 = (0x2600..0x27eb).to_a.pack('U*')
 
->> pat =        ##### add your solution here
+>> pat = /\p{^P}/
 
 >> s1.gsub(pat, '')
 => "!\"#%&'()*,-./:;?@[\\]_{}"

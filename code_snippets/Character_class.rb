@@ -1,8 +1,10 @@
+## Custom character sets
+
 %w[cute cat cot coat cost scuttle].grep(/c[ou]t/)
 
 'meeting cute boat site foot'.gsub(/[aeo]+t/, 'X')
 
-'Sample123string42with777numbers'.scan(/[0123456789]+/)
+## Range of characters
 
 'Sample123string42with777numbers'.scan(/[0-9]+/)
 
@@ -14,23 +16,17 @@
 
 'coat tin food put stoop best'.scan(/\b[a-fp-t]+\b/)
 
-'23 154 12 26 98234'.scan(/\b[12][0-9]\b/)
-
-'23 154 12 26 98234'.scan(/\b[0-9]{3,}\b/)
-
-'0501 035 154 12 26 98234'.scan(/\b0*+[0-9]{3,}\b/)
-
-'45 349 651 593 4 204'.gsub(/[0-9]+/) { $&.to_i < 350 ? 0 : 1 }
-
-'45 349 651 593 4 204'.gsub(/[0-9]+/) { (200..650) === $&.to_i ? 0 : 1 }
+## Negating character sets
 
 'Sample123string42with777numbers'.scan(/[^0-9]+/)
-
-'foo=42; baz=123'.sub(/\A[^=]+/, '')
 
 'foo:123:bar:baz'.sub(/\A([^:]+:){2}/, '')
 
 'foo=42; baz=123'.sub(/=[^=]+\z/, '')
+
+dates = '2020/04/25,1986/Mar/02,77/12/31'
+
+dates.scan(%r{([^/]+)/([^/]+)/([^/,]+),?})
 
 words = %w[tryst fun glyph pity why]
 
@@ -38,9 +34,13 @@ words.grep(/\A[^aeiou]+\z/)
 
 words.grep_v(/[aeiou]/)
 
+## Set intersection
+
 'tryst glyph pity why'.scan(/\b[^aeiou]+\b/)
 
 'tryst glyph pity why'.scan(/\b[a-z&&[^aeiou]]+\b/)
+
+## Matching metacharacters literally
 
 'ab-cd gh-c 12-423'.scan(/\b[a-z-]{2,}\b/)
 
@@ -50,9 +50,11 @@ words.grep_v(/[aeiou]/)
 
 'f*(a^b) - 3*(a+b)'.scan(/a[\^+]b/)
 
-'words[5] = tea'.match(/[a-z\[\]0-9]+/)
+'words[5] = tea'[/[a-z\[\]0-9]+/]
 
-puts '5ba\babc2'.match(/[a\\b]+/)
+puts '5ba\babc2'[/[a\\b]+/]
+
+## Escape sequence character sets
 
 '128A foo1 fe32 34 bar'.scan(/\b\h+\b/)
 
@@ -68,7 +70,13 @@ puts '5ba\babc2'.match(/[a\\b]+/)
 
 'Sample123string42with777numbers'.gsub(/\D+/, '-')
 
+'foo=5, bar=3; x=83, y=120'.gsub(/\W+/, '')
+
 "   1..3  \v\f  foo_baz 42\tzzz   \r\n1-2-3  ".scan(/\S+/)
+
+"food\r\ngood"[/d\Rg/]
+
+## Named character sets
 
 'Sample123string42with777numbers'.split(/[[:digit:]]+/)
 
@@ -78,7 +86,21 @@ puts '5ba\babc2'.match(/[a\\b]+/)
 
 'Sample123string42with777numbers'.scan(/[[:alpha:]]+/)
 
-'"Hi", there! How *are* you? All fine here.'.gsub(/[[:punct:]]+/, '')
+ip = '"Hi", there! How *are* you? All fine here.'
 
-'"Hi", there! How *are* you? All fine here.'.gsub(/[[^.!?]&&[:punct:]]+/, '')
+ip.gsub(/[[:punct:]]+/, '')
+
+ip.gsub(/[[^.!?]&&[:punct:]]+/, '')
+
+## Numeric ranges
+
+'23 154 12 26 98234'.scan(/\b[12]\d\b/)
+
+'23 154 12 26 98234'.scan(/\b\d{3,}\b/)
+
+'0501 035 154 12 26 98234'.scan(/\b0*+\d{3,}\b/)
+
+'45 349 651 593 4 204'.scan(/\d++/).filter { |n| n.to_i < 350 }
+
+'45 349 651 593 4 204'.gsub(/\d++/) { (200..650) === $&.to_i ? 0 : 1 }
 
