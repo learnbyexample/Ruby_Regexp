@@ -1,0 +1,488 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Regexp introduction - Ruby Regexp</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Example based guide to mastering Ruby Regexp">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="custom.css">
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="cover.html">Cover</a></li><li class="chapter-item expanded affix "><a href="buy.html">Buy PDF/EPUB versions</a></li><li class="chapter-item expanded "><a href="preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded "><a href="why-is-it-needed.html"><strong aria-hidden="true">2.</strong> Why is it needed?</a></li><li class="chapter-item expanded "><a href="regexp-introduction.html" class="active"><strong aria-hidden="true">3.</strong> Regexp introduction</a></li><li class="chapter-item expanded "><a href="anchors.html"><strong aria-hidden="true">4.</strong> Anchors</a></li><li class="chapter-item expanded "><a href="alternation-and-grouping.html"><strong aria-hidden="true">5.</strong> Alternation and Grouping</a></li><li class="chapter-item expanded "><a href="escaping-metacharacters.html"><strong aria-hidden="true">6.</strong> Escaping metacharacters</a></li><li class="chapter-item expanded "><a href="dot-metacharacter-and-quantifiers.html"><strong aria-hidden="true">7.</strong> Dot metacharacter and Quantifiers</a></li><li class="chapter-item expanded "><a href="interlude-tools-for-debugging-and-visualization.html"><strong aria-hidden="true">8.</strong> Interlude: Tools for debugging and visualization</a></li><li class="chapter-item expanded "><a href="working-with-matched-portions.html"><strong aria-hidden="true">9.</strong> Working with matched portions</a></li><li class="chapter-item expanded "><a href="character-class.html"><strong aria-hidden="true">10.</strong> Character class</a></li><li class="chapter-item expanded "><a href="groupings-and-backreferences.html"><strong aria-hidden="true">11.</strong> Groupings and backreferences</a></li><li class="chapter-item expanded "><a href="interlude-common-tasks.html"><strong aria-hidden="true">12.</strong> Interlude: Common tasks</a></li><li class="chapter-item expanded "><a href="lookarounds.html"><strong aria-hidden="true">13.</strong> Lookarounds</a></li><li class="chapter-item expanded "><a href="modifiers.html"><strong aria-hidden="true">14.</strong> Modifiers</a></li><li class="chapter-item expanded "><a href="unicode.html"><strong aria-hidden="true">15.</strong> Unicode</a></li><li class="chapter-item expanded "><a href="further-reading.html"><strong aria-hidden="true">16.</strong> Further Reading</a></li><li class="chapter-item expanded "><a href="Exercise_solutions.html"><strong aria-hidden="true">17.</strong> Exercise Solutions</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Ruby Regexp</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="https://github.com/learnbyexample/Ruby_Regexp" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#regexp-introduction" id="regexp-introduction">Regexp introduction</a></h1>
+<p>In this chapter, you'll get to know how to declare and use regexps. For some examples, the equivalent normal string method is shown for comparison. Regular expression features will be covered next chapter onwards. The main focus will be to get you comfortable with syntax and text processing examples. Three methods will be introduced in this chapter. The <code>match?</code> method to search if the input contains a string and the <code>sub</code> and <code>gsub</code> methods to substitute a portion of the input with something else.</p>
+<blockquote>
+<p><img src="images/info.svg" alt="info" /> This book will use the terms <strong>regular expressions</strong> and <strong>regexp</strong> interchangeably.</p>
+</blockquote>
+<h2><a class="header" href="#regexp-documentation" id="regexp-documentation">Regexp documentation</a></h2>
+<p>It is always a good idea to know where to find the documentation. Visit <a href="https://ruby-doc.org/core-2.7.1/Regexp.html">ruby-doc: Regexp</a> for information on <code>Regexp</code> class, available methods, syntax, features, examples and more. Here's a quote:</p>
+<blockquote>
+<p>Regular expressions (<em>regexps</em>) are patterns which describe the contents of a string. They're used for testing whether a string contains a given pattern, or extracting the portions that match. They are created with the <code>/pat/</code> and <code>%r{pat}</code> literals or the <code>Regexp.new</code> constructor.</p>
+</blockquote>
+<h2><a class="header" href="#match-method" id="match-method">match? method</a></h2>
+<p>First up, a simple example to test whether a string is part of another string or not. Normally, you'd use the <code>include?</code> method and pass a string as argument. For regular expressions, use the <code>match?</code> method and enclose the search string within <code>//</code> delimiters (regexp literal).</p>
+<pre><code class="language-ruby">&gt;&gt; sentence = 'This is a sample string'
+
+# check if 'sentence' contains the given string argument
+&gt;&gt; sentence.include?('is')
+=&gt; true
+&gt;&gt; sentence.include?('z')
+=&gt; false
+
+# check if 'sentence' matches the pattern as described by the regexp argument
+&gt;&gt; sentence.match?(/is/)
+=&gt; true
+&gt;&gt; sentence.match?(/z/)
+=&gt; false
+</code></pre>
+<p>The <code>match?</code> method accepts an optional second argument which specifies the index to start searching from.</p>
+<pre><code class="language-ruby">&gt;&gt; sentence = 'This is a sample string'
+
+&gt;&gt; sentence.match?(/is/, 2)
+=&gt; true
+&gt;&gt; sentence.match?(/is/, 6)
+=&gt; false
+</code></pre>
+<p>Some of the regular expressions functionality is enabled by passing modifiers, represented by an alphabet character. If you have used command line, modifiers are similar to command options, for example <code>grep -i</code> will perform case insensitive matching. It will be discussed in detail in <a href="./modifiers.html#modifiers">Modifiers</a> chapter. Here's an example for <code>i</code> modifier. </p>
+<pre><code class="language-ruby">&gt;&gt; sentence = 'This is a sample string'
+
+&gt;&gt; sentence.match?(/this/)
+=&gt; false
+# 'i' is a modifier to enable case insensitive matching
+&gt;&gt; sentence.match?(/this/i)
+=&gt; true
+</code></pre>
+<h2><a class="header" href="#regexp-literal-reuse-and-interpolation" id="regexp-literal-reuse-and-interpolation">Regexp literal reuse and interpolation</a></h2>
+<p>The regexp literal can be saved in a variable. This helps to improve code clarity, pass around as method argument, enable reuse, etc.</p>
+<pre><code class="language-ruby">&gt;&gt; pet = /dog/i
+&gt;&gt; pet
+=&gt; /dog/i
+
+&gt;&gt; 'They bought a Dog'.match?(pet)
+=&gt; true
+&gt;&gt; 'A cat crossed their path'.match?(pet)
+=&gt; false
+</code></pre>
+<p>Similar to double quoted string literals, you can use interpolation and escape sequences in a regexp literal. See <a href="https://ruby-doc.org/core-2.7.1/doc/syntax/literals_rdoc.html#label-Strings">ruby-doc: Strings</a> for syntax details on string escape sequences. Regexp literals have their own special escapes, which will be discussed in <a href="./escaping-metacharacters.html#escape-sequences">Escape sequences</a> section.</p>
+<pre><code class="language-ruby">&gt;&gt; &quot;cat\tdog&quot;.match?(/\t/)
+=&gt; true
+&gt;&gt; &quot;cat\tdog&quot;.match?(/\a/)
+=&gt; false
+
+&gt;&gt; greeting = 'hi'
+&gt;&gt; /#{greeting} there/
+=&gt; /hi there/
+&gt;&gt; /#{greeting.upcase} there/
+=&gt; /HI there/
+&gt;&gt; /#{2**4} apples/
+=&gt; /16 apples/
+</code></pre>
+<h2><a class="header" href="#sub-and-gsub-methods" id="sub-and-gsub-methods">sub and gsub methods</a></h2>
+<p>For search and replace, use <code>sub</code> or <code>gsub</code> methods. The <code>sub</code> method will replace only the first occurrence of the match, whereas <code>gsub</code> will replace all the occurrences. The regexp pattern to match against the input string has to be passed as the first argument. The second argument specifies the string which will replace the portions matched by the pattern. </p>
+<pre><code class="language-ruby">&gt;&gt; greeting = 'Have a nice weekend'
+
+# replace first occurrence of 'e' with 'E'
+&gt;&gt; greeting.sub(/e/, 'E')
+=&gt; &quot;HavE a nice weekend&quot;
+# replace all occurrences of 'e' with 'E'
+&gt;&gt; greeting.gsub(/e/, 'E')
+=&gt; &quot;HavE a nicE wEEkEnd&quot;
+</code></pre>
+<p>Use <code>sub!</code> and <code>gsub!</code> methods for in-place substitution.</p>
+<pre><code class="language-ruby">&gt;&gt; word = 'cater'
+
+# this will return a string object, won't modify 'word' variable
+&gt;&gt; word.sub(/cat/, 'wag')
+=&gt; &quot;wager&quot;
+&gt;&gt; word
+=&gt; &quot;cater&quot;
+
+# this will modify 'word' variable itself
+&gt;&gt; word.sub!(/cat/, 'wag')
+=&gt; &quot;wager&quot;
+&gt;&gt; word
+=&gt; &quot;wager&quot;
+</code></pre>
+<h2><a class="header" href="#regexp-operators" id="regexp-operators">Regexp operators</a></h2>
+<p>Ruby also provides operators for regexp matching.</p>
+<ul>
+<li><code>=~</code> match operator returns index of the first match and <code>nil</code> if match is not found</li>
+<li><code>!~</code> match operator returns <code>true</code> if string <em>doesn't</em> contain the given regexp and <code>false</code> otherwise</li>
+<li><code>===</code> match operator returns <code>true</code> or <code>false</code> similar to the <code>match?</code> method</li>
+</ul>
+<pre><code class="language-ruby">&gt;&gt; sentence = 'This is a sample string'
+
+# can also use: /is/ =~ sentence
+&gt;&gt; sentence =~ /is/
+=&gt; 2
+&gt;&gt; sentence =~ /z/
+=&gt; nil
+
+# can also use: /z/ !~ sentence
+&gt;&gt; sentence !~ /z/
+=&gt; true
+&gt;&gt; sentence !~ /is/
+=&gt; false
+</code></pre>
+<p>Just like <code>match?</code> method, both <code>=~</code> and <code>!~</code> can be used in a conditional statement.</p>
+<pre><code class="language-ruby">&gt;&gt; sentence = 'This is a sample string'
+
+&gt;&gt; puts 'hi' if sentence =~ /is/
+hi
+
+&gt;&gt; puts 'oh' if sentence !~ /z/
+oh
+</code></pre>
+<p>The <code>===</code> operator comes in handy with Enumerable methods like <code>grep</code>, <code>grep_v</code>, <code>all?</code>, <code>any?</code>, etc.</p>
+<pre><code class="language-ruby">&gt;&gt; sentence = 'This is a sample string'
+
+# regexp literal has to be on LHS and input string on RHS
+&gt;&gt; /is/ === sentence
+=&gt; true
+&gt;&gt; /z/ === sentence
+=&gt; false
+
+&gt;&gt; words = %w[cat attempt tattle]
+&gt;&gt; words.grep(/tt/)
+=&gt; [&quot;attempt&quot;, &quot;tattle&quot;]
+&gt;&gt; words.all?(/at/)
+=&gt; true
+&gt;&gt; words.none?(/temp/)
+=&gt; false
+</code></pre>
+<blockquote>
+<p><img src="images/info.svg" alt="info" /> A key difference from <code>match?</code> method is that these operators will also set regexp related <a href="./working-with-matched-portions.html#regexp-global-variables">global variables</a>.</p>
+</blockquote>
+<h2><a class="header" href="#cheatsheet-and-summary" id="cheatsheet-and-summary">Cheatsheet and Summary</a></h2>
+<table><thead><tr><th>Note</th><th>Description</th></tr></thead><tbody>
+<tr><td><a href="https://ruby-doc.org/core-2.7.1/Regexp.html">ruby-doc: Regexp</a></td><td>Ruby Regexp documentation</td></tr>
+<tr><td><a href="https://github.com/k-takata/Onigmo/blob/master/doc/RE">Onigmo doc</a></td><td>Onigmo library documentation</td></tr>
+<tr><td><code>/pat/</code> or <code>%r{pat}</code></td><td>regexp literal</td></tr>
+<tr><td></td><td>interpolation and escape sequences can also be used</td></tr>
+<tr><td><code>var = /pat/</code></td><td>save regexp literal in a variable</td></tr>
+<tr><td><code>/pat1#{expr}pat2/</code></td><td>use result of an expression to build regexp</td></tr>
+<tr><td><code>s.match?(/pat/)</code></td><td>check if string <code>s</code> matches the pattern <code>/pat/</code></td></tr>
+<tr><td></td><td>returns <code>true</code> or <code>false</code></td></tr>
+<tr><td><code>s.match?(/pat/, 3)</code></td><td>optional 2nd argument changes starting index of search</td></tr>
+<tr><td><code>/pat/i</code></td><td>modifier <code>i</code> matches alphabets case insensitively</td></tr>
+<tr><td><code>s.sub(/pat/, 'replace')</code></td><td>search and replace first matching occurrence</td></tr>
+<tr><td></td><td>use <code>gsub</code> to replace all occurrences</td></tr>
+<tr><td></td><td>use <code>sub!</code> and <code>gsub!</code> for in-place substitution</td></tr>
+<tr><td><code>s =~ /pat/</code> or <code>/pat/ =~ s</code></td><td>returns index of first match or <code>nil</code></td></tr>
+<tr><td><code>s !~ /pat/</code> or <code>/pat/ !~ s</code></td><td>returns <code>true</code> if no match or <code>false</code></td></tr>
+<tr><td><code>/pat/ === s</code></td><td>returns <code>true</code> or <code>false</code> similar to <code>match?</code></td></tr>
+<tr><td></td><td>these operators will also set <a href="./working-with-matched-portions.html#regexp-global-variables">regexp global variables</a></td></tr>
+</tbody></table>
+<p>This chapter introduced the <code>Regexp</code> class and methods <code>match?</code>, <code>sub</code> and <code>gsub</code> were discussed. You also learnt how to save and reuse regexp literals, how to specify modifiers and how to use regexp operators.</p>
+<p>You might wonder why there are so many ways to test matching condition with regexps. The most common approach is to use <code>match?</code> method in a conditional statement. If you need position of match, use <code>=~</code> operator or <code>index</code> method. The <code>===</code> operator is usually relevant in Enumerable methods. Usage of global variables will be covered in later chapters. The <code>=~</code> and <code>!~</code> operators are also prevalent in command line usage (see my <a href="https://github.com/learnbyexample/Command-line-text-processing/blob/master/ruby_one_liners.md">Ruby one liners</a> tutorial for examples).</p>
+<p>The next section has exercises to test your understanding of the concepts introduced in this chapter. Please do solve them before moving on to the next chapter.</p>
+<h2><a class="header" href="#exercises" id="exercises">Exercises</a></h2>
+<blockquote>
+<p><img src="images/info.svg" alt="info" /> Refer to <a href="https://github.com/learnbyexample/Ruby_Regexp/tree/master/exercises">exercises folder</a> for input files required to solve the exercises.</p>
+</blockquote>
+<blockquote>
+<p><img src="images/info.svg" alt="info" /> All the exercises are also collated together in one place at <a href="https://github.com/learnbyexample/Ruby_Regexp/blob/master/exercises/Exercises.md">Exercises.md</a>. For solutions, see <a href="https://github.com/learnbyexample/Ruby_Regexp/blob/master/exercises/Exercise_solutions.md">Exercise_solutions.md</a>.</p>
+</blockquote>
+<p><strong>a)</strong> Check whether the given strings contain <code>0xB0</code>. Display a boolean result as shown below.</p>
+<pre><code class="language-ruby">&gt;&gt; line1 = 'start address: 0xA0, func1 address: 0xC0'
+&gt;&gt; line2 = 'end address: 0xFF, func2 address: 0xB0'
+
+&gt;&gt; line1.match?()       ##### add your solution here
+=&gt; false
+&gt;&gt; line2.match?()       ##### add your solution here
+=&gt; true
+</code></pre>
+<p><strong>b)</strong> For the given input file, print all lines containing the string <code>two</code>.</p>
+<pre><code class="language-ruby"># note that expected output shown here is wrapped to fit pdf width
+&gt;&gt; filename = 'programming_quotes.txt'
+
+&gt;&gt; word =       ##### add your solution here
+
+&gt;&gt; puts File.foreach(filename).grep(word)
+&quot;Some people, when confronted with a problem, think - I know, I'll use regular
+expressions. Now they have two problems&quot; by Jamie Zawinski
+&quot;So much complexity in software comes from trying to make one thing do two
+things&quot; by Ryan Singer
+</code></pre>
+<p><strong>c)</strong> Replace all occurrences of <code>5</code> with <code>five</code> for the given string.</p>
+<pre><code class="language-ruby">&gt;&gt; ip = 'They ate 5 apples and 5 oranges'
+
+&gt;&gt; ip.gsub(//, 'five')      ##### add your solution here
+=&gt; &quot;They ate five apples and five oranges&quot;
+</code></pre>
+<p><strong>d)</strong> Replace first occurrence of <code>5</code> with <code>five</code> for the given string.</p>
+<pre><code class="language-ruby">&gt;&gt; ip = 'They ate 5 apples and 5 oranges'
+
+&gt;&gt; ip.sub(//, 'five')       ##### add your solution here
+=&gt; &quot;They ate five apples and 5 oranges&quot;
+</code></pre>
+<p><strong>e)</strong> For the given array, filter all elements that do <em>not</em> contain <code>e</code>.</p>
+<pre><code class="language-ruby">&gt;&gt; items = %w[goal new user sit eat dinner]
+
+&gt;&gt; items.grep_v(//)     ##### add your solution here
+=&gt; [&quot;goal&quot;, &quot;sit&quot;]
+</code></pre>
+<p><strong>f)</strong> Replace all occurrences of <code>note</code> irrespective of case with <code>X</code>.</p>
+<pre><code class="language-ruby">&gt;&gt; ip = 'This note should not be NoTeD'
+
+&gt;&gt; ip.gsub(//, 'X')     ##### add your solution here
+=&gt; &quot;This X should not be XD&quot;
+</code></pre>
+<p><strong>g)</strong> For the given input string, print all lines NOT containing the string <code>2</code></p>
+<pre><code class="language-ruby">'&gt; purchases = %q{items qty
+'&gt; apple 24
+'&gt; mango 50
+'&gt; guava 42
+'&gt; onion 31
+&gt;&gt; water 10}
+
+&gt;&gt; num = //     ##### add your solution here
+
+&gt;&gt; puts purchases.each_line.grep_v(num)
+items qty
+mango 50
+onion 31
+water 10
+</code></pre>
+<p><strong>h)</strong> For the given array, filter all elements that contains either <code>a</code> or <code>w</code>.</p>
+<pre><code class="language-ruby">&gt;&gt; items = %w[goal new user sit eat dinner]
+
+&gt;&gt; items.filter { }     ##### add your solution here
+=&gt; [&quot;goal&quot;, &quot;new&quot;, &quot;eat&quot;]
+</code></pre>
+<p><strong>i)</strong> For the given array, filter all elements that contains both <code>e</code> and <code>n</code>.</p>
+<pre><code class="language-ruby">&gt;&gt; items = %w[goal new user sit eat dinner]
+
+&gt;&gt; items.filter { }     ##### add your solution here
+=&gt; [&quot;new&quot;, &quot;dinner&quot;]
+</code></pre>
+<p><strong>j)</strong> For the given string, replace <code>0xA0</code> with <code>0x7F</code> and <code>0xC0</code> with <code>0x1F</code>.</p>
+<pre><code class="language-ruby">&gt;&gt; ip = 'start address: 0xA0, func1 address: 0xC0'
+
+##### add your solution here
+=&gt; &quot;start address: 0x7F, func1 address: 0x1F&quot;
+</code></pre>
+<p><strong>k)</strong> Find the starting index of the first occurrence of <code>is</code> for the given input string.</p>
+<pre><code class="language-ruby">&gt;&gt; ip = 'match this after the history lesson'
+
+##### add your solution here
+=&gt; 8
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="why-is-it-needed.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="anchors.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="why-is-it-needed.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="anchors.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

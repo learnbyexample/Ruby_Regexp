@@ -1,0 +1,694 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Lookarounds - Ruby Regexp</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Example based guide to mastering Ruby Regexp">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="custom.css">
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="cover.html">Cover</a></li><li class="chapter-item expanded affix "><a href="buy.html">Buy PDF/EPUB versions</a></li><li class="chapter-item expanded "><a href="preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded "><a href="why-is-it-needed.html"><strong aria-hidden="true">2.</strong> Why is it needed?</a></li><li class="chapter-item expanded "><a href="regexp-introduction.html"><strong aria-hidden="true">3.</strong> Regexp introduction</a></li><li class="chapter-item expanded "><a href="anchors.html"><strong aria-hidden="true">4.</strong> Anchors</a></li><li class="chapter-item expanded "><a href="alternation-and-grouping.html"><strong aria-hidden="true">5.</strong> Alternation and Grouping</a></li><li class="chapter-item expanded "><a href="escaping-metacharacters.html"><strong aria-hidden="true">6.</strong> Escaping metacharacters</a></li><li class="chapter-item expanded "><a href="dot-metacharacter-and-quantifiers.html"><strong aria-hidden="true">7.</strong> Dot metacharacter and Quantifiers</a></li><li class="chapter-item expanded "><a href="interlude-tools-for-debugging-and-visualization.html"><strong aria-hidden="true">8.</strong> Interlude: Tools for debugging and visualization</a></li><li class="chapter-item expanded "><a href="working-with-matched-portions.html"><strong aria-hidden="true">9.</strong> Working with matched portions</a></li><li class="chapter-item expanded "><a href="character-class.html"><strong aria-hidden="true">10.</strong> Character class</a></li><li class="chapter-item expanded "><a href="groupings-and-backreferences.html"><strong aria-hidden="true">11.</strong> Groupings and backreferences</a></li><li class="chapter-item expanded "><a href="interlude-common-tasks.html"><strong aria-hidden="true">12.</strong> Interlude: Common tasks</a></li><li class="chapter-item expanded "><a href="lookarounds.html" class="active"><strong aria-hidden="true">13.</strong> Lookarounds</a></li><li class="chapter-item expanded "><a href="modifiers.html"><strong aria-hidden="true">14.</strong> Modifiers</a></li><li class="chapter-item expanded "><a href="unicode.html"><strong aria-hidden="true">15.</strong> Unicode</a></li><li class="chapter-item expanded "><a href="further-reading.html"><strong aria-hidden="true">16.</strong> Further Reading</a></li><li class="chapter-item expanded "><a href="Exercise_solutions.html"><strong aria-hidden="true">17.</strong> Exercise Solutions</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Ruby Regexp</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="https://github.com/learnbyexample/Ruby_Regexp" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#lookarounds" id="lookarounds">Lookarounds</a></h1>
+<p>You've already seen how to create custom character classes and various avatars of special groupings. In this chapter you'll learn more groupings, known as lookarounds, that help to create custom anchors and add conditions within regexp definition. These assertions are also known as <strong>zero-width patterns</strong> because they add restrictions similar to anchors and are not part of the matched portions. Also, you will learn how to negate a grouping similar to negated character sets and what's special about the <code>\G</code> anchor.</p>
+<h2><a class="header" href="#conditional-expressions" id="conditional-expressions">Conditional expressions</a></h2>
+<p>Before you get used to lookarounds too much, it is good to remember that Ruby is a programming language. You have control structures and you can combine multiple conditions using logical operators, methods like <code>all?</code>, <code>any?</code>, etc. Also, do not forget that regular expressions is only one of the tools available for string processing.</p>
+<pre><code class="language-ruby">&gt;&gt; items = ['1,2,3,4', 'a,b,c,d', '#foo 123']
+
+# filter elements containing digit and '#' characters
+&gt;&gt; items.filter { |s| s.match?(/\d/) &amp;&amp; s.include?('#') }
+=&gt; [&quot;#foo 123&quot;]
+
+# modify elements only if it doesn't start with '#'
+&gt;&gt; items.filter_map { |s| s.sub(/,.+,/, ' ') if s[0] != '#' }
+=&gt; [&quot;1 4&quot;, &quot;a d&quot;]
+</code></pre>
+<h2><a class="header" href="#negative-lookarounds" id="negative-lookarounds">Negative lookarounds</a></h2>
+<p>Lookaround assertions can be added in two ways — <strong>lookbehind</strong> and <strong>lookahead</strong>. Each of these can be a <strong>positive</strong> or a <strong>negative</strong> assertion. Syntax wise, lookbehind has an extra <code>&lt;</code> compared to the lookahead version. Negative lookarounds can be identified by the use of <code>!</code> whereas <code>=</code> is used for positive lookarounds. This section is about negative lookarounds, whose complete syntax is shown below.</p>
+<ul>
+<li><code>(?!pat)</code> for negative lookahead assertion</li>
+<li><code>(?&lt;!pat)</code> for negative lookbehind assertion</li>
+</ul>
+<p>As mentioned earlier, lookarounds are not part of matched portions and do not capture the matched text.</p>
+<pre><code class="language-ruby"># change 'foo' only if it is not followed by a digit character
+# note that end of string satisfies the given assertion
+# 'foofoo' has two matches as the assertion doesn't consume characters
+&gt;&gt; 'hey food! foo42 foot5 foofoo'.gsub(/foo(?!\d)/, 'baz')
+=&gt; &quot;hey bazd! foo42 bazt5 bazbaz&quot;
+
+# change 'foo' only if it is not preceded by _
+# note how 'foo' at start of string is matched as well
+&gt;&gt; 'foo _foo 42foofoo'.gsub(/(?&lt;!_)foo/, 'baz')
+=&gt; &quot;baz _foo 42bazbaz&quot;
+
+# overlap example
+# the final _ was replaced as well as played a part in the assertion
+&gt;&gt; 'food _fool 42foo_foot'.gsub(/(?&lt;!_)foo./, 'baz')
+=&gt; &quot;baz _fool 42bazfoot&quot;
+</code></pre>
+<p>Lookarounds can be mixed with already existing anchors and other features to define truly powerful restrictions.</p>
+<pre><code class="language-ruby"># change whole word only if it is not preceded by : or --
+&gt;&gt; ':cart apple --rest ;tea'.gsub(/(?&lt;!:|--)\b\w+/, 'X')
+=&gt; &quot;:cart X --rest ;X&quot;
+
+# extract whole words not surrounded by punctuation marks
+&gt;&gt; 'tie. ink east;'.scan(/(?&lt;![[:punct:]])\b\w+\b(?![[:punct:]])/)
+=&gt; [&quot;ink&quot;]
+
+# add space to word boundaries, but not at start or end of string
+# similar to: gsub(/\b/, ' ').strip
+&gt;&gt; 'foo_baz=num1+35*42/num2'.gsub(/(?&lt;!\A)\b(?!\z)/, ' ')
+=&gt; &quot;foo_baz = num1 + 35 * 42 / num2&quot;
+</code></pre>
+<p>In all the examples so far, lookahead grouping was placed as a suffix and lookbehind as a prefix. This is how they are used most of the time, but not the only way to use them. Lookarounds can be placed anywhere and multiple lookarounds can be combined in any order. They do not consume characters nor do they play a role in matched portions. They just let you know whether the condition you want to test is satisfied from the current location in the input string.</p>
+<pre><code class="language-ruby"># these two are equivalent
+# replace a character as long as it is not preceded by 'p' or 'r'
+&gt;&gt; 'spare'.gsub(/(?&lt;![pr])./, '*')
+=&gt; &quot;**a*e&quot;
+&gt;&gt; 'spare'.gsub(/.(?&lt;![pr].)/, '*')
+=&gt; &quot;**a*e&quot;
+
+# replace 'par' as long as 's' is not present later in the input
+# this assumes that the lookaround doesn't conflict with search pattern
+# i.e. 's' will not conflict 'par' but would affect if it was 'r' and 'par'
+&gt;&gt; 'par spare part party'.gsub(/par(?!.*s)/, 'X')
+=&gt; &quot;par sXe Xt Xty&quot;
+&gt;&gt; 'par spare part party'.gsub(/(?!.*s)par/, 'X')
+=&gt; &quot;par sXe Xt Xty&quot;
+
+# since the three assertions used here are all zero-width,
+# all of the 6 possible combinations will be equivalent
+&gt;&gt; 'foo_baz=num1+35*42/num2'.gsub(/(?!\z)\b(?&lt;!\A)/, ' ')
+=&gt; &quot;foo_baz = num1 + 35 * 42 / num2&quot;
+</code></pre>
+<h2><a class="header" href="#positive-lookarounds" id="positive-lookarounds">Positive lookarounds</a></h2>
+<p>Unlike negative lookarounds, absence of something will not satisfy positive lookarounds. Instead, for the condition to satisfy, the pattern has to match actual characters and/or zero-width assertions. Positive lookaround can be identified by use of <code>=</code> in the grouping. The complete syntax looks like:</p>
+<ul>
+<li><code>(?=pat)</code> for positive lookahead assertion</li>
+<li><code>(?&lt;=pat)</code> for positive lookbehind assertion</li>
+</ul>
+<pre><code class="language-ruby"># extract digits only if it is followed by ,
+# note that end of string doesn't qualify as this is positive assertion
+&gt;&gt; '42 foo-5, baz3; x83, y-20; f12'.scan(/\d+(?=,)/)
+=&gt; [&quot;5&quot;, &quot;83&quot;]
+
+# extract digits only if it is preceded by - and followed by ; or :
+&gt;&gt; '42 foo-5, baz3; x83, y-20; f12'.scan(/(?&lt;=-)\d+(?=[;:])/)
+=&gt; [&quot;20&quot;]
+
+# replace 'par' as long as 'part' occurs as a whole word later in the line
+&gt;&gt; 'par spare part party'.gsub(/par(?=.*\bpart\b)/, 'X')
+=&gt; &quot;X sXe part party&quot;
+</code></pre>
+<p>Lookarounds can be quite handy in field based processing.</p>
+<pre><code class="language-ruby"># except first and last fields
+&gt;&gt; '1,two,3,four,5'.scan(/(?&lt;=,)[^,]+(?=,)/)
+=&gt; [&quot;two&quot;, &quot;3&quot;, &quot;four&quot;]
+
+# replace empty fields with nil
+# note that in this case, order of lookbehind and lookahead doesn't matter
+# can also use: gsub(/(?&lt;![^,])(?![^,])/, 'nil')
+&gt;&gt; ',1,,,two,3,,'.gsub(/(?&lt;=\A|,)(?=,|\z)/, 'nil')
+=&gt; &quot;nil,1,nil,nil,two,3,nil,nil&quot;
+
+# surround all fields (which can be empty too) with {}
+# there is an extra empty string match at end of non-empty columns
+&gt;&gt; ',cat,tiger'.gsub(/[^,]*/, '{\0}')
+=&gt; &quot;{},{cat}{},{tiger}{}&quot;
+# lookarounds to the rescue
+&gt;&gt; ',cat,tiger'.gsub(/(?&lt;=\A|,)[^,]*/, '{\0}')
+=&gt; &quot;{},{cat},{tiger}&quot;
+</code></pre>
+<h2><a class="header" href="#capture-groups-inside-positive-lookarounds" id="capture-groups-inside-positive-lookarounds">Capture groups inside positive lookarounds</a></h2>
+<p>Even though lookarounds are not part of matched portions, capture groups can be used inside positive lookarounds. Can you reason out why it won't work for negative lookarounds?</p>
+<pre><code class="language-ruby"># note also the use of double quoted string in replacement section
+&gt;&gt; puts 'a b c d e'.gsub(/(\S+\s+)(?=(\S+)\s)/, &quot;\\1\\2\n&quot;)
+a b
+b c
+c d
+d e
+
+# and of course, use non-capturing group where needed
+&gt;&gt; 'pore42 car3 pare7 care5'.scan(/(?&lt;=(po|ca)re)\d+/)
+=&gt; [[&quot;po&quot;], [&quot;ca&quot;]]
+&gt;&gt; 'pore42 car3 pare7 care5'.scan(/(?&lt;=(?:po|ca)re)\d+/)
+=&gt; [&quot;42&quot;, &quot;5&quot;]
+</code></pre>
+<h2><a class="header" href="#and-conditional-with-lookarounds" id="and-conditional-with-lookarounds">AND conditional with lookarounds</a></h2>
+<p>As promised earlier, here's how lookarounds make it simpler to construct AND conditionals.</p>
+<pre><code class="language-ruby">&gt;&gt; words = %w[sequoia subtle questionable exhibit equation]
+
+# words containing 'b' and 'e' and 't' in any order
+# same as: /b.*e.*t|b.*t.*e|e.*b.*t|e.*t.*b|t.*b.*e|t.*e.*b/
+&gt;&gt; words.grep(/(?=.*b)(?=.*e).*t/)
+=&gt; [&quot;subtle&quot;, &quot;questionable&quot;, &quot;exhibit&quot;]
+
+# words containing all vowels in any order
+&gt;&gt; words.grep(/(?=.*a)(?=.*e)(?=.*i)(?=.*o).*u/)
+=&gt; [&quot;sequoia&quot;, &quot;questionable&quot;, &quot;equation&quot;]
+
+# words containing 'a' and 'q' but not 'n' at the end of the element
+&gt;&gt; words.grep(/(?=.*a)(?=.*q)(?!.*n\z)/)
+=&gt; [&quot;sequoia&quot;, &quot;questionable&quot;]
+</code></pre>
+<h2><a class="header" href="#emulating-positive-lookbehind-with-k" id="emulating-positive-lookbehind-with-k">Emulating positive lookbehind with \K</a></h2>
+<p>Some of the variable length positive lookbehind cases can be simulated by using <code>\K</code> as a suffix to the regexp that is needed as lookbehind assertion. <code>\K</code> isn't a zero-width assertion as characters matched are consumed.</p>
+<pre><code class="language-ruby"># similar to: /(?&lt;=\b\w)\w*\W*/
+# text matched before \K won't be part of the matching portion
+&gt;&gt; 'sea eat car rat eel tea'.gsub(/\b\w\K\w*\W*/, '')
+=&gt; &quot;secret&quot;
+
+# replace only 3rd occurrence of 'cat'
+&gt;&gt; 'cat scatter cater scat'.sub(/(cat.*?){2}\Kcat/, 'X')
+=&gt; &quot;cat scatter Xer scat&quot;
+</code></pre>
+<p>Here's another example that won't work if greedy quantifier is used instead of possessive quantifier.</p>
+<pre><code class="language-ruby">&gt;&gt; row = '421,foo,2425,42,5,foo,6,6,42'
+
+# similar to: row.split(',').uniq.join(',')
+# possessive quantifier used to ensure partial column is not captured
+# if a column has same text as another column, the latter column is deleted
+&gt;&gt; nil while row.gsub!(/(?&lt;=\A|,)([^,]++).*\K,\1(?=,|\z)/, '')
+=&gt; nil
+&gt;&gt; row
+=&gt; &quot;421,foo,2425,42,5,6&quot;
+</code></pre>
+<blockquote>
+<p><img src="images/warning.svg" alt="warning" /> Don't use <code>\K</code> with <code>gsub</code> or <code>scan</code> if the string to match after <code>\K</code> can be empty. This is how the regexp engine has been implemented, other libraries like PCRE don't have this limitation. See <a href="https://stackoverflow.com/questions/48375925/use-of-k-and-lookahead-not-working-as-expected">stackoverflow: \K in ruby</a> for some more details on this topic.</p>
+</blockquote>
+<pre><code class="language-ruby"># [^,]*+ can match empty field, so use lookaround instead of \K
+&gt;&gt; ',cat,tiger'.gsub(/(?&lt;=\A|,)[^,]*+/, '{\0}')
+=&gt; &quot;{},{cat},{tiger}&quot;
+&gt;&gt; ',cat,tiger'.gsub(/(?:\A|,)\K[^,]*+/, '{\0}')
+=&gt; &quot;{},cat,{tiger}&quot;
+
+# another example with nothing to be matched after \K
+&gt;&gt; 'abcd 123456'.gsub(/(?&lt;=\w)/, ':')
+=&gt; &quot;a:b:c:d: 1:2:3:4:5:6:&quot;
+&gt;&gt; 'abcd 123456'.gsub(/\w/, '\0:')
+=&gt; &quot;a:b:c:d: 1:2:3:4:5:6:&quot;
+&gt;&gt; 'abcd 123456'.gsub(/\w\K/, ':')
+=&gt; &quot;a:bc:d 1:23:45:6&quot;
+</code></pre>
+<h2><a class="header" href="#variable-length-lookbehind" id="variable-length-lookbehind">Variable length lookbehind</a></h2>
+<p>The pattern used for lookbehind assertion (either positive or negative) cannot <em>imply</em> matching variable length of text. Using fixed length quantifier or alternations of different lengths (but each alternation being fixed length) is allowed. For some reason, alternations of different lengths inside a group is not allowed. Here's some examples to clarify these points:</p>
+<pre><code class="language-ruby">&gt;&gt; s = 'pore42 tar3 dare7 care5'
+
+# allowed
+&gt;&gt; s.scan(/(?&lt;=(?:po|da)re)\d+/)
+=&gt; [&quot;42&quot;, &quot;7&quot;]
+&gt;&gt; s.scan(/(?&lt;=\b[a-z]{4})\d+/)
+=&gt; [&quot;42&quot;, &quot;7&quot;, &quot;5&quot;]
+&gt;&gt; s.scan(/(?&lt;!tar|dare)\d+/)
+=&gt; [&quot;42&quot;, &quot;5&quot;]
+
+# not allowed
+&gt;&gt; s.scan(/(?&lt;=(?:o|ca)re)\d+/)
+SyntaxError ((irb):4: invalid pattern in look-behind
+&gt;&gt; s.scan(/(?&lt;=\b[a-z]+)\d+/)
+SyntaxError ((irb):5: invalid pattern in look-behind
+</code></pre>
+<p>There are various workarounds possible depending upon the use case. Some of the positive lookbehind cases can be solved using <code>\K</code> as seen in previous section, but <code>\K</code> isn't a zero-width assertion. For some cases, you can skip lookbehind entirely and workaround with normal groupings. This works even when you don't know the length of patterns.</p>
+<pre><code class="language-ruby">&gt;&gt; s = 'pore42 tar3 dare7 care5'
+
+# examples where lookbehind won't give error
+# same as: s.scan(/(?&lt;=tar|dare)\d+/)
+&gt;&gt; s.gsub(/(?:tar|dare)(\d+)/).map { $1 }
+=&gt; [&quot;3&quot;, &quot;7&quot;]
+# delete digits only if they are preceded by 'tar' or 'dare'
+# same as: s.gsub(/(?&lt;=tar|dare)\d+/, '')
+&gt;&gt; s.gsub(/(tar|dare)\d+/, '\1')
+=&gt; &quot;pore42 tar dare care5&quot;
+
+# examples where lookbehind will give error
+# workaround for /(?&lt;=\b[pd][a-z]*)\d+/
+# get digits only if they are preceded by a word starting with 'p' or 'd'
+&gt;&gt; s.gsub(/\b[pd][a-z]*(\d+)/).map { $1 }
+=&gt; [&quot;42&quot;, &quot;7&quot;]
+# delete digits only if they are preceded by a word starting with 'p' or 'd'
+&gt;&gt; s.gsub(/(\b[pd][a-z]*)\d+/, '\1')
+=&gt; &quot;pore tar3 dare care5&quot;
+</code></pre>
+<p>However, if you don't know the lengths for negative lookbehind, you cannot use the above workarounds. The next section will show how to negate a grouping, and that helps for some of the variable negative lookbehind cases.</p>
+<h2><a class="header" href="#negated-groups-and-absence-operator" id="negated-groups-and-absence-operator">Negated groups and absence operator</a></h2>
+<p>Variable length negative lookbehind can be simulated using negative lookahead (which doesn't have restriction on variable length) inside a grouping and applying quantifier to match characters one by one. This also showcases how grouping can be negated in certain cases. Note that this will only work if you have well defined conditions before the negated group.</p>
+<pre><code class="language-ruby"># match 'dog' only if it is not preceded by 'cat'
+# note the use of \A anchor to force matching all characters up to 'dog'
+# cannot use /(?&lt;!cat.*)dog/ as variable length lookbehind is not allowed
+&gt;&gt; 'fox,cat,dog,parrot'.match?(/\A((?!cat).)*dog/)
+=&gt; false
+# match 'dog' only if it is not preceded by 'parrot'
+&gt;&gt; 'fox,cat,dog,parrot'.match?(/\A((?!parrot).)*dog/)
+=&gt; true
+
+# easier to understand by checking matched portion
+&gt;&gt; 'fox,cat,dog,parrot'[/\A((?!cat).)*/]
+=&gt; &quot;fox,&quot;
+&gt;&gt; 'fox,cat,dog,parrot'[/\A((?!parrot).)*/]
+=&gt; &quot;fox,cat,dog,&quot;
+&gt;&gt; 'fox,cat,dog,parrot'[/\A(?:(?!(.)\1).)*/]
+=&gt; &quot;fox,cat,dog,pa&quot;
+</code></pre>
+<p>There's an alternate syntax that can be used for cases where the grouping to be negated is bound on both sides by another regexp, anchor, etc. It is known as <strong>absence operator</strong> and the syntax is <code>(?~pat)</code>.</p>
+<pre><code class="language-ruby"># match if 'do' is not there between 'at' and 'par'
+# note that quantifier is not used, absence operator takes care of it
+# same as: /at((?!do).)*par/
+&gt;&gt; 'fox,cat,dog,parrot'.match?(/at(?~do)par/)
+=&gt; false
+
+# match if 'go' is not there between 'at' and 'par'
+&gt;&gt; 'fox,cat,dog,parrot'.match?(/at(?~go)par/)
+=&gt; true
+&gt;&gt; 'fox,cat,dog,parrot'[/at(?~go)par/]
+=&gt; &quot;at,dog,par&quot;
+</code></pre>
+<h2><a class="header" href="#g-anchor" id="g-anchor">\G anchor</a></h2>
+<p>The <code>\G</code> anchor restricts matching from start of string like the <code>\A</code> anchor. In addition, after a match is done, ending of that match is considered as the new anchor location. This process is repeated again and continues until the given regexp fails to match (assuming multiple matches with methods like <code>scan</code> and <code>gsub</code>).</p>
+<pre><code class="language-ruby"># all non-whitespace characters from start of string
+&gt;&gt; '123-87-593 42 foo'.scan(/\G\S/)
+=&gt; [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;-&quot;, &quot;8&quot;, &quot;7&quot;, &quot;-&quot;, &quot;5&quot;, &quot;9&quot;, &quot;3&quot;]
+&gt;&gt; '123-87-593 42 foo'.gsub(/\G\S/, '*')
+=&gt; &quot;********** 42 foo&quot;
+
+# all digits and optional hyphen combo from start of string
+&gt;&gt; '123-87-593 42 foo'.scan(/\G\d+-?/)
+=&gt; [&quot;123-&quot;, &quot;87-&quot;, &quot;593&quot;]
+&gt;&gt; '123-87-593 42 foo'.gsub(/\G(\d+)(-?)/, '(\1)\2')
+=&gt; &quot;(123)-(87)-(593) 42 foo&quot;
+
+# all word characters from start of string
+# only if it is followed by word character
+&gt;&gt; 'cat12 bat pin'.gsub(/\G\w(?=\w)/, '\0:')
+=&gt; &quot;c:a:t:1:2 bat pin&quot;
+
+# all lowercase alphabets or space from start of string
+&gt;&gt; 'par tar-den hen-food mood'.gsub(/\G[a-z ]/, '(\0)')
+=&gt; &quot;(p)(a)(r)( )(t)(a)(r)-den hen-food mood&quot;
+</code></pre>
+<h2><a class="header" href="#cheatsheet-and-summary" id="cheatsheet-and-summary">Cheatsheet and Summary</a></h2>
+<table><thead><tr><th>Note</th><th>Description</th></tr></thead><tbody>
+<tr><td>lookarounds</td><td>custom assertions, zero-width like anchors</td></tr>
+<tr><td><code>(?!pat)</code></td><td>negative lookahead assertion</td></tr>
+<tr><td><code>(?&lt;!pat)</code></td><td>negative lookbehind assertion</td></tr>
+<tr><td><code>(?=pat)</code></td><td>positive lookahead assertion</td></tr>
+<tr><td><code>(?&lt;=pat)</code></td><td>positive lookbehind assertion</td></tr>
+<tr><td><code>(?!pat1)(?=pat2)</code></td><td>multiple assertions can be specified next to each other in any order</td></tr>
+<tr><td></td><td>as they mark a matching location without consuming characters</td></tr>
+<tr><td><code>pat\K</code></td><td><code>pat</code> won't be part of matching portion</td></tr>
+<tr><td></td><td>helpful to emulate some variable length positive lookbehind cases</td></tr>
+<tr><td><code>((?!pat).)*</code></td><td>Negate a grouping, similar to negated character class</td></tr>
+<tr><td></td><td>helpful to emulate some variable length negative lookbehind cases</td></tr>
+<tr><td><code>(?~pat)</code></td><td>absence operator</td></tr>
+<tr><td></td><td>similar to <code>((?!pat).)*</code> if bounded on both sides</td></tr>
+<tr><td><code>\G</code></td><td>restricts matching from start of string like <code>\A</code></td></tr>
+<tr><td></td><td>continues matching from end of match as new anchor until it fails</td></tr>
+<tr><td></td><td>ex: <code>'12-34 42'.scan(/\G\d+-?/)</code> gives <code>[&quot;12-&quot;, &quot;34&quot;]</code></td></tr>
+</tbody></table>
+<p>In this chapter, you learnt how to use lookarounds to create custom restrictions and also how to use negated grouping. You also learnt about the <code>\G</code> anchor. With this, most of the powerful features of regexp have been covered. The special groupings seem never ending though, there's some more of them in coming chapters!!</p>
+<h2><a class="header" href="#exercises" id="exercises">Exercises</a></h2>
+<blockquote>
+<p><img src="images/info.svg" alt="info" /> Please use lookarounds for solving the following exercises even if you can do it without lookarounds. Unless you cannot use lookarounds for cases like variable length lookbehinds.</p>
+</blockquote>
+<p><strong>a)</strong> Replace all whole words with <code>X</code> unless it is preceded by <code>(</code> character.</p>
+<pre><code class="language-ruby">&gt;&gt; ip = '(apple) guava berry) apple (mango) (grape'
+
+##### add your solution here
+=&gt; &quot;(apple) X X) X (mango) (grape&quot;
+</code></pre>
+<p><strong>b)</strong> Replace all whole words with <code>X</code> unless it is followed by <code>)</code> character.</p>
+<pre><code class="language-ruby">&gt;&gt; ip = '(apple) guava berry) apple (mango) (grape'
+
+##### add your solution here
+=&gt; &quot;(apple) X berry) X (mango) (X&quot;
+</code></pre>
+<p><strong>c)</strong> Replace all whole words with <code>X</code> unless it is preceded by <code>(</code> or followed by <code>)</code> characters.</p>
+<pre><code class="language-ruby">&gt;&gt; ip = '(apple) guava berry) apple (mango) (grape'
+
+##### add your solution here
+=&gt; &quot;(apple) X berry) X (mango) (grape&quot;
+</code></pre>
+<p><strong>d)</strong> Extract all whole words that do not end with <code>e</code> or <code>n</code>.</p>
+<pre><code class="language-ruby">&gt;&gt; ip = 'at row on urn e note dust n'
+
+##### add your solution here
+=&gt; [&quot;at&quot;, &quot;row&quot;, &quot;dust&quot;]
+</code></pre>
+<p><strong>e)</strong> Extract all whole words that do not start with <code>a</code> or <code>d</code> or <code>n</code>.</p>
+<pre><code class="language-ruby">&gt;&gt; ip = 'at row on urn e note dust n'
+
+##### add your solution here
+=&gt; [&quot;row&quot;, &quot;on&quot;, &quot;urn&quot;, &quot;e&quot;]
+</code></pre>
+<p><strong>f)</strong> Extract all whole words only if they are followed by <code>:</code> or <code>,</code> or <code>-</code>.</p>
+<pre><code class="language-ruby">&gt;&gt; ip = 'poke,on=-=so:ink.to/is(vast)ever-sit'
+
+##### add your solution here
+=&gt; [&quot;poke&quot;, &quot;so&quot;, &quot;ever&quot;]
+</code></pre>
+<p><strong>g)</strong> Extract all whole words only if they are preceded by <code>=</code> or <code>/</code> or <code>-</code>.</p>
+<pre><code class="language-ruby">&gt;&gt; ip = 'poke,on=-=so:ink.to/is(vast)ever-sit'
+
+##### add your solution here
+=&gt; [&quot;so&quot;, &quot;is&quot;, &quot;sit&quot;]
+</code></pre>
+<p><strong>h)</strong> Extract all whole words only if they are preceded by <code>=</code> or <code>:</code> and followed by <code>:</code> or <code>.</code>.</p>
+<pre><code class="language-ruby">&gt;&gt; ip = 'poke,on=-=so:ink.to/is(vast)ever-sit'
+
+##### add your solution here
+=&gt; [&quot;so&quot;, &quot;ink&quot;]
+</code></pre>
+<p><strong>i)</strong> Extract all whole words only if they are preceded by <code>=</code> or <code>:</code> or <code>.</code> or <code>(</code> or <code>-</code> and not followed by <code>.</code> or <code>/</code>.</p>
+<pre><code class="language-ruby">&gt;&gt; ip = 'poke,on=-=so:ink.to/is(vast)ever-sit'
+
+##### add your solution here
+=&gt; [&quot;so&quot;, &quot;vast&quot;, &quot;sit&quot;]
+</code></pre>
+<p><strong>j)</strong> Remove leading and trailing whitespaces from all the individual fields where <code>,</code> is the field separator.</p>
+<pre><code class="language-ruby">&gt;&gt; csv1 = &quot; comma  ,separated ,values \t\r &quot;
+&gt;&gt; csv2 = 'good bad,nice  ice  , 42 , ,   stall   small'
+
+&gt;&gt; remove_whitespace =      ##### add your solution here
+
+&gt;&gt; csv1.gsub(remove_whitespace, '')
+=&gt; &quot;comma,separated,values&quot;
+&gt;&gt; csv2.gsub(remove_whitespace, '')
+=&gt; &quot;good bad,nice  ice,42,,stall   small&quot;
+</code></pre>
+<p><strong>k)</strong> Filter all elements that satisfy all of these rules:</p>
+<ul>
+<li>should have at least two alphabets</li>
+<li>should have at least 3 digits</li>
+<li>should have at least one special character among <code>%</code> or <code>*</code> or <code>#</code> or <code>$</code></li>
+<li>should not end with a whitespace character</li>
+</ul>
+<pre><code class="language-ruby">&gt;&gt; pwds = ['hunter2', 'F2H3u%9', &quot;*X3Yz3.14\t&quot;, 'r2_d2_42', 'A $B C1234']
+
+&gt;&gt; rule_chk =       ##### add your solution here
+
+&gt;&gt; pwds.grep(rule_chk)
+=&gt; [&quot;F2H3u%9&quot;, &quot;A $B C1234&quot;]
+</code></pre>
+<p><strong>l)</strong> For the given string, surround all whole words with <code>{}</code> except for whole words <code>par</code> and <code>cat</code> and <code>apple</code>.</p>
+<pre><code class="language-ruby">&gt;&gt; ip = 'part; cat {super} rest_42 par scatter apple spar'
+
+##### add your solution here
+=&gt; &quot;{part}; cat {{super}} {rest_42} par {scatter} apple {spar}&quot;
+</code></pre>
+<p><strong>m)</strong> Extract integer portion of floating-point numbers for the given string. A number ending with <code>.</code> and no further digits should not be considered.</p>
+<pre><code class="language-ruby">&gt;&gt; ip = '12 ab32.4 go 5 2. 46.42 5'
+
+##### add your solution here
+=&gt; [&quot;32&quot;, &quot;46&quot;]
+</code></pre>
+<p><strong>n)</strong> For the given input strings, extract all overlapping two character sequences.</p>
+<pre><code class="language-ruby">&gt;&gt; s1 = 'apple'
+&gt;&gt; s2 = '1.2-3:4'
+
+&gt;&gt; pat =        ##### add your solution here
+
+##### add your solution here for s1
+=&gt; [&quot;ap&quot;, &quot;pp&quot;, &quot;pl&quot;, &quot;le&quot;]
+##### add your solution here for s2
+=&gt; [&quot;1.&quot;, &quot;.2&quot;, &quot;2-&quot;, &quot;-3&quot;, &quot;3:&quot;, &quot;:4&quot;]
+</code></pre>
+<p><strong>o)</strong> The given input strings contain fields separated by <code>:</code> character. Delete <code>:</code> and the last field if there is a digit character anywhere before the last field.</p>
+<pre><code class="language-ruby">&gt;&gt; s1 = '42:cat'
+&gt;&gt; s2 = 'twelve:a2b'
+&gt;&gt; s3 = 'we:be:he:0:a:b:bother'
+
+&gt;&gt; pat =        ##### add your solution here
+
+##### add your solution here for s1
+=&gt; &quot;42&quot;
+##### add your solution here for s2
+=&gt; &quot;twelve:a2b&quot;
+##### add your solution here for s3
+=&gt; &quot;we:be:he:0:a:b&quot;
+</code></pre>
+<p><strong>p)</strong> Extract all whole words unless they are preceded by <code>:</code> or <code>&lt;=&gt;</code> or <code>----</code> or <code>#</code>.</p>
+<pre><code class="language-ruby">&gt;&gt; ip = '::very--at&lt;=&gt;row|in.a_b#b2c=&gt;lion----east'
+
+##### add your solution here
+=&gt; [&quot;at&quot;, &quot;in&quot;, &quot;a_b&quot;, &quot;lion&quot;]
+</code></pre>
+<p><strong>q)</strong> Match strings if it contains <code>qty</code> followed by <code>price</code> but not if there is <strong>whitespace</strong> or the string <code>error</code> between them.</p>
+<pre><code class="language-ruby">&gt;&gt; str1 = '23,qty,price,42'
+&gt;&gt; str2 = 'qty price,oh'
+&gt;&gt; str3 = '3.14,qty,6,errors,9,price,3'
+&gt;&gt; str4 = &quot;42\nqty-6,apple-56,price-234,error&quot;
+&gt;&gt; str5 = '4,price,3.14,qty,4'
+
+&gt;&gt; neg =        ##### add your solution here
+
+&gt;&gt; str1.match?(neg)
+=&gt; true
+&gt;&gt; str2.match?(neg)
+=&gt; false
+&gt;&gt; str3.match?(neg)
+=&gt; false
+&gt;&gt; str4.match?(neg)
+=&gt; true
+&gt;&gt; str5.match?(neg)
+=&gt; false
+</code></pre>
+<p><strong>r)</strong> Can you reason out why the output shown is different for these two regular expressions?</p>
+<pre><code class="language-ruby">&gt;&gt; ip = 'I have 12, he has 2!'
+
+&gt;&gt; ip.gsub(/\b..\b/, '{\0}')
+=&gt; &quot;{I }have {12}{, }{he} has{ 2}!&quot;
+
+&gt;&gt; ip.gsub(/(?&lt;!\w)..(?!\w)/, '{\0}')
+=&gt; &quot;I have {12}, {he} has {2!}&quot;
+</code></pre>
+<p><strong>s)</strong> The given input string has fields separated by <code>:</code> character. Delete all fields, including the separator, unless the field contains a digit character. Stop deleting once a field with digit character is found.</p>
+<pre><code class="language-ruby">&gt;&gt; row1 = 'vast:a2b2:ride:in:awe:b2b:3list:end'
+&gt;&gt; row2 = 'um:no:low:3e:s4w:seer'
+&gt;&gt; row3 = 'thr33:f0ur'
+
+&gt;&gt; pat =        ##### add your solution here
+
+&gt;&gt; row1.gsub(pat, '')
+=&gt; &quot;a2b2:ride:in:awe:b2b:3list:end&quot;
+&gt;&gt; row2.gsub(pat, '')
+=&gt; &quot;3e:s4w:seer&quot;
+&gt;&gt; row3.gsub(pat, '')
+=&gt; &quot;thr33:f0ur&quot;
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="interlude-common-tasks.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="modifiers.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="interlude-common-tasks.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="modifiers.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

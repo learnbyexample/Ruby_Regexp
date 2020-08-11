@@ -1,0 +1,401 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Escaping metacharacters - Ruby Regexp</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Example based guide to mastering Ruby Regexp">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="custom.css">
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="cover.html">Cover</a></li><li class="chapter-item expanded affix "><a href="buy.html">Buy PDF/EPUB versions</a></li><li class="chapter-item expanded "><a href="preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded "><a href="why-is-it-needed.html"><strong aria-hidden="true">2.</strong> Why is it needed?</a></li><li class="chapter-item expanded "><a href="regexp-introduction.html"><strong aria-hidden="true">3.</strong> Regexp introduction</a></li><li class="chapter-item expanded "><a href="anchors.html"><strong aria-hidden="true">4.</strong> Anchors</a></li><li class="chapter-item expanded "><a href="alternation-and-grouping.html"><strong aria-hidden="true">5.</strong> Alternation and Grouping</a></li><li class="chapter-item expanded "><a href="escaping-metacharacters.html" class="active"><strong aria-hidden="true">6.</strong> Escaping metacharacters</a></li><li class="chapter-item expanded "><a href="dot-metacharacter-and-quantifiers.html"><strong aria-hidden="true">7.</strong> Dot metacharacter and Quantifiers</a></li><li class="chapter-item expanded "><a href="interlude-tools-for-debugging-and-visualization.html"><strong aria-hidden="true">8.</strong> Interlude: Tools for debugging and visualization</a></li><li class="chapter-item expanded "><a href="working-with-matched-portions.html"><strong aria-hidden="true">9.</strong> Working with matched portions</a></li><li class="chapter-item expanded "><a href="character-class.html"><strong aria-hidden="true">10.</strong> Character class</a></li><li class="chapter-item expanded "><a href="groupings-and-backreferences.html"><strong aria-hidden="true">11.</strong> Groupings and backreferences</a></li><li class="chapter-item expanded "><a href="interlude-common-tasks.html"><strong aria-hidden="true">12.</strong> Interlude: Common tasks</a></li><li class="chapter-item expanded "><a href="lookarounds.html"><strong aria-hidden="true">13.</strong> Lookarounds</a></li><li class="chapter-item expanded "><a href="modifiers.html"><strong aria-hidden="true">14.</strong> Modifiers</a></li><li class="chapter-item expanded "><a href="unicode.html"><strong aria-hidden="true">15.</strong> Unicode</a></li><li class="chapter-item expanded "><a href="further-reading.html"><strong aria-hidden="true">16.</strong> Further Reading</a></li><li class="chapter-item expanded "><a href="Exercise_solutions.html"><strong aria-hidden="true">17.</strong> Exercise Solutions</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Ruby Regexp</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="https://github.com/learnbyexample/Ruby_Regexp" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#escaping-metacharacters" id="escaping-metacharacters">Escaping metacharacters</a></h1>
+<p>This chapter will show how to match metacharacters literally, for manually as well as programmatically constructed patterns. You'll also learn about escape sequences supported by regexp and how they differ from strings.</p>
+<h2><a class="header" href="#escaping-with-" id="escaping-with-">Escaping with \</a></h2>
+<p>You have seen a few metacharacters and escape sequences that help to compose a regexp literal. To match the metacharacters literally, i.e. to remove their special meaning, prefix those characters with a <code>\</code> character. To indicate a literal <code>\</code> character, use <code>\\</code>.</p>
+<p>To spice up the examples a bit, block form has been used below to modify the matched portion of string with an expression. In later chapters, you'll see more ways to work directly with matched portions.</p>
+<pre><code class="language-ruby"># even though ^ is not being used as anchor, it won't be matched literally
+&gt;&gt; 'a^2 + b^2 - C*3'.match?(/b^2/)
+=&gt; false
+# escaping will work
+&gt;&gt; 'a^2 + b^2 - C*3'.gsub(/(a|b)\^2/) { |m| m.upcase }
+=&gt; &quot;A^2 + B^2 - C*3&quot;
+
+# match ( or ) literally
+&gt;&gt; '(a*b) + c'.gsub(/\(|\)/, '')
+=&gt; &quot;a*b + c&quot;
+
+&gt;&gt; '\learn\by\example'.gsub(/\\/, '/')
+=&gt; &quot;/learn/by/example&quot;
+</code></pre>
+<p>As emphasized earlier, regular expression is just another tool to process text. Some examples and exercises presented in this book can be solved using normal string methods as well. For real world use cases, ask yourself first if regexp is needed at all?</p>
+<pre><code class="language-ruby">&gt;&gt; eqn = 'f*(a^b) - 3*(a^b)'
+
+# straightforward search and replace, no need regexp shenanigans
+&gt;&gt; eqn.gsub('(a^b)', 'c')
+=&gt; &quot;f*c - 3*c&quot;
+</code></pre>
+<h2><a class="header" href="#regexpescape-method" id="regexpescape-method">Regexp.escape method</a></h2>
+<p>How to escape all the metacharacters when a regexp is constructed dynamically? Relax, <code>Regexp.escape</code> method has got you covered. No need to manually take care of all the metacharacters or worry about changes in future versions.</p>
+<pre><code class="language-ruby">&gt;&gt; eqn = 'f*(a^b) - 3*(a^b)'
+&gt;&gt; expr = '(a^b)'
+
+&gt;&gt; puts Regexp.escape(expr)
+\(a\^b\)
+
+# replace only at the end of string
+&gt;&gt; eqn.sub(/#{Regexp.escape(expr)}\z/, 'c')
+=&gt; &quot;f*(a^b) - 3*c&quot;
+</code></pre>
+<p>The <code>Regexp.union</code> method automatically applies escaping for string arguments.</p>
+<pre><code class="language-ruby"># array of strings, assume alternation precedence sorting isn't needed
+&gt;&gt; terms = %w[a_42 (a^b) 2|3]
+
+&gt;&gt; pat = Regexp.union(terms)
+&gt;&gt; pat
+=&gt; /a_42|\(a\^b\)|2\|3/
+
+&gt;&gt; 'ba_423 (a^b)c 2|3 a^b'.gsub(pat, 'X')
+=&gt; &quot;bX3 Xc X a^b&quot;
+</code></pre>
+<p><code>Regexp.union</code> will also take care of mixing string and regexp patterns correctly. <code>(?-mix:</code> seen in the output below will be explained in the <a href="./modifiers.html#modifiers">Modifiers</a> chapter.</p>
+<pre><code class="language-ruby">&gt;&gt; Regexp.union(/^cat|dog$/, 'a^b')
+=&gt; /(?-mix:^cat|dog$)|a\^b/
+</code></pre>
+<h2><a class="header" href="#escaping-delimiter" id="escaping-delimiter">Escaping delimiter</a></h2>
+<p>Another character to keep track for escaping is the delimiter used to define the regexp literal. Or, you can use a different delimiter than <code>/</code> to define a regexp literal using <code>%r</code> to avoid escaping. Also, you need not worry about unescaped delimiter inside <code>#{}</code> interpolation.</p>
+<pre><code class="language-ruby">&gt;&gt; path = '/abc/123/foo/baz/ip.txt'
+
+# \/ is also known as 'leaning toothpick syndrome'
+&gt;&gt; path.sub(/\A\/abc\/123\//, '~/')
+=&gt; &quot;~/foo/baz/ip.txt&quot;
+
+# a different delimiter improves readability and reduces typos
+&gt;&gt; path.sub(%r#\A/abc/123/#, '~/')
+=&gt; &quot;~/foo/baz/ip.txt&quot;
+</code></pre>
+<h2><a class="header" href="#escape-sequences" id="escape-sequences">Escape sequences</a></h2>
+<p>In regexp literals, characters like tab and newline can be expressed using escape sequences as <code>\t</code> and <code>\n</code> respectively. These are similar to how they are treated in normal string literals (see <a href="https://ruby-doc.org/core-2.7.1/doc/syntax/literals_rdoc.html#label-Strings">ruby-doc: Strings</a> for details). However, escapes like <code>\b</code> (word boundary) and <code>\s</code> (see <a href="./character-class.html#escape-sequence-character-sets">Escape sequence character sets</a> section) are different for regexps. And octal escapes <code>\nnn</code> have to be three digits to avoid conflict with <a href="./groupings-and-backreferences.html#groupings-and-backreferences">Backreferences</a>.</p>
+<pre><code class="language-ruby">&gt;&gt; &quot;a\tb\tc&quot;.gsub(/\t/, ':')
+=&gt; &quot;a:b:c&quot;
+
+&gt;&gt; &quot;1\n2\n3&quot;.gsub(/\n/, ' ')
+=&gt; &quot;1 2 3&quot;
+</code></pre>
+<p>If an escape sequence is not defined, it'll match the character that is escaped. For example, <code>\%</code> will match <code>%</code> and not <code>\</code> followed by <code>%</code>.</p>
+<pre><code class="language-ruby">&gt;&gt; 'h%x'.match?(/h\%x/)
+=&gt; true
+&gt;&gt; 'h\%x'.match?(/h\%x/)
+=&gt; false
+
+&gt;&gt; 'hello'.match?(/\l/)
+=&gt; true
+</code></pre>
+<p>If you represent a metacharacter using escapes, it will be treated literally instead of its metacharacter feature.</p>
+<pre><code class="language-ruby"># \x20 is hexadecimal for space character
+&gt;&gt; 'h e l l o'.gsub(/\x20/, '')
+=&gt; &quot;hello&quot;
+# \053 is octal for + character
+&gt;&gt; 'a+b'.match?(/a\053b/)
+=&gt; true
+
+# \x7c is '|' character
+&gt;&gt; '12|30'.gsub(/2\x7c3/, '5')
+=&gt; &quot;150&quot;
+&gt;&gt; '12|30'.gsub(/2|3/, '5')
+=&gt; &quot;15|50&quot;
+</code></pre>
+<blockquote>
+<p><img src="images/info.svg" alt="info" /> See <a href="https://ascii.cl/">ASCII code table</a> for a handy cheatsheet with all the ASCII characters and their hexadecimal representation.</p>
+</blockquote>
+<p><a href="./unicode.html#codepoints-and-unicode-escapes">Codepoints and Unicode escapes</a> section will discuss escapes for unicode characters.</p>
+<h2><a class="header" href="#cheatsheet-and-summary" id="cheatsheet-and-summary">Cheatsheet and Summary</a></h2>
+<table><thead><tr><th>Note</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>\</code></td><td>prefix metacharacters with <code>\</code> to match them literally</td></tr>
+<tr><td><code>\\</code></td><td>to match <code>\</code> literally</td></tr>
+<tr><td><code>Regexp.escape(s)</code></td><td>automatically escape all metacharacters for string <code>s</code></td></tr>
+<tr><td></td><td><code>Regexp.union</code> also automatically escapes string arguments</td></tr>
+<tr><td><code>%r</code></td><td>helps to avoid/reduce escaping delimiter character</td></tr>
+<tr><td><code>\t</code></td><td>escape sequences like those supported in string literals</td></tr>
+<tr><td></td><td>but escapes like <code>\b</code> and <code>\s</code> have different meaning in regexps</td></tr>
+<tr><td><code>\%</code></td><td>undefined escapes will match the character it escapes</td></tr>
+<tr><td><code>\x7c</code></td><td>will match <code>\|</code> literally</td></tr>
+<tr><td></td><td>instead of acting as alternation metacharacter</td></tr>
+</tbody></table>
+<h2><a class="header" href="#exercises" id="exercises">Exercises</a></h2>
+<p><strong>a)</strong> Transform given input strings to expected output using same logic on both strings.</p>
+<pre><code class="language-ruby">&gt;&gt; str1 = '(9-2)*5+qty/3'
+&gt;&gt; str2 = '(qty+4)/2-(9-2)*5+pq/4'
+
+&gt;&gt; str1.gsub()      ##### add your solution here
+=&gt; &quot;35+qty/3&quot;
+&gt;&gt; str2.gsub()      ##### add your solution here
+=&gt; &quot;(qty+4)/2-35+pq/4&quot;
+</code></pre>
+<p><strong>b)</strong> Replace <code>(4)\|</code> with <code>2</code> only at the start or end of given input strings.</p>
+<pre><code class="language-ruby">&gt;&gt; s1 = '2.3/(4)\|6 foo 5.3-(4)\|'
+&gt;&gt; s2 = '(4)\|42 - (4)\|3'
+&gt;&gt; s3 = &quot;two - (4)\\|\n&quot;
+
+&gt;&gt; pat =        ##### add your solution here
+
+&gt;&gt; s1.gsub(pat, '2')
+=&gt; &quot;2.3/(4)\\|6 foo 5.3-2&quot;
+&gt;&gt; s2.gsub(pat, '2')
+=&gt; &quot;242 - (4)\\|3&quot;
+&gt;&gt; s3.gsub(pat, '2')
+=&gt; &quot;two - (4)\\|\n&quot;
+</code></pre>
+<p><strong>c)</strong> Replace any matching item from given array with <code>X</code> for given input strings. Match the elements from <code>items</code> literally. Assume no two elements of <code>items</code> will result in any matching conflict.</p>
+<pre><code class="language-ruby">&gt;&gt; items = ['a.b', '3+n', 'x\y\z', 'qty||price', '{n}']
+
+&gt;&gt; pat =        ##### add your solution here
+
+&gt;&gt; '0a.bcd'.gsub(pat, 'X')
+=&gt; &quot;0Xcd&quot;
+&gt;&gt; 'E{n}AMPLE'.gsub(pat, 'X')
+=&gt; &quot;EXAMPLE&quot;
+&gt;&gt; '43+n2 ax\y\ze'.gsub(pat, 'X')
+=&gt; &quot;4X2 aXe&quot;
+</code></pre>
+<p><strong>d)</strong> Replace backspace character <code>\b</code> with a single space character for the given input string.</p>
+<pre><code class="language-ruby">&gt;&gt; ip = &quot;123\b456&quot;
+&gt;&gt; puts ip
+12456
+
+&gt;&gt; ip.gsub()        ##### add your solution here
+=&gt; &quot;123 456&quot;
+</code></pre>
+<p><strong>e)</strong> Replace all occurrences of <code>\o</code> with <code>o</code>.</p>
+<pre><code class="language-ruby">&gt;&gt; ip = 'there are c\omm\on aspects am\ong the alternati\ons'
+
+&gt;&gt; ip.gsub()        ##### add your solution here
+=&gt; &quot;there are common aspects among the alternations&quot;
+</code></pre>
+<p><strong>f)</strong> Replace any matching item from the array <code>eqns</code> with <code>X</code> for given the string <code>ip</code>. Match the items from <code>eqns</code> literally.</p>
+<pre><code class="language-ruby">&gt;&gt; ip = '3-(a^b)+2*(a^b)-(a/b)+3'
+&gt;&gt; eqns = %w[(a^b) (a/b) (a^b)+2]
+
+&gt;&gt; pat =        ##### add your solution here
+
+&gt;&gt; ip.gsub(pat, 'X')
+=&gt; &quot;3-X*X-X+3&quot;
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="alternation-and-grouping.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="dot-metacharacter-and-quantifiers.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="alternation-and-grouping.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="dot-metacharacter-and-quantifiers.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

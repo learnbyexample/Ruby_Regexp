@@ -1,0 +1,682 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Working with matched portions - Ruby Regexp</title>
+        
+        
+
+
+        <!-- Custom HTML head -->
+        
+
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Example based guide to mastering Ruby Regexp">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        
+        <link rel="stylesheet" href="fonts/fonts.css">
+        
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+        <link rel="stylesheet" href="custom.css">
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="cover.html">Cover</a></li><li class="chapter-item expanded affix "><a href="buy.html">Buy PDF/EPUB versions</a></li><li class="chapter-item expanded "><a href="preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded "><a href="why-is-it-needed.html"><strong aria-hidden="true">2.</strong> Why is it needed?</a></li><li class="chapter-item expanded "><a href="regexp-introduction.html"><strong aria-hidden="true">3.</strong> Regexp introduction</a></li><li class="chapter-item expanded "><a href="anchors.html"><strong aria-hidden="true">4.</strong> Anchors</a></li><li class="chapter-item expanded "><a href="alternation-and-grouping.html"><strong aria-hidden="true">5.</strong> Alternation and Grouping</a></li><li class="chapter-item expanded "><a href="escaping-metacharacters.html"><strong aria-hidden="true">6.</strong> Escaping metacharacters</a></li><li class="chapter-item expanded "><a href="dot-metacharacter-and-quantifiers.html"><strong aria-hidden="true">7.</strong> Dot metacharacter and Quantifiers</a></li><li class="chapter-item expanded "><a href="interlude-tools-for-debugging-and-visualization.html"><strong aria-hidden="true">8.</strong> Interlude: Tools for debugging and visualization</a></li><li class="chapter-item expanded "><a href="working-with-matched-portions.html" class="active"><strong aria-hidden="true">9.</strong> Working with matched portions</a></li><li class="chapter-item expanded "><a href="character-class.html"><strong aria-hidden="true">10.</strong> Character class</a></li><li class="chapter-item expanded "><a href="groupings-and-backreferences.html"><strong aria-hidden="true">11.</strong> Groupings and backreferences</a></li><li class="chapter-item expanded "><a href="interlude-common-tasks.html"><strong aria-hidden="true">12.</strong> Interlude: Common tasks</a></li><li class="chapter-item expanded "><a href="lookarounds.html"><strong aria-hidden="true">13.</strong> Lookarounds</a></li><li class="chapter-item expanded "><a href="modifiers.html"><strong aria-hidden="true">14.</strong> Modifiers</a></li><li class="chapter-item expanded "><a href="unicode.html"><strong aria-hidden="true">15.</strong> Unicode</a></li><li class="chapter-item expanded "><a href="further-reading.html"><strong aria-hidden="true">16.</strong> Further Reading</a></li><li class="chapter-item expanded "><a href="Exercise_solutions.html"><strong aria-hidden="true">17.</strong> Exercise Solutions</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                        
+                    </div>
+
+                    <h1 class="menu-title">Ruby Regexp</h1>
+
+                    <div class="right-buttons">
+                        
+                        <a href="https://github.com/learnbyexample/Ruby_Regexp" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#working-with-matched-portions" id="working-with-matched-portions">Working with matched portions</a></h1>
+<p>Having seen a few regexp features that can match varying text, you'll learn how to extract and work with those matching portions in this chapter. First, you'll learn about the <code>match</code> method and the resulting <code>MatchData</code> object. Then you'll learn about <code>scan</code> method and how capture groups affects <code>scan</code> and <code>split</code> methods. You'll also learn how to use global variables related to regexp.</p>
+<h2><a class="header" href="#match-method" id="match-method">match method</a></h2>
+<p>First up, the <code>match</code> method which is similar to <code>match?</code> method. Both these methods accept a regexp and an optional index to indicate the starting location. Furthermore, these methods treat a string argument as if it was a regexp all along (which is not the case with other string methods like <code>sub</code>, <code>split</code>, etc). The <code>match</code> method returns a <code>MatchData</code> object from which various details can be extracted like the matched portion of string, location of matched portion, etc. <code>nil</code> is returned if there's no match for the given regexp.</p>
+<pre><code class="language-ruby"># only the first matching portion is considered
+&gt;&gt; 'abc ac adc abbbc'.match(/ab*c/)
+=&gt; #&lt;MatchData &quot;abc&quot;&gt;
+# string argument is treated the same as a regexp
+&gt;&gt; 'abc ac adc abbbc'.match('a.*d')
+=&gt; #&lt;MatchData &quot;abc ac ad&quot;&gt;
+
+# second argument specifies starting location to search for a match
+&gt;&gt; 'abc ac adc abbbc'.match(/ab*c/, 7)
+=&gt; #&lt;MatchData &quot;abbbc&quot;&gt;
+</code></pre>
+<p>The regexp grouping inside <code>()</code> is also known as a <strong>capture group</strong>. It has multiple uses, one of which is the ability to work with matched portions of those groups. When capture groups are used with <code>match</code> method, they can be retrieved using array index slicing on the <code>MatchData</code> object. The first element is always the entire matched portion and rest of the elements are for capture groups if they are present. The leftmost <code>(</code> will get group number <code>1</code>, second leftmost <code>(</code> will get group number <code>2</code> and so on.</p>
+<pre><code class="language-ruby"># retrieving entire matched portion using [0] as index
+&gt;&gt; 'abc ac adc abbbc'.match(/a.*d/)[0]
+=&gt; &quot;abc ac ad&quot;
+
+# capture group example
+&gt;&gt; m = 'abc ac adc abbbc'.match(/a(.*)d(.*a)/)
+# entire matching portion and capture group portions
+&gt;&gt; m.to_a
+=&gt; [&quot;abc ac adc a&quot;, &quot;bc ac a&quot;, &quot;c a&quot;]
+# only the capture group portions
+&gt;&gt; m.captures
+=&gt; [&quot;bc ac a&quot;, &quot;c a&quot;]
+# getting a specific capture group portion
+&gt;&gt; m[1]
+=&gt; &quot;bc ac a&quot;
+</code></pre>
+<p>The <code>offset</code> method gives the <strong>starting</strong> and <strong>ending + 1</strong> indexes of the matching portion. It accepts an argument to indicate entire matching portion or specific capture group. You can also use <code>begin</code> and <code>end</code> methods to get either of those locations.</p>
+<pre><code class="language-ruby">&gt;&gt; m = 'awesome'.match(/w(.*)me/)
+
+&gt;&gt; m.offset(0)
+=&gt; [1, 7]
+&gt;&gt; m.offset(1)
+=&gt; [2, 5]
+
+&gt;&gt; m.begin(0)
+=&gt; 1
+&gt;&gt; m.end(1)
+=&gt; 5
+</code></pre>
+<blockquote>
+<p><img src="images/info.svg" alt="info" /> There are many more methods available. See <a href="https://ruby-doc.org/core-2.7.1/MatchData.html">ruby-doc: MatchData</a> for details.</p>
+</blockquote>
+<pre><code class="language-ruby">&gt;&gt; m = 'THIS is goodbye then'.match(/hi.*bye/i)
+
+&gt;&gt; m.regexp
+=&gt; /hi.*bye/i
+
+&gt;&gt; m.string
+=&gt; &quot;THIS is goodbye then&quot;
+</code></pre>
+<p><code>named_captures</code> method will be covered in <a href="./groupings-and-backreferences.html#named-capture-groups">Named capture groups</a> section.</p>
+<h2><a class="header" href="#match-method-with-block" id="match-method-with-block">match method with block</a></h2>
+<p>The <code>match</code> method also supports block form, which is executed only if the regexp matching succeeds.</p>
+<pre><code class="language-ruby">&gt;&gt; 'abc ac adc abbbc'.match(/a(.*)d(.*a)/) { |m| puts m[2], m[1] }
+c a
+bc ac a
+
+&gt;&gt; 'abc ac adc abbbc'.match(/xyz/) { 2 * 3 }
+=&gt; nil
+</code></pre>
+<h2><a class="header" href="#using-regexp-as-a-string-index" id="using-regexp-as-a-string-index">Using regexp as a string index</a></h2>
+<p>If you are a fan of code golfing, you can use a regexp inside <code>[]</code> on a string object to replicate some features of the <code>match</code> and <code>sub!</code> methods.</p>
+<pre><code class="language-ruby"># same as: match(/c.*d/)[0]
+&gt;&gt; 'abc ac adc abbbc'[/c.*d/]
+=&gt; &quot;c ac ad&quot;
+
+# same as: match(/a(.*)d(.*a)/)[1]
+&gt;&gt; 'abc ac adc abbbc'[/a(.*)d(.*a)/, 1]
+=&gt; &quot;bc ac a&quot;
+
+# same as: match(/ab*c/, 7)[0]
+&gt;&gt; 'abc ac adc abbbc'[7..][/ab*c/]
+=&gt; &quot;abbbc&quot;
+
+&gt;&gt; word = 'elephant'
+# same as: word.sub!(/e.*h/, 'w')
+&gt;&gt; word[/e.*h/] = 'w'
+=&gt; &quot;w&quot;
+&gt;&gt; word
+=&gt; &quot;want&quot;
+</code></pre>
+<h2><a class="header" href="#scan-method" id="scan-method">scan method</a></h2>
+<p>The <code>scan</code> method returns all the matched portions as an array. With <code>match</code> method you can get only the first matching portion.</p>
+<pre><code class="language-ruby">&gt;&gt; 'abc ac adc abbbc'.scan(/ab*c/)
+=&gt; [&quot;abc&quot;, &quot;ac&quot;, &quot;abbbc&quot;]
+
+&gt;&gt; 'abc ac adc abbbc'.scan(/ab+c/)
+=&gt; [&quot;abc&quot;, &quot;abbbc&quot;]
+
+&gt;&gt; 'par spar apparent spare part'.scan(/\bs?pare?\b/)
+=&gt; [&quot;par&quot;, &quot;spar&quot;, &quot;spare&quot;]
+</code></pre>
+<p>It is a useful method for debugging purposes as well, for example to see what is going on under the hood before applying substitution methods.</p>
+<pre><code class="language-ruby">&gt;&gt; 'that is quite a fabricated tale'.scan(/t.*a/)
+=&gt; [&quot;that is quite a fabricated ta&quot;]
+
+&gt;&gt; 'that is quite a fabricated tale'.scan(/t.*?a/)
+=&gt; [&quot;tha&quot;, &quot;t is quite a&quot;, &quot;ted ta&quot;]
+</code></pre>
+<p>If capture groups are used, each element of output will be an array of strings of all the capture groups. Text matched by regexp outside of capture groups won't be present in the output array. Also, you'll get an empty string if a particular capture group didn't match any character. See <a href="./groupings-and-backreferences.html#non-capturing-groups">Non-capturing groups</a> section if you need to use groupings without affecting <code>scan</code> output.</p>
+<pre><code class="language-ruby"># without capture groups
+&gt;&gt; 'abc ac adc abbc xabbbcz bbb bc abbbbbc'.scan(/ab*c/)
+=&gt; [&quot;abc&quot;, &quot;ac&quot;, &quot;abbc&quot;, &quot;abbbc&quot;, &quot;abbbbbc&quot;]
+# with single capture group
+&gt;&gt; 'abc ac adc abbc xabbbcz bbb bc abbbbbc'.scan(/a(b*)c/)
+=&gt; [[&quot;b&quot;], [&quot;&quot;], [&quot;bb&quot;], [&quot;bbb&quot;], [&quot;bbbbb&quot;]]
+
+# multiple capture groups
+# note that last date didn't match because there's no comma at the end
+# you'll later learn better ways to match such patterns
+&gt;&gt; '2020/04/25,1986/Mar/02,77/12/31'.scan(%r{(.*?)/(.*?)/(.*?),})
+=&gt; [[&quot;2020&quot;, &quot;04&quot;, &quot;25&quot;], [&quot;1986&quot;, &quot;Mar&quot;, &quot;02&quot;]]
+</code></pre>
+<p>Use block form to iterate over the matched portions.</p>
+<pre><code class="language-ruby">&gt;&gt; 'abc ac adc abbbc'.scan(/ab+c/) { |m| puts m.upcase }
+ABC
+ABBBC
+
+&gt;&gt; 'xx:yyy x: x:yy :y'.scan(/(x*):(y*)/) { |a, b| puts a.size + b.size }
+5
+1
+3
+1
+</code></pre>
+<h2><a class="header" href="#split-with-capture-groups" id="split-with-capture-groups">split with capture groups</a></h2>
+<p>Capture groups affects <code>split</code> method as well. If the regexp used to split contains capture groups, the portions matched by those groups will also be a part of the output array.</p>
+<pre><code class="language-ruby"># without capture group
+&gt;&gt; '31111111111251111426'.split(/1*4?2/)
+=&gt; [&quot;3&quot;, &quot;5&quot;, &quot;6&quot;]
+
+# to include the matching portions of the regexp as well in the output
+&gt;&gt; '31111111111251111426'.split(/(1*4?2)/)
+=&gt; [&quot;3&quot;, &quot;11111111112&quot;, &quot;5&quot;, &quot;111142&quot;, &quot;6&quot;]
+</code></pre>
+<p>If part of the regexp is outside a capture group, the text thus matched won't be in the output. If a capture group didn't participate, that element will be totally absent in the output.</p>
+<pre><code class="language-ruby"># here 4?2 is outside capture group, so that portion won't be in output
+&gt;&gt; '31111111111251111426'.split(/(1*)4?2/)
+=&gt; [&quot;3&quot;, &quot;1111111111&quot;, &quot;5&quot;, &quot;1111&quot;, &quot;6&quot;]
+
+# multiple capture groups example
+# note that the portion matched by b+ isn't present in the output
+&gt;&gt; '3.14aabccc42'.split(/(a+)b+(c+)/)
+=&gt; [&quot;3.14&quot;, &quot;aa&quot;, &quot;ccc&quot;, &quot;42&quot;]
+# here (4)? matches zero times on the first occasion, thus absent
+&gt;&gt; '31111111111251111426'.split(/(1*)(4)?2/)
+=&gt; [&quot;3&quot;, &quot;1111111111&quot;, &quot;5&quot;, &quot;1111&quot;, &quot;4&quot;, &quot;6&quot;]
+</code></pre>
+<p>Use of capture groups and optional limit as 2 gives behavior similar to <code>partition</code> method.</p>
+<pre><code class="language-ruby"># same as: partition(/a+b+c+/)
+&gt;&gt; '3.14aabccc42abc88'.split(/(a+b+c+)/, 2)
+=&gt; [&quot;3.14&quot;, &quot;aabccc&quot;, &quot;42abc88&quot;]
+</code></pre>
+<h2><a class="header" href="#regexp-global-variables" id="regexp-global-variables">regexp global variables</a></h2>
+<p>An expression involving regexp also sets regexp related global variables, except for the <code>match?</code> method. Assume <code>m</code> is a <code>MatchData</code> object in the below description of four of the regexp related global variables.</p>
+<ul>
+<li><code>$~</code> contains <code>MatchData</code> object, same as <code>m</code></li>
+<li><code>$`</code> string before the matched portion, same as <code>m.pre_match</code></li>
+<li><code>$&amp;</code> matched portion, same as <code>m[0]</code></li>
+<li><code>$'</code> string after the matched portion, same as <code>m.post_match</code></li>
+</ul>
+<p>Here's an example:</p>
+<pre><code class="language-ruby">&gt;&gt; sentence = 'that is quite a fabricated tale'
+&gt;&gt; sentence =~ /q.*b/
+=&gt; 8
+
+&gt;&gt; $~
+=&gt; #&lt;MatchData &quot;quite a fab&quot;&gt;
+&gt;&gt; $~[0]
+=&gt; &quot;quite a fab&quot;
+&gt;&gt; $`
+=&gt; &quot;that is &quot;
+&gt;&gt; $&amp;
+=&gt; &quot;quite a fab&quot;
+&gt;&gt; $'
+=&gt; &quot;ricated tale&quot;
+</code></pre>
+<p>For methods that match multiple times, like <code>scan</code> and <code>gsub</code>, the global variables will be updated for each match. Referring to them in later instructions will give you information only for the final match.</p>
+<pre><code class="language-ruby"># same as: { |m| puts m.upcase }
+&gt;&gt; 'abc ac adc abbbc'.scan(/ab+c/) { puts $&amp;.upcase }
+ABC
+ABBBC
+
+# using 'gsub' for illustration purpose, can also use 'scan'
+&gt;&gt; 'abc ac adc abbbc'.gsub(/ab+c/) { puts $~.begin(0) }
+0
+11
+
+# using global variables afterwards will give info only for the final match
+&gt;&gt; $~
+=&gt; #&lt;MatchData &quot;abbbc&quot;&gt;
+&gt;&gt; $`
+=&gt; &quot;abc ac adc &quot;
+</code></pre>
+<blockquote>
+<p><img src="images/warning.svg" alt="warning" /> If you need to apply methods like <code>map</code> and use regexp global variables, use <code>gsub</code> instead of <code>scan</code>.</p>
+</blockquote>
+<pre><code class="language-ruby">&gt;&gt; sentence = 'that is quite a fabricated tale'
+
+# you'll only get information for last match with 'scan'
+&gt;&gt; sentence.scan(/t.*?a/).map { $~.begin(0) }
+=&gt; [23, 23, 23]
+# 'gsub' will get you information for each match
+&gt;&gt; sentence.gsub(/t.*?a/).map { $~.begin(0) }
+=&gt; [0, 3, 23]
+</code></pre>
+<p>In addition to using <code>$~</code>, you can also use <code>$N</code> where N is the capture group you want. <code>$1</code> will have string matched by the first group, <code>$2</code> will have string matched by the second group and so on. As a special case, <code>$+</code> will have string matched by the last group. Default value is <code>nil</code> if that particular capture group wasn't used in the regexp.</p>
+<pre><code class="language-ruby">&gt;&gt; sentence = 'that is quite a fabricated tale'
+
+&gt;&gt; sentence =~ /a.*(q.*(f.*b).*c)(.*a)/
+=&gt; 2
+
+&gt;&gt; $&amp;
+=&gt; &quot;at is quite a fabricated ta&quot;
+# same as $~[1]
+&gt;&gt; $1
+=&gt; &quot;quite a fabric&quot;
+&gt;&gt; $2
+=&gt; &quot;fab&quot;
+&gt;&gt; $+
+=&gt; &quot;ated ta&quot;
+&gt;&gt; $4
+=&gt; nil
+
+# $~ is handy if array slicing, negative index, etc are needed
+&gt;&gt; $~[-2]
+=&gt; &quot;fab&quot;
+&gt;&gt; $~.values_at(1, 3)
+=&gt; [&quot;quite a fabric&quot;, &quot;ated ta&quot;]
+</code></pre>
+<h2><a class="header" href="#using-hashes" id="using-hashes">Using hashes</a></h2>
+<p>With the help of block form and global variables, you can use a hash variable to determine the replacement string based on the matched text. If the requirement is as simple as passing entire matched portion to the hash variable, both <code>sub</code> and <code>gsub</code> methods accept a hash instead of string in replacement section.</p>
+<pre><code class="language-ruby"># one to one mappings
+&gt;&gt; h = { '1' =&gt; 'one', '2' =&gt; 'two', '4' =&gt; 'four' }
+
+# same as: '9234012'.gsub(/1|2|4/) { h[$&amp;] }
+&gt;&gt; '9234012'.gsub(/1|2|4/, h)
+=&gt; &quot;9two3four0onetwo&quot;
+
+# if the matched text doesn't exist as a key, default value will be used
+&gt;&gt; h.default = 'X'
+&gt;&gt; '9234012'.gsub(/./, h)
+=&gt; &quot;XtwoXfourXonetwo&quot;
+</code></pre>
+<p>For swapping two or more strings without using intermediate result, using a hash object is recommended.</p>
+<pre><code class="language-ruby">&gt;&gt; swap = { 'cat' =&gt; 'tiger', 'tiger' =&gt; 'cat' }
+
+&gt;&gt; 'cat tiger dog tiger cat'.gsub(/cat|tiger/, swap)
+=&gt; &quot;tiger cat dog cat tiger&quot;
+</code></pre>
+<p>For hashes that have many entries and likely to undergo changes during development, building alternation list manually is not a good choice. Also, recall that as per precedence rules, longest length string should come first.</p>
+<pre><code class="language-ruby">&gt;&gt; h = { 'hand' =&gt; 1, 'handy' =&gt; 2, 'handful' =&gt; 3, 'a^b' =&gt; 4 }
+
+&gt;&gt; pat = Regexp.union(h.keys.sort_by { |w| -w.length })
+&gt;&gt; pat
+=&gt; /handful|handy|hand|a\^b/
+
+&gt;&gt; 'handful hand pin handy (a^b)'.gsub(pat, h)
+=&gt; &quot;3 1 pin 2 (4)&quot;
+</code></pre>
+<h2><a class="header" href="#substitution-in-conditional-expression" id="substitution-in-conditional-expression">Substitution in conditional expression</a></h2>
+<p>The <code>sub!</code> and <code>gsub!</code> methods return <code>nil</code> if substitution fails. That makes them usable as part of a conditional expression leading to creative and terser solutions.</p>
+<pre><code class="language-ruby">&gt;&gt; num = '4'
+&gt;&gt; puts &quot;#{num} apples&quot; if num.sub!(/5/) { $&amp;.to_i ** 2 }
+=&gt; nil
+&gt;&gt; puts &quot;#{num} apples&quot; if num.sub!(/4/) { $&amp;.to_i ** 2 }
+16 apples
+
+&gt;&gt; word, cnt = ['coffining', 0]
+&gt;&gt; cnt += 1 while word.sub!(/fin/, '')
+=&gt; nil
+&gt;&gt; [word, cnt]
+=&gt; [&quot;cog&quot;, 2]
+</code></pre>
+<h2><a class="header" href="#cheatsheet-and-summary" id="cheatsheet-and-summary">Cheatsheet and Summary</a></h2>
+<table><thead><tr><th>Note</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>s.match(/pat/)</code></td><td>returns a <code>MatchData</code> object</td></tr>
+<tr><td></td><td>which has details like matched portions, location, etc</td></tr>
+<tr><td></td><td><code>match</code> and <code>match?</code> methods treat string arg as regexp</td></tr>
+<tr><td><code>m[0]</code></td><td>entire matched portion of <code>MatchData</code> object <code>m</code></td></tr>
+<tr><td><code>m[1]</code></td><td>matched portion of first capture group</td></tr>
+<tr><td><code>m[2]</code></td><td>matched portion of second capture group and so on</td></tr>
+<tr><td><code>m.to_a</code></td><td>array of entire matched portion and capture groups</td></tr>
+<tr><td><code>m.captures</code></td><td>array of only the capture group portions</td></tr>
+<tr><td><code>m.offset(N)</code></td><td>array of start and end+1 index of <em>N</em>th group</td></tr>
+<tr><td><code>m.begin(N)</code></td><td>start index of <em>N</em>th group</td></tr>
+<tr><td><code>m.end(N)</code></td><td>end+1 index of <em>N</em>th group</td></tr>
+<tr><td><code>s[/pat/]</code></td><td>same as <code>s.match(/pat/)[0]</code></td></tr>
+<tr><td><code>s[/pat/, N]</code></td><td>same as <code>s.match(/pat/)[N]</code></td></tr>
+<tr><td><code>s[/pat/] = 'replace'</code></td><td>same as <code>s.sub!(/pat/, 'replace')</code></td></tr>
+<tr><td><code>s.scan(/pat/)</code></td><td>returns all the matches as an array</td></tr>
+<tr><td></td><td>if capture group(s) is used, only its matches are returned</td></tr>
+<tr><td></td><td>each element will be array of capture group(s) matches</td></tr>
+<tr><td></td><td><code>match</code> and <code>scan</code> methods also support block form</td></tr>
+<tr><td><code>split</code></td><td>capture groups affects <code>split</code> method too</td></tr>
+<tr><td></td><td>text matched by the groups will be part of the output</td></tr>
+<tr><td></td><td>portion matched by pattern outside group won't be in output</td></tr>
+<tr><td></td><td>group that didn't match will be absent from the output</td></tr>
+<tr><td><code>$~</code></td><td>contains <code>MatchData</code> object</td></tr>
+<tr><td><code>$`</code></td><td>string before the matched portion</td></tr>
+<tr><td><code>$&amp;</code></td><td>matched portion</td></tr>
+<tr><td><code>$'</code></td><td>string after the matched portion</td></tr>
+<tr><td><code>$N</code></td><td>matched portion of <em>N</em>th capture group</td></tr>
+<tr><td><code>$+</code></td><td>matched portion of last group</td></tr>
+<tr><td><code>s.gsub(/pat/, h)</code></td><td>replacement string based on the matched text as hash key</td></tr>
+<tr><td></td><td>applicable to <code>sub</code> method as well</td></tr>
+<tr><td>inplace substitution</td><td><code>sub!</code> and <code>gsub!</code> return <code>nil</code> if substitution fails</td></tr>
+<tr><td></td><td>makes them usable as part of a conditional expression</td></tr>
+<tr><td></td><td>ex: <code>cnt += 1 while word.sub!(/fin/, '')</code></td></tr>
+</tbody></table>
+<p>This chapter introduced different ways to work with various matching portions of input string. The <code>match</code> method returns a <code>MatchData</code> object that helps you get the portion matched by the regexp, capture groups, location of the match, etc. To get all the matching portions as an array of strings instead of just the first match, you can use <code>scan</code> method. You also learnt how capture groups affect the output of <code>scan</code> and <code>split</code> methods. You'll see many more uses of groupings in coming chapters. All regexp usage also sets global variables (except the <code>match?</code> method) which provides information similar to <code>MatchData</code> object. You also learnt tricks like passing blocks to methods, using hash as a source of replacement string, regexp as string index, etc.</p>
+<h2><a class="header" href="#exercises" id="exercises">Exercises</a></h2>
+<p><strong>a)</strong> For the given strings, extract the matching portion from first <code>is</code> to last <code>t</code>.</p>
+<pre><code class="language-ruby">&gt;&gt; str1 = 'This the biggest fruit you have seen?'
+&gt;&gt; str2 = 'Your mission is to read and practice consistently'
+
+&gt;&gt; pat =        ##### add your solution here
+
+##### add your solution here for str1
+=&gt; &quot;is the biggest fruit&quot;
+##### add your solution here for str2
+=&gt; &quot;ission is to read and practice consistent&quot;
+</code></pre>
+<p><strong>b)</strong> Find the starting index of first occurrence of <code>is</code> or <code>the</code> or <code>was</code> or <code>to</code> for the given input strings.</p>
+<pre><code class="language-ruby">&gt;&gt; s1 = 'match after the last newline character'
+&gt;&gt; s2 = 'and then you want to test'
+&gt;&gt; s3 = 'this is good bye then'
+&gt;&gt; s4 = 'who was there to see?'
+
+&gt;&gt; pat =        ##### add your solution here
+
+##### add your solution here for s1
+=&gt; 12
+##### add your solution here for s2
+=&gt; 4
+##### add your solution here for s3
+=&gt; 2
+##### add your solution here for s4
+=&gt; 4
+</code></pre>
+<p><strong>c)</strong> Find the starting index of last occurrence of <code>is</code> or <code>the</code> or <code>was</code> or <code>to</code> for the given input strings.</p>
+<pre><code class="language-ruby">&gt;&gt; s1 = 'match after the last newline character'
+&gt;&gt; s2 = 'and then you want to test'
+&gt;&gt; s3 = 'this is good bye then'
+&gt;&gt; s4 = 'who was there to see?'
+
+&gt;&gt; pat =        ##### add your solution here
+
+##### add your solution here for s1
+=&gt; 12
+##### add your solution here for s2
+=&gt; 18
+##### add your solution here for s3
+=&gt; 17
+##### add your solution here for s4
+=&gt; 14
+</code></pre>
+<p><strong>d)</strong> The given input string contains <code>:</code> exactly once. Extract all characters after the <code>:</code> as output.</p>
+<pre><code class="language-ruby">&gt;&gt; ip = 'fruits:apple, mango, guava, blueberry'
+
+##### add your solution here
+'apple, mango, guava, blueberry'
+</code></pre>
+<p><strong>e)</strong> The given input strings contains some text followed by <code>-</code> followed by a number. Replace that number with its <code>log</code> value using <code>Math.log()</code>.</p>
+<pre><code class="language-ruby">&gt;&gt; s1 = 'first-3.14'
+&gt;&gt; s2 = 'next-123'
+
+&gt;&gt; pat =        ##### add your solution here
+
+##### add your solution here for s1
+=&gt; &quot;first-1.144222799920162&quot;
+##### add your solution here for s2
+=&gt; &quot;next-4.812184355372417&quot;
+</code></pre>
+<p><strong>f)</strong> Replace all occurrences of <code>par</code> with <code>spar</code>, <code>spare</code> with <code>extra</code> and <code>park</code> with <code>garden</code> for the given input strings.</p>
+<pre><code class="language-ruby">&gt;&gt; str1 = 'apartment has a park'
+&gt;&gt; str2 = 'do you have a spare cable'
+&gt;&gt; str3 = 'write a parser'
+
+##### add your solution here for str1
+=&gt; &quot;aspartment has a garden&quot;
+##### add your solution here for str2
+=&gt; &quot;do you have a extra cable&quot;
+##### add your solution here for str3
+=&gt; &quot;write a sparser&quot;
+</code></pre>
+<p><strong>g)</strong> Extract all words between <code>(</code> and <code>)</code> from the given input string as an array. Assume that the input will not contain any broken parentheses.</p>
+<pre><code class="language-ruby">&gt;&gt; ip = 'another (way) to reuse (portion) matched (by) capture groups'
+
+# as nested array output
+##### add your solution here
+=&gt; [[&quot;way&quot;], [&quot;portion&quot;], [&quot;by&quot;]]
+
+# as array of strings output
+##### add your solution here
+=&gt; [&quot;way&quot;, &quot;portion&quot;, &quot;by&quot;]
+</code></pre>
+<p><strong>h)</strong> Extract all occurrences of <code>&lt;</code> up to next occurrence of <code>&gt;</code>, provided there is at least one character in between <code>&lt;</code> and <code>&gt;</code>.</p>
+<pre><code class="language-ruby">&gt;&gt; ip = 'a&lt;apple&gt; 1&lt;&gt; b&lt;bye&gt; 2&lt;&gt; c&lt;cat&gt;'
+
+##### add your solution here
+=&gt; [&quot;&lt;apple&gt;&quot;, &quot;&lt;&gt; b&lt;bye&gt;&quot;, &quot;&lt;&gt; c&lt;cat&gt;&quot;]
+</code></pre>
+<p><strong>i)</strong> Use <code>scan</code> to get the output as shown below for the given input strings. Note the characters used in the input strings carefully.</p>
+<pre><code class="language-ruby">&gt;&gt; row1 = '-2,5 4,+3 +42,-53 4356246,-357532354 '
+&gt;&gt; row2 = '1.32,-3.14 634,5.63 63.3e3,9907809345343.235 '
+
+&gt;&gt; pat =        ##### add your solution here
+
+&gt;&gt; row1.scan(pat)
+=&gt; [[&quot;-2&quot;, &quot;5&quot;], [&quot;4&quot;, &quot;+3&quot;], [&quot;+42&quot;, &quot;-53&quot;], [&quot;4356246&quot;, &quot;-357532354&quot;]]
+&gt;&gt; row2.scan(pat)
+=&gt; [[&quot;1.32&quot;, &quot;-3.14&quot;], [&quot;634&quot;, &quot;5.63&quot;], [&quot;63.3e3&quot;, &quot;9907809345343.235&quot;]]
+</code></pre>
+<p><strong>j)</strong> This is an extension to the previous question.</p>
+<ul>
+<li>For <code>row1</code>, find the sum of integers of each array element. For example, sum of <code>-2</code> and <code>5</code> is <code>3</code>.</li>
+<li>For <code>row2</code>, find the sum of floating-point numbers of each array element. For example, sum of <code>1.32</code> and <code>-3.14</code> is <code>-1.82</code>.</li>
+</ul>
+<pre><code class="language-ruby">&gt;&gt; row1 = '-2,5 4,+3 +42,-53 4356246,-357532354 '
+&gt;&gt; row2 = '1.32,-3.14 634,5.63 63.3e3,9907809345343.235 '
+
+# should be same as previous question
+&gt;&gt; pat =        ##### add your solution here
+
+##### add your solution here for row1
+=&gt; [3, 7, -11, -353176108]
+
+##### add your solution here for row2
+=&gt; [-1.82, 639.63, 9907809408643.234]
+</code></pre>
+<p><strong>k)</strong> Use <code>split</code> method to get the output as shown below.</p>
+<pre><code class="language-ruby">&gt;&gt; ip = '42:no-output;1000:car-truck;SQEX49801'
+
+&gt;&gt; ip.split()       ##### add your solution here
+=&gt; [&quot;42&quot;, &quot;output&quot;, &quot;1000&quot;, &quot;truck&quot;, &quot;SQEX49801&quot;]
+</code></pre>
+<p><strong>l)</strong> Convert the comma separated strings to corresponding <code>hash</code> objects as shown below. Note that the input strings have an extra <code>,</code> at the end.</p>
+<pre><code class="language-ruby">&gt;&gt; row1 = 'name:rohan,maths:75,phy:89,'
+&gt;&gt; row2 = 'name:rose,maths:88,phy:92,'
+
+&gt;&gt; pat =        ##### add your solution here
+
+##### add your solution here for row1
+=&gt; {&quot;name&quot;=&gt;&quot;rohan&quot;, &quot;maths&quot;=&gt;&quot;75&quot;, &quot;phy&quot;=&gt;&quot;89&quot;}
+##### add your solution here for row2
+=&gt; {&quot;name&quot;=&gt;&quot;rose&quot;, &quot;maths&quot;=&gt;&quot;88&quot;, &quot;phy&quot;=&gt;&quot;92&quot;}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="interlude-tools-for-debugging-and-visualization.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="character-class.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a rel="prev" href="interlude-tools-for-debugging-and-visualization.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="character-class.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
