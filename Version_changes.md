@@ -1,5 +1,19 @@
 <br>
 
+### 2.5
+
+* Added **epub** version of the book
+* Added real world regular expressions usage examples and overview of book in introduction chapter
+* Added plenty of new exercises, perhaps too many
+* Updated and clarified descriptions for many concepts, too many changes to list individually
+* Added separate section about escape sequences and differences compared to string literals, added details for `\R` character set
+* Added two interlude chapters to highlight external resources
+* Removed chapters *Miscellaneous* and *Gotchas* and merged their contents in other chapters
+* Added section for conditional group `(?(cond)yes-subexp|no-subexp)`
+* And many more typo corrections and miscellaneous changes
+
+<br>
+
 ### 2.1
 
 * corrected formatting in a code snippet comment
