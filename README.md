@@ -1,6 +1,6 @@
 # Ruby Regexp
 
-Learn Ruby Regexp step by step from beginner to advanced levels with 200+ examples
+Learn Ruby Regexp step by step from beginner to advanced levels with hundreds of examples and exercises
 
 <p align="center">
     <img src="./images/Ruby_regexp.png" width="320px" height="400px" />
@@ -8,6 +8,8 @@ Learn Ruby Regexp step by step from beginner to advanced levels with 200+ exampl
 
 The book also includes exercises to test your understanding, which is presented together
 as a single file in this repo - [Exercises.md](./exercises/Exercises.md)
+
+For solutions to the exercises, see [Exercise_solutions.md](./exercises/Exercise_solutions.md).
 
 See [Version_changes.md](./Version_changes.md) to keep track of changes made to the book.
 
@@ -22,6 +24,8 @@ See [Version_changes.md](./Version_changes.md) to keep track of changes made to 
     * **Awesome Regex** bundle from https://leanpub.com/b/regex or https://gumroad.com/l/regex
     * **(Python|Ruby) regex** bundle from https://leanpub.com/b/pythonrubyregex
 * See https://learnbyexample.github.io/books/ for list of other books
+
+For a preview of the book, see [sample chapters](./sample_chapters/ruby_regexp_sample.pdf)
 
 The book can also be [viewed as a single markdown file in this repo](./ruby_regexp.md). See my blogpost on [generating pdf from markdown using pandoc](https://learnbyexample.github.io/tutorial/ebook-generation/customizing-pandoc/) if you are interested in the ebook creation process.
 
@@ -43,19 +47,19 @@ Twitter: https://twitter.com/learn_byexample
 
 1. Preface
 2. Why is it needed?
-3. Regexp literal and operators
+3. Regexp introduction
 4. Anchors
 5. Alternation and Grouping
 6. Escaping metacharacters
 7. Dot metacharacter and Quantifiers
-8. Working with matched portions
-9. Character class
-10. Groupings and backreferences
-11. Lookarounds
-12. Modifiers
-13. String Encoding
-14. Miscellaneous
-15. Gotchas
+8. Interlude: Tools for debugging and visualization
+9. Working with matched portions
+10. Character class
+11. Groupings and backreferences
+12. Interlude: Common tasks
+13. Lookarounds
+14. Modifiers
+15. Unicode
 16. Further Reading
 
 <br>
@@ -63,7 +67,7 @@ Twitter: https://twitter.com/learn_byexample
 ## Acknowledgements
 
 * [ruby-lang documentation](https://www.ruby-lang.org/en/documentation/) — manuals and tutorials
-* [/r/ruby/](https://www.reddit.com/r/ruby/) — helpful forum for beginners and experienced programmers alike
+* [/r/ruby/](https://www.reddit.com/r/ruby/) and [/r/regex/](https://www.reddit.com/r/regex/) — helpful forum for beginners and experienced programmers alike
 * [stackoverflow](https://stackoverflow.com/) — for getting answers to pertinent questions on Ruby and regular expressions
 * [tex.stackexchange](https://tex.stackexchange.com/) — for help on `pandoc` and `tex` related questions
 * Cover image:
