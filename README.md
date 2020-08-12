@@ -29,6 +29,8 @@ For a preview of the book, see [sample chapters](./sample_chapters/ruby_regexp_s
 
 The book can also be [viewed as a single markdown file in this repo](./ruby_regexp.md). See my blogpost on [generating pdf from markdown using pandoc](https://learnbyexample.github.io/tutorial/ebook-generation/customizing-pandoc/) if you are interested in the ebook creation process.
 
+For online `html` version of the book, visit https://learnbyexample.github.io/Ruby_Regexp/
+
 <br>
 
 # Feedback
@@ -76,6 +78,7 @@ Twitter: https://twitter.com/learn_byexample
     * [wand icon](https://www.iconfinder.com/icons/1679640/design_magic_magician_tool_wand_icon) by [roundicons.com](https://www.iconfinder.com/roundicons)
 * [Warning](https://commons.wikimedia.org/wiki/File:Warning_icon.svg) and [Info](https://commons.wikimedia.org/wiki/File:Info_icon_002.svg) icons by [Amada44](https://commons.wikimedia.org/wiki/User:Amada44) under public domain
 * [softwareengineering.stackexchange](https://softwareengineering.stackexchange.com/questions/39/whats-your-favourite-quote-about-programming) and [skolakoda](https://skolakoda.org/programming-quotes) for programming quotes
+* [mdBook](https://github.com/rust-lang/mdBook) — for `html` version of the book
 
 Special thanks to Allen Downey, an attempt at translating his book [Think Python](https://greenteapress.com/wp/think-python-2e/) to [Think Ruby](https://github.com/learnbyexample/ThinkRubyBuild) gave me the confidence to publish my own book.
 
