@@ -17,8 +17,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff" />
 
+        
         <link rel="icon" href="favicon.svg">
+        
+        
         <link rel="shortcut icon" href="favicon.png">
+        
         <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
@@ -457,7 +461,7 @@ one,2,3.14,&quot;42&quot;,five
 <tr><td></td><td>negative is relative, <code>-1</code> indicates closest group to the left of reference</td></tr>
 <tr><td><code>\g&lt;N&gt;</code></td><td>subexpression call for Nth capture group</td></tr>
 <tr><td></td><td>applicable only in regexp definition, recursion also possible</td></tr>
-<tr><td></td><td>ex: <code>/\((?:[^()]++\|\g&lt;0&gt;)++\)/</code> matches nested parentheses</td></tr>
+<tr><td></td><td>ex: <code>/\((?:[^()]++|\g&lt;0&gt;)++\)/</code> matches nested parentheses</td></tr>
 <tr><td><code>(?:pat)</code></td><td>non-capturing group</td></tr>
 <tr><td></td><td>useful wherever grouping is required, but not backreference</td></tr>
 <tr><td><code>(?&lt;name&gt;pat)</code></td><td>named capture group</td></tr>
@@ -467,7 +471,7 @@ one,2,3.14,&quot;42&quot;,five
 <tr><td><code>/pat/ =~ s</code></td><td>named capture groups here will create variables with those names</td></tr>
 <tr><td><code>named_captures</code></td><td>method applied on a <code>MatchData</code> object</td></tr>
 <tr><td></td><td>gives named capture group portions as a <code>hash</code> object</td></tr>
-<tr><td><code>(?(cond)yes\|no)</code></td><td>conditional group</td></tr>
+<tr><td><code>(?(cond)yes|no)</code></td><td>conditional group</td></tr>
 <tr><td></td><td>match <code>yes-subexp</code> if backreferenced group succeeded</td></tr>
 <tr><td></td><td>else, match <code>no-subexp</code> which is optional</td></tr>
 </tbody></table>
