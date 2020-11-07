@@ -1,60 +1,7 @@
-<!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
-    <head>
-        <!-- Book generated using mdBook -->
-        <meta charset="UTF-8">
-        <title>Alternation and Grouping - Ruby Regexp</title>
-        
-        
-
-
-        <!-- Custom HTML head -->
-        
-
-
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="Example based guide to mastering Ruby Regexp">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
-
-        
-        <link rel="icon" href="favicon.svg">
-        
-        
-        <link rel="shortcut icon" href="favicon.png">
-        
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
-
-        <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        
-        <link rel="stylesheet" href="fonts/fonts.css">
-        
-
-        <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
-
-        <!-- Custom theme stylesheets -->
-        
-        <link rel="stylesheet" href="custom.css">
-        
-
-        
-    </head>
-    <body>
-        <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+<!DOCTYPE HTML><html lang=en class="sidebar-visible no-js light"><head><meta charset=UTF-8><title>Alternation and Grouping - Ruby Regexp</title><meta content="text/html; charset=utf-8"http-equiv=Content-Type><meta name=description content="Example based guide to mastering Ruby Regexp"><meta name=viewport content="width=device-width, initial-scale=1"><meta name=theme-color content=#ffffff><link rel=icon href=favicon.svg><link rel="shortcut icon"href=favicon.png><link rel=stylesheet href=css/variables.css><link rel=stylesheet href=css/general.css><link rel=stylesheet href=css/chrome.css><link rel=stylesheet href=FontAwesome/css/font-awesome.css><link rel=stylesheet href=fonts/fonts.css><link rel=stylesheet href=highlight.css><link rel=stylesheet href=tomorrow-night.css><link rel=stylesheet href=ayu-highlight.css><link rel=stylesheet href=style.css><body><script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
-        </script>
-
-        <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        </script><script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -67,10 +14,7 @@
                     localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
                 }
             } catch (e) { }
-        </script>
-
-        <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        </script><script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -79,10 +23,7 @@
             html.classList.remove('light')
             html.classList.add(theme);
             html.classList.add('js');
-        </script>
-
-        <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        </script><script>
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -91,339 +32,150 @@
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
-        </script>
-
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="cover.html">Cover</a></li><li class="chapter-item expanded affix "><a href="buy.html">Buy PDF/EPUB versions</a></li><li class="chapter-item expanded "><a href="preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded "><a href="why-is-it-needed.html"><strong aria-hidden="true">2.</strong> Why is it needed?</a></li><li class="chapter-item expanded "><a href="regexp-introduction.html"><strong aria-hidden="true">3.</strong> Regexp introduction</a></li><li class="chapter-item expanded "><a href="anchors.html"><strong aria-hidden="true">4.</strong> Anchors</a></li><li class="chapter-item expanded "><a href="alternation-and-grouping.html" class="active"><strong aria-hidden="true">5.</strong> Alternation and Grouping</a></li><li class="chapter-item expanded "><a href="escaping-metacharacters.html"><strong aria-hidden="true">6.</strong> Escaping metacharacters</a></li><li class="chapter-item expanded "><a href="dot-metacharacter-and-quantifiers.html"><strong aria-hidden="true">7.</strong> Dot metacharacter and Quantifiers</a></li><li class="chapter-item expanded "><a href="interlude-tools-for-debugging-and-visualization.html"><strong aria-hidden="true">8.</strong> Interlude: Tools for debugging and visualization</a></li><li class="chapter-item expanded "><a href="working-with-matched-portions.html"><strong aria-hidden="true">9.</strong> Working with matched portions</a></li><li class="chapter-item expanded "><a href="character-class.html"><strong aria-hidden="true">10.</strong> Character class</a></li><li class="chapter-item expanded "><a href="groupings-and-backreferences.html"><strong aria-hidden="true">11.</strong> Groupings and backreferences</a></li><li class="chapter-item expanded "><a href="interlude-common-tasks.html"><strong aria-hidden="true">12.</strong> Interlude: Common tasks</a></li><li class="chapter-item expanded "><a href="lookarounds.html"><strong aria-hidden="true">13.</strong> Lookarounds</a></li><li class="chapter-item expanded "><a href="modifiers.html"><strong aria-hidden="true">14.</strong> Modifiers</a></li><li class="chapter-item expanded "><a href="unicode.html"><strong aria-hidden="true">15.</strong> Unicode</a></li><li class="chapter-item expanded "><a href="further-reading.html"><strong aria-hidden="true">16.</strong> Further Reading</a></li><li class="chapter-item expanded "><a href="Exercise_solutions.html"><strong aria-hidden="true">17.</strong> Exercise Solutions</a></li></ol>
-            </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
-        </nav>
-
-        <div id="page-wrapper" class="page-wrapper">
-
-            <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
-                    <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
-                        </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                        </ul>
-                        
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
-                        </button>
-                        
-                    </div>
-
-                    <h1 class="menu-title">Ruby Regexp</h1>
-
-                    <div class="right-buttons">
-                        
-                        <a href="https://github.com/learnbyexample/Ruby_Regexp" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
-                        </a>
-                        
-                    </div>
-                </div>
-
-                
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
-                    </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
-                        </ul>
-                    </div>
-                </div>
-                
-
-                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+        </script><nav id=sidebar class=sidebar aria-label="Table of contents"><div class=sidebar-scrollbox><ol class=chapter><li class="chapter-item expanded affix"><a href=cover.html>Cover</a><li class="chapter-item expanded affix"><a href=buy.html>Buy PDF/EPUB versions</a><li class="chapter-item expanded"><a href=preface.html><strong aria-hidden=true>1.</strong> Preface</a><li class="chapter-item expanded"><a href=why-is-it-needed.html><strong aria-hidden=true>2.</strong> Why is it needed?</a><li class="chapter-item expanded"><a href=regexp-introduction.html><strong aria-hidden=true>3.</strong> Regexp introduction</a><li class="chapter-item expanded"><a href=anchors.html><strong aria-hidden=true>4.</strong> Anchors</a><li class="chapter-item expanded"><a href=alternation-and-grouping.html class=active><strong aria-hidden=true>5.</strong> Alternation and Grouping</a><li class="chapter-item expanded"><a href=escaping-metacharacters.html><strong aria-hidden=true>6.</strong> Escaping metacharacters</a><li class="chapter-item expanded"><a href=dot-metacharacter-and-quantifiers.html><strong aria-hidden=true>7.</strong> Dot metacharacter and Quantifiers</a><li class="chapter-item expanded"><a href=interlude-tools-for-debugging-and-visualization.html><strong aria-hidden=true>8.</strong> Interlude: Tools for debugging and visualization</a><li class="chapter-item expanded"><a href=working-with-matched-portions.html><strong aria-hidden=true>9.</strong> Working with matched portions</a><li class="chapter-item expanded"><a href=character-class.html><strong aria-hidden=true>10.</strong> Character class</a><li class="chapter-item expanded"><a href=groupings-and-backreferences.html><strong aria-hidden=true>11.</strong> Groupings and backreferences</a><li class="chapter-item expanded"><a href=interlude-common-tasks.html><strong aria-hidden=true>12.</strong> Interlude: Common tasks</a><li class="chapter-item expanded"><a href=lookarounds.html><strong aria-hidden=true>13.</strong> Lookarounds</a><li class="chapter-item expanded"><a href=modifiers.html><strong aria-hidden=true>14.</strong> Modifiers</a><li class="chapter-item expanded"><a href=unicode.html><strong aria-hidden=true>15.</strong> Unicode</a><li class="chapter-item expanded"><a href=further-reading.html><strong aria-hidden=true>16.</strong> Further Reading</a><li class="chapter-item expanded"><a href=Exercise_solutions.html><strong aria-hidden=true>17.</strong> Exercise Solutions</a></ol></div><div id=sidebar-resize-handle class=sidebar-resize-handle></div></nav><div id=page-wrapper class=page-wrapper><div class=page><div id=menu-bar-hover-placeholder></div><div id=menu-bar class="menu-bar sticky bordered"><div class=left-buttons><button id=sidebar-toggle class=icon-button type=button title="Toggle Table of Contents"aria-label="Toggle Table of Contents"aria-controls=sidebar><i class="fa fa-bars"></i></button><button id=theme-toggle class=icon-button type=button title="Change theme"aria-label="Change theme"aria-haspopup=true aria-expanded=false aria-controls=theme-list><i class="fa fa-paint-brush"></i></button><ul id=theme-list class=theme-popup aria-label=Themes role=menu><li role=none><button role=menuitem class=theme id=light>Light (default)</button><li role=none><button role=menuitem class=theme id=rust>Rust</button><li role=none><button role=menuitem class=theme id=coal>Coal</button><li role=none><button role=menuitem class=theme id=navy>Navy</button><li role=none><button role=menuitem class=theme id=ayu>Ayu</button></ul><button id=search-toggle class=icon-button type=button title="Search. (Shortkey: s)"aria-label="Toggle Searchbar"aria-expanded=false aria-keyshortcuts=S aria-controls=searchbar><i class="fa fa-search"></i></button></div><h1 class=menu-title>Ruby Regexp</h1><div class=right-buttons><a href=https://github.com/learnbyexample/Ruby_Regexp title="Git repository"aria-label="Git repository"> <i id=git-repository-button class="fa fa-github"></i> </a></div></div><div id=search-wrapper class=hidden><form id=searchbar-outer class=searchbar-outer><input type=search name=search id=searchbar name=searchbar placeholder="Search this book ..."aria-controls=searchresults-outer aria-describedby=searchresults-header></form><div id=searchresults-outer class="searchresults-outer hidden"><div id=searchresults-header class=searchresults-header></div><ul id=searchresults></ul></div></div><script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
-                </script>
-
-                <div id="content" class="content">
-                    <main>
-                        <h1><a class="header" href="#alternation-and-grouping" id="alternation-and-grouping">Alternation and Grouping</a></h1>
-<p>Many a times, you want to check if the input string matches multiple patterns. For example, whether an object's color is <em>green</em> or <em>blue</em> or <em>red</em>. In programming terms, you need to perform OR conditional. This chapter will show how to use alternation for such cases. These patterns can have some common elements between them, in which case grouping helps to form terser expressions. This chapter will also discuss the precedence rules used to determine which alternation wins.</p>
-<h2><a class="header" href="#or-conditional" id="or-conditional">OR conditional</a></h2>
-<p>A conditional expression combined with logical OR evaluates to <code>true</code> if any of the condition is satisfied. Similarly, in regular expressions, you can use <code>|</code> metacharacter to combine multiple patterns to indicate logical OR. The matching will succeed if any of the alternate pattern is found in the input string. These alternatives have the full power of a regular expression, for example they can have their own independent anchors. Here's some examples.</p>
-<pre><code class="language-ruby"># match either 'cat' or 'dog'
-&gt;&gt; 'I like cats'.match?(/cat|dog/)
-=&gt; true
-&gt;&gt; 'I like dogs'.match?(/cat|dog/)
-=&gt; true
-&gt;&gt; 'I like parrots'.match?(/cat|dog/)
-=&gt; false
+                </script><div id=content class=content><main><div class=sidetoc><nav class=pagetoc></nav></div><h1><a class=header href=#alternation-and-grouping id=alternation-and-grouping>Alternation and Grouping</a></h1><p>Many a times, you want to check if the input string matches multiple patterns. For example, whether an object's color is <em>green</em> or <em>blue</em> or <em>red</em>. In programming terms, you need to perform OR conditional. This chapter will show how to use alternation for such cases. These patterns can have some common elements between them, in which case grouping helps to form terser expressions. This chapter will also discuss the precedence rules used to determine which alternation wins.<h2><a class=header href=#or-conditional id=or-conditional>OR conditional</a></h2><p>A conditional expression combined with logical OR evaluates to <code>true</code> if any of the condition is satisfied. Similarly, in regular expressions, you can use <code>|</code> metacharacter to combine multiple patterns to indicate logical OR. The matching will succeed if any of the alternate pattern is found in the input string. These alternatives have the full power of a regular expression, for example they can have their own independent anchors. Here's some examples.<pre><code class=language-ruby># match either 'cat' or 'dog'
+>> 'I like cats'.match?(/cat|dog/)
+=> true
+>> 'I like dogs'.match?(/cat|dog/)
+=> true
+>> 'I like parrots'.match?(/cat|dog/)
+=> false
 
 # replace either 'cat' at start of string or 'cat' at end of word
-&gt;&gt; 'catapults concatenate cat scat'.gsub(/\Acat|cat\b/, 'X')
-=&gt; &quot;Xapults concatenate X sX&quot;
+>> 'catapults concatenate cat scat'.gsub(/\Acat|cat\b/, 'X')
+=> "Xapults concatenate X sX"
 
 # replace either 'cat' or 'dog' or 'fox' with 'mammal'
-&gt;&gt; 'cat dog bee parrot fox'.gsub(/cat|dog|fox/, 'mammal')
-=&gt; &quot;mammal mammal bee parrot mammal&quot;
-</code></pre>
-<h2><a class="header" href="#regexpunion-method" id="regexpunion-method">Regexp.union method</a></h2>
-<p>You might infer from above examples that there can be cases where lots of alternation is required. The <code>Regexp.union</code> method can be used to build the alternation list automatically. It accepts an array as argument or a list of comma separated arguments.</p>
-<pre><code class="language-ruby">&gt;&gt; Regexp.union('car', 'jeep')
-=&gt; /car|jeep/
+>> 'cat dog bee parrot fox'.gsub(/cat|dog|fox/, 'mammal')
+=> "mammal mammal bee parrot mammal"
+</code></pre><h2><a class=header href=#regexpunion-method id=regexpunion-method>Regexp.union method</a></h2><p>You might infer from above examples that there can be cases where lots of alternation is required. The <code>Regexp.union</code> method can be used to build the alternation list automatically. It accepts an array as argument or a list of comma separated arguments.<pre><code class=language-ruby>>> Regexp.union('car', 'jeep')
+=> /car|jeep/
 
-&gt;&gt; words = %w[cat dog fox]
-&gt;&gt; pat = Regexp.union(words)
-&gt;&gt; pat
-=&gt; /cat|dog|fox/
-&gt;&gt; 'cat dog bee parrot fox'.gsub(pat, 'mammal')
-=&gt; &quot;mammal mammal bee parrot mammal&quot;
-</code></pre>
-<blockquote>
-<p><img src="images/info.svg" alt="info" /> In the above examples, the elements do not contain any special regular expression characters. Strings having metacharacters will be discussed in <a href="./escaping-metacharacters.html#regexpescape-method">Regexp.escape method</a> section.</p>
-</blockquote>
-<h2><a class="header" href="#grouping" id="grouping">Grouping</a></h2>
-<p>Often, there are some common things among the regexp alternatives. It could be common characters or regexp qualifiers like the anchors. In such cases, you can group them using a pair of parentheses metacharacters. Similar to <code>a(b+c)d = abd+acd</code> in maths, you get <code>a(b|c)d = abd|acd</code> in regular expressions.</p>
-<pre><code class="language-ruby"># without grouping
-&gt;&gt; 'red reform read arrest'.gsub(/reform|rest/, 'X')
-=&gt; &quot;red X read arX&quot;
+>> words = %w[cat dog fox]
+>> pat = Regexp.union(words)
+>> pat
+=> /cat|dog|fox/
+>> 'cat dog bee parrot fox'.gsub(pat, 'mammal')
+=> "mammal mammal bee parrot mammal"
+</code></pre><blockquote><p><img src=images/info.svg alt=info> In the above examples, the elements do not contain any special regular expression characters. Strings having metacharacters will be discussed in <a href=./escaping-metacharacters.html#regexpescape-method>Regexp.escape method</a> section.</blockquote><h2><a class=header href=#grouping id=grouping>Grouping</a></h2><p>Often, there are some common things among the regexp alternatives. It could be common characters or regexp qualifiers like the anchors. In such cases, you can group them using a pair of parentheses metacharacters. Similar to <code>a(b+c)d = abd+acd</code> in maths, you get <code>a(b|c)d = abd|acd</code> in regular expressions.<pre><code class=language-ruby># without grouping
+>> 'red reform read arrest'.gsub(/reform|rest/, 'X')
+=> "red X read arX"
 # with grouping
-&gt;&gt; 'red reform read arrest'.gsub(/re(form|st)/, 'X')
-=&gt; &quot;red X read arX&quot;
+>> 'red reform read arrest'.gsub(/re(form|st)/, 'X')
+=> "red X read arX"
 
 # without grouping
-&gt;&gt; 'par spare part party'.gsub(/\bpar\b|\bpart\b/, 'X')
-=&gt; &quot;X spare X party&quot;
+>> 'par spare part party'.gsub(/\bpar\b|\bpart\b/, 'X')
+=> "X spare X party"
 # taking out common anchors
-&gt;&gt; 'par spare part party'.gsub(/\b(par|part)\b/, 'X')
-=&gt; &quot;X spare X party&quot;
+>> 'par spare part party'.gsub(/\b(par|part)\b/, 'X')
+=> "X spare X party"
 # taking out common characters as well
 # you'll later learn a better technique instead of using empty alternate
-&gt;&gt; 'par spare part party'.gsub(/\bpar(|t)\b/, 'X')
-=&gt; &quot;X spare X party&quot;
-</code></pre>
-<blockquote>
-<p><img src="images/info.svg" alt="info" /> There's plenty more features to grouping than just forming terser regexp. It will be discussed as they become relevant in coming chapters.</p>
-</blockquote>
-<h2><a class="header" href="#regexpsource-method" id="regexpsource-method">Regexp.source method</a></h2>
-<p>The <code>Regexp.source</code> method helps to interpolate a regexp literal inside another regexp. For example, adding anchors to alternation list created using the <code>Regexp.union</code> method.</p>
-<pre><code class="language-ruby">&gt;&gt; words = %w[cat par]
-&gt;&gt; alt = Regexp.union(words)
-&gt;&gt; alt
-=&gt; /cat|par/
-&gt;&gt; alt_w = /\b(#{alt.source})\b/
-&gt;&gt; alt_w
-=&gt; /\b(cat|par)\b/
+>> 'par spare part party'.gsub(/\bpar(|t)\b/, 'X')
+=> "X spare X party"
+</code></pre><blockquote><p><img src=images/info.svg alt=info> There's plenty more features to grouping than just forming terser regexp. It will be discussed as they become relevant in coming chapters.</blockquote><h2><a class=header href=#regexpsource-method id=regexpsource-method>Regexp.source method</a></h2><p>The <code>Regexp.source</code> method helps to interpolate a regexp literal inside another regexp. For example, adding anchors to alternation list created using the <code>Regexp.union</code> method.<pre><code class=language-ruby>>> words = %w[cat par]
+>> alt = Regexp.union(words)
+>> alt
+=> /cat|par/
+>> alt_w = /\b(#{alt.source})\b/
+>> alt_w
+=> /\b(cat|par)\b/
 
-&gt;&gt; 'cater cat concatenate par spare'.gsub(alt, 'X')
-=&gt; &quot;Xer X conXenate X sXe&quot;
-&gt;&gt; 'cater cat concatenate par spare'.gsub(alt_w, 'X')
-=&gt; &quot;cater X concatenate X spare&quot;
-</code></pre>
-<blockquote>
-<p><img src="images/info.svg" alt="info" /> The above example will work without <code>Regexp.source</code> method too, but you'll see that <code>/\b(#{alt})\b/</code> gives <code>/\b((?-mix:cat|par))\b/</code> instead of <code>/\b(cat|par)\b/</code>. Their meaning will be explained in <a href="./modifiers.html#modifiers">Modifiers</a> chapter.</p>
-</blockquote>
-<h2><a class="header" href="#precedence-rules" id="precedence-rules">Precedence rules</a></h2>
-<p>There's some tricky situations when using alternation. If it is used for testing a match to get <code>true/false</code> against a string input, there is no ambiguity. However, for other things like string replacement, it depends on a few factors. Say, you want to replace either <code>are</code> or <code>spared</code> — which one should get precedence? The bigger word <code>spared</code> or the substring <code>are</code> inside it or based on something else?</p>
-<p>In Ruby, the regexp alternative which matches earliest in the input string gets precedence. Regexp operator <code>=~</code> helps to illustrate this concept.</p>
-<pre><code class="language-ruby">&gt;&gt; words = 'lion elephant are rope not'
+>> 'cater cat concatenate par spare'.gsub(alt, 'X')
+=> "Xer X conXenate X sXe"
+>> 'cater cat concatenate par spare'.gsub(alt_w, 'X')
+=> "cater X concatenate X spare"
+</code></pre><blockquote><p><img src=images/info.svg alt=info> The above example will work without <code>Regexp.source</code> method too, but you'll see that <code>/\b(#{alt})\b/</code> gives <code>/\b((?-mix:cat|par))\b/</code> instead of <code>/\b(cat|par)\b/</code>. Their meaning will be explained in <a href=./modifiers.html#modifiers>Modifiers</a> chapter.</blockquote><h2><a class=header href=#precedence-rules id=precedence-rules>Precedence rules</a></h2><p>There's some tricky situations when using alternation. If it is used for testing a match to get <code>true/false</code> against a string input, there is no ambiguity. However, for other things like string replacement, it depends on a few factors. Say, you want to replace either <code>are</code> or <code>spared</code> — which one should get precedence? The bigger word <code>spared</code> or the substring <code>are</code> inside it or based on something else?<p>In Ruby, the regexp alternative which matches earliest in the input string gets precedence. Regexp operator <code>=~</code> helps to illustrate this concept.<pre><code class=language-ruby>>> words = 'lion elephant are rope not'
 
-&gt;&gt; words =~ /on/
-=&gt; 2
-&gt;&gt; words =~ /ant/
-=&gt; 10
+>> words =~ /on/
+=> 2
+>> words =~ /ant/
+=> 10
 
-# starting index of 'on' &lt; index of 'ant' for given string input
+# starting index of 'on' < index of 'ant' for given string input
 # so 'on' will be replaced irrespective of order of regexp
-&gt;&gt; words.sub(/on|ant/, 'X')
-=&gt; &quot;liX elephant are rope not&quot;
-&gt;&gt; words.sub(/ant|on/, 'X')
-=&gt; &quot;liX elephant are rope not&quot;
-</code></pre>
-<p>So, what happens if two or more alternatives match on same index? The precedence is then left to right in the order of declaration.</p>
-<pre><code class="language-ruby">&gt;&gt; mood = 'best years'
+>> words.sub(/on|ant/, 'X')
+=> "liX elephant are rope not"
+>> words.sub(/ant|on/, 'X')
+=> "liX elephant are rope not"
+</code></pre><p>So, what happens if two or more alternatives match on same index? The precedence is then left to right in the order of declaration.<pre><code class=language-ruby>>> mood = 'best years'
 
-&gt;&gt; mood =~ /year/
-=&gt; 5
-&gt;&gt; mood =~ /years/
-=&gt; 5
+>> mood =~ /year/
+=> 5
+>> mood =~ /years/
+=> 5
 
 # starting index for 'year' and 'years' will always be same
 # so, which one gets replaced depends on the order of alternation
-&gt;&gt; mood.sub(/year|years/, 'X')
-=&gt; &quot;best Xs&quot;
-&gt;&gt; mood.sub(/years|year/, 'X')
-=&gt; &quot;best X&quot;
-</code></pre>
-<p>Another example with <code>gsub</code> to drive home the issue.</p>
-<pre><code class="language-ruby">&gt;&gt; words = 'ear xerox at mare part learn eye'
+>> mood.sub(/year|years/, 'X')
+=> "best Xs"
+>> mood.sub(/years|year/, 'X')
+=> "best X"
+</code></pre><p>Another example with <code>gsub</code> to drive home the issue.<pre><code class=language-ruby>>> words = 'ear xerox at mare part learn eye'
 
 # this is going to be same as: gsub(/ar/, 'X')
-&gt;&gt; words.gsub(/ar|are|art/, 'X')
-=&gt; &quot;eX xerox at mXe pXt leXn eye&quot;
+>> words.gsub(/ar|are|art/, 'X')
+=> "eX xerox at mXe pXt leXn eye"
 
 # this is going to be same as: gsub(/are|ar/, 'X')
-&gt;&gt; words.gsub(/are|ar|art/, 'X')
-=&gt; &quot;eX xerox at mX pXt leXn eye&quot;
+>> words.gsub(/are|ar|art/, 'X')
+=> "eX xerox at mX pXt leXn eye"
 
 # phew, finally this one works as needed
-&gt;&gt; words.gsub(/are|art|ar/, 'X')
-=&gt; &quot;eX xerox at mX pX leXn eye&quot;
-</code></pre>
-<p>If you do not want substrings to sabotage your replacements, a robust workaround is to sort the alternations based on length, longest first.</p>
-<pre><code class="language-ruby">&gt;&gt; words = %w[hand handy handful]
+>> words.gsub(/are|art|ar/, 'X')
+=> "eX xerox at mX pX leXn eye"
+</code></pre><p>If you do not want substrings to sabotage your replacements, a robust workaround is to sort the alternations based on length, longest first.<pre><code class=language-ruby>>> words = %w[hand handy handful]
 
-&gt;&gt; alt = Regexp.union(words.sort_by { |w| -w.length })
-&gt;&gt; alt
-=&gt; /handful|handy|hand/
+>> alt = Regexp.union(words.sort_by { |w| -w.length })
+>> alt
+=> /handful|handy|hand/
 
-&gt;&gt; 'hands handful handed handy'.gsub(alt, 'X')
-=&gt; &quot;Xs X Xed X&quot;
+>> 'hands handful handed handy'.gsub(alt, 'X')
+=> "Xs X Xed X"
 
 # without sorting, order will come into play
-&gt;&gt; 'hands handful handed handy'.gsub(Regexp.union(words), 'X')
-=&gt; &quot;Xs Xful Xed Xy&quot;
-</code></pre>
-<h2><a class="header" href="#cheatsheet-and-summary" id="cheatsheet-and-summary">Cheatsheet and Summary</a></h2>
-<table><thead><tr><th>Note</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>|</code></td><td>multiple regexp combined as conditional OR</td></tr>
-<tr><td></td><td>each alternative can have independent anchors</td></tr>
-<tr><td><code>Regexp.union(array)</code></td><td>programmatically combine multiple strings/regexps</td></tr>
-<tr><td><code>()</code></td><td>group pattern(s)</td></tr>
-<tr><td><code>a(b|c)d</code></td><td>same as <code>abd|acd</code></td></tr>
-<tr><td><code>/#{pat.source}/</code></td><td>interpolate a regexp literal inside another regexp</td></tr>
-<tr><td>Alternation precedence</td><td>pattern which matches earliest in the input gets precedence</td></tr>
-<tr><td></td><td>tie-breaker is left to right if patterns have same starting location</td></tr>
-<tr><td></td><td>robust solution: sort the alternations based on length, longest first</td></tr>
-<tr><td></td><td>for ex: <code>Regexp.union(words.sort_by { |w| -w.length })</code></td></tr>
-</tbody></table>
-<p>So, this chapter was about specifying one or more alternate matches within the same regexp using <code>|</code> metacharacter. Which can further be simplified using <code>()</code> grouping if there are common aspects among the alternations. Among the alternations, earliest matching pattern gets precedence. Left to right ordering is used as a tie-breaker if multiple alternations match starting from the same location. You also learnt couple of <code>Regexp</code> methods that help to programmatically construct a regexp literal.</p>
-<h2><a class="header" href="#exercises" id="exercises">Exercises</a></h2>
-<p><strong>a)</strong> For the given input array, filter all elements that start with <code>den</code> or end with <code>ly</code></p>
-<pre><code class="language-ruby">&gt;&gt; items = ['lovely', &quot;1\ndentist&quot;, '2 lonely', 'eden', &quot;fly\n&quot;, 'dent']
+>> 'hands handful handed handy'.gsub(Regexp.union(words), 'X')
+=> "Xs Xful Xed Xy"
+</code></pre><h2><a class=header href=#cheatsheet-and-summary id=cheatsheet-and-summary>Cheatsheet and Summary</a></h2><table><thead><tr><th>Note<th>Description<tbody><tr><td><code>|</code><td>multiple regexp combined as conditional OR<tr><td><td>each alternative can have independent anchors<tr><td><code>Regexp.union(array)</code><td>programmatically combine multiple strings/regexps<tr><td><code>()</code><td>group pattern(s)<tr><td><code>a(b|c)d</code><td>same as <code>abd|acd</code><tr><td><code>/#{pat.source}/</code><td>interpolate a regexp literal inside another regexp<tr><td>Alternation precedence<td>pattern which matches earliest in the input gets precedence<tr><td><td>tie-breaker is left to right if patterns have same starting location<tr><td><td>robust solution: sort the alternations based on length, longest first<tr><td><td>for ex: <code>Regexp.union(words.sort_by { |w| -w.length })</code></table><p>So, this chapter was about specifying one or more alternate matches within the same regexp using <code>|</code> metacharacter. Which can further be simplified using <code>()</code> grouping if there are common aspects among the alternations. Among the alternations, earliest matching pattern gets precedence. Left to right ordering is used as a tie-breaker if multiple alternations match starting from the same location. You also learnt couple of <code>Regexp</code> methods that help to programmatically construct a regexp literal.<h2><a class=header href=#exercises id=exercises>Exercises</a></h2><p><strong>a)</strong> For the given input array, filter all elements that start with <code>den</code> or end with <code>ly</code><pre><code class=language-ruby>>> items = ['lovely', "1\ndentist", '2 lonely', 'eden', "fly\n", 'dent']
 
-&gt;&gt; items.grep()     ##### add your solution here
-=&gt; [&quot;lovely&quot;, &quot;2 lonely&quot;, &quot;dent&quot;]
-</code></pre>
-<p><strong>b)</strong> For the given array, filter all elements having a line starting with <code>den</code> or ending with <code>ly</code></p>
-<pre><code class="language-ruby">&gt;&gt; items = ['lovely', &quot;1\ndentist&quot;, '2 lonely', 'eden', &quot;fly\nfar&quot;, 'dent']
+>> items.grep()     ##### add your solution here
+=> ["lovely", "2 lonely", "dent"]
+</code></pre><p><strong>b)</strong> For the given array, filter all elements having a line starting with <code>den</code> or ending with <code>ly</code><pre><code class=language-ruby>>> items = ['lovely', "1\ndentist", '2 lonely', 'eden', "fly\nfar", 'dent']
 
-&gt;&gt; items.grep()     ##### add your solution here
-=&gt; [&quot;lovely&quot;, &quot;1\ndentist&quot;, &quot;2 lonely&quot;, &quot;fly\nfar&quot;, &quot;dent&quot;]
-</code></pre>
-<p><strong>c)</strong> For the given input strings, replace all occurrences of <code>removed</code> or <code>reed</code> or <code>received</code> or <code>refused</code> with <code>X</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; s1 = 'creed refuse removed read'
-&gt;&gt; s2 = 'refused reed redo received'
+>> items.grep()     ##### add your solution here
+=> ["lovely", "1\ndentist", "2 lonely", "fly\nfar", "dent"]
+</code></pre><p><strong>c)</strong> For the given input strings, replace all occurrences of <code>removed</code> or <code>reed</code> or <code>received</code> or <code>refused</code> with <code>X</code>.<pre><code class=language-ruby>>> s1 = 'creed refuse removed read'
+>> s2 = 'refused reed redo received'
 
-&gt;&gt; pat =        ##### add your solution here
+>> pat =        ##### add your solution here
 
-&gt;&gt; s1.gsub(pat, 'X')
-=&gt; &quot;cX refuse X read&quot;
-&gt;&gt; s2.gsub(pat, 'X')
-=&gt; &quot;X X redo X&quot;
-</code></pre>
-<p><strong>d)</strong> For the given input strings, replace all matches from the array <code>words</code> with <code>A</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; s1 = 'plate full of slate'
-&gt;&gt; s2 = &quot;slated for later, don't be late&quot;
-&gt;&gt; words = %w[late later slated]
+>> s1.gsub(pat, 'X')
+=> "cX refuse X read"
+>> s2.gsub(pat, 'X')
+=> "X X redo X"
+</code></pre><p><strong>d)</strong> For the given input strings, replace all matches from the array <code>words</code> with <code>A</code>.<pre><code class=language-ruby>>> s1 = 'plate full of slate'
+>> s2 = "slated for later, don't be late"
+>> words = %w[late later slated]
 
-&gt;&gt; pat =        ##### add your solution here
+>> pat =        ##### add your solution here
 
-&gt;&gt; s1.gsub(pat, 'A')
-=&gt; &quot;pA full of sA&quot;
-&gt;&gt; s2.gsub(pat, 'A')
-=&gt; &quot;A for A, don't be A&quot;
-</code></pre>
-<p><strong>e)</strong> Filter all whole elements from the input array <code>items</code> that exactly matches any of the elements present in the array <code>words</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; items = ['slate', 'later', 'plate', 'late', 'slates', 'slated ']
-&gt;&gt; words = %w[late later slated]
+>> s1.gsub(pat, 'A')
+=> "pA full of sA"
+>> s2.gsub(pat, 'A')
+=> "A for A, don't be A"
+</code></pre><p><strong>e)</strong> Filter all whole elements from the input array <code>items</code> that exactly matches any of the elements present in the array <code>words</code>.<pre><code class=language-ruby>>> items = ['slate', 'later', 'plate', 'late', 'slates', 'slated ']
+>> words = %w[late later slated]
 
-&gt;&gt; pat =        ##### add your solution here
+>> pat =        ##### add your solution here
 
-&gt;&gt; items.grep(pat)
-=&gt; [&quot;later&quot;, &quot;late&quot;]
-</code></pre>
-
-                    </main>
-
-                    <nav class="nav-wrapper" aria-label="Page navigation">
-                        <!-- Mobile navigation buttons -->
-                        
-                            <a rel="prev" href="anchors.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-                        
-
-                        
-                            <a rel="next" href="escaping-metacharacters.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        
-
-                        <div style="clear: both"></div>
-                    </nav>
-                </div>
-            </div>
-
-            <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
-                    <a rel="prev" href="anchors.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
-                
-
-                
-                    <a rel="next" href="escaping-metacharacters.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                
-            </nav>
-
-        </div>
-
-        
-
-        
-
-        
-
-        
-        <script type="text/javascript">
+>> items.grep(pat)
+=> ["later", "late"]
+</code></pre></main><nav class=nav-wrapper aria-label="Page navigation"><a rel=prev href=anchors.html class="mobile-nav-chapters previous"title="Previous chapter"aria-label="Previous chapter"aria-keyshortcuts=Left> <i class="fa fa-angle-left"></i> </a><a rel=next href=escaping-metacharacters.html class="mobile-nav-chapters next"title="Next chapter"aria-label="Next chapter"aria-keyshortcuts=Right> <i class="fa fa-angle-right"></i> </a><div style="clear: both"></div></nav></div></div><nav class=nav-wide-wrapper aria-label="Page navigation"><a rel=prev href=anchors.html class="nav-chapters previous"title="Previous chapter"aria-label="Previous chapter"aria-keyshortcuts=Left> <i class="fa fa-angle-left"></i> </a><a rel=next href=escaping-metacharacters.html class="nav-chapters next"title="Next chapter"aria-label="Next chapter"aria-keyshortcuts=Right> <i class="fa fa-angle-right"></i> </a></nav></div><script>
             window.playground_copyable = true;
-        </script>
-        
-
-        
-
-        
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        
-
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
-
-        <!-- Custom JS scripts -->
-        
-
-        
-
-    </body>
-</html>
+        </script><script src=elasticlunr.min.js charset=utf-8></script><script src=mark.min.js charset=utf-8></script><script src=searcher.js charset=utf-8></script><script src=clipboard.min.js charset=utf-8></script><script src=highlight.js charset=utf-8></script><script src=book.js charset=utf-8></script><script src=sidebar.js></script>

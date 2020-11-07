@@ -1,60 +1,7 @@
-<!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
-    <head>
-        <!-- Book generated using mdBook -->
-        <meta charset="UTF-8">
-        <title>Exercise Solutions - Ruby Regexp</title>
-        
-        
-
-
-        <!-- Custom HTML head -->
-        
-
-
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="Example based guide to mastering Ruby Regexp">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
-
-        
-        <link rel="icon" href="favicon.svg">
-        
-        
-        <link rel="shortcut icon" href="favicon.png">
-        
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
-
-        <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        
-        <link rel="stylesheet" href="fonts/fonts.css">
-        
-
-        <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
-
-        <!-- Custom theme stylesheets -->
-        
-        <link rel="stylesheet" href="custom.css">
-        
-
-        
-    </head>
-    <body>
-        <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+<!DOCTYPE HTML><html lang=en class="sidebar-visible no-js light"><head><meta charset=UTF-8><title>Exercise Solutions - Ruby Regexp</title><meta content="text/html; charset=utf-8"http-equiv=Content-Type><meta name=description content="Example based guide to mastering Ruby Regexp"><meta name=viewport content="width=device-width, initial-scale=1"><meta name=theme-color content=#ffffff><link rel=icon href=favicon.svg><link rel="shortcut icon"href=favicon.png><link rel=stylesheet href=css/variables.css><link rel=stylesheet href=css/general.css><link rel=stylesheet href=css/chrome.css><link rel=stylesheet href=FontAwesome/css/font-awesome.css><link rel=stylesheet href=fonts/fonts.css><link rel=stylesheet href=highlight.css><link rel=stylesheet href=tomorrow-night.css><link rel=stylesheet href=ayu-highlight.css><link rel=stylesheet href=style.css><body><script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
-        </script>
-
-        <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        </script><script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -67,10 +14,7 @@
                     localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
                 }
             } catch (e) { }
-        </script>
-
-        <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        </script><script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -79,10 +23,7 @@
             html.classList.remove('light')
             html.classList.add(theme);
             html.classList.add('js');
-        </script>
-
-        <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        </script><script>
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -91,1164 +32,823 @@
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
-        </script>
-
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="cover.html">Cover</a></li><li class="chapter-item expanded affix "><a href="buy.html">Buy PDF/EPUB versions</a></li><li class="chapter-item expanded "><a href="preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded "><a href="why-is-it-needed.html"><strong aria-hidden="true">2.</strong> Why is it needed?</a></li><li class="chapter-item expanded "><a href="regexp-introduction.html"><strong aria-hidden="true">3.</strong> Regexp introduction</a></li><li class="chapter-item expanded "><a href="anchors.html"><strong aria-hidden="true">4.</strong> Anchors</a></li><li class="chapter-item expanded "><a href="alternation-and-grouping.html"><strong aria-hidden="true">5.</strong> Alternation and Grouping</a></li><li class="chapter-item expanded "><a href="escaping-metacharacters.html"><strong aria-hidden="true">6.</strong> Escaping metacharacters</a></li><li class="chapter-item expanded "><a href="dot-metacharacter-and-quantifiers.html"><strong aria-hidden="true">7.</strong> Dot metacharacter and Quantifiers</a></li><li class="chapter-item expanded "><a href="interlude-tools-for-debugging-and-visualization.html"><strong aria-hidden="true">8.</strong> Interlude: Tools for debugging and visualization</a></li><li class="chapter-item expanded "><a href="working-with-matched-portions.html"><strong aria-hidden="true">9.</strong> Working with matched portions</a></li><li class="chapter-item expanded "><a href="character-class.html"><strong aria-hidden="true">10.</strong> Character class</a></li><li class="chapter-item expanded "><a href="groupings-and-backreferences.html"><strong aria-hidden="true">11.</strong> Groupings and backreferences</a></li><li class="chapter-item expanded "><a href="interlude-common-tasks.html"><strong aria-hidden="true">12.</strong> Interlude: Common tasks</a></li><li class="chapter-item expanded "><a href="lookarounds.html"><strong aria-hidden="true">13.</strong> Lookarounds</a></li><li class="chapter-item expanded "><a href="modifiers.html"><strong aria-hidden="true">14.</strong> Modifiers</a></li><li class="chapter-item expanded "><a href="unicode.html"><strong aria-hidden="true">15.</strong> Unicode</a></li><li class="chapter-item expanded "><a href="further-reading.html"><strong aria-hidden="true">16.</strong> Further Reading</a></li><li class="chapter-item expanded "><a href="Exercise_solutions.html" class="active"><strong aria-hidden="true">17.</strong> Exercise Solutions</a></li></ol>
-            </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
-        </nav>
-
-        <div id="page-wrapper" class="page-wrapper">
-
-            <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
-                    <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
-                        </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                        </ul>
-                        
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
-                        </button>
-                        
-                    </div>
-
-                    <h1 class="menu-title">Ruby Regexp</h1>
-
-                    <div class="right-buttons">
-                        
-                        <a href="https://github.com/learnbyexample/Ruby_Regexp" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
-                        </a>
-                        
-                    </div>
-                </div>
-
-                
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
-                    </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
-                        </ul>
-                    </div>
-                </div>
-                
-
-                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+        </script><nav id=sidebar class=sidebar aria-label="Table of contents"><div class=sidebar-scrollbox><ol class=chapter><li class="chapter-item expanded affix"><a href=cover.html>Cover</a><li class="chapter-item expanded affix"><a href=buy.html>Buy PDF/EPUB versions</a><li class="chapter-item expanded"><a href=preface.html><strong aria-hidden=true>1.</strong> Preface</a><li class="chapter-item expanded"><a href=why-is-it-needed.html><strong aria-hidden=true>2.</strong> Why is it needed?</a><li class="chapter-item expanded"><a href=regexp-introduction.html><strong aria-hidden=true>3.</strong> Regexp introduction</a><li class="chapter-item expanded"><a href=anchors.html><strong aria-hidden=true>4.</strong> Anchors</a><li class="chapter-item expanded"><a href=alternation-and-grouping.html><strong aria-hidden=true>5.</strong> Alternation and Grouping</a><li class="chapter-item expanded"><a href=escaping-metacharacters.html><strong aria-hidden=true>6.</strong> Escaping metacharacters</a><li class="chapter-item expanded"><a href=dot-metacharacter-and-quantifiers.html><strong aria-hidden=true>7.</strong> Dot metacharacter and Quantifiers</a><li class="chapter-item expanded"><a href=interlude-tools-for-debugging-and-visualization.html><strong aria-hidden=true>8.</strong> Interlude: Tools for debugging and visualization</a><li class="chapter-item expanded"><a href=working-with-matched-portions.html><strong aria-hidden=true>9.</strong> Working with matched portions</a><li class="chapter-item expanded"><a href=character-class.html><strong aria-hidden=true>10.</strong> Character class</a><li class="chapter-item expanded"><a href=groupings-and-backreferences.html><strong aria-hidden=true>11.</strong> Groupings and backreferences</a><li class="chapter-item expanded"><a href=interlude-common-tasks.html><strong aria-hidden=true>12.</strong> Interlude: Common tasks</a><li class="chapter-item expanded"><a href=lookarounds.html><strong aria-hidden=true>13.</strong> Lookarounds</a><li class="chapter-item expanded"><a href=modifiers.html><strong aria-hidden=true>14.</strong> Modifiers</a><li class="chapter-item expanded"><a href=unicode.html><strong aria-hidden=true>15.</strong> Unicode</a><li class="chapter-item expanded"><a href=further-reading.html><strong aria-hidden=true>16.</strong> Further Reading</a><li class="chapter-item expanded"><a href=Exercise_solutions.html class=active><strong aria-hidden=true>17.</strong> Exercise Solutions</a></ol></div><div id=sidebar-resize-handle class=sidebar-resize-handle></div></nav><div id=page-wrapper class=page-wrapper><div class=page><div id=menu-bar-hover-placeholder></div><div id=menu-bar class="menu-bar sticky bordered"><div class=left-buttons><button id=sidebar-toggle class=icon-button type=button title="Toggle Table of Contents"aria-label="Toggle Table of Contents"aria-controls=sidebar><i class="fa fa-bars"></i></button><button id=theme-toggle class=icon-button type=button title="Change theme"aria-label="Change theme"aria-haspopup=true aria-expanded=false aria-controls=theme-list><i class="fa fa-paint-brush"></i></button><ul id=theme-list class=theme-popup aria-label=Themes role=menu><li role=none><button role=menuitem class=theme id=light>Light (default)</button><li role=none><button role=menuitem class=theme id=rust>Rust</button><li role=none><button role=menuitem class=theme id=coal>Coal</button><li role=none><button role=menuitem class=theme id=navy>Navy</button><li role=none><button role=menuitem class=theme id=ayu>Ayu</button></ul><button id=search-toggle class=icon-button type=button title="Search. (Shortkey: s)"aria-label="Toggle Searchbar"aria-expanded=false aria-keyshortcuts=S aria-controls=searchbar><i class="fa fa-search"></i></button></div><h1 class=menu-title>Ruby Regexp</h1><div class=right-buttons><a href=https://github.com/learnbyexample/Ruby_Regexp title="Git repository"aria-label="Git repository"> <i id=git-repository-button class="fa fa-github"></i> </a></div></div><div id=search-wrapper class=hidden><form id=searchbar-outer class=searchbar-outer><input type=search name=search id=searchbar name=searchbar placeholder="Search this book ..."aria-controls=searchresults-outer aria-describedby=searchresults-header></form><div id=searchresults-outer class="searchresults-outer hidden"><div id=searchresults-header class=searchresults-header></div><ul id=searchresults></ul></div></div><script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
-                </script>
+                </script><div id=content class=content><main><div class=sidetoc><nav class=pagetoc></nav></div><h1><a class=header href=#exercise-solutions id=exercise-solutions>Exercise solutions</a></h1><blockquote><p><img src=images/info.svg alt=info> Refer to <a href=https://github.com/learnbyexample/Ruby_Regexp/tree/master/exercises>exercises folder</a> for input files required to solve the exercises.</blockquote><br><h1><a class=header href=#regexp-introduction id=regexp-introduction>Regexp introduction</a></h1><p><strong>a)</strong> Check whether the given strings contain <code>0xB0</code>. Display a boolean result as shown below.<pre><code class=language-ruby>>> line1 = 'start address: 0xA0, func1 address: 0xC0'
+>> line2 = 'end address: 0xFF, func2 address: 0xB0'
 
-                <div id="content" class="content">
-                    <main>
-                        <h1><a class="header" href="#regexp-introduction" id="regexp-introduction">Regexp introduction</a></h1>
-<blockquote>
-<p><img src="images/info.svg" alt="info" /> Refer to <a href="https://github.com/learnbyexample/Ruby_Regexp/tree/master/exercises">exercises folder</a> for input files required to solve the exercises.</p>
-</blockquote>
-<blockquote>
-<p><img src="images/info.svg" alt="info" /> Solutions for <a href="https://github.com/learnbyexample/Ruby_Regexp/blob/master/exercises/Exercises.md">Exercises.md</a> is presented here.</p>
-</blockquote>
-<p><strong>a)</strong> Check whether the given strings contain <code>0xB0</code>. Display a boolean result as shown below.</p>
-<pre><code class="language-ruby">&gt;&gt; line1 = 'start address: 0xA0, func1 address: 0xC0'
-&gt;&gt; line2 = 'end address: 0xFF, func2 address: 0xB0'
+>> line1.match?(/0xB0/)
+=> false
+>> line2.match?(/0xB0/)
+=> true
+</code></pre><p><strong>b)</strong> For the given input file, print all lines containing the string <code>two</code>.<pre><code class=language-ruby># note that expected output shown here is wrapped to fit pdf width
+>> filename = 'programming_quotes.txt'
 
-&gt;&gt; line1.match?(/0xB0/)
-=&gt; false
-&gt;&gt; line2.match?(/0xB0/)
-=&gt; true
-</code></pre>
-<p><strong>b)</strong> For the given input file, print all lines containing the string <code>two</code>.</p>
-<pre><code class="language-ruby"># note that expected output shown here is wrapped to fit pdf width
-&gt;&gt; filename = 'programming_quotes.txt'
+>> word = /two/
 
-&gt;&gt; word = /two/
+>> puts File.foreach(filename).grep(word)
+"Some people, when confronted with a problem, think - I know, I'll use regular
+expressions. Now they have two problems" by Jamie Zawinski
+"So much complexity in software comes from trying to make one thing do two
+things" by Ryan Singer
+</code></pre><p><strong>c)</strong> Replace all occurrences of <code>5</code> with <code>five</code> for the given string.<pre><code class=language-ruby>>> ip = 'They ate 5 apples and 5 oranges'
 
-&gt;&gt; puts File.foreach(filename).grep(word)
-&quot;Some people, when confronted with a problem, think - I know, I'll use regular
-expressions. Now they have two problems&quot; by Jamie Zawinski
-&quot;So much complexity in software comes from trying to make one thing do two
-things&quot; by Ryan Singer
-</code></pre>
-<p><strong>c)</strong> Replace all occurrences of <code>5</code> with <code>five</code> for the given string.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'They ate 5 apples and 5 oranges'
+>> ip.gsub(/5/, 'five')
+=> "They ate five apples and five oranges"
+</code></pre><p><strong>d)</strong> Replace first occurrence of <code>5</code> with <code>five</code> for the given string.<pre><code class=language-ruby>>> ip = 'They ate 5 apples and 5 oranges'
 
-&gt;&gt; ip.gsub(/5/, 'five')
-=&gt; &quot;They ate five apples and five oranges&quot;
-</code></pre>
-<p><strong>d)</strong> Replace first occurrence of <code>5</code> with <code>five</code> for the given string.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'They ate 5 apples and 5 oranges'
+>> ip.sub(/5/, 'five')
+=> "They ate five apples and 5 oranges"
+</code></pre><p><strong>e)</strong> For the given array, filter all elements that do <em>not</em> contain <code>e</code>.<pre><code class=language-ruby>>> items = %w[goal new user sit eat dinner]
 
-&gt;&gt; ip.sub(/5/, 'five')
-=&gt; &quot;They ate five apples and 5 oranges&quot;
-</code></pre>
-<p><strong>e)</strong> For the given array, filter all elements that do <em>not</em> contain <code>e</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; items = %w[goal new user sit eat dinner]
+>> items.grep_v(/e/)
+=> ["goal", "sit"]
+</code></pre><p><strong>f)</strong> Replace all occurrences of <code>note</code> irrespective of case with <code>X</code>.<pre><code class=language-ruby>>> ip = 'This note should not be NoTeD'
 
-&gt;&gt; items.grep_v(/e/)
-=&gt; [&quot;goal&quot;, &quot;sit&quot;]
-</code></pre>
-<p><strong>f)</strong> Replace all occurrences of <code>note</code> irrespective of case with <code>X</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'This note should not be NoTeD'
+>> ip.gsub(/note/i, 'X')
+=> "This X should not be XD"
+</code></pre><p><strong>g)</strong> For the given input string, print all lines NOT containing the string <code>2</code><pre><code class=language-ruby>'> purchases = %q{items qty
+'> apple 24
+'> mango 50
+'> guava 42
+'> onion 31
+>> water 10}
 
-&gt;&gt; ip.gsub(/note/i, 'X')
-=&gt; &quot;This X should not be XD&quot;
-</code></pre>
-<p><strong>g)</strong> For the given input string, print all lines NOT containing the string <code>2</code></p>
-<pre><code class="language-ruby">'&gt; purchases = %q{items qty
-'&gt; apple 24
-'&gt; mango 50
-'&gt; guava 42
-'&gt; onion 31
-&gt;&gt; water 10}
+>> num = /2/
 
-&gt;&gt; num = /2/
-
-&gt;&gt; puts purchases.each_line.grep_v(num)
+>> puts purchases.each_line.grep_v(num)
 items qty
 mango 50
 onion 31
 water 10
-</code></pre>
-<p><strong>h)</strong> For the given array, filter all elements that contains either <code>a</code> or <code>w</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; items = %w[goal new user sit eat dinner]
+</code></pre><p><strong>h)</strong> For the given array, filter all elements that contains either <code>a</code> or <code>w</code>.<pre><code class=language-ruby>>> items = %w[goal new user sit eat dinner]
 
-&gt;&gt; items.filter { |e| e.match?(/a/) || e.match?(/w/) }
-=&gt; [&quot;goal&quot;, &quot;new&quot;, &quot;eat&quot;]
-</code></pre>
-<p><strong>i)</strong> For the given array, filter all elements that contains both <code>e</code> and <code>n</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; items = %w[goal new user sit eat dinner]
+>> items.filter { |e| e.match?(/a/) || e.match?(/w/) }
+=> ["goal", "new", "eat"]
+</code></pre><p><strong>i)</strong> For the given array, filter all elements that contains both <code>e</code> and <code>n</code>.<pre><code class=language-ruby>>> items = %w[goal new user sit eat dinner]
 
-&gt;&gt; items.filter { |e| e.match?(/e/) &amp;&amp; e.match?(/n/) }
-=&gt; [&quot;new&quot;, &quot;dinner&quot;]
-</code></pre>
-<p><strong>j)</strong> For the given string, replace <code>0xA0</code> with <code>0x7F</code> and <code>0xC0</code> with <code>0x1F</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'start address: 0xA0, func1 address: 0xC0'
+>> items.filter { |e| e.match?(/e/) && e.match?(/n/) }
+=> ["new", "dinner"]
+</code></pre><p><strong>j)</strong> For the given string, replace <code>0xA0</code> with <code>0x7F</code> and <code>0xC0</code> with <code>0x1F</code>.<pre><code class=language-ruby>>> ip = 'start address: 0xA0, func1 address: 0xC0'
 
-&gt;&gt; ip.gsub(/0xA0/, '0x7F').gsub(/0xC0/, '0x1F')
-=&gt; &quot;start address: 0x7F, func1 address: 0x1F&quot;
-</code></pre>
-<p><strong>k)</strong> Find the starting index of the first occurrence of <code>is</code> for the given input string.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'match this after the history lesson'
+>> ip.gsub(/0xA0/, '0x7F').gsub(/0xC0/, '0x1F')
+=> "start address: 0x7F, func1 address: 0x1F"
+</code></pre><p><strong>k)</strong> Find the starting index of the first occurrence of <code>is</code> for the given input string.<pre><code class=language-ruby>>> ip = 'match this after the history lesson'
 
-&gt;&gt; ip =~ /is/
-=&gt; 8
-</code></pre>
-<br>
-<h1><a class="header" href="#anchors" id="anchors">Anchors</a></h1>
-<p><strong>a)</strong> Check if the given strings start with <code>be</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; line1 = 'be nice'
-&gt;&gt; line2 = '&quot;best!&quot;'
-&gt;&gt; line3 = 'better?'
-&gt;&gt; line4 = 'oh no\nbear spotted'
+>> ip =~ /is/
+=> 8
+</code></pre><br><h1><a class=header href=#anchors id=anchors>Anchors</a></h1><p><strong>a)</strong> Check if the given strings start with <code>be</code>.<pre><code class=language-ruby>>> line1 = 'be nice'
+>> line2 = '"best!"'
+>> line3 = 'better?'
+>> line4 = 'oh no\nbear spotted'
 
-&gt;&gt; pat = /\Abe/
+>> pat = /\Abe/
 
-&gt;&gt; pat.match?(line1)
-=&gt; true
-&gt;&gt; pat.match?(line2)
-=&gt; false
-&gt;&gt; pat.match?(line3)
-=&gt; true
-&gt;&gt; pat.match?(line4)
-=&gt; false
-</code></pre>
-<p><strong>b)</strong> For the given input string, change only whole word <code>red</code> to <code>brown</code></p>
-<pre><code class="language-ruby">&gt;&gt; words = 'bred red spread credible'
+>> pat.match?(line1)
+=> true
+>> pat.match?(line2)
+=> false
+>> pat.match?(line3)
+=> true
+>> pat.match?(line4)
+=> false
+</code></pre><p><strong>b)</strong> For the given input string, change only whole word <code>red</code> to <code>brown</code><pre><code class=language-ruby>>> words = 'bred red spread credible'
 
-&gt;&gt; words.gsub(/\bred\b/, 'brown')
-=&gt; &quot;bred brown spread credible&quot;
-</code></pre>
-<p><strong>c)</strong> For the given input array, filter all elements containing <code>42</code> surrounded by word characters.</p>
-<pre><code class="language-ruby">&gt;&gt; items = ['hi42bye', 'nice1423', 'bad42', 'cool_42a', 'fake4b']
+>> words.gsub(/\bred\b/, 'brown')
+=> "bred brown spread credible"
+</code></pre><p><strong>c)</strong> For the given input array, filter all elements containing <code>42</code> surrounded by word characters.<pre><code class=language-ruby>>> items = ['hi42bye', 'nice1423', 'bad42', 'cool_42a', 'fake4b']
 
-&gt;&gt; items.grep(/\B42\B/)
-=&gt; [&quot;hi42bye&quot;, &quot;nice1423&quot;, &quot;cool_42a&quot;]
-</code></pre>
-<p><strong>d)</strong> For the given input array, filter all elements that start with <code>den</code> or end with <code>ly</code></p>
-<pre><code class="language-ruby">&gt;&gt; items = ['lovely', &quot;1\ndentist&quot;, '2 lonely', 'eden', &quot;fly\n&quot;, 'dent']
+>> items.grep(/\B42\B/)
+=> ["hi42bye", "nice1423", "cool_42a"]
+</code></pre><p><strong>d)</strong> For the given input array, filter all elements that start with <code>den</code> or end with <code>ly</code><pre><code class=language-ruby>>> items = ['lovely', "1\ndentist", '2 lonely', 'eden', "fly\n", 'dent']
 
-&gt;&gt; items.filter { |e| e.match?(/\Aden/) || e.match?(/ly\z/) }
-=&gt; [&quot;lovely&quot;, &quot;2 lonely&quot;, &quot;dent&quot;]
-</code></pre>
-<p><strong>e)</strong> For the given input string, change whole word <code>mall</code> to <code>1234</code> only if it is at start of line.</p>
-<pre><code class="language-ruby">'&gt; para = %q{ball fall wall tall
-'&gt; mall call ball pall
-'&gt; wall mall ball fall
-&gt;&gt; mallet wallet malls}
+>> items.filter { |e| e.match?(/\Aden/) || e.match?(/ly\z/) }
+=> ["lovely", "2 lonely", "dent"]
+</code></pre><p><strong>e)</strong> For the given input string, change whole word <code>mall</code> to <code>1234</code> only if it is at start of line.<pre><code class=language-ruby>'> para = %q{ball fall wall tall
+'> mall call ball pall
+'> wall mall ball fall
+>> mallet wallet malls}
 
-&gt;&gt; puts para.gsub(/^mall\b/, '1234')
+>> puts para.gsub(/^mall\b/, '1234')
 ball fall wall tall
 1234 call ball pall
 wall mall ball fall
 mallet wallet malls
-</code></pre>
-<p><strong>f)</strong> For the given array, filter all elements having a line starting with <code>den</code> or ending with <code>ly</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; items = ['lovely', &quot;1\ndentist&quot;, '2 lonely', 'eden', &quot;fly\nfar&quot;, 'dent']
+</code></pre><p><strong>f)</strong> For the given array, filter all elements having a line starting with <code>den</code> or ending with <code>ly</code>.<pre><code class=language-ruby>>> items = ['lovely', "1\ndentist", '2 lonely', 'eden', "fly\nfar", 'dent']
 
-&gt;&gt; items.filter { |e| e.match?(/^den/) || e.match?(/ly$/) }
-=&gt; [&quot;lovely&quot;, &quot;1\ndentist&quot;, &quot;2 lonely&quot;, &quot;fly\nfar&quot;, &quot;dent&quot;]
-</code></pre>
-<p><strong>g)</strong> For the given input array, filter all whole elements <code>12\nthree</code> irrespective of case.</p>
-<pre><code class="language-ruby">&gt;&gt; items = [&quot;12\nthree\n&quot;, &quot;12\nThree&quot;, &quot;12\nthree\n4&quot;, &quot;12\nthree&quot;]
+>> items.filter { |e| e.match?(/^den/) || e.match?(/ly$/) }
+=> ["lovely", "1\ndentist", "2 lonely", "fly\nfar", "dent"]
+</code></pre><p><strong>g)</strong> For the given input array, filter all whole elements <code>12\nthree</code> irrespective of case.<pre><code class=language-ruby>>> items = ["12\nthree\n", "12\nThree", "12\nthree\n4", "12\nthree"]
 
-&gt;&gt; items.grep(/\A12\nthree\z/i)
-=&gt; [&quot;12\nThree&quot;, &quot;12\nthree&quot;]
-</code></pre>
-<p><strong>h)</strong> For the given input array, replace <code>hand</code> with <code>X</code> for all words that start with <code>hand</code> followed by at least one word character.</p>
-<pre><code class="language-ruby">&gt;&gt; items = %w[handed hand handy unhanded handle hand-2]
+>> items.grep(/\A12\nthree\z/i)
+=> ["12\nThree", "12\nthree"]
+</code></pre><p><strong>h)</strong> For the given input array, replace <code>hand</code> with <code>X</code> for all words that start with <code>hand</code> followed by at least one word character.<pre><code class=language-ruby>>> items = %w[handed hand handy unhanded handle hand-2]
 
-&gt;&gt; items.map { |e| e.sub(/\bhand\B/, 'X') }
-=&gt; [&quot;Xed&quot;, &quot;hand&quot;, &quot;Xy&quot;, &quot;unhanded&quot;, &quot;Xle&quot;, &quot;hand-2&quot;]
-</code></pre>
-<p><strong>i)</strong> For the given input array, filter all elements starting with <code>h</code>. Additionally, replace <code>e</code> with <code>X</code> for these filtered elements.</p>
-<pre><code class="language-ruby">&gt;&gt; items = %w[handed hand handy unhanded handle hand-2]
+>> items.map { |e| e.sub(/\bhand\B/, 'X') }
+=> ["Xed", "hand", "Xy", "unhanded", "Xle", "hand-2"]
+</code></pre><p><strong>i)</strong> For the given input array, filter all elements starting with <code>h</code>. Additionally, replace <code>e</code> with <code>X</code> for these filtered elements.<pre><code class=language-ruby>>> items = %w[handed hand handy unhanded handle hand-2]
 
-&gt;&gt; items.filter_map { |e| e.gsub(/e/, 'X') if e.match?(/\Ah/) }
-=&gt; [&quot;handXd&quot;, &quot;hand&quot;, &quot;handy&quot;, &quot;handlX&quot;, &quot;hand-2&quot;]
-</code></pre>
-<br>
-<h1><a class="header" href="#alternation-and-grouping" id="alternation-and-grouping">Alternation and Grouping</a></h1>
-<p><strong>a)</strong> For the given input array, filter all elements that start with <code>den</code> or end with <code>ly</code></p>
-<pre><code class="language-ruby">&gt;&gt; items = ['lovely', &quot;1\ndentist&quot;, '2 lonely', 'eden', &quot;fly\n&quot;, 'dent']
+>> items.filter_map { |e| e.gsub(/e/, 'X') if e.match?(/\Ah/) }
+=> ["handXd", "hand", "handy", "handlX", "hand-2"]
+</code></pre><br><h1><a class=header href=#alternation-and-grouping id=alternation-and-grouping>Alternation and Grouping</a></h1><p><strong>a)</strong> For the given input array, filter all elements that start with <code>den</code> or end with <code>ly</code><pre><code class=language-ruby>>> items = ['lovely', "1\ndentist", '2 lonely', 'eden', "fly\n", 'dent']
 
-&gt;&gt; items.grep(/\Aden|ly\z/)
-=&gt; [&quot;lovely&quot;, &quot;2 lonely&quot;, &quot;dent&quot;]
-</code></pre>
-<p><strong>b)</strong> For the given array, filter all elements having a line starting with <code>den</code> or ending with <code>ly</code></p>
-<pre><code class="language-ruby">&gt;&gt; items = ['lovely', &quot;1\ndentist&quot;, '2 lonely', 'eden', &quot;fly\nfar&quot;, 'dent']
+>> items.grep(/\Aden|ly\z/)
+=> ["lovely", "2 lonely", "dent"]
+</code></pre><p><strong>b)</strong> For the given array, filter all elements having a line starting with <code>den</code> or ending with <code>ly</code><pre><code class=language-ruby>>> items = ['lovely', "1\ndentist", '2 lonely', 'eden', "fly\nfar", 'dent']
 
-&gt;&gt; items.grep(/^den|ly$/)
-=&gt; [&quot;lovely&quot;, &quot;1\ndentist&quot;, &quot;2 lonely&quot;, &quot;fly\nfar&quot;, &quot;dent&quot;]
-</code></pre>
-<p><strong>c)</strong> For the given input strings, replace all occurrences of <code>removed</code> or <code>reed</code> or <code>received</code> or <code>refused</code> with <code>X</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; s1 = 'creed refuse removed read'
-&gt;&gt; s2 = 'refused reed redo received'
+>> items.grep(/^den|ly$/)
+=> ["lovely", "1\ndentist", "2 lonely", "fly\nfar", "dent"]
+</code></pre><p><strong>c)</strong> For the given input strings, replace all occurrences of <code>removed</code> or <code>reed</code> or <code>received</code> or <code>refused</code> with <code>X</code>.<pre><code class=language-ruby>>> s1 = 'creed refuse removed read'
+>> s2 = 'refused reed redo received'
 
-&gt;&gt; pat = /re(mov|ceiv|fus|)ed/
+>> pat = /re(mov|ceiv|fus|)ed/
 
-&gt;&gt; s1.gsub(pat, 'X')
-=&gt; &quot;cX refuse X read&quot;
-&gt;&gt; s2.gsub(pat, 'X')
-=&gt; &quot;X X redo X&quot;
-</code></pre>
-<p><strong>d)</strong> For the given input strings, replace all matches from the array <code>words</code> with <code>A</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; s1 = 'plate full of slate'
-&gt;&gt; s2 = &quot;slated for later, don't be late&quot;
-&gt;&gt; words = %w[late later slated]
+>> s1.gsub(pat, 'X')
+=> "cX refuse X read"
+>> s2.gsub(pat, 'X')
+=> "X X redo X"
+</code></pre><p><strong>d)</strong> For the given input strings, replace all matches from the array <code>words</code> with <code>A</code>.<pre><code class=language-ruby>>> s1 = 'plate full of slate'
+>> s2 = "slated for later, don't be late"
+>> words = %w[late later slated]
 
-&gt;&gt; pat = Regexp.union(words.sort_by { |w| -w.length })
+>> pat = Regexp.union(words.sort_by { |w| -w.length })
 
-&gt;&gt; s1.gsub(pat, 'A')
-=&gt; &quot;pA full of sA&quot;
-&gt;&gt; s2.gsub(pat, 'A')
-=&gt; &quot;A for A, don't be A&quot;
-</code></pre>
-<p><strong>e)</strong> Filter all whole elements from the input array <code>items</code> that exactly matches any of the elements present in the array <code>words</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; items = ['slate', 'later', 'plate', 'late', 'slates', 'slated ']
-&gt;&gt; words = %w[late later slated]
+>> s1.gsub(pat, 'A')
+=> "pA full of sA"
+>> s2.gsub(pat, 'A')
+=> "A for A, don't be A"
+</code></pre><p><strong>e)</strong> Filter all whole elements from the input array <code>items</code> that exactly matches any of the elements present in the array <code>words</code>.<pre><code class=language-ruby>>> items = ['slate', 'later', 'plate', 'late', 'slates', 'slated ']
+>> words = %w[late later slated]
 
-&gt;&gt; pat = Regexp.union(words.sort_by { |w| -w.length })
-&gt;&gt; pat = /\A(#{pat.source})\z/
+>> pat = Regexp.union(words.sort_by { |w| -w.length })
+>> pat = /\A(#{pat.source})\z/
 
-&gt;&gt; items.grep(pat)
-=&gt; [&quot;later&quot;, &quot;late&quot;]
-</code></pre>
-<br>
-<h1><a class="header" href="#escaping-metacharacters" id="escaping-metacharacters">Escaping metacharacters</a></h1>
-<p><strong>a)</strong> Transform given input strings to expected output using same logic on both strings.</p>
-<pre><code class="language-ruby">&gt;&gt; str1 = '(9-2)*5+qty/3'
-&gt;&gt; str2 = '(qty+4)/2-(9-2)*5+pq/4'
+>> items.grep(pat)
+=> ["later", "late"]
+</code></pre><br><h1><a class=header href=#escaping-metacharacters id=escaping-metacharacters>Escaping metacharacters</a></h1><p><strong>a)</strong> Transform given input strings to expected output using same logic on both strings.<pre><code class=language-ruby>>> str1 = '(9-2)*5+qty/3'
+>> str2 = '(qty+4)/2-(9-2)*5+pq/4'
 
-&gt;&gt; str1.gsub('(9-2)*5', '35')
-=&gt; &quot;35+qty/3&quot;
-&gt;&gt; str2.gsub('(9-2)*5', '35')
-=&gt; &quot;(qty+4)/2-35+pq/4&quot;
-</code></pre>
-<p><strong>b)</strong> Replace <code>(4)\|</code> with <code>2</code> only at the start or end of given input strings.</p>
-<pre><code class="language-ruby">&gt;&gt; s1 = '2.3/(4)\|6 foo 5.3-(4)\|'
-&gt;&gt; s2 = '(4)\|42 - (4)\|3'
-&gt;&gt; s3 = &quot;two - (4)\\|\n&quot;
+>> str1.gsub('(9-2)*5', '35')
+=> "35+qty/3"
+>> str2.gsub('(9-2)*5', '35')
+=> "(qty+4)/2-35+pq/4"
+</code></pre><p><strong>b)</strong> Replace <code>(4)\|</code> with <code>2</code> only at the start or end of given input strings.<pre><code class=language-ruby>>> s1 = '2.3/(4)\|6 foo 5.3-(4)\|'
+>> s2 = '(4)\|42 - (4)\|3'
+>> s3 = "two - (4)\\|\n"
 
-&gt;&gt; pat = /\A\(4\)\\\||\(4\)\\\|\z/
+>> pat = /\A\(4\)\\\||\(4\)\\\|\z/
 
-&gt;&gt; s1.gsub(pat, '2')
-=&gt; &quot;2.3/(4)\\|6 foo 5.3-2&quot;
-&gt;&gt; s2.gsub(pat, '2')
-=&gt; &quot;242 - (4)\\|3&quot;
-&gt;&gt; s3.gsub(pat, '2')
-=&gt; &quot;two - (4)\\|\n&quot;
-</code></pre>
-<p><strong>c)</strong> Replace any matching item from given array with <code>X</code> for given input strings. Match the elements from <code>items</code> literally. Assume no two elements of <code>items</code> will result in any matching conflict.</p>
-<pre><code class="language-ruby">&gt;&gt; items = ['a.b', '3+n', 'x\y\z', 'qty||price', '{n}']
+>> s1.gsub(pat, '2')
+=> "2.3/(4)\\|6 foo 5.3-2"
+>> s2.gsub(pat, '2')
+=> "242 - (4)\\|3"
+>> s3.gsub(pat, '2')
+=> "two - (4)\\|\n"
+</code></pre><p><strong>c)</strong> Replace any matching item from given array with <code>X</code> for given input strings. Match the elements from <code>items</code> literally. Assume no two elements of <code>items</code> will result in any matching conflict.<pre><code class=language-ruby>>> items = ['a.b', '3+n', 'x\y\z', 'qty||price', '{n}']
 
-&gt;&gt; pat = Regexp.union(items)
+>> pat = Regexp.union(items)
 
-&gt;&gt; '0a.bcd'.gsub(pat, 'X')
-=&gt; &quot;0Xcd&quot;
-&gt;&gt; 'E{n}AMPLE'.gsub(pat, 'X')
-=&gt; &quot;EXAMPLE&quot;
-&gt;&gt; '43+n2 ax\y\ze'.gsub(pat, 'X')
-=&gt; &quot;4X2 aXe&quot;
-</code></pre>
-<p><strong>d)</strong> Replace backspace character <code>\b</code> with a single space character for the given input string.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = &quot;123\b456&quot;
-&gt;&gt; puts ip
+>> '0a.bcd'.gsub(pat, 'X')
+=> "0Xcd"
+>> 'E{n}AMPLE'.gsub(pat, 'X')
+=> "EXAMPLE"
+>> '43+n2 ax\y\ze'.gsub(pat, 'X')
+=> "4X2 aXe"
+</code></pre><p><strong>d)</strong> Replace backspace character <code>\b</code> with a single space character for the given input string.<pre><code class=language-ruby>>> ip = "123\b456"
+>> puts ip
 12456
 
-&gt;&gt; ip.gsub(/\x08/, ' ')
-=&gt; &quot;123 456&quot;
-</code></pre>
-<p><strong>e)</strong> Replace all occurrences of <code>\o</code> with <code>o</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'there are c\omm\on aspects am\ong the alternati\ons'
+>> ip.gsub(/\x08/, ' ')
+=> "123 456"
+</code></pre><p><strong>e)</strong> Replace all occurrences of <code>\o</code> with <code>o</code>.<pre><code class=language-ruby>>> ip = 'there are c\omm\on aspects am\ong the alternati\ons'
 
-&gt;&gt; ip.gsub(/\\o/, 'o')
-=&gt; &quot;there are common aspects among the alternations&quot;
-</code></pre>
-<p><strong>f)</strong> Replace any matching item from the array <code>eqns</code> with <code>X</code> for given the string <code>ip</code>. Match the items from <code>eqns</code> literally.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = '3-(a^b)+2*(a^b)-(a/b)+3'
-&gt;&gt; eqns = %w[(a^b) (a/b) (a^b)+2]
+>> ip.gsub(/\\o/, 'o')
+=> "there are common aspects among the alternations"
+</code></pre><p><strong>f)</strong> Replace any matching item from the array <code>eqns</code> with <code>X</code> for given the string <code>ip</code>. Match the items from <code>eqns</code> literally.<pre><code class=language-ruby>>> ip = '3-(a^b)+2*(a^b)-(a/b)+3'
+>> eqns = %w[(a^b) (a/b) (a^b)+2]
 
-&gt;&gt; pat = Regexp.union(eqns.sort_by { |w| -w.length })
+>> pat = Regexp.union(eqns.sort_by { |w| -w.length })
 
-&gt;&gt; ip.gsub(pat, 'X')
-=&gt; &quot;3-X*X-X+3&quot;
-</code></pre>
-<br>
-<h1><a class="header" href="#dot-metacharacter-and-quantifiers" id="dot-metacharacter-and-quantifiers">Dot metacharacter and Quantifiers</a></h1>
-<blockquote>
-<p><img src="images/info.svg" alt="info" /> Since <code>.</code> metacharacter doesn't match newline character by default, assume that the input strings in the following exercises will not contain newline characters.</p>
-</blockquote>
-<p><strong>a)</strong> Replace <code>42//5</code> or <code>42/5</code> with <code>8</code> for the given input.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'a+42//5-c pressure*3+42/5-14256'
+>> ip.gsub(pat, 'X')
+=> "3-X*X-X+3"
+</code></pre><br><h1><a class=header href=#dot-metacharacter-and-quantifiers id=dot-metacharacter-and-quantifiers>Dot metacharacter and Quantifiers</a></h1><blockquote><p><img src=images/info.svg alt=info> Since <code>.</code> metacharacter doesn't match newline character by default, assume that the input strings in the following exercises will not contain newline characters.</blockquote><p><strong>a)</strong> Replace <code>42//5</code> or <code>42/5</code> with <code>8</code> for the given input.<pre><code class=language-ruby>>> ip = 'a+42//5-c pressure*3+42/5-14256'
 
-&gt;&gt; ip.gsub(%r{42//?5}, '8')
-=&gt; &quot;a+8-c pressure*3+8-14256&quot;
-</code></pre>
-<p><strong>b)</strong> For the array <code>items</code>, filter all elements starting with <code>hand</code> and ending with at most one more character or <code>le</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; items = %w[handed hand handled handy unhand hands handle]
+>> ip.gsub(%r{42//?5}, '8')
+=> "a+8-c pressure*3+8-14256"
+</code></pre><p><strong>b)</strong> For the array <code>items</code>, filter all elements starting with <code>hand</code> and ending with at most one more character or <code>le</code>.<pre><code class=language-ruby>>> items = %w[handed hand handled handy unhand hands handle]
 
-&gt;&gt; items.grep(/\Ahand(.|le)?\z/)
-=&gt; [&quot;hand&quot;, &quot;handy&quot;, &quot;hands&quot;, &quot;handle&quot;]
-</code></pre>
-<p><strong>c)</strong> Use <code>split</code> method to get the output as shown for the given input strings.</p>
-<pre><code class="language-ruby">&gt;&gt; eqn1 = 'a+42//5-c'
-&gt;&gt; eqn2 = 'pressure*3+42/5-14256'
-&gt;&gt; eqn3 = 'r*42-5/3+42///5-42/53+a'
+>> items.grep(/\Ahand(.|le)?\z/)
+=> ["hand", "handy", "hands", "handle"]
+</code></pre><p><strong>c)</strong> Use <code>split</code> method to get the output as shown for the given input strings.<pre><code class=language-ruby>>> eqn1 = 'a+42//5-c'
+>> eqn2 = 'pressure*3+42/5-14256'
+>> eqn3 = 'r*42-5/3+42///5-42/53+a'
 
-&gt;&gt; pat = %r{42//?5}
+>> pat = %r{42//?5}
 
-&gt;&gt; eqn1.split(pat)
-=&gt; [&quot;a+&quot;, &quot;-c&quot;]
-&gt;&gt; eqn2.split(pat)
-=&gt; [&quot;pressure*3+&quot;, &quot;-14256&quot;]
-&gt;&gt; eqn3.split(pat)
-=&gt; [&quot;r*42-5/3+42///5-&quot;, &quot;3+a&quot;]
-</code></pre>
-<p><strong>d)</strong> For the given input strings, remove everything from the first occurrence of <code>i</code> till end of the string.</p>
-<pre><code class="language-ruby">&gt;&gt; s1 = 'remove the special meaning of such constructs'
-&gt;&gt; s2 = 'characters while constructing'
+>> eqn1.split(pat)
+=> ["a+", "-c"]
+>> eqn2.split(pat)
+=> ["pressure*3+", "-14256"]
+>> eqn3.split(pat)
+=> ["r*42-5/3+42///5-", "3+a"]
+</code></pre><p><strong>d)</strong> For the given input strings, remove everything from the first occurrence of <code>i</code> till end of the string.<pre><code class=language-ruby>>> s1 = 'remove the special meaning of such constructs'
+>> s2 = 'characters while constructing'
 
-&gt;&gt; pat = /i.*/
+>> pat = /i.*/
 
-&gt;&gt; s1.sub(pat, '')
-=&gt; &quot;remove the spec&quot;
-&gt;&gt; s2.sub(pat, '')
-=&gt; &quot;characters wh&quot;
-</code></pre>
-<p><strong>e)</strong> For the given strings, construct a regexp to get output as shown.</p>
-<pre><code class="language-ruby">&gt;&gt; str1 = 'a+b(addition)'
-&gt;&gt; str2 = 'a/b(division) + c%d(#modulo)'
-&gt;&gt; str3 = 'Hi there(greeting). Nice day(a(b)'
+>> s1.sub(pat, '')
+=> "remove the spec"
+>> s2.sub(pat, '')
+=> "characters wh"
+</code></pre><p><strong>e)</strong> For the given strings, construct a regexp to get output as shown.<pre><code class=language-ruby>>> str1 = 'a+b(addition)'
+>> str2 = 'a/b(division) + c%d(#modulo)'
+>> str3 = 'Hi there(greeting). Nice day(a(b)'
 
-&gt;&gt; remove_parentheses = /\(.*?\)/
+>> remove_parentheses = /\(.*?\)/
 
-&gt;&gt; str1.gsub(remove_parentheses, '')
-=&gt; &quot;a+b&quot;
-&gt;&gt; str2.gsub(remove_parentheses, '')
-=&gt; &quot;a/b + c%d&quot;
-&gt;&gt; str3.gsub(remove_parentheses, '')
-=&gt; &quot;Hi there. Nice day&quot;
-</code></pre>
-<p><strong>f)</strong> Correct the given regexp to get the expected output.</p>
-<pre><code class="language-ruby">&gt;&gt; words = 'plink incoming tint winter in caution sentient'
+>> str1.gsub(remove_parentheses, '')
+=> "a+b"
+>> str2.gsub(remove_parentheses, '')
+=> "a/b + c%d"
+>> str3.gsub(remove_parentheses, '')
+=> "Hi there. Nice day"
+</code></pre><p><strong>f)</strong> Correct the given regexp to get the expected output.<pre><code class=language-ruby>>> words = 'plink incoming tint winter in caution sentient'
 
 # wrong output
-&gt;&gt; change = /int|in|ion|ing|inco|inter|ink/
-&gt;&gt; words.gsub(change, 'X')
-=&gt; &quot;plXk XcomXg tX wXer X cautX sentient&quot;
+>> change = /int|in|ion|ing|inco|inter|ink/
+>> words.gsub(change, 'X')
+=> "plXk XcomXg tX wXer X cautX sentient"
 
 # expected output
-&gt;&gt; change = /in(ter|co|t|g|k)?|ion/
-&gt;&gt; words.gsub(change, 'X')
-=&gt; &quot;plX XmX tX wX X cautX sentient&quot;
-</code></pre>
-<p><strong>g)</strong> For the given greedy quantifiers, what would be the equivalent form using <code>{m,n}</code> representation?</p>
-<ul>
-<li><code>?</code> is same as <code>{,1}</code></li>
-<li><code>*</code> is same as <code>{0,}</code></li>
-<li><code>+</code> is same as <code>{1,}</code></li>
-</ul>
-<p><strong>h)</strong> <code>(a*|b*)</code> is same as <code>(a|b)*</code> — true or false?</p>
-<p>False. Because <code>(a*|b*)</code> will match only sequences like <code>a</code>, <code>aaa</code>, <code>bb</code>, <code>bbbbbbbb</code>. But <code>(a|b)*</code> can match a mixed sequence like <code>ababbba</code> too.</p>
-<p><strong>i)</strong> For the given input strings, remove everything from the first occurrence of <code>test</code> (irrespective of case) till end of the string, provided <code>test</code> isn't at the end of the string.</p>
-<pre><code class="language-ruby">&gt;&gt; s1 = 'this is a Test'
-&gt;&gt; s2 = 'always test your RE for corner cases'
-&gt;&gt; s3 = 'a TEST of skill tests?'
+>> change = /in(ter|co|t|g|k)?|ion/
+>> words.gsub(change, 'X')
+=> "plX XmX tX wX X cautX sentient"
+</code></pre><p><strong>g)</strong> For the given greedy quantifiers, what would be the equivalent form using <code>{m,n}</code> representation?<ul><li><code>?</code> is same as <code>{,1}</code><li><code>*</code> is same as <code>{0,}</code><li><code>+</code> is same as <code>{1,}</code></ul><p><strong>h)</strong> <code>(a*|b*)</code> is same as <code>(a|b)*</code> — true or false?<p>False. Because <code>(a*|b*)</code> will match only sequences like <code>a</code>, <code>aaa</code>, <code>bb</code>, <code>bbbbbbbb</code>. But <code>(a|b)*</code> can match a mixed sequence like <code>ababbba</code> too.<p><strong>i)</strong> For the given input strings, remove everything from the first occurrence of <code>test</code> (irrespective of case) till end of the string, provided <code>test</code> isn't at the end of the string.<pre><code class=language-ruby>>> s1 = 'this is a Test'
+>> s2 = 'always test your RE for corner cases'
+>> s3 = 'a TEST of skill tests?'
 
-&gt;&gt; pat = /test.+/i
+>> pat = /test.+/i
 
-&gt;&gt; s1.sub(pat, '')
-=&gt; &quot;this is a Test&quot;
-&gt;&gt; s2.sub(pat, '')
-=&gt; &quot;always &quot;
-&gt;&gt; s3.sub(pat, '')
-=&gt; &quot;a &quot;
-</code></pre>
-<p><strong>j)</strong> For the input array <code>words</code>, filter all elements starting with <code>s</code> and containing <code>e</code> and <code>t</code> in any order.</p>
-<pre><code class="language-ruby">&gt;&gt; words = %w[sequoia subtle exhibit asset sets tests site]
+>> s1.sub(pat, '')
+=> "this is a Test"
+>> s2.sub(pat, '')
+=> "always "
+>> s3.sub(pat, '')
+=> "a "
+</code></pre><p><strong>j)</strong> For the input array <code>words</code>, filter all elements starting with <code>s</code> and containing <code>e</code> and <code>t</code> in any order.<pre><code class=language-ruby>>> words = %w[sequoia subtle exhibit asset sets tests site]
 
-&gt;&gt; words.grep(/\As.*(e.*t|t.*e)/)
-=&gt; [&quot;subtle&quot;, &quot;sets&quot;, &quot;site&quot;]
-</code></pre>
-<p><strong>k)</strong> For the input array <code>words</code>, remove all elements having less than <code>6</code> characters.</p>
-<pre><code class="language-ruby">&gt;&gt; words = %w[sequoia subtle exhibit asset sets tests site]
+>> words.grep(/\As.*(e.*t|t.*e)/)
+=> ["subtle", "sets", "site"]
+</code></pre><p><strong>k)</strong> For the input array <code>words</code>, remove all elements having less than <code>6</code> characters.<pre><code class=language-ruby>>> words = %w[sequoia subtle exhibit asset sets tests site]
 
-&gt;&gt; words.grep(/.{6,}/)
-=&gt; [&quot;sequoia&quot;, &quot;subtle&quot;, &quot;exhibit&quot;]
-</code></pre>
-<p><strong>l)</strong> For the input array <code>words</code>, filter all elements starting with <code>s</code> or <code>t</code> and having a maximum of <code>6</code> characters.</p>
-<pre><code class="language-ruby">&gt;&gt; words = %w[sequoia subtle exhibit asset sets tests site]
+>> words.grep(/.{6,}/)
+=> ["sequoia", "subtle", "exhibit"]
+</code></pre><p><strong>l)</strong> For the input array <code>words</code>, filter all elements starting with <code>s</code> or <code>t</code> and having a maximum of <code>6</code> characters.<pre><code class=language-ruby>>> words = %w[sequoia subtle exhibit asset sets tests site]
 
-&gt;&gt; words.grep(/\A(s|t).{,5}\z/)
-=&gt; [&quot;subtle&quot;, &quot;sets&quot;, &quot;tests&quot;, &quot;site&quot;]
-</code></pre>
-<p><strong>m)</strong> Can you reason out why this code results in the output shown? The aim was to remove all <code>&lt;characters&gt;</code> patterns but not the <code>&lt;&gt;</code> ones. The expected result was <code>'a 1&lt;&gt; b 2&lt;&gt; c'</code>.</p>
-<p>The use of <code>.+</code> quantifier after <code>&lt;</code> means that <code>&lt;&gt;</code> cannot be a possible match to satisfy <code>&lt;.+?&gt;</code>. So, after matching <code>&lt;</code> (which occurs after <code>1</code> and <code>2</code> in the given input string) the regular expression engine will look for next occurrence of <code>&gt;</code> character to satisfy the given pattern. To solve such cases, you need to use character classes, which is discussed in a later chapter, to specify which particular set of characters should be matched by the <code>+</code> quantifier instead of <code>.</code> metacharacter.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'a&lt;apple&gt; 1&lt;&gt; b&lt;bye&gt; 2&lt;&gt; c&lt;cat&gt;'
+>> words.grep(/\A(s|t).{,5}\z/)
+=> ["subtle", "sets", "tests", "site"]
+</code></pre><p><strong>m)</strong> Can you reason out why this code results in the output shown? The aim was to remove all <code>&LTcharacters></code> patterns but not the <code><></code> ones. The expected result was <code>'a 1<> b 2<> c'</code>.<p>The use of <code>.+</code> quantifier after <code><</code> means that <code><></code> cannot be a possible match to satisfy <code><.+?></code>. So, after matching <code><</code> (which occurs after <code>1</code> and <code>2</code> in the given input string) the regular expression engine will look for next occurrence of <code>></code> character to satisfy the given pattern. To solve such cases, you need to use character classes, which is discussed in a later chapter, to specify which particular set of characters should be matched by the <code>+</code> quantifier instead of <code>.</code> metacharacter.<pre><code class=language-ruby>>> ip = 'a&LTapple> 1<> b&LTbye> 2<> c&LTcat>'
 
-&gt;&gt; ip.gsub(/&lt;.+?&gt;/, '')
-=&gt; &quot;a 1 2&quot;
-</code></pre>
-<p><strong>n)</strong> Use <code>split</code> method to get the output as shown below for given input strings.</p>
-<pre><code class="language-ruby">&gt;&gt; s1 = 'go there  ::   this :: that'
-&gt;&gt; s2 = 'a::b :: c::d e::f :: 4::5'
-&gt;&gt; s3 = '42:: hi::bye::see :: carefully'
+>> ip.gsub(/<.+?>/, '')
+=> "a 1 2"
+</code></pre><p><strong>n)</strong> Use <code>split</code> method to get the output as shown below for given input strings.<pre><code class=language-ruby>>> s1 = 'go there  ::   this :: that'
+>> s2 = 'a::b :: c::d e::f :: 4::5'
+>> s3 = '42:: hi::bye::see :: carefully'
 
-&gt;&gt; pat = / +:: +/
+>> pat = / +:: +/
 
-&gt;&gt; s1.split(pat, 2)
-=&gt; [&quot;go there&quot;, &quot;this :: that&quot;]
-&gt;&gt; s2.split(pat, 2)
-=&gt; [&quot;a::b&quot;, &quot;c::d e::f :: 4::5&quot;]
-&gt;&gt; s3.split(pat, 2)
-=&gt; [&quot;42:: hi::bye::see&quot;, &quot;carefully&quot;]
-</code></pre>
-<p><strong>o)</strong> For the given input strings, match if the string starts with optional space characters followed by at least two <code>#</code> characters.</p>
-<pre><code class="language-ruby">&gt;&gt; s1 = '   ## header2'
-&gt;&gt; s2 = '#### header4'
-&gt;&gt; s3 = '# comment'
-&gt;&gt; s4 = 'normal string'
-&gt;&gt; s5 = 'nope ## not this'
+>> s1.split(pat, 2)
+=> ["go there", "this :: that"]
+>> s2.split(pat, 2)
+=> ["a::b", "c::d e::f :: 4::5"]
+>> s3.split(pat, 2)
+=> ["42:: hi::bye::see", "carefully"]
+</code></pre><p><strong>o)</strong> For the given input strings, match if the string starts with optional space characters followed by at least two <code>#</code> characters.<pre><code class=language-ruby>>> s1 = '   ## header2'
+>> s2 = '#### header4'
+>> s3 = '# comment'
+>> s4 = 'normal string'
+>> s5 = 'nope ## not this'
 
-&gt;&gt; pat = /\A *\#{2,}/
+>> pat = /\A *\#{2,}/
 
-&gt;&gt; s1.match?(pat)
-=&gt; true
-&gt;&gt; s2.match?(pat)
-=&gt; true
-&gt;&gt; s3.match?(pat)
-=&gt; false
-&gt;&gt; s4.match?(pat)
-=&gt; false
-&gt;&gt; s5.match?(pat)
-=&gt; false
-</code></pre>
-<br>
-<h1><a class="header" href="#working-with-matched-portions" id="working-with-matched-portions">Working with matched portions</a></h1>
-<p><strong>a)</strong> For the given strings, extract the matching portion from first <code>is</code> to last <code>t</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; str1 = 'This the biggest fruit you have seen?'
-&gt;&gt; str2 = 'Your mission is to read and practice consistently'
+>> s1.match?(pat)
+=> true
+>> s2.match?(pat)
+=> true
+>> s3.match?(pat)
+=> false
+>> s4.match?(pat)
+=> false
+>> s5.match?(pat)
+=> false
+</code></pre><br><h1><a class=header href=#working-with-matched-portions id=working-with-matched-portions>Working with matched portions</a></h1><p><strong>a)</strong> For the given strings, extract the matching portion from first <code>is</code> to last <code>t</code>.<pre><code class=language-ruby>>> str1 = 'This the biggest fruit you have seen?'
+>> str2 = 'Your mission is to read and practice consistently'
 
-&gt;&gt; pat = /is.*t/
+>> pat = /is.*t/
 
-&gt;&gt; str1[pat]
-=&gt; &quot;is the biggest fruit&quot;
-&gt;&gt; str2[pat]
-=&gt; &quot;ission is to read and practice consistent&quot;
-</code></pre>
-<p><strong>b)</strong> Find the starting index of first occurrence of <code>is</code> or <code>the</code> or <code>was</code> or <code>to</code> for the given input strings.</p>
-<pre><code class="language-ruby">&gt;&gt; s1 = 'match after the last newline character'
-&gt;&gt; s2 = 'and then you want to test'
-&gt;&gt; s3 = 'this is good bye then'
-&gt;&gt; s4 = 'who was there to see?'
+>> str1[pat]
+=> "is the biggest fruit"
+>> str2[pat]
+=> "ission is to read and practice consistent"
+</code></pre><p><strong>b)</strong> Find the starting index of first occurrence of <code>is</code> or <code>the</code> or <code>was</code> or <code>to</code> for the given input strings.<pre><code class=language-ruby>>> s1 = 'match after the last newline character'
+>> s2 = 'and then you want to test'
+>> s3 = 'this is good bye then'
+>> s4 = 'who was there to see?'
 
-&gt;&gt; pat = /is|the|was|to/
+>> pat = /is|the|was|to/
 
-&gt;&gt; s1 =~ pat
-=&gt; 12
-&gt;&gt; s2 =~ pat
-=&gt; 4
-&gt;&gt; s3 =~ pat
-=&gt; 2
-&gt;&gt; s4 =~ pat
-=&gt; 4
-</code></pre>
-<p><strong>c)</strong> Find the starting index of last occurrence of <code>is</code> or <code>the</code> or <code>was</code> or <code>to</code> for the given input strings.</p>
-<pre><code class="language-ruby">&gt;&gt; s1 = 'match after the last newline character'
-&gt;&gt; s2 = 'and then you want to test'
-&gt;&gt; s3 = 'this is good bye then'
-&gt;&gt; s4 = 'who was there to see?'
+>> s1 =~ pat
+=> 12
+>> s2 =~ pat
+=> 4
+>> s3 =~ pat
+=> 2
+>> s4 =~ pat
+=> 4
+</code></pre><p><strong>c)</strong> Find the starting index of last occurrence of <code>is</code> or <code>the</code> or <code>was</code> or <code>to</code> for the given input strings.<pre><code class=language-ruby>>> s1 = 'match after the last newline character'
+>> s2 = 'and then you want to test'
+>> s3 = 'this is good bye then'
+>> s4 = 'who was there to see?'
 
-&gt;&gt; pat = /.*(is|the|was|to)/
+>> pat = /.*(is|the|was|to)/
 
-&gt;&gt; s1.match(pat).begin(1)
-=&gt; 12
-&gt;&gt; s2.match(pat).begin(1)
-=&gt; 18
-&gt;&gt; s3.match(pat).begin(1)
-=&gt; 17
-&gt;&gt; s4.match(pat).begin(1)
-=&gt; 14
-</code></pre>
-<p><strong>d)</strong> The given input string contains <code>:</code> exactly once. Extract all characters after the <code>:</code> as output.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'fruits:apple, mango, guava, blueberry'
+>> s1.match(pat).begin(1)
+=> 12
+>> s2.match(pat).begin(1)
+=> 18
+>> s3.match(pat).begin(1)
+=> 17
+>> s4.match(pat).begin(1)
+=> 14
+</code></pre><p><strong>d)</strong> The given input string contains <code>:</code> exactly once. Extract all characters after the <code>:</code> as output.<pre><code class=language-ruby>>> ip = 'fruits:apple, mango, guava, blueberry'
 
 # can also use: ip[/:(.*)/, 1]
-&gt;&gt; ip.match(/:(.*)/)[1]
+>> ip.match(/:(.*)/)[1]
 'apple, mango, guava, blueberry'
-</code></pre>
-<p><strong>e)</strong> The given input strings contains some text followed by <code>-</code> followed by a number. Replace that number with its <code>log</code> value using <code>Math.log()</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; s1 = 'first-3.14'
-&gt;&gt; s2 = 'next-123'
+</code></pre><p><strong>e)</strong> The given input strings contains some text followed by <code>-</code> followed by a number. Replace that number with its <code>log</code> value using <code>Math.log()</code>.<pre><code class=language-ruby>>> s1 = 'first-3.14'
+>> s2 = 'next-123'
 
-&gt;&gt; pat = /-(.+)/
+>> pat = /-(.+)/
 
-&gt;&gt; s1.sub(pat) { &quot;-#{Math.log($1.to_f)}&quot; }
-=&gt; &quot;first-1.144222799920162&quot;
-&gt;&gt; s2.sub(pat) { &quot;-#{Math.log($1.to_f)}&quot; }
-=&gt; &quot;next-4.812184355372417&quot;
-</code></pre>
-<p><strong>f)</strong> Replace all occurrences of <code>par</code> with <code>spar</code>, <code>spare</code> with <code>extra</code> and <code>park</code> with <code>garden</code> for the given input strings.</p>
-<pre><code class="language-ruby">&gt;&gt; str1 = 'apartment has a park'
-&gt;&gt; str2 = 'do you have a spare cable'
-&gt;&gt; str3 = 'write a parser'
+>> s1.sub(pat) { "-#{Math.log($1.to_f)}" }
+=> "first-1.144222799920162"
+>> s2.sub(pat) { "-#{Math.log($1.to_f)}" }
+=> "next-4.812184355372417"
+</code></pre><p><strong>f)</strong> Replace all occurrences of <code>par</code> with <code>spar</code>, <code>spare</code> with <code>extra</code> and <code>park</code> with <code>garden</code> for the given input strings.<pre><code class=language-ruby>>> str1 = 'apartment has a park'
+>> str2 = 'do you have a spare cable'
+>> str3 = 'write a parser'
 
-&gt;&gt; pat = /park?|spare/
-&gt;&gt; h = { 'par' =&gt; 'spar', 'spare' =&gt; 'extra', 'park' =&gt; 'garden' }
+>> pat = /park?|spare/
+>> h = { 'par' => 'spar', 'spare' => 'extra', 'park' => 'garden' }
 
-&gt;&gt; str1.gsub(pat, h)
-=&gt; &quot;aspartment has a garden&quot;
-&gt;&gt; str2.gsub(pat, h)
-=&gt; &quot;do you have a extra cable&quot;
-&gt;&gt; str3.gsub(pat, h)
-=&gt; &quot;write a sparser&quot;
-</code></pre>
-<p><strong>g)</strong> Extract all words between <code>(</code> and <code>)</code> from the given input string as an array. Assume that the input will not contain any broken parentheses.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'another (way) to reuse (portion) matched (by) capture groups'
+>> str1.gsub(pat, h)
+=> "aspartment has a garden"
+>> str2.gsub(pat, h)
+=> "do you have a extra cable"
+>> str3.gsub(pat, h)
+=> "write a sparser"
+</code></pre><p><strong>g)</strong> Extract all words between <code>(</code> and <code>)</code> from the given input string as an array. Assume that the input will not contain any broken parentheses.<pre><code class=language-ruby>>> ip = 'another (way) to reuse (portion) matched (by) capture groups'
 
 # as nested array output
-&gt;&gt; ip.scan(/\((.*?)\)/)
-=&gt; [[&quot;way&quot;], [&quot;portion&quot;], [&quot;by&quot;]]
+>> ip.scan(/\((.*?)\)/)
+=> [["way"], ["portion"], ["by"]]
 
 # as array of strings output
-&gt;&gt; ip.gsub(/\((.*?)\)/).map { $1 }
-=&gt; [&quot;way&quot;, &quot;portion&quot;, &quot;by&quot;]
-</code></pre>
-<p><strong>h)</strong> Extract all occurrences of <code>&lt;</code> up to next occurrence of <code>&gt;</code>, provided there is at least one character in between <code>&lt;</code> and <code>&gt;</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'a&lt;apple&gt; 1&lt;&gt; b&lt;bye&gt; 2&lt;&gt; c&lt;cat&gt;'
+>> ip.gsub(/\((.*?)\)/).map { $1 }
+=> ["way", "portion", "by"]
+</code></pre><p><strong>h)</strong> Extract all occurrences of <code><</code> up to next occurrence of <code>></code>, provided there is at least one character in between <code><</code> and <code>></code>.<pre><code class=language-ruby>>> ip = 'a&LTapple> 1<> b&LTbye> 2<> c&LTcat>'
 
-&gt;&gt; ip.scan(/&lt;.+?&gt;/)
-=&gt; [&quot;&lt;apple&gt;&quot;, &quot;&lt;&gt; b&lt;bye&gt;&quot;, &quot;&lt;&gt; c&lt;cat&gt;&quot;]
-</code></pre>
-<p><strong>i)</strong> Use <code>scan</code> to get the output as shown below for the given input strings. Note the characters used in the input strings carefully.</p>
-<pre><code class="language-ruby">&gt;&gt; row1 = '-2,5 4,+3 +42,-53 4356246,-357532354 '
-&gt;&gt; row2 = '1.32,-3.14 634,5.63 63.3e3,9907809345343.235 '
+>> ip.scan(/<.+?>/)
+=> ["&LTapple>", "<> b&LTbye>", "<> c&LTcat>"]
+</code></pre><p><strong>i)</strong> Use <code>scan</code> to get the output as shown below for the given input strings. Note the characters used in the input strings carefully.<pre><code class=language-ruby>>> row1 = '-2,5 4,+3 +42,-53 4356246,-357532354 '
+>> row2 = '1.32,-3.14 634,5.63 63.3e3,9907809345343.235 '
 
-&gt;&gt; pat = /(.+?),(.+?) /
+>> pat = /(.+?),(.+?) /
 
-&gt;&gt; row1.scan(pat)
-=&gt; [[&quot;-2&quot;, &quot;5&quot;], [&quot;4&quot;, &quot;+3&quot;], [&quot;+42&quot;, &quot;-53&quot;], [&quot;4356246&quot;, &quot;-357532354&quot;]]
-&gt;&gt; row2.scan(pat)
-=&gt; [[&quot;1.32&quot;, &quot;-3.14&quot;], [&quot;634&quot;, &quot;5.63&quot;], [&quot;63.3e3&quot;, &quot;9907809345343.235&quot;]]
-</code></pre>
-<p><strong>j)</strong> This is an extension to the previous question.</p>
-<ul>
-<li>For <code>row1</code>, find the sum of integers of each array element. For example, sum of <code>-2</code> and <code>5</code> is <code>3</code>.</li>
-<li>For <code>row2</code>, find the sum of floating-point numbers of each array element. For example, sum of <code>1.32</code> and <code>-3.14</code> is <code>-1.82</code>.</li>
-</ul>
-<pre><code class="language-ruby">&gt;&gt; row1 = '-2,5 4,+3 +42,-53 4356246,-357532354 '
-&gt;&gt; row2 = '1.32,-3.14 634,5.63 63.3e3,9907809345343.235 '
+>> row1.scan(pat)
+=> [["-2", "5"], ["4", "+3"], ["+42", "-53"], ["4356246", "-357532354"]]
+>> row2.scan(pat)
+=> [["1.32", "-3.14"], ["634", "5.63"], ["63.3e3", "9907809345343.235"]]
+</code></pre><p><strong>j)</strong> This is an extension to the previous question.<ul><li>For <code>row1</code>, find the sum of integers of each array element. For example, sum of <code>-2</code> and <code>5</code> is <code>3</code>.<li>For <code>row2</code>, find the sum of floating-point numbers of each array element. For example, sum of <code>1.32</code> and <code>-3.14</code> is <code>-1.82</code>.</ul><pre><code class=language-ruby>>> row1 = '-2,5 4,+3 +42,-53 4356246,-357532354 '
+>> row2 = '1.32,-3.14 634,5.63 63.3e3,9907809345343.235 '
 
 # should be same as previous question
-&gt;&gt; pat = /(.+?),(.+?) /
+>> pat = /(.+?),(.+?) /
 
-&gt;&gt; row1.scan(pat).map { |a, b| a.to_i + b.to_i }
-=&gt; [3, 7, -11, -353176108]
+>> row1.scan(pat).map { |a, b| a.to_i + b.to_i }
+=> [3, 7, -11, -353176108]
 
-&gt;&gt; row2.scan(pat).map { |a, b| a.to_f + b.to_f }
-=&gt; [-1.82, 639.63, 9907809408643.234]
-</code></pre>
-<p><strong>k)</strong> Use <code>split</code> method to get the output as shown below.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = '42:no-output;1000:car-truck;SQEX49801'
+>> row2.scan(pat).map { |a, b| a.to_f + b.to_f }
+=> [-1.82, 639.63, 9907809408643.234]
+</code></pre><p><strong>k)</strong> Use <code>split</code> method to get the output as shown below.<pre><code class=language-ruby>>> ip = '42:no-output;1000:car-truck;SQEX49801'
 
-&gt;&gt; ip.split(/:.+?-(.+?);/)
-=&gt; [&quot;42&quot;, &quot;output&quot;, &quot;1000&quot;, &quot;truck&quot;, &quot;SQEX49801&quot;]
-</code></pre>
-<p><strong>l)</strong> Convert the comma separated strings to corresponding <code>hash</code> objects as shown below. Note that the input strings have an extra <code>,</code> at the end.</p>
-<pre><code class="language-ruby">&gt;&gt; row1 = 'name:rohan,maths:75,phy:89,'
-&gt;&gt; row2 = 'name:rose,maths:88,phy:92,'
+>> ip.split(/:.+?-(.+?);/)
+=> ["42", "output", "1000", "truck", "SQEX49801"]
+</code></pre><p><strong>l)</strong> Convert the comma separated strings to corresponding <code>hash</code> objects as shown below. Note that the input strings have an extra <code>,</code> at the end.<pre><code class=language-ruby>>> row1 = 'name:rohan,maths:75,phy:89,'
+>> row2 = 'name:rose,maths:88,phy:92,'
 
-&gt;&gt; pat = /(.+?):(.+?),/
+>> pat = /(.+?):(.+?),/
 
-&gt;&gt; row1.scan(pat).to_h
-=&gt; {&quot;name&quot;=&gt;&quot;rohan&quot;, &quot;maths&quot;=&gt;&quot;75&quot;, &quot;phy&quot;=&gt;&quot;89&quot;}
-&gt;&gt; row2.scan(pat).to_h
-=&gt; {&quot;name&quot;=&gt;&quot;rose&quot;, &quot;maths&quot;=&gt;&quot;88&quot;, &quot;phy&quot;=&gt;&quot;92&quot;}
-</code></pre>
-<br>
-<h1><a class="header" href="#character-class" id="character-class">Character class</a></h1>
-<p><strong>a)</strong> For the array <code>items</code>, filter all elements starting with <code>hand</code> and ending with <code>s</code> or <code>y</code> or <code>le</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; items = %w[-handy hand handy unhand hands handle]
+>> row1.scan(pat).to_h
+=> {"name"=>"rohan", "maths"=>"75", "phy"=>"89"}
+>> row2.scan(pat).to_h
+=> {"name"=>"rose", "maths"=>"88", "phy"=>"92"}
+</code></pre><br><h1><a class=header href=#character-class id=character-class>Character class</a></h1><p><strong>a)</strong> For the array <code>items</code>, filter all elements starting with <code>hand</code> and ending with <code>s</code> or <code>y</code> or <code>le</code>.<pre><code class=language-ruby>>> items = %w[-handy hand handy unhand hands handle]
 
-&gt;&gt; items.grep(/\Ahand([sy]|le)\z/)
-=&gt; [&quot;handy&quot;, &quot;hands&quot;, &quot;handle&quot;]
-</code></pre>
-<p><strong>b)</strong> Replace all whole words <code>reed</code> or <code>read</code> or <code>red</code> with <code>X</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'redo red credible :read: rod reed'
+>> items.grep(/\Ahand([sy]|le)\z/)
+=> ["handy", "hands", "handle"]
+</code></pre><p><strong>b)</strong> Replace all whole words <code>reed</code> or <code>read</code> or <code>red</code> with <code>X</code>.<pre><code class=language-ruby>>> ip = 'redo red credible :read: rod reed'
 
-&gt;&gt; ip.gsub(/\bre[ae]?d\b/, 'X')
-=&gt; &quot;redo X credible :X: rod X&quot;
-</code></pre>
-<p><strong>c)</strong> For the array <code>words</code>, filter all elements containing <code>e</code> or <code>i</code> followed by <code>l</code> or <code>n</code>. Note that the order mentioned should be followed.</p>
-<pre><code class="language-ruby">&gt;&gt; words = %w[surrender unicorn newer door empty eel pest]
+>> ip.gsub(/\bre[ae]?d\b/, 'X')
+=> "redo X credible :X: rod X"
+</code></pre><p><strong>c)</strong> For the array <code>words</code>, filter all elements containing <code>e</code> or <code>i</code> followed by <code>l</code> or <code>n</code>. Note that the order mentioned should be followed.<pre><code class=language-ruby>>> words = %w[surrender unicorn newer door empty eel pest]
 
-&gt;&gt; words.grep(/[ei].*[ln]/)
-=&gt; [&quot;surrender&quot;, &quot;unicorn&quot;, &quot;eel&quot;]
-</code></pre>
-<p><strong>d)</strong> For the array <code>words</code>, filter all elements containing <code>e</code> or <code>i</code> and <code>l</code> or <code>n</code> in any order.</p>
-<pre><code class="language-ruby">&gt;&gt; words = %w[surrender unicorn newer door empty eel pest]
+>> words.grep(/[ei].*[ln]/)
+=> ["surrender", "unicorn", "eel"]
+</code></pre><p><strong>d)</strong> For the array <code>words</code>, filter all elements containing <code>e</code> or <code>i</code> and <code>l</code> or <code>n</code> in any order.<pre><code class=language-ruby>>> words = %w[surrender unicorn newer door empty eel pest]
 
-&gt;&gt; words.grep(/[ei].*[ln]|[ln].*[ei]/)
-=&gt; [&quot;surrender&quot;, &quot;unicorn&quot;, &quot;newer&quot;, &quot;eel&quot;]
-</code></pre>
-<p><strong>e)</strong> Convert the comma separated strings to corresponding <code>hash</code> objects as shown below.</p>
-<pre><code class="language-ruby">&gt;&gt; row1 = 'name:rohan,maths:75,phy:89'
-&gt;&gt; row2 = 'name:rose,maths:88,phy:92'
+>> words.grep(/[ei].*[ln]|[ln].*[ei]/)
+=> ["surrender", "unicorn", "newer", "eel"]
+</code></pre><p><strong>e)</strong> Convert the comma separated strings to corresponding <code>hash</code> objects as shown below.<pre><code class=language-ruby>>> row1 = 'name:rohan,maths:75,phy:89'
+>> row2 = 'name:rose,maths:88,phy:92'
 
-&gt;&gt; pat = /([^:]+):([^,]+),?/
+>> pat = /([^:]+):([^,]+),?/
 
-&gt;&gt; row1.scan(pat).to_h
-=&gt; {&quot;name&quot;=&gt;&quot;rohan&quot;, &quot;maths&quot;=&gt;&quot;75&quot;, &quot;phy&quot;=&gt;&quot;89&quot;}
-&gt;&gt; row2.scan(pat).to_h
-=&gt; {&quot;name&quot;=&gt;&quot;rose&quot;, &quot;maths&quot;=&gt;&quot;88&quot;, &quot;phy&quot;=&gt;&quot;92&quot;}
-</code></pre>
-<p><strong>f)</strong> Delete from <code>(</code> to the next occurrence of <code>)</code> unless they contain parentheses characters in between.</p>
-<pre><code class="language-ruby">&gt;&gt; str1 = 'def factorial()'
-&gt;&gt; str2 = 'a/b(division) + c%d(#modulo) - (e+(j/k-3)*4)'
-&gt;&gt; str3 = 'Hi there(greeting). Nice day(a(b)'
+>> row1.scan(pat).to_h
+=> {"name"=>"rohan", "maths"=>"75", "phy"=>"89"}
+>> row2.scan(pat).to_h
+=> {"name"=>"rose", "maths"=>"88", "phy"=>"92"}
+</code></pre><p><strong>f)</strong> Delete from <code>(</code> to the next occurrence of <code>)</code> unless they contain parentheses characters in between.<pre><code class=language-ruby>>> str1 = 'def factorial()'
+>> str2 = 'a/b(division) + c%d(#modulo) - (e+(j/k-3)*4)'
+>> str3 = 'Hi there(greeting). Nice day(a(b)'
 
-&gt;&gt; remove_parentheses = /\([^()]*\)/
+>> remove_parentheses = /\([^()]*\)/
 
-&gt;&gt; str1.gsub(remove_parentheses, '')
-=&gt; &quot;def factorial&quot;
-&gt;&gt; str2.gsub(remove_parentheses, '')
-=&gt; &quot;a/b + c%d - (e+*4)&quot;
-&gt;&gt; str3.gsub(remove_parentheses, '')
-=&gt; &quot;Hi there. Nice day(a&quot;
-</code></pre>
-<p><strong>g)</strong> For the array <code>words</code>, filter all elements not starting with <code>e</code> or <code>p</code> or <code>u</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; words = %w[surrender unicorn newer door empty eel pest]
+>> str1.gsub(remove_parentheses, '')
+=> "def factorial"
+>> str2.gsub(remove_parentheses, '')
+=> "a/b + c%d - (e+*4)"
+>> str3.gsub(remove_parentheses, '')
+=> "Hi there. Nice day(a"
+</code></pre><p><strong>g)</strong> For the array <code>words</code>, filter all elements not starting with <code>e</code> or <code>p</code> or <code>u</code>.<pre><code class=language-ruby>>> words = %w[surrender unicorn newer door empty eel pest]
 
-&gt;&gt; words.grep(/\A[^epu]/)
-=&gt; [&quot;surrender&quot;, &quot;newer&quot;, &quot;door&quot;]
-</code></pre>
-<p><strong>h)</strong> For the array <code>words</code>, filter all elements not containing <code>u</code> or <code>w</code> or <code>ee</code> or <code>-</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; words = %w[p-t you tea heel owe new reed ear]
+>> words.grep(/\A[^epu]/)
+=> ["surrender", "newer", "door"]
+</code></pre><p><strong>h)</strong> For the array <code>words</code>, filter all elements not containing <code>u</code> or <code>w</code> or <code>ee</code> or <code>-</code>.<pre><code class=language-ruby>>> words = %w[p-t you tea heel owe new reed ear]
 
-&gt;&gt; words.grep_v(/[uw-]|ee/)
-=&gt; [&quot;tea&quot;, &quot;ear&quot;]
-</code></pre>
-<p><strong>i)</strong> The given input strings contain fields separated by <code>,</code> and fields can be empty too. Replace last three fields with <code>WHTSZ323</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; row1 = '(2),kite,12,,D,C,,'
-&gt;&gt; row2 = 'hi,bye,sun,moon'
+>> words.grep_v(/[uw-]|ee/)
+=> ["tea", "ear"]
+</code></pre><p><strong>i)</strong> The given input strings contain fields separated by <code>,</code> and fields can be empty too. Replace last three fields with <code>WHTSZ323</code>.<pre><code class=language-ruby>>> row1 = '(2),kite,12,,D,C,,'
+>> row2 = 'hi,bye,sun,moon'
 
-&gt;&gt; pat = /(,[^,]*){3}\z/
+>> pat = /(,[^,]*){3}\z/
 
-&gt;&gt; row1.sub(pat, ',WHTSZ323')
-=&gt; &quot;(2),kite,12,,D,WHTSZ323&quot;
-&gt;&gt; row2.sub(pat, ',WHTSZ323')
-=&gt; &quot;hi,WHTSZ323&quot;
-</code></pre>
-<p><strong>j)</strong> Split the given strings based on consecutive sequence of digit or whitespace characters.</p>
-<pre><code class="language-ruby">&gt;&gt; str1 = &quot;lion \t Ink32onion Nice&quot;
-&gt;&gt; str2 = &quot;**1\f2\n3star\t7 77\r**&quot;
+>> row1.sub(pat, ',WHTSZ323')
+=> "(2),kite,12,,D,WHTSZ323"
+>> row2.sub(pat, ',WHTSZ323')
+=> "hi,WHTSZ323"
+</code></pre><p><strong>j)</strong> Split the given strings based on consecutive sequence of digit or whitespace characters.<pre><code class=language-ruby>>> str1 = "lion \t Ink32onion Nice"
+>> str2 = "**1\f2\n3star\t7 77\r**"
 
-&gt;&gt; pat = /[\d\s]+/
+>> pat = /[\d\s]+/
 
-&gt;&gt; str1.split(pat)
-=&gt; [&quot;lion&quot;, &quot;Ink&quot;, &quot;onion&quot;, &quot;Nice&quot;]
-&gt;&gt; str2.split(pat)
-=&gt; [&quot;**&quot;, &quot;star&quot;, &quot;**&quot;]
-</code></pre>
-<p><strong>k)</strong> Delete all occurrences of the sequence <code>&lt;characters&gt;</code> where <code>characters</code> is one or more non <code>&gt;</code> characters and cannot be empty.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'a&lt;apple&gt; 1&lt;&gt; b&lt;bye&gt; 2&lt;&gt; c&lt;cat&gt;'
+>> str1.split(pat)
+=> ["lion", "Ink", "onion", "Nice"]
+>> str2.split(pat)
+=> ["**", "star", "**"]
+</code></pre><p><strong>k)</strong> Delete all occurrences of the sequence <code>&LTcharacters></code> where <code>characters</code> is one or more non <code>></code> characters and cannot be empty.<pre><code class=language-ruby>>> ip = 'a&LTapple> 1<> b&LTbye> 2<> c&LTcat>'
 
-&gt;&gt; ip.gsub(/&lt;[^&gt;]+&gt;/, '')
-=&gt; &quot;a 1&lt;&gt; b 2&lt;&gt; c&quot;
-</code></pre>
-<p><strong>l)</strong> <code>\b[a-z](on|no)[a-z]\b</code> is same as <code>\b[a-z][on]{2}[a-z]\b</code>. True or False? Sample input lines shown below might help to understand the differences, if any.</p>
-<p>False. <code>[on]{2}</code> will also match <code>oo</code> and <code>nn</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; puts &quot;known\nmood\nknow\npony\ninns&quot;
+>> ip.gsub(/<[^>]+>/, '')
+=> "a 1<> b 2<> c"
+</code></pre><p><strong>l)</strong> <code>\b[a-z](on|no)[a-z]\b</code> is same as <code>\b[a-z][on]{2}[a-z]\b</code>. True or False? Sample input lines shown below might help to understand the differences, if any.<p>False. <code>[on]{2}</code> will also match <code>oo</code> and <code>nn</code>.<pre><code class=language-ruby>>> puts "known\nmood\nknow\npony\ninns"
 known
 mood
 know
 pony
 inns
-</code></pre>
-<p><strong>m)</strong> For the given array, filter all elements containing any number sequence greater than <code>624</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; items = ['h0000432ab', 'car00625', '42_624 0512', '96 foo1234baz 3.14 2']
+</code></pre><p><strong>m)</strong> For the given array, filter all elements containing any number sequence greater than <code>624</code>.<pre><code class=language-ruby>>> items = ['h0000432ab', 'car00625', '42_624 0512', '96 foo1234baz 3.14 2']
 
-&gt;&gt; items.filter { |e| e.gsub(/\d+/).any? { $&amp;.to_i &gt; 624 } }
-=&gt; [&quot;car00625&quot;, &quot;96 foo1234baz 3.14 2&quot;]
-</code></pre>
-<p><strong>n)</strong> Count the maximum depth of nested braces for the given strings. Unbalanced or wrongly ordered braces should return <code>-1</code>. Note that this will require a mix of regular expressions and Ruby code.</p>
-<pre><code class="language-ruby">?&gt; def max_nested_braces(ip)
-?&gt;   cnt = 0
-?&gt;   cnt += 1 while ip.gsub!(/\{[^{}]*\}/, '')
-?&gt;   return ip.match?(/[{}]/) ? -1 : cnt
-&gt;&gt; end
+>> items.filter { |e| e.gsub(/\d+/).any? { $&.to_i > 624 } }
+=> ["car00625", "96 foo1234baz 3.14 2"]
+</code></pre><p><strong>n)</strong> Count the maximum depth of nested braces for the given strings. Unbalanced or wrongly ordered braces should return <code>-1</code>. Note that this will require a mix of regular expressions and Ruby code.<pre><code class=language-ruby>?> def max_nested_braces(ip)
+?>   cnt = 0
+?>   cnt += 1 while ip.gsub!(/\{[^{}]*\}/, '')
+?>   return ip.match?(/[{}]/) ? -1 : cnt
+>> end
 
-&gt;&gt; max_nested_braces('a*b')
-=&gt; 0
-&gt;&gt; max_nested_braces('}a+b{')
-=&gt; -1
-&gt;&gt; max_nested_braces('a*b+{}')
-=&gt; 1
-&gt;&gt; max_nested_braces('{{a+2}*{b+c}+e}')
-=&gt; 2
-&gt;&gt; max_nested_braces('{{a+2}*{b+{c*d}}+e}')
-=&gt; 3
-&gt;&gt; max_nested_braces(&quot;{{a+2}*{\n{b+{c*d}}+e*d}}&quot;)
-=&gt; 4
-&gt;&gt; max_nested_braces('a*{b+c*{e*3.14}}}')
-=&gt; -1
-</code></pre>
-<p><strong>o)</strong> By default, <code>split</code> method will split on whitespace and remove empty strings from the result. Which regexp based method would you use to replicate this functionality?</p>
-<pre><code class="language-ruby">&gt;&gt; ip = &quot; \t\r  so  pole\t\t\t\n\nlit in to \r\n\v\f  &quot;
+>> max_nested_braces('a*b')
+=> 0
+>> max_nested_braces('}a+b{')
+=> -1
+>> max_nested_braces('a*b+{}')
+=> 1
+>> max_nested_braces('{{a+2}*{b+c}+e}')
+=> 2
+>> max_nested_braces('{{a+2}*{b+{c*d}}+e}')
+=> 3
+>> max_nested_braces("{{a+2}*{\n{b+{c*d}}+e*d}}")
+=> 4
+>> max_nested_braces('a*{b+c*{e*3.14}}}')
+=> -1
+</code></pre><p><strong>o)</strong> By default, <code>split</code> method will split on whitespace and remove empty strings from the result. Which regexp based method would you use to replicate this functionality?<pre><code class=language-ruby>>> ip = " \t\r  so  pole\t\t\t\n\nlit in to \r\n\v\f  "
 
-&gt;&gt; ip.split
-=&gt; [&quot;so&quot;, &quot;pole&quot;, &quot;lit&quot;, &quot;in&quot;, &quot;to&quot;]
+>> ip.split
+=> ["so", "pole", "lit", "in", "to"]
 
-&gt;&gt; ip.scan(/\S+/)
-=&gt; [&quot;so&quot;, &quot;pole&quot;, &quot;lit&quot;, &quot;in&quot;, &quot;to&quot;]
-</code></pre>
-<p><strong>p)</strong> Convert the given input string to two different arrays as shown below. You can optimize the regexp based on characters present in the input string.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = &quot;price_42 roast^\t\n^-ice==cat\neast&quot;
+>> ip.scan(/\S+/)
+=> ["so", "pole", "lit", "in", "to"]
+</code></pre><p><strong>p)</strong> Convert the given input string to two different arrays as shown below. You can optimize the regexp based on characters present in the input string.<pre><code class=language-ruby>>> ip = "price_42 roast^\t\n^-ice==cat\neast"
 
-&gt;&gt; ip.split(/\W+/)
-=&gt; [&quot;price_42&quot;, &quot;roast&quot;, &quot;ice&quot;, &quot;cat&quot;, &quot;east&quot;]
+>> ip.split(/\W+/)
+=> ["price_42", "roast", "ice", "cat", "east"]
 
-&gt;&gt; ip.split(/(\W+)/)
-=&gt; [&quot;price_42&quot;, &quot; &quot;, &quot;roast&quot;, &quot;^\t\n^-&quot;, &quot;ice&quot;, &quot;==&quot;, &quot;cat&quot;, &quot;\n&quot;, &quot;east&quot;]
-</code></pre>
-<p><strong>q)</strong> Filter all elements whose first non-whitespace character is not a <code>#</code> character. Any element made up of only whitespace characters should be ignored as well.</p>
-<pre><code class="language-ruby">&gt;&gt; items = ['    #comment', &quot;\t\napple #42&quot;, '#oops', 'sure', 'no#1', &quot;\t\r\f&quot;]
+>> ip.split(/(\W+)/)
+=> ["price_42", " ", "roast", "^\t\n^-", "ice", "==", "cat", "\n", "east"]
+</code></pre><p><strong>q)</strong> Filter all elements whose first non-whitespace character is not a <code>#</code> character. Any element made up of only whitespace characters should be ignored as well.<pre><code class=language-ruby>>> items = ['    #comment', "\t\napple #42", '#oops', 'sure', 'no#1', "\t\r\f"]
 
 # can also use: items.grep(/\A\s*[^#\s]/)
-&gt;&gt; items.grep(/\A\s*+[^#]/)
-=&gt; [&quot;\t\napple #42&quot;, &quot;sure&quot;, &quot;no#1&quot;]
-</code></pre>
-<p><strong>r)</strong> Extract all whole words for the given input strings. However, based on user input <code>ignore</code>, do not match words if they contain any character present in the <code>ignore</code> variable. Assume that <code>ignore</code> variable will not contain any regexp metacharacter.</p>
-<pre><code class="language-ruby">&gt;&gt; s1 = 'match after the last newline character'
-&gt;&gt; s2 = 'and then you want to test'
+>> items.grep(/\A\s*+[^#]/)
+=> ["\t\napple #42", "sure", "no#1"]
+</code></pre><p><strong>r)</strong> Extract all whole words for the given input strings. However, based on user input <code>ignore</code>, do not match words if they contain any character present in the <code>ignore</code> variable. Assume that <code>ignore</code> variable will not contain any regexp metacharacter.<pre><code class=language-ruby>>> s1 = 'match after the last newline character'
+>> s2 = 'and then you want to test'
 
-&gt;&gt; ignore = 'aty'
-&gt;&gt; pat = /\b[\w&amp;&amp;[^#{ignore}]]+\b/
-&gt;&gt; s1.scan(pat)
-=&gt; [&quot;newline&quot;]
-&gt;&gt; s2.scan(pat)
-=&gt; []
+>> ignore = 'aty'
+>> pat = /\b[\w&&[^#{ignore}]]+\b/
+>> s1.scan(pat)
+=> ["newline"]
+>> s2.scan(pat)
+=> []
 
-&gt;&gt; ignore = 'esw'
-&gt;&gt; pat = /\b[\w&amp;&amp;[^#{ignore}]]+\b/
-&gt;&gt; s1.scan(pat)
-=&gt; [&quot;match&quot;]
-&gt;&gt; s2.scan(pat)
-=&gt; [&quot;and&quot;, &quot;you&quot;, &quot;to&quot;]
-</code></pre>
-<br>
-<h1><a class="header" href="#groupings-and-backreferences" id="groupings-and-backreferences">Groupings and backreferences</a></h1>
-<p><strong>a)</strong> Replace the space character that occurs after a word ending with <code>a</code> or <code>r</code> with a newline character.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'area not a _a2_ roar took 22'
+>> ignore = 'esw'
+>> pat = /\b[\w&&[^#{ignore}]]+\b/
+>> s1.scan(pat)
+=> ["match"]
+>> s2.scan(pat)
+=> ["and", "you", "to"]
+</code></pre><br><h1><a class=header href=#groupings-and-backreferences id=groupings-and-backreferences>Groupings and backreferences</a></h1><p><strong>a)</strong> Replace the space character that occurs after a word ending with <code>a</code> or <code>r</code> with a newline character.<pre><code class=language-ruby>>> ip = 'area not a _a2_ roar took 22'
 
-&gt;&gt; puts ip.gsub(/([ar]) /, &quot;\\1\n&quot;)
+>> puts ip.gsub(/([ar]) /, "\\1\n")
 area
 not a
 _a2_ roar
 took 22
-</code></pre>
-<p><strong>b)</strong> Add <code>[]</code> around words starting with <code>s</code> and containing <code>e</code> and <code>t</code> in any order.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'sequoia subtle exhibit asset sets tests site'
+</code></pre><p><strong>b)</strong> Add <code>[]</code> around words starting with <code>s</code> and containing <code>e</code> and <code>t</code> in any order.<pre><code class=language-ruby>>> ip = 'sequoia subtle exhibit asset sets tests site'
 
-&gt;&gt; ip.gsub(/\bs\w*(t\w*e|e\w*t)\w*/, '[\0]')
-=&gt; &quot;sequoia [subtle] exhibit asset [sets] tests [site]&quot;
-</code></pre>
-<p><strong>c)</strong> Replace all whole words with <code>X</code> that start and end with the same word character. Single character word should get replaced with <code>X</code> too, as it satisfies the stated condition.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'oreo not a _a2_ roar took 22'
+>> ip.gsub(/\bs\w*(t\w*e|e\w*t)\w*/, '[\0]')
+=> "sequoia [subtle] exhibit asset [sets] tests [site]"
+</code></pre><p><strong>c)</strong> Replace all whole words with <code>X</code> that start and end with the same word character. Single character word should get replaced with <code>X</code> too, as it satisfies the stated condition.<pre><code class=language-ruby>>> ip = 'oreo not a _a2_ roar took 22'
 
-&gt;&gt; ip.gsub(/\b(\w|(\w)\w*\2)\b/, 'X')
-=&gt; &quot;X not X X X took X&quot;
-</code></pre>
-<p><strong>d)</strong> Convert the given <strong>markdown</strong> headers to corresponding <strong>anchor</strong> tag. Consider the input to start with one or more <code>#</code> characters followed by space and word characters. The <code>name</code> attribute is constructed by converting the header to lowercase and replacing spaces with hyphens. Can you do it without using a capture group?</p>
-<pre><code class="language-ruby">&gt;&gt; header1 = '# Regular Expressions'
-&gt;&gt; header2 = '## Named capture groups'
+>> ip.gsub(/\b(\w|(\w)\w*\2)\b/, 'X')
+=> "X not X X X took X"
+</code></pre><p><strong>d)</strong> Convert the given <strong>markdown</strong> headers to corresponding <strong>anchor</strong> tag. Consider the input to start with one or more <code>#</code> characters followed by space and word characters. The <code>name</code> attribute is constructed by converting the header to lowercase and replacing spaces with hyphens. Can you do it without using a capture group?<pre><code class=language-ruby>>> header1 = '# Regular Expressions'
+>> header2 = '## Named capture groups'
 
-&gt;&gt; anchor = /\w.*/
+>> anchor = /\w.*/
 
-&gt;&gt; header1.sub(anchor) { &quot;&lt;a name='#{$&amp;.downcase.tr(' ', '-')}'&gt;&lt;/a&gt;#{$&amp;}&quot; }
-=&gt; &quot;# &lt;a name='regular-expressions'&gt;&lt;/a&gt;Regular Expressions&quot;
-&gt;&gt; header2.sub(anchor) { &quot;&lt;a name='#{$&amp;.downcase.tr(' ', '-')}'&gt;&lt;/a&gt;#{$&amp;}&quot; }
-=&gt; &quot;## &lt;a name='named-capture-groups'&gt;&lt;/a&gt;Named capture groups&quot;
-</code></pre>
-<p><strong>e)</strong> Convert the given <strong>markdown</strong> anchors to corresponding <strong>hyperlinks</strong>.</p>
-<pre><code class="language-ruby">&gt;&gt; anchor1 = &quot;# &lt;a name='regular-expressions'&gt;&lt;/a&gt;Regular Expressions&quot;
-&gt;&gt; anchor2 = &quot;## &lt;a name='subexpression-calls'&gt;&lt;/a&gt;Subexpression calls&quot;
+>> header1.sub(anchor) { "&LTa name='#{$&.downcase.tr(' ', '-')}'>&LT/a>#{$&}" }
+=> "# &LTa name='regular-expressions'>&LT/a>Regular Expressions"
+>> header2.sub(anchor) { "&LTa name='#{$&.downcase.tr(' ', '-')}'>&LT/a>#{$&}" }
+=> "## &LTa name='named-capture-groups'>&LT/a>Named capture groups"
+</code></pre><p><strong>e)</strong> Convert the given <strong>markdown</strong> anchors to corresponding <strong>hyperlinks</strong>.<pre><code class=language-ruby>>> anchor1 = "# &LTa name='regular-expressions'>&LT/a>Regular Expressions"
+>> anchor2 = "## &LTa name='subexpression-calls'>&LT/a>Subexpression calls"
 
-&gt;&gt; hyperlink = %r{[^']+'([^']+)'&gt;&lt;/a&gt;(.+)}
+>> hyperlink = %r{[^']+'([^']+)'>&LT/a>(.+)}
 
-&gt;&gt; anchor1.sub(hyperlink, '[\2](#\1)')
-=&gt; &quot;[Regular Expressions](#regular-expressions)&quot;
-&gt;&gt; anchor2.sub(hyperlink, '[\2](#\1)')
-=&gt; &quot;[Subexpression calls](#subexpression-calls)&quot;
-</code></pre>
-<p><strong>f)</strong> Count the number of whole words that have at least two occurrences of consecutive repeated alphabets. For example, words like <code>stillness</code> and <code>Committee</code> should be counted but not words like <code>root</code> or <code>readable</code> or <code>rotational</code>.</p>
-<pre><code class="language-ruby">'&gt; ip = %q{oppressed abandon accommodation bloodless
-'&gt; carelessness committed apparition innkeeper
-'&gt; occasionally afforded embarrassment foolishness
-'&gt; depended successfully succeeded
-&gt;&gt; possession cleanliness suppress}
+>> anchor1.sub(hyperlink, '[\2](#\1)')
+=> "[Regular Expressions](#regular-expressions)"
+>> anchor2.sub(hyperlink, '[\2](#\1)')
+=> "[Subexpression calls](#subexpression-calls)"
+</code></pre><p><strong>f)</strong> Count the number of whole words that have at least two occurrences of consecutive repeated alphabets. For example, words like <code>stillness</code> and <code>Committee</code> should be counted but not words like <code>root</code> or <code>readable</code> or <code>rotational</code>.<pre><code class=language-ruby>'> ip = %q{oppressed abandon accommodation bloodless
+'> carelessness committed apparition innkeeper
+'> occasionally afforded embarrassment foolishness
+'> depended successfully succeeded
+>> possession cleanliness suppress}
 
-&gt;&gt; ip.scan(/\b(\w*(\w)\2){2}\w*\b/).size
-=&gt; 13
-</code></pre>
-<p><strong>g)</strong> For the given input string, replace all occurrences of digit sequences with only the unique non-repeating sequence. For example, <code>232323</code> should be changed to <code>23</code> and <code>897897</code> should be changed to <code>897</code>. If there no repeats (for example <code>1234</code>) or if the repeats end prematurely (for example <code>12121</code>), it should not be changed.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = '1234 2323 453545354535 9339 11 60260260'
+>> ip.scan(/\b(\w*(\w)\2){2}\w*\b/).size
+=> 13
+</code></pre><p><strong>g)</strong> For the given input string, replace all occurrences of digit sequences with only the unique non-repeating sequence. For example, <code>232323</code> should be changed to <code>23</code> and <code>897897</code> should be changed to <code>897</code>. If there no repeats (for example <code>1234</code>) or if the repeats end prematurely (for example <code>12121</code>), it should not be changed.<pre><code class=language-ruby>>> ip = '1234 2323 453545354535 9339 11 60260260'
 
-&gt;&gt; ip.gsub(/\b(\d+)\1+\b/, '\1')
-=&gt; &quot;1234 23 4535 9339 1 60260260&quot;
-</code></pre>
-<p><strong>h)</strong> Replace sequences made up of words separated by <code>:</code> or <code>.</code> by the first word of the sequence. Such sequences will end when <code>:</code> or <code>.</code> is not followed by a word character.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'wow:Good:2_two:five: hi-2 bye kite.777.water.'
+>> ip.gsub(/\b(\d+)\1+\b/, '\1')
+=> "1234 23 4535 9339 1 60260260"
+</code></pre><p><strong>h)</strong> Replace sequences made up of words separated by <code>:</code> or <code>.</code> by the first word of the sequence. Such sequences will end when <code>:</code> or <code>.</code> is not followed by a word character.<pre><code class=language-ruby>>> ip = 'wow:Good:2_two:five: hi-2 bye kite.777.water.'
 
-&gt;&gt; ip.gsub(/(\w+)[:.](\w+[:.])+/, '\1')
-=&gt; &quot;wow hi-2 bye kite&quot;
-</code></pre>
-<p><strong>i)</strong> Replace sequences made up of words separated by <code>:</code> or <code>.</code> by the last word of the sequence. Such sequences will end when <code>:</code> or <code>.</code> is not followed by a word character.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'wow:Good:2_two:five: hi-2 bye kite.777.water.'
+>> ip.gsub(/(\w+)[:.](\w+[:.])+/, '\1')
+=> "wow hi-2 bye kite"
+</code></pre><p><strong>i)</strong> Replace sequences made up of words separated by <code>:</code> or <code>.</code> by the last word of the sequence. Such sequences will end when <code>:</code> or <code>.</code> is not followed by a word character.<pre><code class=language-ruby>>> ip = 'wow:Good:2_two:five: hi-2 bye kite.777.water.'
 
-&gt;&gt; ip.gsub(/((\w+)[:.])+/, '\2')
-=&gt; &quot;five hi-2 bye water&quot;
-</code></pre>
-<p><strong>j)</strong> Split the given input string on one or more repeated sequence of <code>cat</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'firecatlioncatcatcatbearcatcatparrot'
+>> ip.gsub(/((\w+)[:.])+/, '\2')
+=> "five hi-2 bye water"
+</code></pre><p><strong>j)</strong> Split the given input string on one or more repeated sequence of <code>cat</code>.<pre><code class=language-ruby>>> ip = 'firecatlioncatcatcatbearcatcatparrot'
 
-&gt;&gt; ip.split(/(?:cat)+/)
-=&gt; [&quot;fire&quot;, &quot;lion&quot;, &quot;bear&quot;, &quot;parrot&quot;]
-</code></pre>
-<p><strong>k)</strong> For the given input string, find all occurrences of digit sequences with at least one repeating sequence. For example, <code>232323</code> and <code>897897</code>. If the repeats end prematurely, for example <code>12121</code>, it should not be matched.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = '1234 2323 453545354535 9339 11 60260260'
+>> ip.split(/(?:cat)+/)
+=> ["fire", "lion", "bear", "parrot"]
+</code></pre><p><strong>k)</strong> For the given input string, find all occurrences of digit sequences with at least one repeating sequence. For example, <code>232323</code> and <code>897897</code>. If the repeats end prematurely, for example <code>12121</code>, it should not be matched.<pre><code class=language-ruby>>> ip = '1234 2323 453545354535 9339 11 60260260'
 
-&gt;&gt; pat = /\b(\d+)\1+\b/
+>> pat = /\b(\d+)\1+\b/
 
 # entire sequences in the output
-&gt;&gt; ip.gsub(pat).map { $&amp; }
-=&gt; [&quot;2323&quot;, &quot;453545354535&quot;, &quot;11&quot;]
+>> ip.gsub(pat).map { $& }
+=> ["2323", "453545354535", "11"]
 
 # only the unique sequence in the output
-&gt;&gt; ip.gsub(pat).map { $1 }
-=&gt; [&quot;23&quot;, &quot;4535&quot;, &quot;1&quot;]
-</code></pre>
-<p><strong>l)</strong> Convert the comma separated strings to corresponding <code>hash</code> objects as shown below. The keys are <code>name</code>, <code>maths</code> and <code>phy</code> for the three fields in the input strings.</p>
-<pre><code class="language-ruby">&gt;&gt; row1 = 'rohan,75,89'
-&gt;&gt; row2 = 'rose,88,92'
+>> ip.gsub(pat).map { $1 }
+=> ["23", "4535", "1"]
+</code></pre><p><strong>l)</strong> Convert the comma separated strings to corresponding <code>hash</code> objects as shown below. The keys are <code>name</code>, <code>maths</code> and <code>phy</code> for the three fields in the input strings.<pre><code class=language-ruby>>> row1 = 'rohan,75,89'
+>> row2 = 'rose,88,92'
 
-&gt;&gt; pat = /(?&lt;name&gt;[^,]+),(?&lt;maths&gt;[^,]+),(?&lt;phy&gt;[^,]+)/
+>> pat = /(?&LTname>[^,]+),(?&LTmaths>[^,]+),(?&LTphy>[^,]+)/
 
-&gt;&gt; row1.match(pat).named_captures
-=&gt; {&quot;name&quot;=&gt;&quot;rohan&quot;, &quot;maths&quot;=&gt;&quot;75&quot;, &quot;phy&quot;=&gt;&quot;89&quot;}
-&gt;&gt; row2.match(pat).named_captures
-=&gt; {&quot;name&quot;=&gt;&quot;rose&quot;, &quot;maths&quot;=&gt;&quot;88&quot;, &quot;phy&quot;=&gt;&quot;92&quot;}
-</code></pre>
-<p><strong>m)</strong> Surround all whole words with <code>()</code>. Additionally, if the whole word is <code>imp</code> or <code>ant</code>, delete them. Can you do it with single substitution?</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'tiger imp goat eagle ant important'
+>> row1.match(pat).named_captures
+=> {"name"=>"rohan", "maths"=>"75", "phy"=>"89"}
+>> row2.match(pat).named_captures
+=> {"name"=>"rose", "maths"=>"88", "phy"=>"92"}
+</code></pre><p><strong>m)</strong> Surround all whole words with <code>()</code>. Additionally, if the whole word is <code>imp</code> or <code>ant</code>, delete them. Can you do it with single substitution?<pre><code class=language-ruby>>> ip = 'tiger imp goat eagle ant important'
 
-&gt;&gt; ip.gsub(/\b(?:imp|ant|(\w+))\b/, '(\1)')
-=&gt; &quot;(tiger) () (goat) (eagle) () (important)&quot;
-</code></pre>
-<p><strong>n)</strong> Filter all elements that contains a sequence of lowercase alphabets followed by <code>-</code> followed by digits. They can be optionally surrounded by <code>{{</code> and <code>}}</code>. Any partial match shouldn't be part of the output.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = %w[{{apple-150}} {{mango2-100}} {{cherry-200 grape-87 {{go-to}}]
+>> ip.gsub(/\b(?:imp|ant|(\w+))\b/, '(\1)')
+=> "(tiger) () (goat) (eagle) () (important)"
+</code></pre><p><strong>n)</strong> Filter all elements that contains a sequence of lowercase alphabets followed by <code>-</code> followed by digits. They can be optionally surrounded by <code>{{</code> and <code>}}</code>. Any partial match shouldn't be part of the output.<pre><code class=language-ruby>>> ip = %w[{{apple-150}} {{mango2-100}} {{cherry-200 grape-87 {{go-to}}]
 
-&gt;&gt; ip.grep(/\A({{)?[a-z]+-\d+(?(1)}})\z/)
-=&gt; [&quot;{{apple-150}}&quot;, &quot;grape-87&quot;]
-</code></pre>
-<p><strong>o)</strong> Extract all hex character sequences, with <code>0x</code> optional prefix. Match the characters case insensitively, and the sequences shouldn't be surrounded by other word characters.</p>
-<pre><code class="language-ruby">&gt;&gt; str1 = '128A foo 0xfe32 34 0xbar'
-&gt;&gt; str2 = '0XDEADBEEF place 0x0ff1ce bad'
+>> ip.grep(/\A({{)?[a-z]+-\d+(?(1)}})\z/)
+=> ["{{apple-150}}", "grape-87"]
+</code></pre><p><strong>o)</strong> Extract all hex character sequences, with <code>0x</code> optional prefix. Match the characters case insensitively, and the sequences shouldn't be surrounded by other word characters.<pre><code class=language-ruby>>> str1 = '128A foo 0xfe32 34 0xbar'
+>> str2 = '0XDEADBEEF place 0x0ff1ce bad'
 
-&gt;&gt; hex_seq = /\b(?:0x)?\h+\b/i
+>> hex_seq = /\b(?:0x)?\h+\b/i
 
-&gt;&gt; str1.scan(hex_seq)
-=&gt; [&quot;128A&quot;, &quot;0xfe32&quot;, &quot;34&quot;]
-&gt;&gt; str2.scan(hex_seq)
-=&gt; [&quot;0XDEADBEEF&quot;, &quot;0x0ff1ce&quot;, &quot;bad&quot;]
-</code></pre>
-<p><strong>p)</strong> Replace sequences made up of words separated by <code>:</code> or <code>.</code> by the first/last word of the sequence and the separator. Such sequences will end when <code>:</code> or <code>.</code> is not followed by a word character.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'wow:Good:2_two:five: hi-2 bye kite.777.water.'
+>> str1.scan(hex_seq)
+=> ["128A", "0xfe32", "34"]
+>> str2.scan(hex_seq)
+=> ["0XDEADBEEF", "0x0ff1ce", "bad"]
+</code></pre><p><strong>p)</strong> Replace sequences made up of words separated by <code>:</code> or <code>.</code> by the first/last word of the sequence and the separator. Such sequences will end when <code>:</code> or <code>.</code> is not followed by a word character.<pre><code class=language-ruby>>> ip = 'wow:Good:2_two:five: hi-2 bye kite.777.water.'
 
 # first word of the sequence
-&gt;&gt; ip.gsub(/((\w+[:.]))\g&lt;2&gt;+/, '\1')
-=&gt; &quot;wow: hi-2 bye kite.&quot;
+>> ip.gsub(/((\w+[:.]))\g&LT2>+/, '\1')
+=> "wow: hi-2 bye kite."
 
 # last word of the sequence
-&gt;&gt; ip.gsub(/(\w+[:.])\g&lt;1&gt;+/, '\1')
-=&gt; &quot;five: hi-2 bye water.&quot;
-</code></pre>
-<p><strong>q)</strong> For the given input strings, extract <code>if</code> followed by any number of nested parentheses. Assume that there will be only one such pattern per input string.</p>
-<pre><code class="language-ruby">&gt;&gt; ip1 = 'for (((i*3)+2)/6) if(3-(k*3+4)/12-(r+2/3)) while()'
-&gt;&gt; ip2 = 'if+while if(a(b)c(d(e(f)1)2)3) for(i=1)'
+>> ip.gsub(/(\w+[:.])\g&LT1>+/, '\1')
+=> "five: hi-2 bye water."
+</code></pre><p><strong>q)</strong> For the given input strings, extract <code>if</code> followed by any number of nested parentheses. Assume that there will be only one such pattern per input string.<pre><code class=language-ruby>>> ip1 = 'for (((i*3)+2)/6) if(3-(k*3+4)/12-(r+2/3)) while()'
+>> ip2 = 'if+while if(a(b)c(d(e(f)1)2)3) for(i=1)'
 
-&gt;&gt; pat = /if(\((?:[^()]++|\g&lt;1&gt;)++\))/
+>> pat = /if(\((?:[^()]++|\g&LT1>)++\))/
 
-&gt;&gt; ip1[pat]
-=&gt; &quot;if(3-(k*3+4)/12-(r+2/3))&quot;
-&gt;&gt; ip2[pat]
-=&gt; &quot;if(a(b)c(d(e(f)1)2)3)&quot;
-</code></pre>
-<br>
-<h1><a class="header" href="#lookarounds" id="lookarounds">Lookarounds</a></h1>
-<blockquote>
-<p><img src="images/info.svg" alt="info" /> Please use lookarounds for solving the following exercises even if you can do it without lookarounds. Unless you cannot use lookarounds for cases like variable length lookbehinds.</p>
-</blockquote>
-<p><strong>a)</strong> Replace all whole words with <code>X</code> unless it is preceded by <code>(</code> character.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = '(apple) guava berry) apple (mango) (grape'
+>> ip1[pat]
+=> "if(3-(k*3+4)/12-(r+2/3))"
+>> ip2[pat]
+=> "if(a(b)c(d(e(f)1)2)3)"
+</code></pre><br><h1><a class=header href=#lookarounds id=lookarounds>Lookarounds</a></h1><blockquote><p><img src=images/info.svg alt=info> Please use lookarounds for solving the following exercises even if you can do it without lookarounds. Unless you cannot use lookarounds for cases like variable length lookbehinds.</blockquote><p><strong>a)</strong> Replace all whole words with <code>X</code> unless it is preceded by <code>(</code> character.<pre><code class=language-ruby>>> ip = '(apple) guava berry) apple (mango) (grape'
 
-&gt;&gt; ip.gsub(/(?&lt;!\()\b\w+/, 'X')
-=&gt; &quot;(apple) X X) X (mango) (grape&quot;
-</code></pre>
-<p><strong>b)</strong> Replace all whole words with <code>X</code> unless it is followed by <code>)</code> character.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = '(apple) guava berry) apple (mango) (grape'
+>> ip.gsub(/(?&LT!\()\b\w+/, 'X')
+=> "(apple) X X) X (mango) (grape"
+</code></pre><p><strong>b)</strong> Replace all whole words with <code>X</code> unless it is followed by <code>)</code> character.<pre><code class=language-ruby>>> ip = '(apple) guava berry) apple (mango) (grape'
 
-&gt;&gt; ip.gsub(/\b\w+\b(?!\))/, 'X')
-=&gt; &quot;(apple) X berry) X (mango) (X&quot;
-</code></pre>
-<p><strong>c)</strong> Replace all whole words with <code>X</code> unless it is preceded by <code>(</code> or followed by <code>)</code> characters.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = '(apple) guava berry) apple (mango) (grape'
+>> ip.gsub(/\b\w+\b(?!\))/, 'X')
+=> "(apple) X berry) X (mango) (X"
+</code></pre><p><strong>c)</strong> Replace all whole words with <code>X</code> unless it is preceded by <code>(</code> or followed by <code>)</code> characters.<pre><code class=language-ruby>>> ip = '(apple) guava berry) apple (mango) (grape'
 
-&gt;&gt; ip.gsub(/(?&lt;!\()\b\w+\b(?!\))/, 'X')
-=&gt; &quot;(apple) X berry) X (mango) (grape&quot;
-</code></pre>
-<p><strong>d)</strong> Extract all whole words that do not end with <code>e</code> or <code>n</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'at row on urn e note dust n'
+>> ip.gsub(/(?&LT!\()\b\w+\b(?!\))/, 'X')
+=> "(apple) X berry) X (mango) (grape"
+</code></pre><p><strong>d)</strong> Extract all whole words that do not end with <code>e</code> or <code>n</code>.<pre><code class=language-ruby>>> ip = 'at row on urn e note dust n'
 
-&gt;&gt; ip.scan(/\b\w+\b(?&lt;![en])/)
-=&gt; [&quot;at&quot;, &quot;row&quot;, &quot;dust&quot;]
-</code></pre>
-<p><strong>e)</strong> Extract all whole words that do not start with <code>a</code> or <code>d</code> or <code>n</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'at row on urn e note dust n'
+>> ip.scan(/\b\w+\b(?&LT![en])/)
+=> ["at", "row", "dust"]
+</code></pre><p><strong>e)</strong> Extract all whole words that do not start with <code>a</code> or <code>d</code> or <code>n</code>.<pre><code class=language-ruby>>> ip = 'at row on urn e note dust n'
 
-&gt;&gt; ip.scan(/(?![adn])\b\w+\b/)
-=&gt; [&quot;row&quot;, &quot;on&quot;, &quot;urn&quot;, &quot;e&quot;]
-</code></pre>
-<p><strong>f)</strong> Extract all whole words only if they are followed by <code>:</code> or <code>,</code> or <code>-</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'poke,on=-=so:ink.to/is(vast)ever-sit'
+>> ip.scan(/(?![adn])\b\w+\b/)
+=> ["row", "on", "urn", "e"]
+</code></pre><p><strong>f)</strong> Extract all whole words only if they are followed by <code>:</code> or <code>,</code> or <code>-</code>.<pre><code class=language-ruby>>> ip = 'poke,on=-=so:ink.to/is(vast)ever-sit'
 
-&gt;&gt; ip.scan(/\w+(?=[:,-])/)
-=&gt; [&quot;poke&quot;, &quot;so&quot;, &quot;ever&quot;]
-</code></pre>
-<p><strong>g)</strong> Extract all whole words only if they are preceded by <code>=</code> or <code>/</code> or <code>-</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'poke,on=-=so:ink.to/is(vast)ever-sit'
+>> ip.scan(/\w+(?=[:,-])/)
+=> ["poke", "so", "ever"]
+</code></pre><p><strong>g)</strong> Extract all whole words only if they are preceded by <code>=</code> or <code>/</code> or <code>-</code>.<pre><code class=language-ruby>>> ip = 'poke,on=-=so:ink.to/is(vast)ever-sit'
 
 # can also use: ip.scan(%r{[=/-]\K\w+})
-&gt;&gt; ip.scan(%r{(?&lt;=[=/-])\w+})
-=&gt; [&quot;so&quot;, &quot;is&quot;, &quot;sit&quot;]
-</code></pre>
-<p><strong>h)</strong> Extract all whole words only if they are preceded by <code>=</code> or <code>:</code> and followed by <code>:</code> or <code>.</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'poke,on=-=so:ink.to/is(vast)ever-sit'
+>> ip.scan(%r{(?<=[=/-])\w+})
+=> ["so", "is", "sit"]
+</code></pre><p><strong>h)</strong> Extract all whole words only if they are preceded by <code>=</code> or <code>:</code> and followed by <code>:</code> or <code>.</code>.<pre><code class=language-ruby>>> ip = 'poke,on=-=so:ink.to/is(vast)ever-sit'
 
 # can also use: ip.scan(/[=:]\K\w+(?=[:.])/)
-&gt;&gt; ip.scan(/(?&lt;=[=:])\w+(?=[:.])/)
-=&gt; [&quot;so&quot;, &quot;ink&quot;]
-</code></pre>
-<p><strong>i)</strong> Extract all whole words only if they are preceded by <code>=</code> or <code>:</code> or <code>.</code> or <code>(</code> or <code>-</code> and not followed by <code>.</code> or <code>/</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'poke,on=-=so:ink.to/is(vast)ever-sit'
+>> ip.scan(/(?<=[=:])\w+(?=[:.])/)
+=> ["so", "ink"]
+</code></pre><p><strong>i)</strong> Extract all whole words only if they are preceded by <code>=</code> or <code>:</code> or <code>.</code> or <code>(</code> or <code>-</code> and not followed by <code>.</code> or <code>/</code>.<pre><code class=language-ruby>>> ip = 'poke,on=-=so:ink.to/is(vast)ever-sit'
 
 # can also use: ip.scan(%r{[=:.(-]\K\w+\b(?![/.])})
-&gt;&gt; ip.scan(%r{(?&lt;=[=:.(-])\w+\b(?![/.])})
-=&gt; [&quot;so&quot;, &quot;vast&quot;, &quot;sit&quot;]
-</code></pre>
-<p><strong>j)</strong> Remove leading and trailing whitespaces from all the individual fields where <code>,</code> is the field separator.</p>
-<pre><code class="language-ruby">&gt;&gt; csv1 = &quot; comma  ,separated ,values \t\r &quot;
-&gt;&gt; csv2 = 'good bad,nice  ice  , 42 , ,   stall   small'
+>> ip.scan(%r{(?<=[=:.(-])\w+\b(?![/.])})
+=> ["so", "vast", "sit"]
+</code></pre><p><strong>j)</strong> Remove leading and trailing whitespaces from all the individual fields where <code>,</code> is the field separator.<pre><code class=language-ruby>>> csv1 = " comma  ,separated ,values \t\r "
+>> csv2 = 'good bad,nice  ice  , 42 , ,   stall   small'
 
-&gt;&gt; remove_whitespace = /(?&lt;![^,])\s+|\s+(?![^,])/
+>> remove_whitespace = /(?&LT![^,])\s+|\s+(?![^,])/
 
-&gt;&gt; csv1.gsub(remove_whitespace, '')
-=&gt; &quot;comma,separated,values&quot;
-&gt;&gt; csv2.gsub(remove_whitespace, '')
-=&gt; &quot;good bad,nice  ice,42,,stall   small&quot;
-</code></pre>
-<p><strong>k)</strong> Filter all elements that satisfy all of these rules:</p>
-<ul>
-<li>should have at least two alphabets</li>
-<li>should have at least 3 digits</li>
-<li>should have at least one special character among <code>%</code> or <code>*</code> or <code>#</code> or <code>$</code></li>
-<li>should not end with a whitespace character</li>
-</ul>
-<pre><code class="language-ruby">&gt;&gt; pwds = ['hunter2', 'F2H3u%9', &quot;*X3Yz3.14\t&quot;, 'r2_d2_42', 'A $B C1234']
+>> csv1.gsub(remove_whitespace, '')
+=> "comma,separated,values"
+>> csv2.gsub(remove_whitespace, '')
+=> "good bad,nice  ice,42,,stall   small"
+</code></pre><p><strong>k)</strong> Filter all elements that satisfy all of these rules:<ul><li>should have at least two alphabets<li>should have at least 3 digits<li>should have at least one special character among <code>%</code> or <code>*</code> or <code>#</code> or <code>$</code><li>should not end with a whitespace character</ul><pre><code class=language-ruby>>> pwds = ['hunter2', 'F2H3u%9', "*X3Yz3.14\t", 'r2_d2_42', 'A $B C1234']
 
-&gt;&gt; rule_chk = /(?=(.*[a-zA-Z]){2})(?=(.*\d){3})(?!.*\s\z).*[%*#$]/
+>> rule_chk = /(?=(.*[a-zA-Z]){2})(?=(.*\d){3})(?!.*\s\z).*[%*#$]/
 
-&gt;&gt; pwds.grep(rule_chk)
-=&gt; [&quot;F2H3u%9&quot;, &quot;A $B C1234&quot;]
-</code></pre>
-<p><strong>l)</strong> For the given string, surround all whole words with <code>{}</code> except for whole words <code>par</code> and <code>cat</code> and <code>apple</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'part; cat {super} rest_42 par scatter apple spar'
+>> pwds.grep(rule_chk)
+=> ["F2H3u%9", "A $B C1234"]
+</code></pre><p><strong>l)</strong> For the given string, surround all whole words with <code>{}</code> except for whole words <code>par</code> and <code>cat</code> and <code>apple</code>.<pre><code class=language-ruby>>> ip = 'part; cat {super} rest_42 par scatter apple spar'
 
-&gt;&gt; ip.gsub(/\b(?!(?:par|cat|apple)\b)\w+\b/, '{\0}')
-=&gt; &quot;{part}; cat {{super}} {rest_42} par {scatter} apple {spar}&quot;
-</code></pre>
-<p><strong>m)</strong> Extract integer portion of floating-point numbers for the given string. A number ending with <code>.</code> and no further digits should not be considered.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = '12 ab32.4 go 5 2. 46.42 5'
+>> ip.gsub(/\b(?!(?:par|cat|apple)\b)\w+\b/, '{\0}')
+=> "{part}; cat {{super}} {rest_42} par {scatter} apple {spar}"
+</code></pre><p><strong>m)</strong> Extract integer portion of floating-point numbers for the given string. A number ending with <code>.</code> and no further digits should not be considered.<pre><code class=language-ruby>>> ip = '12 ab32.4 go 5 2. 46.42 5'
 
-&gt;&gt; ip.scan(/\d+(?=\.\d+)/)
-=&gt; [&quot;32&quot;, &quot;46&quot;]
-</code></pre>
-<p><strong>n)</strong> For the given input strings, extract all overlapping two character sequences.</p>
-<pre><code class="language-ruby">&gt;&gt; s1 = 'apple'
-&gt;&gt; s2 = '1.2-3:4'
+>> ip.scan(/\d+(?=\.\d+)/)
+=> ["32", "46"]
+</code></pre><p><strong>n)</strong> For the given input strings, extract all overlapping two character sequences.<pre><code class=language-ruby>>> s1 = 'apple'
+>> s2 = '1.2-3:4'
 
-&gt;&gt; pat = /.(?=(.))/
+>> pat = /.(?=(.))/
 
-&gt;&gt; s1.gsub(pat).map { $&amp; + $1 }
-=&gt; [&quot;ap&quot;, &quot;pp&quot;, &quot;pl&quot;, &quot;le&quot;]
-&gt;&gt; s2.gsub(pat).map { $&amp; + $1 }
-=&gt; [&quot;1.&quot;, &quot;.2&quot;, &quot;2-&quot;, &quot;-3&quot;, &quot;3:&quot;, &quot;:4&quot;]
-</code></pre>
-<p><strong>o)</strong> The given input strings contain fields separated by <code>:</code> character. Delete <code>:</code> and the last field if there is a digit character anywhere before the last field.</p>
-<pre><code class="language-ruby">&gt;&gt; s1 = '42:cat'
-&gt;&gt; s2 = 'twelve:a2b'
-&gt;&gt; s3 = 'we:be:he:0:a:b:bother'
+>> s1.gsub(pat).map { $& + $1 }
+=> ["ap", "pp", "pl", "le"]
+>> s2.gsub(pat).map { $& + $1 }
+=> ["1.", ".2", "2-", "-3", "3:", ":4"]
+</code></pre><p><strong>o)</strong> The given input strings contain fields separated by <code>:</code> character. Delete <code>:</code> and the last field if there is a digit character anywhere before the last field.<pre><code class=language-ruby>>> s1 = '42:cat'
+>> s2 = 'twelve:a2b'
+>> s3 = 'we:be:he:0:a:b:bother'
 
-&gt;&gt; pat = /(\d.*):.*/
+>> pat = /(\d.*):.*/
 
-&gt;&gt; s1.sub(pat, '\1')
-=&gt; &quot;42&quot;
-&gt;&gt; s2.sub(pat, '\1')
-=&gt; &quot;twelve:a2b&quot;
-&gt;&gt; s3.sub(pat, '\1')
-=&gt; &quot;we:be:he:0:a:b&quot;
-</code></pre>
-<p><strong>p)</strong> Extract all whole words unless they are preceded by <code>:</code> or <code>&lt;=&gt;</code> or <code>----</code> or <code>#</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = '::very--at&lt;=&gt;row|in.a_b#b2c=&gt;lion----east'
+>> s1.sub(pat, '\1')
+=> "42"
+>> s2.sub(pat, '\1')
+=> "twelve:a2b"
+>> s3.sub(pat, '\1')
+=> "we:be:he:0:a:b"
+</code></pre><p><strong>p)</strong> Extract all whole words unless they are preceded by <code>:</code> or <code><=></code> or <code>----</code> or <code>#</code>.<pre><code class=language-ruby>>> ip = '::very--at<=>row|in.a_b#b2c=>lion----east'
 
-&gt;&gt; ip.scan(/(?&lt;![:#]|&lt;=&gt;|-{4})\b\w+/)
-=&gt; [&quot;at&quot;, &quot;in&quot;, &quot;a_b&quot;, &quot;lion&quot;]
-</code></pre>
-<p><strong>q)</strong> Match strings if it contains <code>qty</code> followed by <code>price</code> but not if there is <strong>whitespace</strong> or the string <code>error</code> between them.</p>
-<pre><code class="language-ruby">&gt;&gt; str1 = '23,qty,price,42'
-&gt;&gt; str2 = 'qty price,oh'
-&gt;&gt; str3 = '3.14,qty,6,errors,9,price,3'
-&gt;&gt; str4 = &quot;42\nqty-6,apple-56,price-234,error&quot;
-&gt;&gt; str5 = '4,price,3.14,qty,4'
+>> ip.scan(/(?&LT![:#]|<=>|-{4})\b\w+/)
+=> ["at", "in", "a_b", "lion"]
+</code></pre><p><strong>q)</strong> Match strings if it contains <code>qty</code> followed by <code>price</code> but not if there is <strong>whitespace</strong> or the string <code>error</code> between them.<pre><code class=language-ruby>>> str1 = '23,qty,price,42'
+>> str2 = 'qty price,oh'
+>> str3 = '3.14,qty,6,errors,9,price,3'
+>> str4 = "42\nqty-6,apple-56,price-234,error"
+>> str5 = '4,price,3.14,qty,4'
 
 # can also use: neg = /qty((?!\s|error).)*price/
-&gt;&gt; neg = /qty(?~\s|error)price/
+>> neg = /qty(?~\s|error)price/
 
-&gt;&gt; str1.match?(neg)
-=&gt; true
-&gt;&gt; str2.match?(neg)
-=&gt; false
-&gt;&gt; str3.match?(neg)
-=&gt; false
-&gt;&gt; str4.match?(neg)
-=&gt; true
-&gt;&gt; str5.match?(neg)
-=&gt; false
-</code></pre>
-<p><strong>r)</strong> Can you reason out why the output shown is different for these two regular expressions?</p>
-<p><code>\b</code> matches both the start and end of word locations. In the below example, <code>\b..\b</code> doesn't necessarily mean that first <code>\b</code> will match only the start of word location and second <code>\b</code> will match only the end of word location. They can be any combination! For example, <code>I</code> followed by space in the input string here is using start of word location for both whereas space followed by <code>2</code> is using end of word location for both.</p>
-<p>In contrast, the negative lookarounds only ensure that there are no word characters around any two characters. And these assertions will always be satisfied at the start of string and the end of string respectively. But <code>\b</code> depends on the presence of word characters. So, <code>!</code> at the end of the input string here matches the lookaround assertion but not word boundary.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'I have 12, he has 2!'
+>> str1.match?(neg)
+=> true
+>> str2.match?(neg)
+=> false
+>> str3.match?(neg)
+=> false
+>> str4.match?(neg)
+=> true
+>> str5.match?(neg)
+=> false
+</code></pre><p><strong>r)</strong> Can you reason out why the output shown is different for these two regular expressions?<p><code>\b</code> matches both the start and end of word locations. In the below example, <code>\b..\b</code> doesn't necessarily mean that first <code>\b</code> will match only the start of word location and second <code>\b</code> will match only the end of word location. They can be any combination! For example, <code>I</code> followed by space in the input string here is using start of word location for both whereas space followed by <code>2</code> is using end of word location for both.<p>In contrast, the negative lookarounds only ensure that there are no word characters around any two characters. And these assertions will always be satisfied at the start of string and the end of string respectively. But <code>\b</code> depends on the presence of word characters. So, <code>!</code> at the end of the input string here matches the lookaround assertion but not word boundary.<pre><code class=language-ruby>>> ip = 'I have 12, he has 2!'
 
-&gt;&gt; ip.gsub(/\b..\b/, '{\0}')
-=&gt; &quot;{I }have {12}{, }{he} has{ 2}!&quot;
+>> ip.gsub(/\b..\b/, '{\0}')
+=> "{I }have {12}{, }{he} has{ 2}!"
 
-&gt;&gt; ip.gsub(/(?&lt;!\w)..(?!\w)/, '{\0}')
-=&gt; &quot;I have {12}, {he} has {2!}&quot;
-</code></pre>
-<p><strong>s)</strong> The given input string has fields separated by <code>:</code> character. Delete all fields, including the separator, unless the field contains a digit character. Stop deleting once a field with digit character is found.</p>
-<pre><code class="language-ruby">&gt;&gt; row1 = 'vast:a2b2:ride:in:awe:b2b:3list:end'
-&gt;&gt; row2 = 'um:no:low:3e:s4w:seer'
-&gt;&gt; row3 = 'thr33:f0ur'
+>> ip.gsub(/(?&LT!\w)..(?!\w)/, '{\0}')
+=> "I have {12}, {he} has {2!}"
+</code></pre><p><strong>s)</strong> The given input string has fields separated by <code>:</code> character. Delete all fields, including the separator, unless the field contains a digit character. Stop deleting once a field with digit character is found.<pre><code class=language-ruby>>> row1 = 'vast:a2b2:ride:in:awe:b2b:3list:end'
+>> row2 = 'um:no:low:3e:s4w:seer'
+>> row3 = 'thr33:f0ur'
 
-&gt;&gt; pat = /\G[^\d:]+:/
+>> pat = /\G[^\d:]+:/
 
-&gt;&gt; row1.gsub(pat, '')
-=&gt; &quot;a2b2:ride:in:awe:b2b:3list:end&quot;
-&gt;&gt; row2.gsub(pat, '')
-=&gt; &quot;3e:s4w:seer&quot;
-&gt;&gt; row3.gsub(pat, '')
-=&gt; &quot;thr33:f0ur&quot;
-</code></pre>
-<br>
-<h1><a class="header" href="#modifiers" id="modifiers">Modifiers</a></h1>
-<p><strong>a)</strong> Remove from first occurrence of <code>hat</code> to last occurrence of <code>ice</code> for the given input strings. Match these markers case insensitively.</p>
-<pre><code class="language-ruby">&gt;&gt; s1 = &quot;But Cool THAT\nsee What okay\nwow quite&quot;
-&gt;&gt; s2 = 'it this hat is sliced HIT.'
+>> row1.gsub(pat, '')
+=> "a2b2:ride:in:awe:b2b:3list:end"
+>> row2.gsub(pat, '')
+=> "3e:s4w:seer"
+>> row3.gsub(pat, '')
+=> "thr33:f0ur"
+</code></pre><br><h1><a class=header href=#modifiers id=modifiers>Modifiers</a></h1><p><strong>a)</strong> Remove from first occurrence of <code>hat</code> to last occurrence of <code>ice</code> for the given input strings. Match these markers case insensitively.<pre><code class=language-ruby>>> s1 = "But Cool THAT\nsee What okay\nwow quite"
+>> s2 = 'it this hat is sliced HIT.'
 
-&gt;&gt; pat = /hat.*it/im
+>> pat = /hat.*it/im
 
-&gt;&gt; s1.sub(pat, '')
-=&gt; &quot;But Cool Te&quot;
-&gt;&gt; s2.sub(pat, '')
-=&gt; &quot;it this .&quot;
-</code></pre>
-<p><strong>b)</strong> Delete from the string <code>start</code> if it is at the beginning of a line up to the next occurrence of the string <code>end</code> at the end of a line. Match these keywords irrespective of case.</p>
-<pre><code class="language-ruby">'&gt; para = %q{good start
-'&gt; start working on that
-'&gt; project you always wanted
-'&gt; to, do not let it end
-'&gt; hi there
-'&gt; start and end the end
-'&gt; 42
-'&gt; Start and try to
-'&gt; finish the End
-&gt;&gt; bye}
+>> s1.sub(pat, '')
+=> "But Cool Te"
+>> s2.sub(pat, '')
+=> "it this ."
+</code></pre><p><strong>b)</strong> Delete from the string <code>start</code> if it is at the beginning of a line up to the next occurrence of the string <code>end</code> at the end of a line. Match these keywords irrespective of case.<pre><code class=language-ruby>'> para = %q{good start
+'> start working on that
+'> project you always wanted
+'> to, do not let it end
+'> hi there
+'> start and end the end
+'> 42
+'> Start and try to
+'> finish the End
+>> bye}
 
-&gt;&gt; pat = /^start.*?end$/im
+>> pat = /^start.*?end$/im
 
-&gt;&gt; puts para.gsub(pat, '')
+>> puts para.gsub(pat, '')
 good start
 
 hi there
@@ -1256,160 +856,75 @@ hi there
 42
 
 bye
-</code></pre>
-<p><strong>c)</strong> For the given <strong>markdown</strong> file, replace all occurrences of the string <code>ruby</code> (irrespective of case) with the string <code>Ruby</code>. However, any match within code blocks that start with whole line <code>```ruby</code> and end with whole line <code>```</code> shouldn't be replaced. Consider the input file to be small enough to fit memory requirements.</p>
-<p>Refer to <a href="https://github.com/learnbyexample/Ruby_Regexp/tree/master/exercises">exercises folder</a> for input files required to solve the exercises.</p>
-<pre><code class="language-ruby">&gt;&gt; ip_str = File.open('sample.md').read
-&gt;&gt; pat = /(^```ruby$.*?^```$)/m
+</code></pre><p><strong>c)</strong> For the given <strong>markdown</strong> file, replace all occurrences of the string <code>ruby</code> (irrespective of case) with the string <code>Ruby</code>. However, any match within code blocks that start with whole line <code>```ruby</code> and end with whole line <code>```</code> shouldn't be replaced. Consider the input file to be small enough to fit memory requirements.<p>Refer to <a href=https://github.com/learnbyexample/Ruby_Regexp/tree/master/exercises>exercises folder</a> for input files required to solve the exercises.<pre><code class=language-ruby>>> ip_str = File.open('sample.md').read
+>> pat = /(^```ruby$.*?^```$)/m
 
-&gt;&gt; File.open('sample_mod.md', 'w') do |f|
-?&gt;   ip_str.split(pat).each_with_index do |s, i|
-?&gt;     f.write(i.odd? ? s : s.gsub(/ruby/i) { $&amp;.capitalize })
-&gt;&gt;   end
-&gt;&gt; end
+>> File.open('sample_mod.md', 'w') do |f|
+?>   ip_str.split(pat).each_with_index do |s, i|
+?>     f.write(i.odd? ? s : s.gsub(/ruby/i) { $&.capitalize })
+>>   end
+>> end
 
-&gt;&gt; File.open('sample_mod.md').read == File.open('expected.md').read
-=&gt; true
-</code></pre>
-<p><strong>d)</strong> Write a string method that changes given input to alternate case (starting with lowercase first).</p>
-<pre><code class="language-ruby">?&gt; def aLtErNaTe_CaSe(ip_str)
-?&gt;   b = true
-?&gt;   return ip_str.gsub(/[a-z]/i) { (b = !b) ? $&amp;.upcase : $&amp;.downcase }
-&gt;&gt; end
+>> File.open('sample_mod.md').read == File.open('expected.md').read
+=> true
+</code></pre><p><strong>d)</strong> Write a string method that changes given input to alternate case (starting with lowercase first).<pre><code class=language-ruby>?> def aLtErNaTe_CaSe(ip_str)
+?>   b = true
+?>   return ip_str.gsub(/[a-z]/i) { (b = !b) ? $&.upcase : $&.downcase }
+>> end
 
-&gt;&gt; aLtErNaTe_CaSe('HI THERE!')
-=&gt; &quot;hI tHeRe!&quot;
-&gt;&gt; aLtErNaTe_CaSe('good morning')
-=&gt; &quot;gOoD mOrNiNg&quot;
-&gt;&gt; aLtErNaTe_CaSe('Sample123string42with777numbers')
-=&gt; &quot;sAmPlE123sTrInG42wItH777nUmBeRs&quot;
-</code></pre>
-<p><strong>e)</strong> For the given input strings, match all of these three patterns:</p>
-<ul>
-<li><code>This</code> case sensitively</li>
-<li><code>nice</code> and <code>cool</code> case insensitively</li>
-</ul>
-<pre><code class="language-ruby">&gt;&gt; s1 = 'This is nice and Cool'
-&gt;&gt; s2 = 'Nice and cool this is'
-&gt;&gt; s3 = 'What is so nice and cool about This?'
+>> aLtErNaTe_CaSe('HI THERE!')
+=> "hI tHeRe!"
+>> aLtErNaTe_CaSe('good morning')
+=> "gOoD mOrNiNg"
+>> aLtErNaTe_CaSe('Sample123string42with777numbers')
+=> "sAmPlE123sTrInG42wItH777nUmBeRs"
+</code></pre><p><strong>e)</strong> For the given input strings, match all of these three patterns:<ul><li><code>This</code> case sensitively<li><code>nice</code> and <code>cool</code> case insensitively</ul><pre><code class=language-ruby>>> s1 = 'This is nice and Cool'
+>> s2 = 'Nice and cool this is'
+>> s3 = 'What is so nice and cool about This?'
 
-&gt;&gt; pat = /(?=.*nice)(?=.*cool)(?-i:.*This)/i
+>> pat = /(?=.*nice)(?=.*cool)(?-i:.*This)/i
 
-&gt;&gt; s1.match?(pat)
-=&gt; true
-&gt;&gt; s2.match?(pat)
-=&gt; false
-&gt;&gt; s3.match?(pat)
-=&gt; true
-</code></pre>
-<p><strong>f)</strong> For the given input strings, match if the string begins with <code>Th</code> and also contains a line that starts with <code>There</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; s1 = &quot;There there\nHave a cookie&quot;
-&gt;&gt; s2 = &quot;This is a mess\nYeah?\nThereeeee&quot;
-&gt;&gt; s3 = &quot;Oh\nThere goes the fun&quot;
+>> s1.match?(pat)
+=> true
+>> s2.match?(pat)
+=> false
+>> s3.match?(pat)
+=> true
+</code></pre><p><strong>f)</strong> For the given input strings, match if the string begins with <code>Th</code> and also contains a line that starts with <code>There</code>.<pre><code class=language-ruby>>> s1 = "There there\nHave a cookie"
+>> s2 = "This is a mess\nYeah?\nThereeeee"
+>> s3 = "Oh\nThere goes the fun"
 
-&gt;&gt; pat = /\A(?=Th)(?m:.*^There)/
+>> pat = /\A(?=Th)(?m:.*^There)/
 
-&gt;&gt; s1.match?(pat)
-=&gt; true
-&gt;&gt; s2.match?(pat)
-=&gt; true
-&gt;&gt; s3.match?(pat)
-=&gt; false
-</code></pre>
-<br>
-<h1><a class="header" href="#unicode" id="unicode">Unicode</a></h1>
-<p><strong>a)</strong> Output <code>true</code> or <code>false</code> depending on input string made up of ASCII characters or not. Consider the input to be non-empty strings and any character that isn't part of 7-bit ASCII set should give <code>false</code></p>
-<pre><code class="language-ruby">&gt;&gt; str1 = '123—456'
-&gt;&gt; str2 = 'good fοοd'
-&gt;&gt; str3 = 'happy learning!'
+>> s1.match?(pat)
+=> true
+>> s2.match?(pat)
+=> true
+>> s3.match?(pat)
+=> false
+</code></pre><br><h1><a class=header href=#unicode id=unicode>Unicode</a></h1><p><strong>a)</strong> Output <code>true</code> or <code>false</code> depending on input string made up of ASCII characters or not. Consider the input to be non-empty strings and any character that isn't part of 7-bit ASCII set should give <code>false</code><pre><code class=language-ruby>>> str1 = '123—456'
+>> str2 = 'good fοοd'
+>> str3 = 'happy learning!'
 
 # can also use ! str1.match?(/[^\u{00}-\u{7f}]/)
-&gt;&gt; str1.ascii_only?
-=&gt; false
-&gt;&gt; str2.ascii_only?
-=&gt; false
-&gt;&gt; str3.ascii_only?
-=&gt; true
-</code></pre>
-<p><strong>b)</strong> Retain only punctuation characters for the given strings (generated from codepoints). Use Unicode character set definition for punctuation for solving this exercise.</p>
-<pre><code class="language-ruby">&gt;&gt; s1 = (0..0x7f).to_a.pack('U*')
-&gt;&gt; s2 = (0x80..0xff).to_a.pack('U*')
-&gt;&gt; s3 = (0x2600..0x27eb).to_a.pack('U*')
+>> str1.ascii_only?
+=> false
+>> str2.ascii_only?
+=> false
+>> str3.ascii_only?
+=> true
+</code></pre><p><strong>b)</strong> Retain only punctuation characters for the given strings (generated from codepoints). Use Unicode character set definition for punctuation for solving this exercise.<pre><code class=language-ruby>>> s1 = (0..0x7f).to_a.pack('U*')
+>> s2 = (0x80..0xff).to_a.pack('U*')
+>> s3 = (0x2600..0x27eb).to_a.pack('U*')
 
-&gt;&gt; pat = /\p{^P}/
+>> pat = /\p{^P}/
 
-&gt;&gt; s1.gsub(pat, '')
-=&gt; &quot;!\&quot;#%&amp;'()*,-./:;?@[\\]_{}&quot;
-&gt;&gt; s2.gsub(pat, '')
-=&gt; &quot;¡§«¶·»¿&quot;
-&gt;&gt; s3.gsub(pat, '')
-=&gt; &quot;❨❩❪❫❬❭❮❯❰❱❲❳❴❵⟅⟆⟦⟧⟨⟩⟪⟫&quot;
-</code></pre>
-<p><strong>c)</strong> Explore the following Q&amp;A threads.</p>
-<ul>
-<li><a href="https://stackoverflow.com/questions/24672834/how-do-i-remove-emoji-from-string">stackoverflow: remove emoji from string</a></li>
-<li><a href="https://stackoverflow.com/questions/13573136/why-am-i-seeing-different-results-for-these-two-nearly-identical-ruby-regex-patt">stackoverflow: why am I seeing different results for these two nearly identical regexp</a></li>
-<li><a href="https://stackoverflow.com/questions/37338708/convert-unicode-number-to-integer-in-ruby">stackoverflow: convert unicode number to integer</a></li>
-<li><a href="https://stackoverflow.com/questions/28773392/replacing-uxxxx-to-the-corresponding-unicode-codepoint-in-ruby">stackoverflow: replacing %uXXXX to the corresponding unicode codepoint</a></li>
-</ul>
-
-                    </main>
-
-                    <nav class="nav-wrapper" aria-label="Page navigation">
-                        <!-- Mobile navigation buttons -->
-                        
-                            <a rel="prev" href="further-reading.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-                        
-
-                        
-
-                        <div style="clear: both"></div>
-                    </nav>
-                </div>
-            </div>
-
-            <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
-                    <a rel="prev" href="further-reading.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
-                
-
-                
-            </nav>
-
-        </div>
-
-        
-
-        
-
-        
-
-        
-        <script type="text/javascript">
+>> s1.gsub(pat, '')
+=> "!\"#%&'()*,-./:;?@[\\]_{}"
+>> s2.gsub(pat, '')
+=> "¡§«¶·»¿"
+>> s3.gsub(pat, '')
+=> "❨❩❪❫❬❭❮❯❰❱❲❳❴❵⟅⟆⟦⟧⟨⟩⟪⟫"
+</code></pre><p><strong>c)</strong> Explore the following Q&A threads.<ul><li><a href=https://stackoverflow.com/questions/24672834/how-do-i-remove-emoji-from-string>stackoverflow: remove emoji from string</a><li><a href=https://stackoverflow.com/questions/13573136/why-am-i-seeing-different-results-for-these-two-nearly-identical-ruby-regex-patt>stackoverflow: why am I seeing different results for these two nearly identical regexp</a><li><a href=https://stackoverflow.com/questions/37338708/convert-unicode-number-to-integer-in-ruby>stackoverflow: convert unicode number to integer</a><li><a href=https://stackoverflow.com/questions/28773392/replacing-uxxxx-to-the-corresponding-unicode-codepoint-in-ruby>stackoverflow: replacing %uXXXX to the corresponding unicode codepoint</a></ul></main><nav class=nav-wrapper aria-label="Page navigation"><a rel=prev href=further-reading.html class="mobile-nav-chapters previous"title="Previous chapter"aria-label="Previous chapter"aria-keyshortcuts=Left> <i class="fa fa-angle-left"></i> </a><div style="clear: both"></div></nav></div></div><nav class=nav-wide-wrapper aria-label="Page navigation"><a rel=prev href=further-reading.html class="nav-chapters previous"title="Previous chapter"aria-label="Previous chapter"aria-keyshortcuts=Left> <i class="fa fa-angle-left"></i> </a></nav></div><script>
             window.playground_copyable = true;
-        </script>
-        
-
-        
-
-        
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        
-
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
-
-        <!-- Custom JS scripts -->
-        
-
-        
-
-    </body>
-</html>
+        </script><script src=elasticlunr.min.js charset=utf-8></script><script src=mark.min.js charset=utf-8></script><script src=searcher.js charset=utf-8></script><script src=clipboard.min.js charset=utf-8></script><script src=highlight.js charset=utf-8></script><script src=book.js charset=utf-8></script><script src=sidebar.js></script>

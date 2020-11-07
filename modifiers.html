@@ -1,60 +1,7 @@
-<!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
-    <head>
-        <!-- Book generated using mdBook -->
-        <meta charset="UTF-8">
-        <title>Modifiers - Ruby Regexp</title>
-        
-        
-
-
-        <!-- Custom HTML head -->
-        
-
-
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="Example based guide to mastering Ruby Regexp">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
-
-        
-        <link rel="icon" href="favicon.svg">
-        
-        
-        <link rel="shortcut icon" href="favicon.png">
-        
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
-
-        <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        
-        <link rel="stylesheet" href="fonts/fonts.css">
-        
-
-        <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
-
-        <!-- Custom theme stylesheets -->
-        
-        <link rel="stylesheet" href="custom.css">
-        
-
-        
-    </head>
-    <body>
-        <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+<!DOCTYPE HTML><html lang=en class="sidebar-visible no-js light"><head><meta charset=UTF-8><title>Modifiers - Ruby Regexp</title><meta content="text/html; charset=utf-8"http-equiv=Content-Type><meta name=description content="Example based guide to mastering Ruby Regexp"><meta name=viewport content="width=device-width, initial-scale=1"><meta name=theme-color content=#ffffff><link rel=icon href=favicon.svg><link rel="shortcut icon"href=favicon.png><link rel=stylesheet href=css/variables.css><link rel=stylesheet href=css/general.css><link rel=stylesheet href=css/chrome.css><link rel=stylesheet href=FontAwesome/css/font-awesome.css><link rel=stylesheet href=fonts/fonts.css><link rel=stylesheet href=highlight.css><link rel=stylesheet href=tomorrow-night.css><link rel=stylesheet href=ayu-highlight.css><link rel=stylesheet href=style.css><body><script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
-        </script>
-
-        <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        </script><script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -67,10 +14,7 @@
                     localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
                 }
             } catch (e) { }
-        </script>
-
-        <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        </script><script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -79,10 +23,7 @@
             html.classList.remove('light')
             html.classList.add(theme);
             html.classList.add('js');
-        </script>
-
-        <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        </script><script>
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -91,237 +32,121 @@
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
-        </script>
-
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="cover.html">Cover</a></li><li class="chapter-item expanded affix "><a href="buy.html">Buy PDF/EPUB versions</a></li><li class="chapter-item expanded "><a href="preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded "><a href="why-is-it-needed.html"><strong aria-hidden="true">2.</strong> Why is it needed?</a></li><li class="chapter-item expanded "><a href="regexp-introduction.html"><strong aria-hidden="true">3.</strong> Regexp introduction</a></li><li class="chapter-item expanded "><a href="anchors.html"><strong aria-hidden="true">4.</strong> Anchors</a></li><li class="chapter-item expanded "><a href="alternation-and-grouping.html"><strong aria-hidden="true">5.</strong> Alternation and Grouping</a></li><li class="chapter-item expanded "><a href="escaping-metacharacters.html"><strong aria-hidden="true">6.</strong> Escaping metacharacters</a></li><li class="chapter-item expanded "><a href="dot-metacharacter-and-quantifiers.html"><strong aria-hidden="true">7.</strong> Dot metacharacter and Quantifiers</a></li><li class="chapter-item expanded "><a href="interlude-tools-for-debugging-and-visualization.html"><strong aria-hidden="true">8.</strong> Interlude: Tools for debugging and visualization</a></li><li class="chapter-item expanded "><a href="working-with-matched-portions.html"><strong aria-hidden="true">9.</strong> Working with matched portions</a></li><li class="chapter-item expanded "><a href="character-class.html"><strong aria-hidden="true">10.</strong> Character class</a></li><li class="chapter-item expanded "><a href="groupings-and-backreferences.html"><strong aria-hidden="true">11.</strong> Groupings and backreferences</a></li><li class="chapter-item expanded "><a href="interlude-common-tasks.html"><strong aria-hidden="true">12.</strong> Interlude: Common tasks</a></li><li class="chapter-item expanded "><a href="lookarounds.html"><strong aria-hidden="true">13.</strong> Lookarounds</a></li><li class="chapter-item expanded "><a href="modifiers.html" class="active"><strong aria-hidden="true">14.</strong> Modifiers</a></li><li class="chapter-item expanded "><a href="unicode.html"><strong aria-hidden="true">15.</strong> Unicode</a></li><li class="chapter-item expanded "><a href="further-reading.html"><strong aria-hidden="true">16.</strong> Further Reading</a></li><li class="chapter-item expanded "><a href="Exercise_solutions.html"><strong aria-hidden="true">17.</strong> Exercise Solutions</a></li></ol>
-            </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
-        </nav>
-
-        <div id="page-wrapper" class="page-wrapper">
-
-            <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
-                    <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
-                        </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                        </ul>
-                        
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
-                        </button>
-                        
-                    </div>
-
-                    <h1 class="menu-title">Ruby Regexp</h1>
-
-                    <div class="right-buttons">
-                        
-                        <a href="https://github.com/learnbyexample/Ruby_Regexp" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
-                        </a>
-                        
-                    </div>
-                </div>
-
-                
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
-                    </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
-                        </ul>
-                    </div>
-                </div>
-                
-
-                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+        </script><nav id=sidebar class=sidebar aria-label="Table of contents"><div class=sidebar-scrollbox><ol class=chapter><li class="chapter-item expanded affix"><a href=cover.html>Cover</a><li class="chapter-item expanded affix"><a href=buy.html>Buy PDF/EPUB versions</a><li class="chapter-item expanded"><a href=preface.html><strong aria-hidden=true>1.</strong> Preface</a><li class="chapter-item expanded"><a href=why-is-it-needed.html><strong aria-hidden=true>2.</strong> Why is it needed?</a><li class="chapter-item expanded"><a href=regexp-introduction.html><strong aria-hidden=true>3.</strong> Regexp introduction</a><li class="chapter-item expanded"><a href=anchors.html><strong aria-hidden=true>4.</strong> Anchors</a><li class="chapter-item expanded"><a href=alternation-and-grouping.html><strong aria-hidden=true>5.</strong> Alternation and Grouping</a><li class="chapter-item expanded"><a href=escaping-metacharacters.html><strong aria-hidden=true>6.</strong> Escaping metacharacters</a><li class="chapter-item expanded"><a href=dot-metacharacter-and-quantifiers.html><strong aria-hidden=true>7.</strong> Dot metacharacter and Quantifiers</a><li class="chapter-item expanded"><a href=interlude-tools-for-debugging-and-visualization.html><strong aria-hidden=true>8.</strong> Interlude: Tools for debugging and visualization</a><li class="chapter-item expanded"><a href=working-with-matched-portions.html><strong aria-hidden=true>9.</strong> Working with matched portions</a><li class="chapter-item expanded"><a href=character-class.html><strong aria-hidden=true>10.</strong> Character class</a><li class="chapter-item expanded"><a href=groupings-and-backreferences.html><strong aria-hidden=true>11.</strong> Groupings and backreferences</a><li class="chapter-item expanded"><a href=interlude-common-tasks.html><strong aria-hidden=true>12.</strong> Interlude: Common tasks</a><li class="chapter-item expanded"><a href=lookarounds.html><strong aria-hidden=true>13.</strong> Lookarounds</a><li class="chapter-item expanded"><a href=modifiers.html class=active><strong aria-hidden=true>14.</strong> Modifiers</a><li class="chapter-item expanded"><a href=unicode.html><strong aria-hidden=true>15.</strong> Unicode</a><li class="chapter-item expanded"><a href=further-reading.html><strong aria-hidden=true>16.</strong> Further Reading</a><li class="chapter-item expanded"><a href=Exercise_solutions.html><strong aria-hidden=true>17.</strong> Exercise Solutions</a></ol></div><div id=sidebar-resize-handle class=sidebar-resize-handle></div></nav><div id=page-wrapper class=page-wrapper><div class=page><div id=menu-bar-hover-placeholder></div><div id=menu-bar class="menu-bar sticky bordered"><div class=left-buttons><button id=sidebar-toggle class=icon-button type=button title="Toggle Table of Contents"aria-label="Toggle Table of Contents"aria-controls=sidebar><i class="fa fa-bars"></i></button><button id=theme-toggle class=icon-button type=button title="Change theme"aria-label="Change theme"aria-haspopup=true aria-expanded=false aria-controls=theme-list><i class="fa fa-paint-brush"></i></button><ul id=theme-list class=theme-popup aria-label=Themes role=menu><li role=none><button role=menuitem class=theme id=light>Light (default)</button><li role=none><button role=menuitem class=theme id=rust>Rust</button><li role=none><button role=menuitem class=theme id=coal>Coal</button><li role=none><button role=menuitem class=theme id=navy>Navy</button><li role=none><button role=menuitem class=theme id=ayu>Ayu</button></ul><button id=search-toggle class=icon-button type=button title="Search. (Shortkey: s)"aria-label="Toggle Searchbar"aria-expanded=false aria-keyshortcuts=S aria-controls=searchbar><i class="fa fa-search"></i></button></div><h1 class=menu-title>Ruby Regexp</h1><div class=right-buttons><a href=https://github.com/learnbyexample/Ruby_Regexp title="Git repository"aria-label="Git repository"> <i id=git-repository-button class="fa fa-github"></i> </a></div></div><div id=search-wrapper class=hidden><form id=searchbar-outer class=searchbar-outer><input type=search name=search id=searchbar name=searchbar placeholder="Search this book ..."aria-controls=searchresults-outer aria-describedby=searchresults-header></form><div id=searchresults-outer class="searchresults-outer hidden"><div id=searchresults-header class=searchresults-header></div><ul id=searchresults></ul></div></div><script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
-                </script>
+                </script><div id=content class=content><main><div class=sidetoc><nav class=pagetoc></nav></div><h1><a class=header href=#modifiers id=modifiers>Modifiers</a></h1><p>Just like options change the default behavior of commands used from a terminal, modifiers are used to change aspects of regexp. They can be applied to entire regexp or to a particular portion of regexp, and both forms can be mixed up as well. The cryptic output of <code>Regexp.union</code> when one of the arguments is a regexp will be explained as well in this chapter. In regular expression parlance, modifiers are also known as <strong>flags</strong>.<p>Modifiers already seen will again be discussed in this chapter for sake of completeness. You'll also see how to combine multiple modifiers.<h2><a class=header href=#i-modifier id=i-modifier>i modifier</a></h2><p>First up, the <code>i</code> modifier which will ignore case while matching alphabets.<pre><code class=language-ruby>>> 'Cat' =~ /cat/
+=> nil
+>> 'Cat' =~ /cat/i
+=> 0
 
-                <div id="content" class="content">
-                    <main>
-                        <h1><a class="header" href="#modifiers" id="modifiers">Modifiers</a></h1>
-<p>Just like options change the default behavior of commands used from a terminal, modifiers are used to change aspects of regexp. They can be applied to entire regexp or to a particular portion of regexp, and both forms can be mixed up as well. The cryptic output of <code>Regexp.union</code> when one of the arguments is a regexp will be explained as well in this chapter. In regular expression parlance, modifiers are also known as <strong>flags</strong>.</p>
-<p>Modifiers already seen will again be discussed in this chapter for sake of completeness. You'll also see how to combine multiple modifiers.</p>
-<h2><a class="header" href="#i-modifier" id="i-modifier">i modifier</a></h2>
-<p>First up, the <code>i</code> modifier which will ignore case while matching alphabets.</p>
-<pre><code class="language-ruby">&gt;&gt; 'Cat' =~ /cat/
-=&gt; nil
-&gt;&gt; 'Cat' =~ /cat/i
-=&gt; 0
-
-&gt;&gt; 'Cat scat CATER cAts'.scan(/cat/i)
-=&gt; [&quot;Cat&quot;, &quot;cat&quot;, &quot;CAT&quot;, &quot;cAt&quot;]
+>> 'Cat scat CATER cAts'.scan(/cat/i)
+=> ["Cat", "cat", "CAT", "cAt"]
 
 # same as: /[a-zA-Z]+/
 # can also use: /[A-Z]+/i
-&gt;&gt; 'Sample123string42with777numbers'.scan(/[a-z]+/i)
-=&gt; [&quot;Sample&quot;, &quot;string&quot;, &quot;with&quot;, &quot;numbers&quot;]
-</code></pre>
-<h2><a class="header" href="#m-modifier" id="m-modifier">m modifier</a></h2>
-<p>Use <code>m</code> modifier to allow <code>.</code> metacharacter to match newline character as well.</p>
-<pre><code class="language-ruby"># by default, the . metacharacter doesn't match newline
-&gt;&gt; &quot;Hi there\nHave a Nice Day&quot;.sub(/the.*ice/, 'X')
-=&gt; &quot;Hi there\nHave a Nice Day&quot;
+>> 'Sample123string42with777numbers'.scan(/[a-z]+/i)
+=> ["Sample", "string", "with", "numbers"]
+</code></pre><h2><a class=header href=#m-modifier id=m-modifier>m modifier</a></h2><p>Use <code>m</code> modifier to allow <code>.</code> metacharacter to match newline character as well.<pre><code class=language-ruby># by default, the . metacharacter doesn't match newline
+>> "Hi there\nHave a Nice Day".sub(/the.*ice/, 'X')
+=> "Hi there\nHave a Nice Day"
 
 # m modifier will allow newline character to be matched as well
-&gt;&gt; &quot;Hi there\nHave a Nice Day&quot;.sub(/the.*ice/m, 'X')
-=&gt; &quot;Hi X Day&quot;
+>> "Hi there\nHave a Nice Day".sub(/the.*ice/m, 'X')
+=> "Hi X Day"
 
 # multiple modifiers can be specified next to each other
-&gt;&gt; &quot;Hi there\nHave a Nice Day&quot;.sub(/the.*day/im, 'Bye')
-=&gt; &quot;Hi Bye&quot;
-</code></pre>
-<h2><a class="header" href="#o-modifier" id="o-modifier">o modifier</a></h2>
-<p>The <code>o</code> modifier restricts the <code>#{}</code> interpolations inside a regexp definition to be performed only once, even if it is inside a loop. As an alternate, you could simply assign a variable with the regexp definition and use that within the loop without needing the <code>o</code> modifier.</p>
-<pre><code class="language-ruby">&gt;&gt; words = %w[car bike bus auto train plane]
+>> "Hi there\nHave a Nice Day".sub(/the.*day/im, 'Bye')
+=> "Hi Bye"
+</code></pre><h2><a class=header href=#o-modifier id=o-modifier>o modifier</a></h2><p>The <code>o</code> modifier restricts the <code>#{}</code> interpolations inside a regexp definition to be performed only once, even if it is inside a loop. As an alternate, you could simply assign a variable with the regexp definition and use that within the loop without needing the <code>o</code> modifier.<pre><code class=language-ruby>>> words = %w[car bike bus auto train plane]
 
 # as 'o' modifier is used, expression inside #{} will be evaluated only once
 # and not calculated again and again every iteration
-&gt;&gt; n = 2
-?&gt; for w in words
-?&gt;     puts w if w.match?(/\A\w{#{2**n}}\z/o)
-&gt;&gt; end
+>> n = 2
+?> for w in words
+?>     puts w if w.match?(/\A\w{#{2**n}}\z/o)
+>> end
 bike
 auto
 
 # here, expression result is not constant, so don't use 'o' modifier
 # with 'o' modifier, there'll be no match because #{n} will be '1' always
-&gt;&gt; n = 1
-?&gt; for w in words
-?&gt;     puts w if w.match?(/\A\w{#{n}}\z/)
-?&gt;     n += 1
-&gt;&gt; end
+>> n = 1
+?> for w in words
+?>     puts w if w.match?(/\A\w{#{n}}\z/)
+?>     n += 1
+>> end
 bus
 auto
 train
-</code></pre>
-<h2><a class="header" href="#x-modifier" id="x-modifier">x modifier</a></h2>
-<p>The <code>x</code> modifier is another provision like the named capture groups to help add clarity to regexp definitions. This modifier allows to use literal whitespaces for aligning purposes and add comments after the <code>#</code> character to break down complex regexp into multiple lines with comments.</p>
-<pre><code class="language-ruby"># same as: pat = /\A((?:[^,]+,){3})([^,]+)/
-&gt;&gt; pat = /\A(                 # group-1, captures first 3 columns
+</code></pre><h2><a class=header href=#x-modifier id=x-modifier>x modifier</a></h2><p>The <code>x</code> modifier is another provision like the named capture groups to help add clarity to regexp definitions. This modifier allows to use literal whitespaces for aligning purposes and add comments after the <code>#</code> character to break down complex regexp into multiple lines with comments.<pre><code class=language-ruby># same as: pat = /\A((?:[^,]+,){3})([^,]+)/
+>> pat = /\A(                 # group-1, captures first 3 columns
               (?:[^,]+,){3}   # non-capturing group to get the 3 columns
             )
             ([^,]+)           # group-2, captures 4th column
          /x
 
-&gt;&gt; '1,2,3,4,5,6,7'.sub(pat, '\1(\2)')
-=&gt; &quot;1,2,3,(4),5,6,7&quot;
-</code></pre>
-<p>As whitespace and <code>#</code> characters get special meaning when using the <code>x</code> modifier, they have to be escaped or represented by backslash escape sequences to match them literally. See <a href="https://ruby-doc.org/core-2.7.1/Regexp.html#class-Regexp-label-Free-Spacing+Mode+and+Comments">ruby-doc: Free-Spacing Mode and Comments</a> for more details.</p>
-<pre><code class="language-ruby">&gt;&gt; 'cat and dog'.match?(/t a/x)
-=&gt; false
-&gt;&gt; 'cat and dog'.match?(/t\ a/x)
-=&gt; true
-&gt;&gt; 'cat and dog'.match?(/t\x20a/x)
-=&gt; true
+>> '1,2,3,4,5,6,7'.sub(pat, '\1(\2)')
+=> "1,2,3,(4),5,6,7"
+</code></pre><p>As whitespace and <code>#</code> characters get special meaning when using the <code>x</code> modifier, they have to be escaped or represented by backslash escape sequences to match them literally. See <a href=https://ruby-doc.org/core-2.7.1/Regexp.html#class-Regexp-label-Free-Spacing+Mode+and+Comments>ruby-doc: Free-Spacing Mode and Comments</a> for more details.<pre><code class=language-ruby>>> 'cat and dog'.match?(/t a/x)
+=> false
+>> 'cat and dog'.match?(/t\ a/x)
+=> true
+>> 'cat and dog'.match?(/t\x20a/x)
+=> true
 
-&gt;&gt; 'foo a#b 123'[/a#b/x]
-=&gt; &quot;a&quot;
-&gt;&gt; 'foo a#b 123'[/a\#b/x]
-=&gt; &quot;a#b&quot;
-</code></pre>
-<h2><a class="header" href="#inline-comments" id="inline-comments">Inline comments</a></h2>
-<p>Comments can also be added using <code>(?#comment)</code> grouping independent of <code>x</code> modifier.</p>
-<pre><code class="language-ruby">&gt;&gt; pat = /\A((?:[^,]+,){3})(?#3-cols)([^,]+)(?#4th-col)/
+>> 'foo a#b 123'[/a#b/x]
+=> "a"
+>> 'foo a#b 123'[/a\#b/x]
+=> "a#b"
+</code></pre><h2><a class=header href=#inline-comments id=inline-comments>Inline comments</a></h2><p>Comments can also be added using <code>(?#comment)</code> grouping independent of <code>x</code> modifier.<pre><code class=language-ruby>>> pat = /\A((?:[^,]+,){3})(?#3-cols)([^,]+)(?#4th-col)/
 
-&gt;&gt; '1,2,3,4,5,6,7'.sub(pat, '\1(\2)')
-=&gt; &quot;1,2,3,(4),5,6,7&quot;
-</code></pre>
-<h2><a class="header" href="#inline-modifiers" id="inline-modifiers">Inline modifiers</a></h2>
-<p>To apply modifiers to specific portions of regexp, specify them inside a special grouping syntax. This will override the modifiers applied to entire regexp definitions, if any. The syntax variations are:</p>
-<ul>
-<li><code>(?modifiers:pat)</code> will apply modifiers only for this regexp portion</li>
-<li><code>(?-modifiers:pat)</code> will negate modifiers only for this regexp portion</li>
-<li><code>(?modifiers-modifiers:pat)</code> will apply and negate particular modifiers only for this regexp portion</li>
-<li><code>(?modifiers)</code> when <code>:pat</code> is not used within the grouping, modifiers (including negation) will be applied from this point onwards</li>
-</ul>
-<p>In these ways, modifiers can be specified precisely only where it is needed. And as can be observed from below examples, these do not act like a capture group.</p>
-<pre><code class="language-ruby"># case-insensitive only for 'cat' portion
-&gt;&gt; 'Cat scatter CATER cAts'.scan(/(?i:cat)[a-z]*\b/)
-=&gt; [&quot;Cat&quot;, &quot;catter&quot;, &quot;cAts&quot;]
+>> '1,2,3,4,5,6,7'.sub(pat, '\1(\2)')
+=> "1,2,3,(4),5,6,7"
+</code></pre><h2><a class=header href=#inline-modifiers id=inline-modifiers>Inline modifiers</a></h2><p>To apply modifiers to specific portions of regexp, specify them inside a special grouping syntax. This will override the modifiers applied to entire regexp definitions, if any. The syntax variations are:<ul><li><code>(?modifiers:pat)</code> will apply modifiers only for this regexp portion<li><code>(?-modifiers:pat)</code> will negate modifiers only for this regexp portion<li><code>(?modifiers-modifiers:pat)</code> will apply and negate particular modifiers only for this regexp portion<li><code>(?modifiers)</code> when <code>:pat</code> is not used within the grouping, modifiers (including negation) will be applied from this point onwards</ul><p>In these ways, modifiers can be specified precisely only where it is needed. And as can be observed from below examples, these do not act like a capture group.<pre><code class=language-ruby># case-insensitive only for 'cat' portion
+>> 'Cat scatter CATER cAts'.scan(/(?i:cat)[a-z]*\b/)
+=> ["Cat", "catter", "cAts"]
 # same thing by overriding overall modifier
-&gt;&gt; 'Cat scatter CATER cAts'.scan(/cat(?-i)[a-z]*\b/i)
-=&gt; [&quot;Cat&quot;, &quot;catter&quot;, &quot;cAts&quot;]
+>> 'Cat scatter CATER cAts'.scan(/cat(?-i)[a-z]*\b/i)
+=> ["Cat", "catter", "cAts"]
 
 # case-sensitive only for 'Cat'
-&gt;&gt; 'Cat SCatTeR CATER cAts'.scan(/(?-i:Cat)[a-z]*\b/i)
-=&gt; [&quot;Cat&quot;, &quot;CatTeR&quot;]
+>> 'Cat SCatTeR CATER cAts'.scan(/(?-i:Cat)[a-z]*\b/i)
+=> ["Cat", "CatTeR"]
 # same thing without overall modifier
-&gt;&gt; 'Cat SCatTeR CATER cAts'.scan(/Cat(?i)[a-z]*\b/)
-=&gt; [&quot;Cat&quot;, &quot;CatTeR&quot;]
-</code></pre>
-<p>So, now you should be able to decode the output of <code>Regexp.union</code> when one of the arguments is regexp.</p>
-<pre><code class="language-ruby">&gt;&gt; Regexp.union(/^cat/i, '123')
-=&gt; /(?i-mx:^cat)|123/
+>> 'Cat SCatTeR CATER cAts'.scan(/Cat(?i)[a-z]*\b/)
+=> ["Cat", "CatTeR"]
+</code></pre><p>So, now you should be able to decode the output of <code>Regexp.union</code> when one of the arguments is regexp.<pre><code class=language-ruby>>> Regexp.union(/^cat/i, '123')
+=> /(?i-mx:^cat)|123/
 
-&gt;&gt; Regexp.union(/cat/, 'a^b', /the.*ice/im)
-=&gt; /(?-mix:cat)|a\^b|(?mi-x:the.*ice)/
-</code></pre>
-<h2><a class="header" href="#cheatsheet-and-summary" id="cheatsheet-and-summary">Cheatsheet and Summary</a></h2>
-<table><thead><tr><th>Note</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>i</code></td><td>modifier to ignore case while matching alphabets</td></tr>
-<tr><td><code>m</code></td><td>allow <code>.</code> metacharacter to match newline character too</td></tr>
-<tr><td><code>o</code></td><td>interpolate <code>#{}</code> inside a regexp only once</td></tr>
-<tr><td><code>x</code></td><td>allows to use literal whitespaces for aligning purposes</td></tr>
-<tr><td></td><td>and to add comments after the <code>#</code> character</td></tr>
-<tr><td></td><td>escape spaces and <code>#</code> if needed as part of actual regexp</td></tr>
-<tr><td><code>(?#comment)</code></td><td>another way to add comments, not a modifier</td></tr>
-<tr><td><code>(?modifiers:pat)</code></td><td>apply modifiers only for this <code>pat</code></td></tr>
-<tr><td><code>(?-modifiers:pat)</code></td><td>negate modifiers only for this <code>pat</code></td></tr>
-<tr><td><code>(?modifiers-modifiers:pat)</code></td><td>apply and negate modifiers only for this <code>pat</code></td></tr>
-<tr><td><code>(?modifiers)</code></td><td>modifiers will be applied from this point onwards</td></tr>
-</tbody></table>
-<p>This chapter showed some of the modifiers that can be used to change default behavior of regexp. And more special groupings were covered.</p>
-<h2><a class="header" href="#exercises" id="exercises">Exercises</a></h2>
-<p><strong>a)</strong> Remove from first occurrence of <code>hat</code> to last occurrence of <code>ice</code> for the given input strings. Match these markers case insensitively.</p>
-<pre><code class="language-ruby">&gt;&gt; s1 = &quot;But Cool THAT\nsee What okay\nwow quite&quot;
-&gt;&gt; s2 = 'it this hat is sliced HIT.'
+>> Regexp.union(/cat/, 'a^b', /the.*ice/im)
+=> /(?-mix:cat)|a\^b|(?mi-x:the.*ice)/
+</code></pre><h2><a class=header href=#cheatsheet-and-summary id=cheatsheet-and-summary>Cheatsheet and Summary</a></h2><table><thead><tr><th>Note<th>Description<tbody><tr><td><code>i</code><td>modifier to ignore case while matching alphabets<tr><td><code>m</code><td>allow <code>.</code> metacharacter to match newline character too<tr><td><code>o</code><td>interpolate <code>#{}</code> inside a regexp only once<tr><td><code>x</code><td>allows to use literal whitespaces for aligning purposes<tr><td><td>and to add comments after the <code>#</code> character<tr><td><td>escape spaces and <code>#</code> if needed as part of actual regexp<tr><td><code>(?#comment)</code><td>another way to add comments, not a modifier<tr><td><code>(?modifiers:pat)</code><td>apply modifiers only for this <code>pat</code><tr><td><code>(?-modifiers:pat)</code><td>negate modifiers only for this <code>pat</code><tr><td><code>(?modifiers-modifiers:pat)</code><td>apply and negate modifiers only for this <code>pat</code><tr><td><code>(?modifiers)</code><td>modifiers will be applied from this point onwards</table><p>This chapter showed some of the modifiers that can be used to change default behavior of regexp. And more special groupings were covered.<h2><a class=header href=#exercises id=exercises>Exercises</a></h2><p><strong>a)</strong> Remove from first occurrence of <code>hat</code> to last occurrence of <code>ice</code> for the given input strings. Match these markers case insensitively.<pre><code class=language-ruby>>> s1 = "But Cool THAT\nsee What okay\nwow quite"
+>> s2 = 'it this hat is sliced HIT.'
 
-&gt;&gt; pat =        ##### add your solution here
+>> pat =        ##### add your solution here
 
-&gt;&gt; s1.sub(pat, '')
-=&gt; &quot;But Cool Te&quot;
-&gt;&gt; s2.sub(pat, '')
-=&gt; &quot;it this .&quot;
-</code></pre>
-<p><strong>b)</strong> Delete from the string <code>start</code> if it is at the beginning of a line up to the next occurrence of the string <code>end</code> at the end of a line. Match these keywords irrespective of case.</p>
-<pre><code class="language-ruby">'&gt; para = %q{good start
-'&gt; start working on that
-'&gt; project you always wanted
-'&gt; to, do not let it end
-'&gt; hi there
-'&gt; start and end the end
-'&gt; 42
-'&gt; Start and try to
-'&gt; finish the End
-&gt;&gt; bye}
+>> s1.sub(pat, '')
+=> "But Cool Te"
+>> s2.sub(pat, '')
+=> "it this ."
+</code></pre><p><strong>b)</strong> Delete from the string <code>start</code> if it is at the beginning of a line up to the next occurrence of the string <code>end</code> at the end of a line. Match these keywords irrespective of case.<pre><code class=language-ruby>'> para = %q{good start
+'> start working on that
+'> project you always wanted
+'> to, do not let it end
+'> hi there
+'> start and end the end
+'> 42
+'> Start and try to
+'> finish the End
+>> bye}
 
-&gt;&gt; pat =        ##### add your solution here
+>> pat =        ##### add your solution here
 
-&gt;&gt; puts para.gsub(pat, '')
+>> puts para.gsub(pat, '')
 good start
 
 hi there
@@ -329,131 +154,51 @@ hi there
 42
 
 bye
-</code></pre>
-<p><strong>c)</strong> For the given <strong>markdown</strong> file, replace all occurrences of the string <code>ruby</code> (irrespective of case) with the string <code>Ruby</code>. However, any match within code blocks that start with whole line <code>```ruby</code> and end with whole line <code>```</code> shouldn't be replaced. Consider the input file to be small enough to fit memory requirements.</p>
-<p>Refer to <a href="https://github.com/learnbyexample/Ruby_Regexp/tree/master/exercises">exercises folder</a> for input files required to solve the exercises.</p>
-<pre><code class="language-ruby">&gt;&gt; ip_str = File.open('sample.md').read
-&gt;&gt; pat =        ##### add your solution here
+</code></pre><p><strong>c)</strong> For the given <strong>markdown</strong> file, replace all occurrences of the string <code>ruby</code> (irrespective of case) with the string <code>Ruby</code>. However, any match within code blocks that start with whole line <code>```ruby</code> and end with whole line <code>```</code> shouldn't be replaced. Consider the input file to be small enough to fit memory requirements.<p>Refer to <a href=https://github.com/learnbyexample/Ruby_Regexp/tree/master/exercises>exercises folder</a> for input files required to solve the exercises.<pre><code class=language-ruby>>> ip_str = File.open('sample.md').read
+>> pat =        ##### add your solution here
 
-&gt;&gt; File.open('sample_mod.md', 'w') do |f|
-?&gt;   ip_str.split(pat).each_with_index do |s, i|
-?&gt;     f.write(i.odd? ? s : s.gsub(/ruby/i) { $&amp;.capitalize })
-&gt;&gt;   end
-&gt;&gt; end
+>> File.open('sample_mod.md', 'w') do |f|
+?>   ip_str.split(pat).each_with_index do |s, i|
+?>     f.write(i.odd? ? s : s.gsub(/ruby/i) { $&.capitalize })
+>>   end
+>> end
 
-&gt;&gt; File.open('sample_mod.md').read == File.open('expected.md').read
-=&gt; true
-</code></pre>
-<p><strong>d)</strong> Write a string method that changes given input to alternate case (starting with lowercase first).</p>
-<pre><code class="language-ruby">?&gt; def aLtErNaTe_CaSe(ip_str)
+>> File.open('sample_mod.md').read == File.open('expected.md').read
+=> true
+</code></pre><p><strong>d)</strong> Write a string method that changes given input to alternate case (starting with lowercase first).<pre><code class=language-ruby>?> def aLtErNaTe_CaSe(ip_str)
 ##### add your solution here
-&gt;&gt; end
+>> end
 
-&gt;&gt; aLtErNaTe_CaSe('HI THERE!')
-=&gt; &quot;hI tHeRe!&quot;
-&gt;&gt; aLtErNaTe_CaSe('good morning')
-=&gt; &quot;gOoD mOrNiNg&quot;
-&gt;&gt; aLtErNaTe_CaSe('Sample123string42with777numbers')
-=&gt; &quot;sAmPlE123sTrInG42wItH777nUmBeRs&quot;
-</code></pre>
-<p><strong>e)</strong> For the given input strings, match all of these three patterns:</p>
-<ul>
-<li><code>This</code> case sensitively</li>
-<li><code>nice</code> and <code>cool</code> case insensitively</li>
-</ul>
-<pre><code class="language-ruby">&gt;&gt; s1 = 'This is nice and Cool'
-&gt;&gt; s2 = 'Nice and cool this is'
-&gt;&gt; s3 = 'What is so nice and cool about This?'
+>> aLtErNaTe_CaSe('HI THERE!')
+=> "hI tHeRe!"
+>> aLtErNaTe_CaSe('good morning')
+=> "gOoD mOrNiNg"
+>> aLtErNaTe_CaSe('Sample123string42with777numbers')
+=> "sAmPlE123sTrInG42wItH777nUmBeRs"
+</code></pre><p><strong>e)</strong> For the given input strings, match all of these three patterns:<ul><li><code>This</code> case sensitively<li><code>nice</code> and <code>cool</code> case insensitively</ul><pre><code class=language-ruby>>> s1 = 'This is nice and Cool'
+>> s2 = 'Nice and cool this is'
+>> s3 = 'What is so nice and cool about This?'
 
-&gt;&gt; pat =        ##### add your solution here
+>> pat =        ##### add your solution here
 
-&gt;&gt; s1.match?(pat)
-=&gt; true
-&gt;&gt; s2.match?(pat)
-=&gt; false
-&gt;&gt; s3.match?(pat)
-=&gt; true
-</code></pre>
-<p><strong>f)</strong> For the given input strings, match if the string begins with <code>Th</code> and also contains a line that starts with <code>There</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; s1 = &quot;There there\nHave a cookie&quot;
-&gt;&gt; s2 = &quot;This is a mess\nYeah?\nThereeeee&quot;
-&gt;&gt; s3 = &quot;Oh\nThere goes the fun&quot;
+>> s1.match?(pat)
+=> true
+>> s2.match?(pat)
+=> false
+>> s3.match?(pat)
+=> true
+</code></pre><p><strong>f)</strong> For the given input strings, match if the string begins with <code>Th</code> and also contains a line that starts with <code>There</code>.<pre><code class=language-ruby>>> s1 = "There there\nHave a cookie"
+>> s2 = "This is a mess\nYeah?\nThereeeee"
+>> s3 = "Oh\nThere goes the fun"
 
-&gt;&gt; pat =        ##### add your solution here
+>> pat =        ##### add your solution here
 
-&gt;&gt; s1.match?(pat)
-=&gt; true
-&gt;&gt; s2.match?(pat)
-=&gt; true
-&gt;&gt; s3.match?(pat)
-=&gt; false
-</code></pre>
-
-                    </main>
-
-                    <nav class="nav-wrapper" aria-label="Page navigation">
-                        <!-- Mobile navigation buttons -->
-                        
-                            <a rel="prev" href="lookarounds.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-                        
-
-                        
-                            <a rel="next" href="unicode.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        
-
-                        <div style="clear: both"></div>
-                    </nav>
-                </div>
-            </div>
-
-            <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
-                    <a rel="prev" href="lookarounds.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
-                
-
-                
-                    <a rel="next" href="unicode.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                
-            </nav>
-
-        </div>
-
-        
-
-        
-
-        
-
-        
-        <script type="text/javascript">
+>> s1.match?(pat)
+=> true
+>> s2.match?(pat)
+=> true
+>> s3.match?(pat)
+=> false
+</code></pre></main><nav class=nav-wrapper aria-label="Page navigation"><a rel=prev href=lookarounds.html class="mobile-nav-chapters previous"title="Previous chapter"aria-label="Previous chapter"aria-keyshortcuts=Left> <i class="fa fa-angle-left"></i> </a><a rel=next href=unicode.html class="mobile-nav-chapters next"title="Next chapter"aria-label="Next chapter"aria-keyshortcuts=Right> <i class="fa fa-angle-right"></i> </a><div style="clear: both"></div></nav></div></div><nav class=nav-wide-wrapper aria-label="Page navigation"><a rel=prev href=lookarounds.html class="nav-chapters previous"title="Previous chapter"aria-label="Previous chapter"aria-keyshortcuts=Left> <i class="fa fa-angle-left"></i> </a><a rel=next href=unicode.html class="nav-chapters next"title="Next chapter"aria-label="Next chapter"aria-keyshortcuts=Right> <i class="fa fa-angle-right"></i> </a></nav></div><script>
             window.playground_copyable = true;
-        </script>
-        
-
-        
-
-        
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        
-
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
-
-        <!-- Custom JS scripts -->
-        
-
-        
-
-    </body>
-</html>
+        </script><script src=elasticlunr.min.js charset=utf-8></script><script src=mark.min.js charset=utf-8></script><script src=searcher.js charset=utf-8></script><script src=clipboard.min.js charset=utf-8></script><script src=highlight.js charset=utf-8></script><script src=book.js charset=utf-8></script><script src=sidebar.js></script>

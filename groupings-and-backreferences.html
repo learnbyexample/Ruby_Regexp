@@ -1,60 +1,7 @@
-<!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
-    <head>
-        <!-- Book generated using mdBook -->
-        <meta charset="UTF-8">
-        <title>Groupings and backreferences - Ruby Regexp</title>
-        
-        
-
-
-        <!-- Custom HTML head -->
-        
-
-
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <meta name="description" content="Example based guide to mastering Ruby Regexp">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
-
-        
-        <link rel="icon" href="favicon.svg">
-        
-        
-        <link rel="shortcut icon" href="favicon.png">
-        
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
-
-        <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        
-        <link rel="stylesheet" href="fonts/fonts.css">
-        
-
-        <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
-
-        <!-- Custom theme stylesheets -->
-        
-        <link rel="stylesheet" href="custom.css">
-        
-
-        
-    </head>
-    <body>
-        <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+<!DOCTYPE HTML><html lang=en class="sidebar-visible no-js light"><head><meta charset=UTF-8><title>Groupings and backreferences - Ruby Regexp</title><meta content="text/html; charset=utf-8"http-equiv=Content-Type><meta name=description content="Example based guide to mastering Ruby Regexp"><meta name=viewport content="width=device-width, initial-scale=1"><meta name=theme-color content=#ffffff><link rel=icon href=favicon.svg><link rel="shortcut icon"href=favicon.png><link rel=stylesheet href=css/variables.css><link rel=stylesheet href=css/general.css><link rel=stylesheet href=css/chrome.css><link rel=stylesheet href=FontAwesome/css/font-awesome.css><link rel=stylesheet href=fonts/fonts.css><link rel=stylesheet href=highlight.css><link rel=stylesheet href=tomorrow-night.css><link rel=stylesheet href=ayu-highlight.css><link rel=stylesheet href=style.css><body><script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
-        </script>
-
-        <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        </script><script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -67,10 +14,7 @@
                     localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
                 }
             } catch (e) { }
-        </script>
-
-        <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        </script><script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
@@ -79,10 +23,7 @@
             html.classList.remove('light')
             html.classList.add(theme);
             html.classList.add('js');
-        </script>
-
-        <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
+        </script><script>
             var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
@@ -91,246 +32,132 @@
             }
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
-        </script>
-
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="cover.html">Cover</a></li><li class="chapter-item expanded affix "><a href="buy.html">Buy PDF/EPUB versions</a></li><li class="chapter-item expanded "><a href="preface.html"><strong aria-hidden="true">1.</strong> Preface</a></li><li class="chapter-item expanded "><a href="why-is-it-needed.html"><strong aria-hidden="true">2.</strong> Why is it needed?</a></li><li class="chapter-item expanded "><a href="regexp-introduction.html"><strong aria-hidden="true">3.</strong> Regexp introduction</a></li><li class="chapter-item expanded "><a href="anchors.html"><strong aria-hidden="true">4.</strong> Anchors</a></li><li class="chapter-item expanded "><a href="alternation-and-grouping.html"><strong aria-hidden="true">5.</strong> Alternation and Grouping</a></li><li class="chapter-item expanded "><a href="escaping-metacharacters.html"><strong aria-hidden="true">6.</strong> Escaping metacharacters</a></li><li class="chapter-item expanded "><a href="dot-metacharacter-and-quantifiers.html"><strong aria-hidden="true">7.</strong> Dot metacharacter and Quantifiers</a></li><li class="chapter-item expanded "><a href="interlude-tools-for-debugging-and-visualization.html"><strong aria-hidden="true">8.</strong> Interlude: Tools for debugging and visualization</a></li><li class="chapter-item expanded "><a href="working-with-matched-portions.html"><strong aria-hidden="true">9.</strong> Working with matched portions</a></li><li class="chapter-item expanded "><a href="character-class.html"><strong aria-hidden="true">10.</strong> Character class</a></li><li class="chapter-item expanded "><a href="groupings-and-backreferences.html" class="active"><strong aria-hidden="true">11.</strong> Groupings and backreferences</a></li><li class="chapter-item expanded "><a href="interlude-common-tasks.html"><strong aria-hidden="true">12.</strong> Interlude: Common tasks</a></li><li class="chapter-item expanded "><a href="lookarounds.html"><strong aria-hidden="true">13.</strong> Lookarounds</a></li><li class="chapter-item expanded "><a href="modifiers.html"><strong aria-hidden="true">14.</strong> Modifiers</a></li><li class="chapter-item expanded "><a href="unicode.html"><strong aria-hidden="true">15.</strong> Unicode</a></li><li class="chapter-item expanded "><a href="further-reading.html"><strong aria-hidden="true">16.</strong> Further Reading</a></li><li class="chapter-item expanded "><a href="Exercise_solutions.html"><strong aria-hidden="true">17.</strong> Exercise Solutions</a></li></ol>
-            </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
-        </nav>
-
-        <div id="page-wrapper" class="page-wrapper">
-
-            <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
-                    <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
-                        </button>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
-                        </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
-                        </ul>
-                        
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
-                        </button>
-                        
-                    </div>
-
-                    <h1 class="menu-title">Ruby Regexp</h1>
-
-                    <div class="right-buttons">
-                        
-                        <a href="https://github.com/learnbyexample/Ruby_Regexp" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
-                        </a>
-                        
-                    </div>
-                </div>
-
-                
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
-                    </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
-                        </ul>
-                    </div>
-                </div>
-                
-
-                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+        </script><nav id=sidebar class=sidebar aria-label="Table of contents"><div class=sidebar-scrollbox><ol class=chapter><li class="chapter-item expanded affix"><a href=cover.html>Cover</a><li class="chapter-item expanded affix"><a href=buy.html>Buy PDF/EPUB versions</a><li class="chapter-item expanded"><a href=preface.html><strong aria-hidden=true>1.</strong> Preface</a><li class="chapter-item expanded"><a href=why-is-it-needed.html><strong aria-hidden=true>2.</strong> Why is it needed?</a><li class="chapter-item expanded"><a href=regexp-introduction.html><strong aria-hidden=true>3.</strong> Regexp introduction</a><li class="chapter-item expanded"><a href=anchors.html><strong aria-hidden=true>4.</strong> Anchors</a><li class="chapter-item expanded"><a href=alternation-and-grouping.html><strong aria-hidden=true>5.</strong> Alternation and Grouping</a><li class="chapter-item expanded"><a href=escaping-metacharacters.html><strong aria-hidden=true>6.</strong> Escaping metacharacters</a><li class="chapter-item expanded"><a href=dot-metacharacter-and-quantifiers.html><strong aria-hidden=true>7.</strong> Dot metacharacter and Quantifiers</a><li class="chapter-item expanded"><a href=interlude-tools-for-debugging-and-visualization.html><strong aria-hidden=true>8.</strong> Interlude: Tools for debugging and visualization</a><li class="chapter-item expanded"><a href=working-with-matched-portions.html><strong aria-hidden=true>9.</strong> Working with matched portions</a><li class="chapter-item expanded"><a href=character-class.html><strong aria-hidden=true>10.</strong> Character class</a><li class="chapter-item expanded"><a href=groupings-and-backreferences.html class=active><strong aria-hidden=true>11.</strong> Groupings and backreferences</a><li class="chapter-item expanded"><a href=interlude-common-tasks.html><strong aria-hidden=true>12.</strong> Interlude: Common tasks</a><li class="chapter-item expanded"><a href=lookarounds.html><strong aria-hidden=true>13.</strong> Lookarounds</a><li class="chapter-item expanded"><a href=modifiers.html><strong aria-hidden=true>14.</strong> Modifiers</a><li class="chapter-item expanded"><a href=unicode.html><strong aria-hidden=true>15.</strong> Unicode</a><li class="chapter-item expanded"><a href=further-reading.html><strong aria-hidden=true>16.</strong> Further Reading</a><li class="chapter-item expanded"><a href=Exercise_solutions.html><strong aria-hidden=true>17.</strong> Exercise Solutions</a></ol></div><div id=sidebar-resize-handle class=sidebar-resize-handle></div></nav><div id=page-wrapper class=page-wrapper><div class=page><div id=menu-bar-hover-placeholder></div><div id=menu-bar class="menu-bar sticky bordered"><div class=left-buttons><button id=sidebar-toggle class=icon-button type=button title="Toggle Table of Contents"aria-label="Toggle Table of Contents"aria-controls=sidebar><i class="fa fa-bars"></i></button><button id=theme-toggle class=icon-button type=button title="Change theme"aria-label="Change theme"aria-haspopup=true aria-expanded=false aria-controls=theme-list><i class="fa fa-paint-brush"></i></button><ul id=theme-list class=theme-popup aria-label=Themes role=menu><li role=none><button role=menuitem class=theme id=light>Light (default)</button><li role=none><button role=menuitem class=theme id=rust>Rust</button><li role=none><button role=menuitem class=theme id=coal>Coal</button><li role=none><button role=menuitem class=theme id=navy>Navy</button><li role=none><button role=menuitem class=theme id=ayu>Ayu</button></ul><button id=search-toggle class=icon-button type=button title="Search. (Shortkey: s)"aria-label="Toggle Searchbar"aria-expanded=false aria-keyshortcuts=S aria-controls=searchbar><i class="fa fa-search"></i></button></div><h1 class=menu-title>Ruby Regexp</h1><div class=right-buttons><a href=https://github.com/learnbyexample/Ruby_Regexp title="Git repository"aria-label="Git repository"> <i id=git-repository-button class="fa fa-github"></i> </a></div></div><div id=search-wrapper class=hidden><form id=searchbar-outer class=searchbar-outer><input type=search name=search id=searchbar name=searchbar placeholder="Search this book ..."aria-controls=searchresults-outer aria-describedby=searchresults-header></form><div id=searchresults-outer class="searchresults-outer hidden"><div id=searchresults-header class=searchresults-header></div><ul id=searchresults></ul></div></div><script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
-                </script>
-
-                <div id="content" class="content">
-                    <main>
-                        <h1><a class="header" href="#groupings-and-backreferences" id="groupings-and-backreferences">Groupings and backreferences</a></h1>
-<p>This chapter will show how to reuse portion matched by capture groups via backreferences within regexp definition and replacement section. You'll also learn some of the special grouping syntax for cases where plain capture groups isn't enough.</p>
-<h2><a class="header" href="#backreferences" id="backreferences">Backreferences</a></h2>
-<p>Backreferences are like variables in a programming language. You have already seen how to use <code>MatchData</code> object and regexp global variables to refer to the text matched by capture groups. Backreferences provide the same functionality, with the advantage that these can be directly used in regexp definition as well as replacement section. Another advantage is that you can apply quantifiers to backreferences.</p>
-<p>The syntax for <strong>replacement section</strong> is <code>\N</code> where <code>N</code> is the capture group you want.</p>
-<ul>
-<li>use <code>\1</code>, <code>\2</code> up to <code>\9</code> to refer to the corresponding capture group
-<ul>
-<li>use block form with global variables if you need more than <code>9</code> backreferences in replacement section</li>
-</ul>
-</li>
-<li>use <code>\0</code> or <code>\&amp;</code> to get entire the matched portion (same as <code>$&amp;</code>)
-<ul>
-<li>similarly, <code>\`</code> and <code>\'</code> are equivalents for <code>$`</code> and <code>$'</code> respectively</li>
-</ul>
-</li>
-</ul>
-<pre><code class="language-ruby"># remove square brackets that surround digit characters
-&gt;&gt; '[52] apples [and] [31] mangoes'.gsub(/\[(\d+)\]/, '\1')
-=&gt; &quot;52 apples [and] 31 mangoes&quot;
+                </script><div id=content class=content><main><div class=sidetoc><nav class=pagetoc></nav></div><h1><a class=header href=#groupings-and-backreferences id=groupings-and-backreferences>Groupings and backreferences</a></h1><p>This chapter will show how to reuse portion matched by capture groups via backreferences within regexp definition and replacement section. You'll also learn some of the special grouping syntax for cases where plain capture groups isn't enough.<h2><a class=header href=#backreferences id=backreferences>Backreferences</a></h2><p>Backreferences are like variables in a programming language. You have already seen how to use <code>MatchData</code> object and regexp global variables to refer to the text matched by capture groups. Backreferences provide the same functionality, with the advantage that these can be directly used in regexp definition as well as replacement section. Another advantage is that you can apply quantifiers to backreferences.<p>The syntax for <strong>replacement section</strong> is <code>\N</code> where <code>N</code> is the capture group you want.<ul><li>use <code>\1</code>, <code>\2</code> up to <code>\9</code> to refer to the corresponding capture group <ul><li>use block form with global variables if you need more than <code>9</code> backreferences in replacement section</ul><li>use <code>\0</code> or <code>\&</code> to get entire the matched portion (same as <code>$&</code>) <ul><li>similarly, <code>\`</code> and <code>\'</code> are equivalents for <code>$`</code> and <code>$'</code> respectively</ul></ul><pre><code class=language-ruby># remove square brackets that surround digit characters
+>> '[52] apples [and] [31] mangoes'.gsub(/\[(\d+)\]/, '\1')
+=> "52 apples [and] 31 mangoes"
 
 # replace __ with _ and delete _ if it is alone
-&gt;&gt; '_foo_ __123__ _baz_'.gsub(/(_)?_/, '\1')
-=&gt; &quot;foo _123_ baz&quot;
+>> '_foo_ __123__ _baz_'.gsub(/(_)?_/, '\1')
+=> "foo _123_ baz"
 
 # add something around the matched strings
-&gt;&gt; '52 apples and 31 mangoes'.gsub(/\d+/, '(\0)')
-=&gt; &quot;(52) apples and (31) mangoes&quot;
-&gt;&gt; 'Hello world'.sub(/.*/, 'Hi. \0. Have a nice day')
-=&gt; &quot;Hi. Hello world. Have a nice day&quot;
+>> '52 apples and 31 mangoes'.gsub(/\d+/, '(\0)')
+=> "(52) apples and (31) mangoes"
+>> 'Hello world'.sub(/.*/, 'Hi. \0. Have a nice day')
+=> "Hi. Hello world. Have a nice day"
 
 # duplicate first field and add it as last field
-&gt;&gt; 'fork,42,nice,3.14'.sub(/,.+/, '\0,\`')
-=&gt; &quot;fork,42,nice,3.14,fork&quot;
+>> 'fork,42,nice,3.14'.sub(/,.+/, '\0,\`')
+=> "fork,42,nice,3.14,fork"
 
 # swap words that are separated by a comma
-&gt;&gt; 'good,bad 42,24'.gsub(/(\w+),(\w+)/, '\2,\1')
-=&gt; &quot;bad,good 24,42&quot;
-</code></pre>
-<blockquote>
-<p><img src="images/info.svg" alt="info" /> If double quotes is used in replacement section, you'll have to use <code>\\1</code>, <code>\\2</code>, <code>\\3</code> and so on.</p>
-</blockquote>
-<p>In <strong>regexp definition</strong>, the syntax is <code>\N</code> or <code>\k&lt;N&gt;</code> to refer to the <em>N</em>th capture group. Unlike replacement section, there is no upper limit of <code>9</code>. Here's some examples for using backreferences within regexp definition.</p>
-<pre><code class="language-ruby"># elements that have at least one consecutive repeated character
-&gt;&gt; %w[effort flee facade oddball rat tool].grep(/(\w)\1/)
-=&gt; [&quot;effort&quot;, &quot;flee&quot;, &quot;oddball&quot;, &quot;tool&quot;]
+>> 'good,bad 42,24'.gsub(/(\w+),(\w+)/, '\2,\1')
+=> "bad,good 24,42"
+</code></pre><blockquote><p><img src=images/info.svg alt=info> If double quotes is used in replacement section, you'll have to use <code>\\1</code>, <code>\\2</code>, <code>\\3</code> and so on.</blockquote><p>In <strong>regexp definition</strong>, the syntax is <code>\N</code> or <code>\k&LTN></code> to refer to the <em>N</em>th capture group. Unlike replacement section, there is no upper limit of <code>9</code>. Here's some examples for using backreferences within regexp definition.<pre><code class=language-ruby># elements that have at least one consecutive repeated character
+>> %w[effort flee facade oddball rat tool].grep(/(\w)\1/)
+=> ["effort", "flee", "oddball", "tool"]
 
 # remove any number of consecutive duplicate words separated by space
 # note the use of quantifier on backreferences
-# use \W+ instead of space to cover cases like 'a;a&lt;-;a'
-&gt;&gt; 'aa a a a 42 f_1 f_1 f_13.14'.gsub(/\b(\w+)( \1)+\b/, '\1')
-=&gt; &quot;aa a 42 f_1 f_13.14&quot;
-</code></pre>
-<p>Use <code>\k&lt;N&gt;</code> or escape sequences to avoid ambiguity between normal digit characters and backreferences.</p>
-<pre><code class="language-ruby"># \12 is treated as 12th backreference even though there's only one capture group
-&gt;&gt; 'two one 5 one2 three'.match?(/([a-z]+).*\12/)
-=&gt; false
-# there's no ambiguity here as \k&lt;1&gt; can only mean 1st backreference
-&gt;&gt; 'two one 5 one2 three'.match?(/([a-z]+).*\k&lt;1&gt;2/)
-=&gt; true
+# use \W+ instead of space to cover cases like 'a;a&LT-;a'
+>> 'aa a a a 42 f_1 f_1 f_13.14'.gsub(/\b(\w+)( \1)+\b/, '\1')
+=> "aa a 42 f_1 f_13.14"
+</code></pre><p>Use <code>\k&LTN></code> or escape sequences to avoid ambiguity between normal digit characters and backreferences.<pre><code class=language-ruby># \12 is treated as 12th backreference even though there's only one capture group
+>> 'two one 5 one2 three'.match?(/([a-z]+).*\12/)
+=> false
+# there's no ambiguity here as \k&LT1> can only mean 1st backreference
+>> 'two one 5 one2 three'.match?(/([a-z]+).*\k&LT1>2/)
+=> true
 
-&gt;&gt; s = 'abcdefghijklmna1d'
+>> s = 'abcdefghijklmna1d'
 # there are 12 capture groups here
 # requirement is \1 as backreference and 1 as normal digit
 # using escapes is another way to avoid ambiguity
-&gt;&gt; s.sub(/(.)(.)(.)(.)(.)(.)(.)(.)(.)(.)(.)(.).*\1\x31/, 'X')
-=&gt; &quot;Xd&quot;
-</code></pre>
-<blockquote>
-<p><img src="images/info.svg" alt="info" /> See <a href="./groupings-and-backreferences.html#negative-backreferences">Negative backreferences</a> section for another use of <code>\k&lt;N&gt;</code> backreference syntax.</p>
-</blockquote>
-<h2><a class="header" href="#non-capturing-groups" id="non-capturing-groups">Non-capturing groups</a></h2>
-<p>Grouping has many uses like applying quantifier on a regexp portion, creating terse regexp by factoring common portions and so on. It also affects the output of <code>scan</code> and <code>split</code> methods as seen in <a href="./working-with-matched-portions.html#working-with-matched-portions">Working with matched portions</a> chapter.</p>
-<p>When backreferencing is not required, you can use a non-capturing group to avoid behavior change of <code>scan</code> and <code>split</code> methods. It also helps to avoid keeping a track of capture group numbers when that particular group is not needed for backreferencing. The syntax is <code>(?:pat)</code> to define a non-capturing group. Recall that <code>(?&gt;pat)</code> is used to define atomic groups. More such special groups starting with <code>(?</code> syntax will be discussed later on.</p>
-<pre><code class="language-ruby"># normal capture group will hinder ability to get whole match
+>> s.sub(/(.)(.)(.)(.)(.)(.)(.)(.)(.)(.)(.)(.).*\1\x31/, 'X')
+=> "Xd"
+</code></pre><blockquote><p><img src=images/info.svg alt=info> See <a href=./groupings-and-backreferences.html#negative-backreferences>Negative backreferences</a> section for another use of <code>\k&LTN></code> backreference syntax.</blockquote><h2><a class=header href=#non-capturing-groups id=non-capturing-groups>Non-capturing groups</a></h2><p>Grouping has many uses like applying quantifier on a regexp portion, creating terse regexp by factoring common portions and so on. It also affects the output of <code>scan</code> and <code>split</code> methods as seen in <a href=./working-with-matched-portions.html#working-with-matched-portions>Working with matched portions</a> chapter.<p>When backreferencing is not required, you can use a non-capturing group to avoid behavior change of <code>scan</code> and <code>split</code> methods. It also helps to avoid keeping a track of capture group numbers when that particular group is not needed for backreferencing. The syntax is <code>(?:pat)</code> to define a non-capturing group. Recall that <code>(?>pat)</code> is used to define atomic groups. More such special groups starting with <code>(?</code> syntax will be discussed later on.<pre><code class=language-ruby># normal capture group will hinder ability to get whole match
 # non-capturing group to the rescue
-&gt;&gt; 'cost akin more east run against'.scan(/\b\w*(?:st|in)\b/)
-=&gt; [&quot;cost&quot;, &quot;akin&quot;, &quot;east&quot;, &quot;against&quot;]
+>> 'cost akin more east run against'.scan(/\b\w*(?:st|in)\b/)
+=> ["cost", "akin", "east", "against"]
 
 # capturing wasn't needed here, only common grouping and quantifier
-&gt;&gt; '123hand42handy777handful500'.split(/hand(?:y|ful)?/)
-=&gt; [&quot;123&quot;, &quot;42&quot;, &quot;777&quot;, &quot;500&quot;]
+>> '123hand42handy777handful500'.split(/hand(?:y|ful)?/)
+=> ["123", "42", "777", "500"]
 
 # with normal grouping, need to keep track of all the groups
-&gt;&gt; '1,2,3,4,5,6,7'.sub(/\A(([^,]+,){3})([^,]+)/, '\1(\3)')
-=&gt; &quot;1,2,3,(4),5,6,7&quot;
+>> '1,2,3,4,5,6,7'.sub(/\A(([^,]+,){3})([^,]+)/, '\1(\3)')
+=> "1,2,3,(4),5,6,7"
 # using non-capturing groups, only relevant groups have to be tracked
-&gt;&gt; '1,2,3,4,5,6,7'.sub(/\A((?:[^,]+,){3})([^,]+)/, '\1(\2)')
-=&gt; &quot;1,2,3,(4),5,6,7&quot;
-</code></pre>
-<p>Referring to text matched by a capture group with a quantifier will give only the last match, not entire match. Use a capture group around the grouping and quantifier together to get the entire matching portion. In such cases, the inner grouping is an ideal candidate to use non-capturing group.</p>
-<pre><code class="language-ruby">&gt;&gt; s = 'hi 123123123 bye 456123456'
-&gt;&gt; s.scan(/(123)+/)
-=&gt; [[&quot;123&quot;], [&quot;123&quot;]]
-&gt;&gt; s.scan(/(?:123)+/)
-=&gt; [&quot;123123123&quot;, &quot;123&quot;]
+>> '1,2,3,4,5,6,7'.sub(/\A((?:[^,]+,){3})([^,]+)/, '\1(\2)')
+=> "1,2,3,(4),5,6,7"
+</code></pre><p>Referring to text matched by a capture group with a quantifier will give only the last match, not entire match. Use a capture group around the grouping and quantifier together to get the entire matching portion. In such cases, the inner grouping is an ideal candidate to use non-capturing group.<pre><code class=language-ruby>>> s = 'hi 123123123 bye 456123456'
+>> s.scan(/(123)+/)
+=> [["123"], ["123"]]
+>> s.scan(/(?:123)+/)
+=> ["123123123", "123"]
 # note that this issue doesn't affect substitutions
-&gt;&gt; s.gsub(/(123)+/, 'X')
-=&gt; &quot;hi X bye 456X456&quot;
+>> s.gsub(/(123)+/, 'X')
+=> "hi X bye 456X456"
 
-&gt;&gt; row = 'one,2,3.14,42,five'
+>> row = 'one,2,3.14,42,five'
 # surround only fourth column with double quotes
 # note the loss of columns in the first case
-&gt;&gt; puts row.sub(/\A([^,]+,){3}([^,]+)/, '\1&quot;\2&quot;')
-3.14,&quot;42&quot;,five
-&gt;&gt; puts row.sub(/\A((?:[^,]+,){3})([^,]+)/, '\1&quot;\2&quot;')
-one,2,3.14,&quot;42&quot;,five
-</code></pre>
-<p>However, there are situations where capture groups cannot be avoided. In such cases, <code>gsub</code> can be used instead of <code>scan</code>. Recall that <code>gsub</code> can return an Enumerator which can be hacked to simulate <code>scan</code> like behavior.</p>
-<pre><code class="language-ruby"># same as: scan(/\b\w*(?:st|in)\b/) but using capture group for gsub
-&gt;&gt; 'cost akin more east run against'.gsub(/\b\w*(st|in)\b/).to_a
-=&gt; [&quot;cost&quot;, &quot;akin&quot;, &quot;east&quot;, &quot;against&quot;]
-# same as: scan(/\b\w*(?:st|in)\b/).map(&amp;:upcase)
-&gt;&gt; 'cost akin more east run against'.gsub(/\b\w*(st|in)\b/).map(&amp;:upcase)
-=&gt; [&quot;COST&quot;, &quot;AKIN&quot;, &quot;EAST&quot;, &quot;AGAINST&quot;]
+>> puts row.sub(/\A([^,]+,){3}([^,]+)/, '\1"\2"')
+3.14,"42",five
+>> puts row.sub(/\A((?:[^,]+,){3})([^,]+)/, '\1"\2"')
+one,2,3.14,"42",five
+</code></pre><p>However, there are situations where capture groups cannot be avoided. In such cases, <code>gsub</code> can be used instead of <code>scan</code>. Recall that <code>gsub</code> can return an Enumerator which can be hacked to simulate <code>scan</code> like behavior.<pre><code class=language-ruby># same as: scan(/\b\w*(?:st|in)\b/) but using capture group for gsub
+>> 'cost akin more east run against'.gsub(/\b\w*(st|in)\b/).to_a
+=> ["cost", "akin", "east", "against"]
+# same as: scan(/\b\w*(?:st|in)\b/).map(&:upcase)
+>> 'cost akin more east run against'.gsub(/\b\w*(st|in)\b/).map(&:upcase)
+=> ["COST", "AKIN", "EAST", "AGAINST"]
 
 # now for an example that is not possible with scan
 # get whole words containing at least one consecutive repeated character
-&gt;&gt; 'effort flee facade oddball rat tool'.gsub(/\b\w*(\w)\1\w*\b/).to_a
-=&gt; [&quot;effort&quot;, &quot;flee&quot;, &quot;oddball&quot;, &quot;tool&quot;]
-</code></pre>
-<h2><a class="header" href="#subexpression-calls" id="subexpression-calls">Subexpression calls</a></h2>
-<p>It may be obvious, but it should be noted that backreference will provide the string that was matched, not the regexp that was inside the capture group. For example, if <code>(\d[a-f])</code> matches <code>3b</code>, then backreferencing will only give <code>3b</code> and not any other valid match of regexp like <code>8f</code>, <code>0a</code> etc. This is akin to how variables behave in programming, only the result of expression stays after variable assignment, not the expression itself.</p>
-<p>To refer to the regexp itself, use <code>\g&lt;0&gt;</code>, <code>\g&lt;1&gt;</code>, <code>\g&lt;2&gt;</code> etc. This is applicable only in regexp definition, not in replacement sections. This behavior, which is similar to function call, is known as <strong>subexpression call</strong> in regular expression parlance. Recursion will be discussed in the next section.</p>
-<pre><code class="language-ruby">&gt;&gt; row = 'today,2008-03-24,food,2012-08-12,nice,5632'
+>> 'effort flee facade oddball rat tool'.gsub(/\b\w*(\w)\1\w*\b/).to_a
+=> ["effort", "flee", "oddball", "tool"]
+</code></pre><h2><a class=header href=#subexpression-calls id=subexpression-calls>Subexpression calls</a></h2><p>It may be obvious, but it should be noted that backreference will provide the string that was matched, not the regexp that was inside the capture group. For example, if <code>(\d[a-f])</code> matches <code>3b</code>, then backreferencing will only give <code>3b</code> and not any other valid match of regexp like <code>8f</code>, <code>0a</code> etc. This is akin to how variables behave in programming, only the result of expression stays after variable assignment, not the expression itself.<p>To refer to the regexp itself, use <code>\g&LT0></code>, <code>\g&LT1></code>, <code>\g&LT2></code> etc. This is applicable only in regexp definition, not in replacement sections. This behavior, which is similar to function call, is known as <strong>subexpression call</strong> in regular expression parlance. Recursion will be discussed in the next section.<pre><code class=language-ruby>>> row = 'today,2008-03-24,food,2012-08-12,nice,5632'
 
 # same as: /\d{4}-\d{2}-\d{2}.*\d{4}-\d{2}-\d{2}/
-&gt;&gt; row[/(\d{4}-\d{2}-\d{2}).*\g&lt;1&gt;/]
-=&gt; &quot;2008-03-24,food,2012-08-12&quot;
-</code></pre>
-<p><code>\g</code> affects what text is represented by the original capture group in context of <code>scan</code> and <code>split</code> methods and normal backreference. You will get only the latest matched text.</p>
-<pre><code class="language-ruby">&gt;&gt; d = '2008-03-24,2012-08-12 2017-06-27,2018-03-25 1999-12-23,2001-05-08'
+>> row[/(\d{4}-\d{2}-\d{2}).*\g&LT1>/]
+=> "2008-03-24,food,2012-08-12"
+</code></pre><p><code>\g</code> affects what text is represented by the original capture group in context of <code>scan</code> and <code>split</code> methods and normal backreference. You will get only the latest matched text.<pre><code class=language-ruby>>> d = '2008-03-24,2012-08-12 2017-06-27,2018-03-25 1999-12-23,2001-05-08'
 
-# output has the value matched by \g&lt;1&gt; and not the original capture group
-&gt;&gt; d.scan(/(\d{4}-\d{2}-\d{2}),\g&lt;1&gt;/)
-=&gt; [[&quot;2012-08-12&quot;], [&quot;2018-03-25&quot;], [&quot;2001-05-08&quot;]]
+# output has the value matched by \g&LT1> and not the original capture group
+>> d.scan(/(\d{4}-\d{2}-\d{2}),\g&LT1>/)
+=> [["2012-08-12"], ["2018-03-25"], ["2001-05-08"]]
 
 # this will retain the second date of each pair
-&gt;&gt; d.gsub(/(\d{4}-\d{2}-\d{2}),\g&lt;1&gt;/, '\1')
-=&gt; &quot;2012-08-12 2018-03-25 2001-05-08&quot;
+>> d.gsub(/(\d{4}-\d{2}-\d{2}),\g&LT1>/, '\1')
+=> "2012-08-12 2018-03-25 2001-05-08"
 # to retain the first date of each pair, use another capture group
 # and adjust the backreference numbers
-&gt;&gt; d.gsub(/((\d{4}-\d{2}-\d{2})),\g&lt;2&gt;/, '\1')
-=&gt; &quot;2008-03-24 2017-06-27 1999-12-23&quot;
-</code></pre>
-<h2><a class="header" href="#recursive-matching" id="recursive-matching">Recursive matching</a></h2>
-<p>The <code>\g&lt;N&gt;</code> subexpression call supports recursion as well. Useful to match nested patterns, which is usually not recommended to be done with regular expressions. Indeed, use a proper parser library if you are looking to parse file formats like html, xml, json, csv, etc. But for some cases, a parser might not be available and using regexp might be simpler than writing a parser from scratch.</p>
-<p>First up, matching a set of parentheses that is not nested (termed as <strong>level-one</strong> regexp for reference).</p>
-<pre><code class="language-ruby"># note the use of possessive quantifier
-&gt;&gt; eqn0 = 'a + (b * c) - (d / e)'
-&gt;&gt; eqn0.scan(/\([^()]++\)/)
-=&gt; [&quot;(b * c)&quot;, &quot;(d / e)&quot;]
+>> d.gsub(/((\d{4}-\d{2}-\d{2})),\g&LT2>/, '\1')
+=> "2008-03-24 2017-06-27 1999-12-23"
+</code></pre><h2><a class=header href=#recursive-matching id=recursive-matching>Recursive matching</a></h2><p>The <code>\g&LTN></code> subexpression call supports recursion as well. Useful to match nested patterns, which is usually not recommended to be done with regular expressions. Indeed, use a proper parser library if you are looking to parse file formats like html, xml, json, csv, etc. But for some cases, a parser might not be available and using regexp might be simpler than writing a parser from scratch.<p>First up, matching a set of parentheses that is not nested (termed as <strong>level-one</strong> regexp for reference).<pre><code class=language-ruby># note the use of possessive quantifier
+>> eqn0 = 'a + (b * c) - (d / e)'
+>> eqn0.scan(/\([^()]++\)/)
+=> ["(b * c)", "(d / e)"]
 
-&gt;&gt; eqn1 = '((f+x)^y-42)*((3-g)^z+2)'
-&gt;&gt; eqn1.scan(/\([^()]++\)/)
-=&gt; [&quot;(f+x)&quot;, &quot;(3-g)&quot;]
-</code></pre>
-<p>Next, matching a set of parentheses which may optionally contain any number of non-nested sets of parentheses (termed as <strong>level-two</strong> regexp for reference). See <a href="https://www.debuggex.com/r/47pQc0dSqXtWVlJ9">debuggex</a> for a railroad diagram, which visually shows the recursive nature of this regexp.</p>
-<pre><code class="language-ruby">&gt;&gt; eqn1 = '((f+x)^y-42)*((3-g)^z+2)'
+>> eqn1 = '((f+x)^y-42)*((3-g)^z+2)'
+>> eqn1.scan(/\([^()]++\)/)
+=> ["(f+x)", "(3-g)"]
+</code></pre><p>Next, matching a set of parentheses which may optionally contain any number of non-nested sets of parentheses (termed as <strong>level-two</strong> regexp for reference). See <a href=https://www.debuggex.com/r/47pQc0dSqXtWVlJ9>debuggex</a> for a railroad diagram, which visually shows the recursive nature of this regexp.<pre><code class=language-ruby>>> eqn1 = '((f+x)^y-42)*((3-g)^z+2)'
 # note the use of non-capturing group
-&gt;&gt; eqn1.scan(/\((?:[^()]++|\([^()]++\))++\)/)
-=&gt; [&quot;((f+x)^y-42)&quot;, &quot;((3-g)^z+2)&quot;]
+>> eqn1.scan(/\((?:[^()]++|\([^()]++\))++\)/)
+=> ["((f+x)^y-42)", "((3-g)^z+2)"]
 
-&gt;&gt; eqn2 = 'a + (b) + ((c)) + (((d)))'
-&gt;&gt; eqn2.scan(/\((?:[^()]++|\([^()]++\))++\)/)
-=&gt; [&quot;(b)&quot;, &quot;((c))&quot;, &quot;((d))&quot;]
-</code></pre>
-<p>That looks very cryptic. You can use <a href="./modifiers.html#x-modifier">x modifier</a> for clarity as well as to make it easy to compare against the recursive version. Breaking down the regexp, you can see <code>(</code> and <code>)</code> have to be matched literally. Inside that, valid string is made up of either non-parentheses characters or a non-nested parentheses sequence (<strong>level-one</strong> regexp).</p>
-<pre><code class="language-ruby">&gt;&gt; lvl2 = /\(               #literal (
+>> eqn2 = 'a + (b) + ((c)) + (((d)))'
+>> eqn2.scan(/\((?:[^()]++|\([^()]++\))++\)/)
+=> ["(b)", "((c))", "((d))"]
+</code></pre><p>That looks very cryptic. You can use <a href=./modifiers.html#x-modifier>x modifier</a> for clarity as well as to make it easy to compare against the recursive version. Breaking down the regexp, you can see <code>(</code> and <code>)</code> have to be matched literally. Inside that, valid string is made up of either non-parentheses characters or a non-nested parentheses sequence (<strong>level-one</strong> regexp).<pre><code class=language-ruby>>> lvl2 = /\(               #literal (
              (?:            #start of non-capturing group
                [^()]++      #non-parentheses characters
                |            #OR
@@ -339,356 +166,203 @@ one,2,3.14,&quot;42&quot;,five
            \)               #literal )
           /x
 
-&gt;&gt; eqn1.scan(lvl2)
-=&gt; [&quot;((f+x)^y-42)&quot;, &quot;((3-g)^z+2)&quot;]
+>> eqn1.scan(lvl2)
+=> ["((f+x)^y-42)", "((3-g)^z+2)"]
 
-&gt;&gt; eqn2.scan(lvl2)
-=&gt; [&quot;(b)&quot;, &quot;((c))&quot;, &quot;((d))&quot;]
-</code></pre>
-<p>To recursively match any number of nested sets of parentheses, use a capture group and call it within the capture group itself. Since entire regexp needs to be called here, you can use the default zeroth capture group (this also helps to avoid having to use <code>gsub+to_a</code> trick). Comparing with <strong>level-two</strong> regexp, the only change is that <code>\g&lt;0&gt;</code> is used instead of the <strong>level-one</strong> regexp in the second alternation.</p>
-<pre><code class="language-ruby">&gt;&gt; lvln = /\(               #literal (
+>> eqn2.scan(lvl2)
+=> ["(b)", "((c))", "((d))"]
+</code></pre><p>To recursively match any number of nested sets of parentheses, use a capture group and call it within the capture group itself. Since entire regexp needs to be called here, you can use the default zeroth capture group (this also helps to avoid having to use <code>gsub+to_a</code> trick). Comparing with <strong>level-two</strong> regexp, the only change is that <code>\g&LT0></code> is used instead of the <strong>level-one</strong> regexp in the second alternation.<pre><code class=language-ruby>>> lvln = /\(               #literal (
              (?:            #start of non-capturing group
                [^()]++      #non-parentheses characters
                |            #OR
-               \g&lt;0&gt;        #recursive call
+               \g&LT0>        #recursive call
              )++            #end of non-capturing group, 1 or more times
            \)               #literal )
           /x
 
-&gt;&gt; eqn0.scan(lvln)
-=&gt; [&quot;(b * c)&quot;, &quot;(d / e)&quot;]
+>> eqn0.scan(lvln)
+=> ["(b * c)", "(d / e)"]
 
-&gt;&gt; eqn1.scan(lvln)
-=&gt; [&quot;((f+x)^y-42)&quot;, &quot;((3-g)^z+2)&quot;]
+>> eqn1.scan(lvln)
+=> ["((f+x)^y-42)", "((3-g)^z+2)"]
 
-&gt;&gt; eqn2.scan(lvln)
-=&gt; [&quot;(b)&quot;, &quot;((c))&quot;, &quot;(((d)))&quot;]
+>> eqn2.scan(lvln)
+=> ["(b)", "((c))", "(((d)))"]
 
-&gt;&gt; eqn3 = '(3+a) * ((r-2)*(t+2)/6) + 42 * (a(b(c(d(e)))))'
-&gt;&gt; eqn3.scan(lvln)
-=&gt; [&quot;(3+a)&quot;, &quot;((r-2)*(t+2)/6)&quot;, &quot;(a(b(c(d(e)))))&quot;]
-</code></pre>
-<h2><a class="header" href="#named-capture-groups" id="named-capture-groups">Named capture groups</a></h2>
-<p>Regexp can get cryptic and difficult to maintain, even for seasoned programmers. There are a few constructs to help add clarity. One such is naming the capture groups and using that name for backreferencing instead of plain numbers. The syntax is <code>(?&lt;name&gt;pat)</code> or <code>(?'name'pat)</code> for naming the capture groups and <code>\k&lt;name&gt;</code> for backreferencing. Any other normal capture group will be treated as if it was a non-capturing group.</p>
-<pre><code class="language-ruby"># giving names to first and second captured words
-&gt;&gt; 'good,bad 42,24'.gsub(/(?&lt;fw&gt;\w+),(?&lt;sw&gt;\w+)/, '\k&lt;sw&gt;,\k&lt;fw&gt;')
-=&gt; &quot;bad,good 24,42&quot;
+>> eqn3 = '(3+a) * ((r-2)*(t+2)/6) + 42 * (a(b(c(d(e)))))'
+>> eqn3.scan(lvln)
+=> ["(3+a)", "((r-2)*(t+2)/6)", "(a(b(c(d(e)))))"]
+</code></pre><h2><a class=header href=#named-capture-groups id=named-capture-groups>Named capture groups</a></h2><p>Regexp can get cryptic and difficult to maintain, even for seasoned programmers. There are a few constructs to help add clarity. One such is naming the capture groups and using that name for backreferencing instead of plain numbers. The syntax is <code>(?&LTname>pat)</code> or <code>(?'name'pat)</code> for naming the capture groups and <code>\k&LTname></code> for backreferencing. Any other normal capture group will be treated as if it was a non-capturing group.<pre><code class=language-ruby># giving names to first and second captured words
+>> 'good,bad 42,24'.gsub(/(?&LTfw>\w+),(?&LTsw>\w+)/, '\k&LTsw>,\k&LTfw>')
+=> "bad,good 24,42"
 
 # alternate syntax
-&gt;&gt; 'good,bad 42,24'.gsub(/(?'fw'\w+),(?'sw'\w+)/, '\k&lt;sw&gt;,\k&lt;fw&gt;')
-=&gt; &quot;bad,good 24,42&quot;
-</code></pre>
-<p>Named capture group can be used for subexpression call using <code>\g&lt;name&gt;</code> syntax.</p>
-<pre><code class="language-ruby">&gt;&gt; row = 'today,2008-03-24,food,2012-08-12,nice,5632'
+>> 'good,bad 42,24'.gsub(/(?'fw'\w+),(?'sw'\w+)/, '\k&LTsw>,\k&LTfw>')
+=> "bad,good 24,42"
+</code></pre><p>Named capture group can be used for subexpression call using <code>\g&LTname></code> syntax.<pre><code class=language-ruby>>> row = 'today,2008-03-24,food,2012-08-12,nice,5632'
 
-&gt;&gt; row[/(?&lt;date&gt;\d{4}-\d{2}-\d{2}).*\g&lt;date&gt;/]
-=&gt; &quot;2008-03-24,food,2012-08-12&quot;
-</code></pre>
-<p>If you recall, both <code>/pat/ =~ string</code> and <code>string =~ /pat/</code> forms can be used. One advantage of first syntax is that named capture groups will also create variables with those names and can be used instead of relying on global variables.</p>
-<pre><code class="language-ruby">&gt;&gt; details = '2018-10-25,car'
+>> row[/(?&LTdate>\d{4}-\d{2}-\d{2}).*\g&LTdate>/]
+=> "2008-03-24,food,2012-08-12"
+</code></pre><p>If you recall, both <code>/pat/ =~ string</code> and <code>string =~ /pat/</code> forms can be used. One advantage of first syntax is that named capture groups will also create variables with those names and can be used instead of relying on global variables.<pre><code class=language-ruby>>> details = '2018-10-25,car'
 
-&gt;&gt; /(?&lt;date&gt;[^,]+),(?&lt;product&gt;[^,]+)/ =~ details
-=&gt; 0
+>> /(?&LTdate>[^,]+),(?&LTproduct>[^,]+)/ =~ details
+=> 0
 
 # same as: $1
-&gt;&gt; date
-=&gt; &quot;2018-10-25&quot;
+>> date
+=> "2018-10-25"
 # same as: $2
-&gt;&gt; product
-=&gt; &quot;car&quot;
-</code></pre>
-<p>You can use <code>named_captures</code> method on the <code>MatchData</code> object to extract the portions matched by named capture groups as a <code>hash</code> object. The capture group name will be the <strong>key</strong> and the portion matched by the group will be the <strong>value</strong>.</p>
-<pre><code class="language-ruby"># single match
-&gt;&gt; details = '2018-10-25,car,2346'
-&gt;&gt; details.match(/(?&lt;date&gt;[^,]+),(?&lt;product&gt;[^,]+)/).named_captures
-=&gt; {&quot;date&quot;=&gt;&quot;2018-10-25&quot;, &quot;product&quot;=&gt;&quot;car&quot;}
+>> product
+=> "car"
+</code></pre><p>You can use <code>named_captures</code> method on the <code>MatchData</code> object to extract the portions matched by named capture groups as a <code>hash</code> object. The capture group name will be the <strong>key</strong> and the portion matched by the group will be the <strong>value</strong>.<pre><code class=language-ruby># single match
+>> details = '2018-10-25,car,2346'
+>> details.match(/(?&LTdate>[^,]+),(?&LTproduct>[^,]+)/).named_captures
+=> {"date"=>"2018-10-25", "product"=>"car"}
 
 # normal groups won't be part of the output
-&gt;&gt; details.match(/(?&lt;date&gt;[^,]+),([^,]+)/).named_captures
-=&gt; {&quot;date&quot;=&gt;&quot;2018-10-25&quot;}
+>> details.match(/(?&LTdate>[^,]+),([^,]+)/).named_captures
+=> {"date"=>"2018-10-25"}
 
 # multiple matches
-&gt;&gt; s = 'good,bad 42,24'
-&gt;&gt; s.gsub(/(?&lt;fw&gt;\w+),(?&lt;sw&gt;\w+)/).map { $~.named_captures }
-=&gt; [{&quot;fw&quot;=&gt;&quot;good&quot;, &quot;sw&quot;=&gt;&quot;bad&quot;}, {&quot;fw&quot;=&gt;&quot;42&quot;, &quot;sw&quot;=&gt;&quot;24&quot;}]
-</code></pre>
-<h2><a class="header" href="#negative-backreferences" id="negative-backreferences">Negative backreferences</a></h2>
-<p>Another approach when there are multiple capture groups is to use <strong>negative backreference</strong>. The negative numbering starts with <code>-1</code> to refer to capture group closest to the backreference that was defined before the use of negative backreference. In other words, the highest numbered capture group prior to the negative backreference will be <code>-1</code>, the second highest will be <code>-2</code> and so on. The <code>\k&lt;N&gt;</code> syntax with negative <code>N</code> becomes a negative backreference. This can only be used in regexp definition section as <code>\k</code> in replacement section is reserved for named references.</p>
-<pre><code class="language-ruby"># check if third and fourth columns have same data
+>> s = 'good,bad 42,24'
+>> s.gsub(/(?&LTfw>\w+),(?&LTsw>\w+)/).map { $~.named_captures }
+=> [{"fw"=>"good", "sw"=>"bad"}, {"fw"=>"42", "sw"=>"24"}]
+</code></pre><h2><a class=header href=#negative-backreferences id=negative-backreferences>Negative backreferences</a></h2><p>Another approach when there are multiple capture groups is to use <strong>negative backreference</strong>. The negative numbering starts with <code>-1</code> to refer to capture group closest to the backreference that was defined before the use of negative backreference. In other words, the highest numbered capture group prior to the negative backreference will be <code>-1</code>, the second highest will be <code>-2</code> and so on. The <code>\k&LTN></code> syntax with negative <code>N</code> becomes a negative backreference. This can only be used in regexp definition section as <code>\k</code> in replacement section is reserved for named references.<pre><code class=language-ruby># check if third and fourth columns have same data
 # same as: match?(/\A([^,]+,){2}([^,]+),\2,/)
-&gt;&gt; '1,2,3,3,5'.match?(/\A([^,]+,){2}([^,]+),\k&lt;-1&gt;,/)
-=&gt; true
-</code></pre>
-<h2><a class="header" href="#conditional-groups" id="conditional-groups">Conditional groups</a></h2>
-<p>This special grouping allows you to add a condition that depends on whether a capture group succeeded in matching. You can also add an optional else condition. The syntax as per <a href="https://github.com/k-takata/Onigmo/blob/master/doc/RE">Onigmo doc</a> is shown below.</p>
-<blockquote>
-<p><code>(?(cond)yes-subexp|no-subexp)</code></p>
-</blockquote>
-<p>Here <code>cond</code> is <code>N</code> for normal backreference and <code>&lt;name&gt;</code> or <code>'name'</code> for named backreference. <strong>no-subexp</strong> is optional. Here's an example with <strong>yes-subexp</strong> alone being used. The task is to match elements containing word characters only or if it additionally starts with a <code>&lt;</code> character, it must end with a <code>&gt;</code> character.</p>
-<pre><code class="language-ruby">&gt;&gt; words = %w[&lt;hi&gt; bye bad&gt; &lt;good&gt; 42 &lt;3]
-&gt;&gt; words.grep(/\A(&lt;)?\w+(?(1)&gt;)\z/)
-=&gt; [&quot;&lt;hi&gt;&quot;, &quot;bye&quot;, &quot;&lt;good&gt;&quot;, &quot;42&quot;]
+>> '1,2,3,3,5'.match?(/\A([^,]+,){2}([^,]+),\k&LT-1>,/)
+=> true
+</code></pre><h2><a class=header href=#conditional-groups id=conditional-groups>Conditional groups</a></h2><p>This special grouping allows you to add a condition that depends on whether a capture group succeeded in matching. You can also add an optional else condition. The syntax as per <a href=https://github.com/k-takata/Onigmo/blob/master/doc/RE>Onigmo doc</a> is shown below.<blockquote><p><code>(?(cond)yes-subexp|no-subexp)</code></blockquote><p>Here <code>cond</code> is <code>N</code> for normal backreference and <code>&LTname></code> or <code>'name'</code> for named backreference. <strong>no-subexp</strong> is optional. Here's an example with <strong>yes-subexp</strong> alone being used. The task is to match elements containing word characters only or if it additionally starts with a <code><</code> character, it must end with a <code>></code> character.<pre><code class=language-ruby>>> words = %w[&LThi> bye bad> &LTgood> 42 &LT3]
+>> words.grep(/\A(<)?\w+(?(1)>)\z/)
+=> ["&LThi>", "bye", "&LTgood>", "42"]
 
 # for this simple case, you can also expand it manually
 # but for complex patterns, it is better to use conditional groups
 # as it will avoid repeating the complex pattern
-&gt;&gt; words.grep(/\A(?:&lt;\w+&gt;|\w+)\z/)
-=&gt; [&quot;&lt;hi&gt;&quot;, &quot;bye&quot;, &quot;&lt;good&gt;&quot;, &quot;42&quot;]
+>> words.grep(/\A(?:<\w+>|\w+)\z/)
+=> ["&LThi>", "bye", "&LTgood>", "42"]
 
 # cannot simply use ? quantifier as they are independent, not constrained
-&gt;&gt; words.grep(/\A(?:&lt;?\w+&gt;?)\z/)
-=&gt; [&quot;&lt;hi&gt;&quot;, &quot;bye&quot;, &quot;bad&gt;&quot;, &quot;&lt;good&gt;&quot;, &quot;42&quot;, &quot;&lt;3&quot;]
-</code></pre>
-<p>Here's an example with <strong>no-subexp</strong> as well.</p>
-<pre><code class="language-ruby"># filter elements containing word characters surrounded by ()
+>> words.grep(/\A(?:&LT?\w+>?)\z/)
+=> ["&LThi>", "bye", "bad>", "&LTgood>", "42", "&LT3"]
+</code></pre><p>Here's an example with <strong>no-subexp</strong> as well.<pre><code class=language-ruby># filter elements containing word characters surrounded by ()
 # or, containing word characters separated by a hyphen
-&gt;&gt; words = ['(hi)', 'good-bye', 'bad', '(42)', '-oh', 'i-j', '(-)']
+>> words = ['(hi)', 'good-bye', 'bad', '(42)', '-oh', 'i-j', '(-)']
 
-# same as: /\A(?:\(\w+\)|\w+-\w+)\z/ or /\A(?:\((\w+)\)|\g&lt;1&gt;-\g&lt;1&gt;)\z/
-&gt;&gt; words.grep(/\A(?:(\()?\w+(?(1)\)|-\w+))\z/)
-=&gt; [&quot;(hi)&quot;, &quot;good-bye&quot;, &quot;(42)&quot;, &quot;i-j&quot;]
-</code></pre>
-<p>Conditional groups have a very specific use case, and it is generally helpful for those cases. The main advantage is that it prevents pattern duplication, although that can also be achieved using <a href="./groupings-and-backreferences.html#subexpression-calls">Subexpression calls</a>. Another advantage is that if the common pattern uses capture groups, then backreference numbers will not require adjustment unlike the duplication alternation method.</p>
-<h2><a class="header" href="#cheatsheet-and-summary" id="cheatsheet-and-summary">Cheatsheet and Summary</a></h2>
-<table><thead><tr><th>Note</th><th>Description</th></tr></thead><tbody>
-<tr><td><code>\N</code></td><td>backreference, gives matched portion of Nth capture group</td></tr>
-<tr><td></td><td>applies to both search and replacement sections</td></tr>
-<tr><td></td><td>possible values: <code>\1</code>, <code>\2</code> up to <code>\9</code> in replacement section</td></tr>
-<tr><td></td><td>not limited to <code>9</code> in regexp definition</td></tr>
-<tr><td></td><td><code>\0</code> or <code>\&amp;</code> in replacement section gives entire matched portion</td></tr>
-<tr><td></td><td><code>\`</code> and <code>\'</code> are equivalents for <code>$`</code> and <code>$'</code> respectively</td></tr>
-<tr><td><code>\k&lt;N&gt;</code></td><td>N can be both positive/negative (applicable in regexp definition)</td></tr>
-<tr><td></td><td>negative is relative, <code>-1</code> indicates closest group to the left of reference</td></tr>
-<tr><td><code>\g&lt;N&gt;</code></td><td>subexpression call for Nth capture group</td></tr>
-<tr><td></td><td>applicable only in regexp definition, recursion also possible</td></tr>
-<tr><td></td><td>ex: <code>/\((?:[^()]++|\g&lt;0&gt;)++\)/</code> matches nested parentheses</td></tr>
-<tr><td><code>(?:pat)</code></td><td>non-capturing group</td></tr>
-<tr><td></td><td>useful wherever grouping is required, but not backreference</td></tr>
-<tr><td><code>(?&lt;name&gt;pat)</code></td><td>named capture group</td></tr>
-<tr><td><code>(?'name'pat)</code></td><td>another way to define named capture group</td></tr>
-<tr><td></td><td>use <code>\k&lt;name&gt;</code> for backreferencing</td></tr>
-<tr><td></td><td>use <code>\g&lt;name&gt;</code> for subexpression call</td></tr>
-<tr><td><code>/pat/ =~ s</code></td><td>named capture groups here will create variables with those names</td></tr>
-<tr><td><code>named_captures</code></td><td>method applied on a <code>MatchData</code> object</td></tr>
-<tr><td></td><td>gives named capture group portions as a <code>hash</code> object</td></tr>
-<tr><td><code>(?(cond)yes|no)</code></td><td>conditional group</td></tr>
-<tr><td></td><td>match <code>yes-subexp</code> if backreferenced group succeeded</td></tr>
-<tr><td></td><td>else, match <code>no-subexp</code> which is optional</td></tr>
-</tbody></table>
-<p>This chapter showed how to use backreferences and subexpression calls to refer to portions matched by capture groups in regexp definition and replacement section. When capture groups results in unwanted behavior change (ex: <code>scan</code> and <code>split</code>), you can use non-capturing groups instead. Named capture groups add clarity to patterns and you can use <code>named_captures</code> method on a <code>MatchData</code> object to get a <code>hash</code> of matched portions. Conditional groups allows you to take an action based on another capture group succeeding or failing to match. There are more special groups to be discussed in coming chapters.</p>
-<h2><a class="header" href="#exercises" id="exercises">Exercises</a></h2>
-<p><strong>a)</strong> Replace the space character that occurs after a word ending with <code>a</code> or <code>r</code> with a newline character.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'area not a _a2_ roar took 22'
+# same as: /\A(?:\(\w+\)|\w+-\w+)\z/ or /\A(?:\((\w+)\)|\g&LT1>-\g&LT1>)\z/
+>> words.grep(/\A(?:(\()?\w+(?(1)\)|-\w+))\z/)
+=> ["(hi)", "good-bye", "(42)", "i-j"]
+</code></pre><p>Conditional groups have a very specific use case, and it is generally helpful for those cases. The main advantage is that it prevents pattern duplication, although that can also be achieved using <a href=./groupings-and-backreferences.html#subexpression-calls>Subexpression calls</a>. Another advantage is that if the common pattern uses capture groups, then backreference numbers will not require adjustment unlike the duplication alternation method.<h2><a class=header href=#cheatsheet-and-summary id=cheatsheet-and-summary>Cheatsheet and Summary</a></h2><table><thead><tr><th>Note<th>Description<tbody><tr><td><code>\N</code><td>backreference, gives matched portion of Nth capture group<tr><td><td>applies to both search and replacement sections<tr><td><td>possible values: <code>\1</code>, <code>\2</code> up to <code>\9</code> in replacement section<tr><td><td>not limited to <code>9</code> in regexp definition<tr><td><td><code>\0</code> or <code>\&</code> in replacement section gives entire matched portion<tr><td><td><code>\`</code> and <code>\'</code> are equivalents for <code>$`</code> and <code>$'</code> respectively<tr><td><code>\k&LTN></code><td>N can be both positive/negative (applicable in regexp definition)<tr><td><td>negative is relative, <code>-1</code> indicates closest group to the left of reference<tr><td><code>\g&LTN></code><td>subexpression call for Nth capture group<tr><td><td>applicable only in regexp definition, recursion also possible<tr><td><td>ex: <code>/\((?:[^()]++|\g&LT0>)++\)/</code> matches nested parentheses<tr><td><code>(?:pat)</code><td>non-capturing group<tr><td><td>useful wherever grouping is required, but not backreference<tr><td><code>(?&LTname>pat)</code><td>named capture group<tr><td><code>(?'name'pat)</code><td>another way to define named capture group<tr><td><td>use <code>\k&LTname></code> for backreferencing<tr><td><td>use <code>\g&LTname></code> for subexpression call<tr><td><code>/pat/ =~ s</code><td>named capture groups here will create variables with those names<tr><td><code>named_captures</code><td>method applied on a <code>MatchData</code> object<tr><td><td>gives named capture group portions as a <code>hash</code> object<tr><td><code>(?(cond)yes|no)</code><td>conditional group<tr><td><td>match <code>yes-subexp</code> if backreferenced group succeeded<tr><td><td>else, match <code>no-subexp</code> which is optional</table><p>This chapter showed how to use backreferences and subexpression calls to refer to portions matched by capture groups in regexp definition and replacement section. When capture groups results in unwanted behavior change (ex: <code>scan</code> and <code>split</code>), you can use non-capturing groups instead. Named capture groups add clarity to patterns and you can use <code>named_captures</code> method on a <code>MatchData</code> object to get a <code>hash</code> of matched portions. Conditional groups allows you to take an action based on another capture group succeeding or failing to match. There are more special groups to be discussed in coming chapters.<h2><a class=header href=#exercises id=exercises>Exercises</a></h2><p><strong>a)</strong> Replace the space character that occurs after a word ending with <code>a</code> or <code>r</code> with a newline character.<pre><code class=language-ruby>>> ip = 'area not a _a2_ roar took 22'
 
-&gt;&gt; puts ip.gsub()       ##### add your solution here
+>> puts ip.gsub()       ##### add your solution here
 area
 not a
 _a2_ roar
 took 22
-</code></pre>
-<p><strong>b)</strong> Add <code>[]</code> around words starting with <code>s</code> and containing <code>e</code> and <code>t</code> in any order.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'sequoia subtle exhibit asset sets tests site'
+</code></pre><p><strong>b)</strong> Add <code>[]</code> around words starting with <code>s</code> and containing <code>e</code> and <code>t</code> in any order.<pre><code class=language-ruby>>> ip = 'sequoia subtle exhibit asset sets tests site'
 
 ##### add your solution here
-=&gt; &quot;sequoia [subtle] exhibit asset [sets] tests [site]&quot;
-</code></pre>
-<p><strong>c)</strong> Replace all whole words with <code>X</code> that start and end with the same word character. Single character word should get replaced with <code>X</code> too, as it satisfies the stated condition.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'oreo not a _a2_ roar took 22'
+=> "sequoia [subtle] exhibit asset [sets] tests [site]"
+</code></pre><p><strong>c)</strong> Replace all whole words with <code>X</code> that start and end with the same word character. Single character word should get replaced with <code>X</code> too, as it satisfies the stated condition.<pre><code class=language-ruby>>> ip = 'oreo not a _a2_ roar took 22'
 
 ##### add your solution here
-=&gt; &quot;X not X X X took X&quot;
-</code></pre>
-<p><strong>d)</strong> Convert the given <strong>markdown</strong> headers to corresponding <strong>anchor</strong> tag. Consider the input to start with one or more <code>#</code> characters followed by space and word characters. The <code>name</code> attribute is constructed by converting the header to lowercase and replacing spaces with hyphens. Can you do it without using a capture group?</p>
-<pre><code class="language-ruby">&gt;&gt; header1 = '# Regular Expressions'
-&gt;&gt; header2 = '## Named capture groups'
+=> "X not X X X took X"
+</code></pre><p><strong>d)</strong> Convert the given <strong>markdown</strong> headers to corresponding <strong>anchor</strong> tag. Consider the input to start with one or more <code>#</code> characters followed by space and word characters. The <code>name</code> attribute is constructed by converting the header to lowercase and replacing spaces with hyphens. Can you do it without using a capture group?<pre><code class=language-ruby>>> header1 = '# Regular Expressions'
+>> header2 = '## Named capture groups'
 
-&gt;&gt; anchor =     ##### add your solution here
+>> anchor =     ##### add your solution here
 
 ##### add your solution here for header1
-=&gt; &quot;# &lt;a name='regular-expressions'&gt;&lt;/a&gt;Regular Expressions&quot;
+=> "# &LTa name='regular-expressions'>&LT/a>Regular Expressions"
 ##### add your solution here for header2
-=&gt; &quot;## &lt;a name='named-capture-groups'&gt;&lt;/a&gt;Named capture groups&quot;
-</code></pre>
-<p><strong>e)</strong> Convert the given <strong>markdown</strong> anchors to corresponding <strong>hyperlinks</strong>.</p>
-<pre><code class="language-ruby">&gt;&gt; anchor1 = &quot;# &lt;a name='regular-expressions'&gt;&lt;/a&gt;Regular Expressions&quot;
-&gt;&gt; anchor2 = &quot;## &lt;a name='subexpression-calls'&gt;&lt;/a&gt;Subexpression calls&quot;
+=> "## &LTa name='named-capture-groups'>&LT/a>Named capture groups"
+</code></pre><p><strong>e)</strong> Convert the given <strong>markdown</strong> anchors to corresponding <strong>hyperlinks</strong>.<pre><code class=language-ruby>>> anchor1 = "# &LTa name='regular-expressions'>&LT/a>Regular Expressions"
+>> anchor2 = "## &LTa name='subexpression-calls'>&LT/a>Subexpression calls"
 
-&gt;&gt; hyperlink =      ##### add your solution here
+>> hyperlink =      ##### add your solution here
 
 ##### add your solution here for anchor1
-=&gt; &quot;[Regular Expressions](#regular-expressions)&quot;
+=> "[Regular Expressions](#regular-expressions)"
 ##### add your solution here for anchor2
-=&gt; &quot;[Subexpression calls](#subexpression-calls)&quot;
-</code></pre>
-<p><strong>f)</strong> Count the number of whole words that have at least two occurrences of consecutive repeated alphabets. For example, words like <code>stillness</code> and <code>Committee</code> should be counted but not words like <code>root</code> or <code>readable</code> or <code>rotational</code>.</p>
-<pre><code class="language-ruby">'&gt; ip = %q{oppressed abandon accommodation bloodless
-'&gt; carelessness committed apparition innkeeper
-'&gt; occasionally afforded embarrassment foolishness
-'&gt; depended successfully succeeded
-&gt;&gt; possession cleanliness suppress}
+=> "[Subexpression calls](#subexpression-calls)"
+</code></pre><p><strong>f)</strong> Count the number of whole words that have at least two occurrences of consecutive repeated alphabets. For example, words like <code>stillness</code> and <code>Committee</code> should be counted but not words like <code>root</code> or <code>readable</code> or <code>rotational</code>.<pre><code class=language-ruby>'> ip = %q{oppressed abandon accommodation bloodless
+'> carelessness committed apparition innkeeper
+'> occasionally afforded embarrassment foolishness
+'> depended successfully succeeded
+>> possession cleanliness suppress}
 
 ##### add your solution here
-=&gt; 13
-</code></pre>
-<p><strong>g)</strong> For the given input string, replace all occurrences of digit sequences with only the unique non-repeating sequence. For example, <code>232323</code> should be changed to <code>23</code> and <code>897897</code> should be changed to <code>897</code>. If there no repeats (for example <code>1234</code>) or if the repeats end prematurely (for example <code>12121</code>), it should not be changed.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = '1234 2323 453545354535 9339 11 60260260'
+=> 13
+</code></pre><p><strong>g)</strong> For the given input string, replace all occurrences of digit sequences with only the unique non-repeating sequence. For example, <code>232323</code> should be changed to <code>23</code> and <code>897897</code> should be changed to <code>897</code>. If there no repeats (for example <code>1234</code>) or if the repeats end prematurely (for example <code>12121</code>), it should not be changed.<pre><code class=language-ruby>>> ip = '1234 2323 453545354535 9339 11 60260260'
 
 ##### add your solution here
-=&gt; &quot;1234 23 4535 9339 1 60260260&quot;
-</code></pre>
-<p><strong>h)</strong> Replace sequences made up of words separated by <code>:</code> or <code>.</code> by the first word of the sequence. Such sequences will end when <code>:</code> or <code>.</code> is not followed by a word character.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'wow:Good:2_two:five: hi-2 bye kite.777.water.'
+=> "1234 23 4535 9339 1 60260260"
+</code></pre><p><strong>h)</strong> Replace sequences made up of words separated by <code>:</code> or <code>.</code> by the first word of the sequence. Such sequences will end when <code>:</code> or <code>.</code> is not followed by a word character.<pre><code class=language-ruby>>> ip = 'wow:Good:2_two:five: hi-2 bye kite.777.water.'
 
 ##### add your solution here
-=&gt; &quot;wow hi-2 bye kite&quot;
-</code></pre>
-<p><strong>i)</strong> Replace sequences made up of words separated by <code>:</code> or <code>.</code> by the last word of the sequence. Such sequences will end when <code>:</code> or <code>.</code> is not followed by a word character.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'wow:Good:2_two:five: hi-2 bye kite.777.water.'
+=> "wow hi-2 bye kite"
+</code></pre><p><strong>i)</strong> Replace sequences made up of words separated by <code>:</code> or <code>.</code> by the last word of the sequence. Such sequences will end when <code>:</code> or <code>.</code> is not followed by a word character.<pre><code class=language-ruby>>> ip = 'wow:Good:2_two:five: hi-2 bye kite.777.water.'
 
 ##### add your solution here
-=&gt; &quot;five hi-2 bye water&quot;
-</code></pre>
-<p><strong>j)</strong> Split the given input string on one or more repeated sequence of <code>cat</code>.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'firecatlioncatcatcatbearcatcatparrot'
+=> "five hi-2 bye water"
+</code></pre><p><strong>j)</strong> Split the given input string on one or more repeated sequence of <code>cat</code>.<pre><code class=language-ruby>>> ip = 'firecatlioncatcatcatbearcatcatparrot'
 
 ##### add your solution here
-=&gt; [&quot;fire&quot;, &quot;lion&quot;, &quot;bear&quot;, &quot;parrot&quot;]
-</code></pre>
-<p><strong>k)</strong> For the given input string, find all occurrences of digit sequences with at least one repeating sequence. For example, <code>232323</code> and <code>897897</code>. If the repeats end prematurely, for example <code>12121</code>, it should not be matched.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = '1234 2323 453545354535 9339 11 60260260'
+=> ["fire", "lion", "bear", "parrot"]
+</code></pre><p><strong>k)</strong> For the given input string, find all occurrences of digit sequences with at least one repeating sequence. For example, <code>232323</code> and <code>897897</code>. If the repeats end prematurely, for example <code>12121</code>, it should not be matched.<pre><code class=language-ruby>>> ip = '1234 2323 453545354535 9339 11 60260260'
 
-&gt;&gt; pat =        ##### add your solution here
+>> pat =        ##### add your solution here
 
 # entire sequences in the output
 ##### add your solution here
-=&gt; [&quot;2323&quot;, &quot;453545354535&quot;, &quot;11&quot;]
+=> ["2323", "453545354535", "11"]
 
 # only the unique sequence in the output
 ##### add your solution here
-=&gt; [&quot;23&quot;, &quot;4535&quot;, &quot;1&quot;]
-</code></pre>
-<p><strong>l)</strong> Convert the comma separated strings to corresponding <code>hash</code> objects as shown below. The keys are <code>name</code>, <code>maths</code> and <code>phy</code> for the three fields in the input strings.</p>
-<pre><code class="language-ruby">&gt;&gt; row1 = 'rohan,75,89'
-&gt;&gt; row2 = 'rose,88,92'
+=> ["23", "4535", "1"]
+</code></pre><p><strong>l)</strong> Convert the comma separated strings to corresponding <code>hash</code> objects as shown below. The keys are <code>name</code>, <code>maths</code> and <code>phy</code> for the three fields in the input strings.<pre><code class=language-ruby>>> row1 = 'rohan,75,89'
+>> row2 = 'rose,88,92'
 
-&gt;&gt; pat =        ##### add your solution here
+>> pat =        ##### add your solution here
 
 ##### add your solution here for row1
-=&gt; {&quot;name&quot;=&gt;&quot;rohan&quot;, &quot;maths&quot;=&gt;&quot;75&quot;, &quot;phy&quot;=&gt;&quot;89&quot;}
+=> {"name"=>"rohan", "maths"=>"75", "phy"=>"89"}
 ##### add your solution here for row2
-=&gt; {&quot;name&quot;=&gt;&quot;rose&quot;, &quot;maths&quot;=&gt;&quot;88&quot;, &quot;phy&quot;=&gt;&quot;92&quot;}
-</code></pre>
-<p><strong>m)</strong> Surround all whole words with <code>()</code>. Additionally, if the whole word is <code>imp</code> or <code>ant</code>, delete them. Can you do it with single substitution?</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'tiger imp goat eagle ant important'
+=> {"name"=>"rose", "maths"=>"88", "phy"=>"92"}
+</code></pre><p><strong>m)</strong> Surround all whole words with <code>()</code>. Additionally, if the whole word is <code>imp</code> or <code>ant</code>, delete them. Can you do it with single substitution?<pre><code class=language-ruby>>> ip = 'tiger imp goat eagle ant important'
 
 ##### add your solution here
-=&gt; &quot;(tiger) () (goat) (eagle) () (important)&quot;
-</code></pre>
-<p><strong>n)</strong> Filter all elements that contains a sequence of lowercase alphabets followed by <code>-</code> followed by digits. They can be optionally surrounded by <code>{{</code> and <code>}}</code>. Any partial match shouldn't be part of the output.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = %w[{{apple-150}} {{mango2-100}} {{cherry-200 grape-87 {{go-to}}]
+=> "(tiger) () (goat) (eagle) () (important)"
+</code></pre><p><strong>n)</strong> Filter all elements that contains a sequence of lowercase alphabets followed by <code>-</code> followed by digits. They can be optionally surrounded by <code>{{</code> and <code>}}</code>. Any partial match shouldn't be part of the output.<pre><code class=language-ruby>>> ip = %w[{{apple-150}} {{mango2-100}} {{cherry-200 grape-87 {{go-to}}]
 
 ##### add your solution here
-=&gt; [&quot;{{apple-150}}&quot;, &quot;grape-87&quot;]
-</code></pre>
-<p><strong>o)</strong> Extract all hex character sequences, with <code>0x</code> optional prefix. Match the characters case insensitively, and the sequences shouldn't be surrounded by other word characters.</p>
-<pre><code class="language-ruby">&gt;&gt; str1 = '128A foo 0xfe32 34 0xbar'
-&gt;&gt; str2 = '0XDEADBEEF place 0x0ff1ce bad'
+=> ["{{apple-150}}", "grape-87"]
+</code></pre><p><strong>o)</strong> Extract all hex character sequences, with <code>0x</code> optional prefix. Match the characters case insensitively, and the sequences shouldn't be surrounded by other word characters.<pre><code class=language-ruby>>> str1 = '128A foo 0xfe32 34 0xbar'
+>> str2 = '0XDEADBEEF place 0x0ff1ce bad'
 
-&gt;&gt; hex_seq =        ##### add your solution here
+>> hex_seq =        ##### add your solution here
 
-&gt;&gt; str1.scan(hex_seq)
-=&gt; [&quot;128A&quot;, &quot;0xfe32&quot;, &quot;34&quot;]
-&gt;&gt; str2.scan(hex_seq)
-=&gt; [&quot;0XDEADBEEF&quot;, &quot;0x0ff1ce&quot;, &quot;bad&quot;]
-</code></pre>
-<p><strong>p)</strong> Replace sequences made up of words separated by <code>:</code> or <code>.</code> by the first/last word of the sequence and the separator. Such sequences will end when <code>:</code> or <code>.</code> is not followed by a word character.</p>
-<pre><code class="language-ruby">&gt;&gt; ip = 'wow:Good:2_two:five: hi-2 bye kite.777.water.'
+>> str1.scan(hex_seq)
+=> ["128A", "0xfe32", "34"]
+>> str2.scan(hex_seq)
+=> ["0XDEADBEEF", "0x0ff1ce", "bad"]
+</code></pre><p><strong>p)</strong> Replace sequences made up of words separated by <code>:</code> or <code>.</code> by the first/last word of the sequence and the separator. Such sequences will end when <code>:</code> or <code>.</code> is not followed by a word character.<pre><code class=language-ruby>>> ip = 'wow:Good:2_two:five: hi-2 bye kite.777.water.'
 
 # first word of the sequence
 ##### add your solution here
-=&gt; &quot;wow: hi-2 bye kite.&quot;
+=> "wow: hi-2 bye kite."
 
 # last word of the sequence
 ##### add your solution here
-=&gt; &quot;five: hi-2 bye water.&quot;
-</code></pre>
-<p><strong>q)</strong> For the given input strings, extract <code>if</code> followed by any number of nested parentheses. Assume that there will be only one such pattern per input string.</p>
-<pre><code class="language-ruby">&gt;&gt; ip1 = 'for (((i*3)+2)/6) if(3-(k*3+4)/12-(r+2/3)) while()'
-&gt;&gt; ip2 = 'if+while if(a(b)c(d(e(f)1)2)3) for(i=1)'
+=> "five: hi-2 bye water."
+</code></pre><p><strong>q)</strong> For the given input strings, extract <code>if</code> followed by any number of nested parentheses. Assume that there will be only one such pattern per input string.<pre><code class=language-ruby>>> ip1 = 'for (((i*3)+2)/6) if(3-(k*3+4)/12-(r+2/3)) while()'
+>> ip2 = 'if+while if(a(b)c(d(e(f)1)2)3) for(i=1)'
 
-&gt;&gt; pat =        ##### add your solution here
+>> pat =        ##### add your solution here
 
-&gt;&gt; ip1[pat]
-=&gt; &quot;if(3-(k*3+4)/12-(r+2/3))&quot;
-&gt;&gt; ip2[pat]
-=&gt; &quot;if(a(b)c(d(e(f)1)2)3)&quot;
-</code></pre>
-
-                    </main>
-
-                    <nav class="nav-wrapper" aria-label="Page navigation">
-                        <!-- Mobile navigation buttons -->
-                        
-                            <a rel="prev" href="character-class.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                                <i class="fa fa-angle-left"></i>
-                            </a>
-                        
-
-                        
-                            <a rel="next" href="interlude-common-tasks.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        
-
-                        <div style="clear: both"></div>
-                    </nav>
-                </div>
-            </div>
-
-            <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
-                    <a rel="prev" href="character-class.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
-                        <i class="fa fa-angle-left"></i>
-                    </a>
-                
-
-                
-                    <a rel="next" href="interlude-common-tasks.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                
-            </nav>
-
-        </div>
-
-        
-
-        
-
-        
-
-        
-        <script type="text/javascript">
+>> ip1[pat]
+=> "if(3-(k*3+4)/12-(r+2/3))"
+>> ip2[pat]
+=> "if(a(b)c(d(e(f)1)2)3)"
+</code></pre></main><nav class=nav-wrapper aria-label="Page navigation"><a rel=prev href=character-class.html class="mobile-nav-chapters previous"title="Previous chapter"aria-label="Previous chapter"aria-keyshortcuts=Left> <i class="fa fa-angle-left"></i> </a><a rel=next href=interlude-common-tasks.html class="mobile-nav-chapters next"title="Next chapter"aria-label="Next chapter"aria-keyshortcuts=Right> <i class="fa fa-angle-right"></i> </a><div style="clear: both"></div></nav></div></div><nav class=nav-wide-wrapper aria-label="Page navigation"><a rel=prev href=character-class.html class="nav-chapters previous"title="Previous chapter"aria-label="Previous chapter"aria-keyshortcuts=Left> <i class="fa fa-angle-left"></i> </a><a rel=next href=interlude-common-tasks.html class="nav-chapters next"title="Next chapter"aria-label="Next chapter"aria-keyshortcuts=Right> <i class="fa fa-angle-right"></i> </a></nav></div><script>
             window.playground_copyable = true;
-        </script>
-        
-
-        
-
-        
-        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        
-
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
-
-        <!-- Custom JS scripts -->
-        
-
-        
-
-    </body>
-</html>
+        </script><script src=elasticlunr.min.js charset=utf-8></script><script src=mark.min.js charset=utf-8></script><script src=searcher.js charset=utf-8></script><script src=clipboard.min.js charset=utf-8></script><script src=highlight.js charset=utf-8></script><script src=book.js charset=utf-8></script><script src=sidebar.js></script>
