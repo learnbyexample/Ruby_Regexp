@@ -1,8 +1,12 @@
-# Regexp introduction
+# Exercises
 
 >![info](../images/info.svg) Refer to [exercises folder](https://github.com/learnbyexample/Ruby_Regexp/tree/master/exercises) for input files required to solve the exercises.
 
 >![info](../images/info.svg) For solutions, see [Exercise_solutions.md](https://github.com/learnbyexample/Ruby_Regexp/blob/master/exercises/Exercise_solutions.md).
+
+<br>
+
+# Regexp introduction
 
 **a)** Check whether the given strings contain `0xB0`. Display a boolean result as shown below.
 
