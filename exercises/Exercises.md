@@ -1390,7 +1390,7 @@ took 22
 
 # Modifiers
 
-**a)** Remove from first occurrence of `hat` to last occurrence of `ice` for the given input strings. Match these markers case insensitively.
+**a)** Remove from first occurrence of `hat` to last occurrence of `it` for the given input strings. Match these markers case insensitively.
 
 ```ruby
 >> s1 = "But Cool THAT\nsee What okay\nwow quite"

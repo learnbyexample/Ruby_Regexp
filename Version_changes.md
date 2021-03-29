@@ -1,5 +1,13 @@
 <br>
 
+### 2.6
+
+* Updated `ruby` version to **3.0.0**
+* Added a further reading link for `\g` subexpression call usage
+* Typo corrections and miscellaneous changes
+
+<br>
+
 ### 2.5
 
 * Added **epub** version of the book

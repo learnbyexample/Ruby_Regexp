@@ -12,7 +12,7 @@ If you have prior experience with a programming language, but new to Ruby, check
 
 ## Conventions
 
-* The examples presented here have been tested with **Ruby version 2.7.1** and includes features not available in earlier versions.
+* The examples presented here have been tested with **Ruby version 3.0.0** and includes features not available in earlier versions.
 * Code snippets shown are copy pasted from `irb --simple-prompt` shell and modified for presentation purposes. Some commands are preceded by comments to provide context and explanations. Blank lines have been added to improve readability. `nil` return value is not shown for `puts` statements. Error messages are shortened. And so on.
 * Unless otherwise noted, all examples and explanations are meant for **ASCII** characters.
 * External links are provided for further reading throughout the book. Not necessary to immediately visit them. They have been chosen with care and would help, especially during re-reads.
@@ -23,13 +23,15 @@ If you have prior experience with a programming language, but new to Ruby, check
 * [ruby-lang documentation](https://www.ruby-lang.org/en/documentation/) — manuals and tutorials
 * [/r/ruby/](https://www.reddit.com/r/ruby/) and [/r/regex/](https://www.reddit.com/r/regex/) — helpful forum for beginners and experienced programmers alike
 * [stackoverflow](https://stackoverflow.com/) — for getting answers to pertinent questions on Ruby and regular expressions
-* [tex.stackexchange](https://tex.stackexchange.com/) — for help on `pandoc` and `tex` related questions
+* [tex.stackexchange](https://tex.stackexchange.com/) — for help on [pandoc](https://github.com/jgm/pandoc/) and `tex` related questions
 * Cover image:
     * [draw.io](https://about.draw.io/)
     * [tree icon](https://www.iconfinder.com/icons/3199231/ellipse_green_nature_tree_icon) by [Gopi Doraisamy](https://www.iconfinder.com/gopidoraisamy) under [Creative Commons Attribution 3.0 Unported](https://creativecommons.org/licenses/by/3.0/)
     * [wand icon](https://www.iconfinder.com/icons/1679640/design_magic_magician_tool_wand_icon) by [roundicons.com](https://www.iconfinder.com/roundicons)
+* [pngquant](https://pngquant.org/) and [svgcleaner](https://github.com/RazrFalcon/svgcleaner) for optimizing images
 * [Warning](https://commons.wikimedia.org/wiki/File:Warning_icon.svg) and [Info](https://commons.wikimedia.org/wiki/File:Info_icon_002.svg) icons by [Amada44](https://commons.wikimedia.org/wiki/User:Amada44) under public domain
 * [softwareengineering.stackexchange](https://softwareengineering.stackexchange.com/questions/39/whats-your-favourite-quote-about-programming) and [skolakoda](https://skolakoda.org/programming-quotes) for programming quotes
+* [gmovchan](https://github.com/gmovchan) for spotting a typo
 
 Special thanks to Allen Downey, an attempt at translating his book [Think Python](https://greenteapress.com/wp/think-python-2e/) to [Think Ruby](https://github.com/learnbyexample/ThinkRubyBuild) gave me the confidence to publish my own book.
 
@@ -38,8 +40,6 @@ Special thanks to Allen Downey, an attempt at translating his book [Think Python
 I would highly appreciate if you'd let me know how you felt about this book, it would help to improve this book as well as my future attempts. Also, please do let me know if you spot any error or typo.
 
 Issue Manager: [https://github.com/learnbyexample/Ruby_Regexp/issues](https://github.com/learnbyexample/Ruby_Regexp/issues)
-
-Goodreads: https://www.goodreads.com/book/show/48641238-ruby-regexp
 
 E-mail: learnbyexample.net@gmail.com
 
@@ -61,7 +61,7 @@ Resources mentioned in Acknowledgements section above are available under origin
 
 ## Book version
 
-2.5
+2.6
 
 See [Version_changes.md](https://github.com/learnbyexample/Ruby_Regexp/blob/master/Version_changes.md) to track changes across book versions.
 
@@ -122,7 +122,7 @@ In this chapter, you'll get to know how to declare and use regexps. For some exa
 
 ## Regexp documentation
 
-It is always a good idea to know where to find the documentation. Visit [ruby-doc: Regexp](https://ruby-doc.org/core-2.7.1/Regexp.html) for information on `Regexp` class, available methods, syntax, features, examples and more. Here's a quote:
+It is always a good idea to know where to find the documentation. Visit [ruby-doc: Regexp](https://ruby-doc.org/core-3.0.0/Regexp.html) for information on `Regexp` class, available methods, syntax, features, examples and more. Here's a quote:
 
 >Regular expressions (*regexps*) are patterns which describe the contents of a string. They're used for testing whether a string contains a given pattern, or extracting the portions that match. They are created with the `/pat/` and `%r{pat}` literals or the `Regexp.new` constructor.
 
@@ -184,7 +184,7 @@ The regexp literal can be saved in a variable. This helps to improve code clarit
 => false
 ```
 
-Similar to double quoted string literals, you can use interpolation and escape sequences in a regexp literal. See [ruby-doc: Strings](https://ruby-doc.org/core-2.7.1/doc/syntax/literals_rdoc.html#label-Strings) for syntax details on string escape sequences. Regexp literals have their own special escapes, which will be discussed in [Escape sequences](#escape-sequences) section.
+Similar to double quoted string literals, you can use interpolation and escape sequences in a regexp literal. See [ruby-doc: Strings](https://ruby-doc.org/core-3.0.0/doc/syntax/literals_rdoc.html#label-Strings) for syntax details on string escape sequences. Regexp literals have their own special escapes, which will be discussed in [Escape sequences](#escape-sequences) section.
 
 ```ruby
 >> "cat\tdog".match?(/\t/)
@@ -296,7 +296,7 @@ The `===` operator comes in handy with Enumerable methods like `grep`, `grep_v`,
 
 | Note    | Description |
 | ------- | ----------- |
-| [ruby-doc: Regexp](https://ruby-doc.org/core-2.7.1/Regexp.html) | Ruby Regexp documentation |
+| [ruby-doc: Regexp](https://ruby-doc.org/core-3.0.0/Regexp.html) | Ruby Regexp documentation |
 | [Onigmo doc](https://github.com/k-takata/Onigmo/blob/master/doc/RE) | Onigmo library documentation |
 | `/pat/` or `%r{pat}` | regexp literal |
 |  | interpolation and escape sequences can also be used |
@@ -1136,7 +1136,7 @@ Another character to keep track for escaping is the delimiter used to define the
 
 ## Escape sequences
 
-In regexp literals, characters like tab and newline can be expressed using escape sequences as `\t` and `\n` respectively. These are similar to how they are treated in normal string literals (see [ruby-doc: Strings](https://ruby-doc.org/core-2.7.1/doc/syntax/literals_rdoc.html#label-Strings) for details). However, escapes like `\b` (word boundary) and `\s` (see [Escape sequence character sets](#escape-sequence-character-sets) section) are different for regexps. And octal escapes `\nnn` have to be three digits to avoid conflict with [Backreferences](#backreferences).
+In regexp literals, characters like tab and newline can be expressed using escape sequences as `\t` and `\n` respectively. These are similar to how they are treated in normal string literals (see [ruby-doc: Strings](https://ruby-doc.org/core-3.0.0/doc/syntax/literals_rdoc.html#label-Strings) for details). However, escapes like `\b` (word boundary) and `\s` (see [Escape sequence character sets](#escape-sequence-character-sets) section) are different for regexps. And octal escapes `\nnn` have to be three digits to avoid conflict with [Backreferences](#backreferences).
 
 ```ruby
 >> "a\tb\tc".gsub(/\t/, ':')
@@ -1485,7 +1485,7 @@ But wait, then how did `/Error.*valid/` example work? Shouldn't `.*` consume all
 => "Xite a fabricated tale"
 ```
 
->![warning](images/warning.svg) Backtracking can be quite time consuming for certain corner cases (see [ruby-doc: Regexp Performance](https://ruby-doc.org/core-2.7.1/Regexp.html#class-Regexp-label-Performance)). Or even catastrophic (see [cloudflare: Details of the Cloudflare outage on July 2, 2019](https://blog.cloudflare.com/details-of-the-cloudflare-outage-on-july-2-2019/)).
+>![warning](images/warning.svg) Backtracking can be quite time consuming for certain corner cases (see [ruby-doc: Regexp Performance](https://ruby-doc.org/core-3.0.0/Regexp.html#class-Regexp-label-Performance)). Or even catastrophic (see [cloudflare: Details of the Cloudflare outage on July 2, 2019](https://blog.cloudflare.com/details-of-the-cloudflare-outage-on-july-2-2019/)).
 
 ## Non-greedy quantifiers
 
@@ -1860,7 +1860,7 @@ The `offset` method gives the **starting** and **ending + 1** indexes of the mat
 => 5
 ```
 
->![info](images/info.svg) There are many more methods available. See [ruby-doc: MatchData](https://ruby-doc.org/core-2.7.1/MatchData.html) for details.
+>![info](images/info.svg) There are many more methods available. See [ruby-doc: MatchData](https://ruby-doc.org/core-3.0.0/MatchData.html) for details.
 
 ```ruby
 >> m = 'THIS is goodbye then'.match(/hi.*bye/i)
@@ -2550,7 +2550,7 @@ And negative logic strikes again. Use `\W`, `\D`, `\S` and `\H` respectively for
 
 Ruby also provides named character sets, which are Unicode aware unlike escape sequence sets which are limited only to ASCII characters. A named character set is defined by a name enclosed between `[:` and `:]` and has to be used within a character class `[]`, along with any other characters as needed. Using `[:^` instead of `[:` will negate the named set.
 
-Four of the escape sequences presented above have named set equivalents. See [ruby-doc: Character Classes](https://ruby-doc.org/core-2.7.1/Regexp.html#class-Regexp-label-Character+Classes) for full list and details.
+Four of the escape sequences presented above have named set equivalents. See [ruby-doc: Character Classes](https://ruby-doc.org/core-3.0.0/Regexp.html#class-Regexp-label-Character+Classes) for full list and details.
 
 ```ruby
 # similar to: /\d+/ or /[0-9]+/
@@ -2632,7 +2632,7 @@ However, it is easy to miss corner cases and some ranges are complicated to desi
 | | these escapes can be used inside character class as well |
 | `[[:alpha:]]` | named character set to match alphabets |
 | `[[:^punct:]]` | named character set to match other than punctuation |
-|  | see [ruby-doc: Character Classes](https://ruby-doc.org/core-2.7.1/Regexp.html#class-Regexp-label-Character+Classes) for full list |
+|  | see [ruby-doc: Character Classes](https://ruby-doc.org/core-3.0.0/Regexp.html#class-Regexp-label-Character+Classes) for full list |
 | `\R` | matches line breaks `\n`, `\v`, `\f`, `\r`, `\u0085` (next line)
 | | `\u2028` (line separator), `\u2029` (paragraph separator) or `\r\n` |
 | | `\R` has no special meaning inside a character class |
@@ -3027,6 +3027,8 @@ To refer to the regexp itself, use `\g<0>`, `\g<1>`, `\g<2>` etc. This is applic
 >> d.gsub(/((\d{4}-\d{2}-\d{2})),\g<2>/, '\1')
 => "2008-03-24 2017-06-27 1999-12-23"
 ```
+
+>![info](images/info.svg) See also [stackoverflow: How to prevent `\g` subexpression from overwriting the grouped content](https://stackoverflow.com/q/64726107/4082052). The trick is to switch the subexpression call and the capture group.
 
 ## Recursive matching
 
@@ -3478,7 +3480,7 @@ Make sure to test these patterns for your use case. For example, the below data 
 
 ## Summary
 
-Some patterns are quite complex and not easy to build and validate from scratch. Libraries like **CommonRegexRuby** are helpful to reduce your time and effort needed for commonly known tasks. However, you do need to **test** the solution for *your* use case. See also [stackoverflow: validating email addresses](https://stackoverflow.com/questions/201323/how-to-validate-an-email-address-using-a-regular-expression).
+Some patterns are quite complex and not easy to build and validate from scratch. Libraries like **CommonRegexRuby** are helpful to reduce your time and effort needed for commonly known tasks. However, you do need to **test** the solution for *your* use case. See also [stackoverflow: validating email addresses](https://stackoverflow.com/q/201323/4082052).
 
 # Lookarounds
 
@@ -3681,7 +3683,7 @@ Here's another example that won't work if greedy quantifier is used instead of p
 => "421,foo,2425,42,5,6"
 ```
 
->![warning](images/warning.svg) Don't use `\K` with `gsub` or `scan` if the string to match after `\K` can be empty. This is how the regexp engine has been implemented, other libraries like PCRE don't have this limitation. See [stackoverflow: \K in ruby](https://stackoverflow.com/questions/48375925/use-of-k-and-lookahead-not-working-as-expected) for some more details on this topic.
+>![warning](images/warning.svg) Don't use `\K` with `gsub` or `scan` if the string to match after `\K` can be empty. This is how the regexp engine has been implemented, other libraries like PCRE don't have this limitation. See [stackoverflow: \K in ruby](https://stackoverflow.com/q/48375925/4082052) for some more details on this topic.
 
 ```ruby
 # [^,]*+ can match empty field, so use lookaround instead of \K
@@ -4148,7 +4150,7 @@ The `x` modifier is another provision like the named capture groups to help add 
 => "1,2,3,(4),5,6,7"
 ```
 
-As whitespace and `#` characters get special meaning when using the `x` modifier, they have to be escaped or represented by backslash escape sequences to match them literally. See [ruby-doc: Free-Spacing Mode and Comments](https://ruby-doc.org/core-2.7.1/Regexp.html#class-Regexp-label-Free-Spacing+Mode+and+Comments) for more details.
+As whitespace and `#` characters get special meaning when using the `x` modifier, they have to be escaped or represented by backslash escape sequences to match them literally. See [ruby-doc: Free-Spacing Mode and Comments](https://ruby-doc.org/core-3.0.0/Regexp.html#class-Regexp-label-Free-Spacing+Mode+and+Comments) for more details.
 
 ```ruby
 >> 'cat and dog'.match?(/t a/x)
@@ -4232,7 +4234,7 @@ This chapter showed some of the modifiers that can be used to change default beh
 
 ## Exercises
 
-**a)** Remove from first occurrence of `hat` to last occurrence of `ice` for the given input strings. Match these markers case insensitively.
+**a)** Remove from first occurrence of `hat` to last occurrence of `it` for the given input strings. Match these markers case insensitively.
 
 ```ruby
 >> s1 = "But Cool THAT\nsee What okay\nwow quite"
@@ -4344,7 +4346,7 @@ Refer to [exercises folder](https://github.com/learnbyexample/Ruby_Regexp/tree/m
 
 # Unicode
 
-So far in the book, all examples were meant for strings made up of *ASCII* characters only. However, Regexp class uses source encoding by default. And the default string encoding is `UTF-8`. See [ruby-doc: Encoding](https://ruby-doc.org/core-2.7.1/Encoding.html) for details on working with different string encoding.
+So far in the book, all examples were meant for strings made up of *ASCII* characters only. However, Regexp class uses source encoding by default. And the default string encoding is `UTF-8`. See [ruby-doc: Encoding](https://ruby-doc.org/core-3.0.0/Encoding.html) for details on working with different string encoding.
 
 ## Encoding modifiers
 
@@ -4374,11 +4376,11 @@ Character set escapes like `\w` match only ASCII characters whereas named charac
 => ["fox", "αλεπού"]
 ```
 
->![info](images/info.svg) See [ruby-doc: Regexp Encoding](https://ruby-doc.org/core-2.7.1/Regexp.html#class-Regexp-label-Encoding) for other such modifiers and details.
+>![info](images/info.svg) See [ruby-doc: Regexp Encoding](https://ruby-doc.org/core-3.0.0/Regexp.html#class-Regexp-label-Encoding) for other such modifiers and details.
 
 ## Unicode character sets
 
-Similar to named character classes and escape sequences, the `\p{}` construct offers various predefined sets that will work for Unicode strings. See [ruby-doc: Character Properties](https://ruby-doc.org/core-2.7.1/Regexp.html#class-Regexp-label-Character+Properties) for full list and details.
+Similar to named character classes and escape sequences, the `\p{}` construct offers various predefined sets that will work for Unicode strings. See [ruby-doc: Character Properties](https://ruby-doc.org/core-3.0.0/Regexp.html#class-Regexp-label-Character+Properties) for full list and details.
 
 ```ruby
 # extract all consecutive letters
@@ -4453,11 +4455,11 @@ Another difference is that `\X` will match newline characters by default.
 
 | Note    | Description |
 | ------- | ----------- |
-| [ruby-doc: Encoding](https://ruby-doc.org/core-2.7.1/Encoding.html) | details on working with different string encoding |
+| [ruby-doc: Encoding](https://ruby-doc.org/core-3.0.0/Encoding.html) | details on working with different string encoding |
 | `n` | modifier to use *ASCII-8BIT* instead of source encoding |
 | `(?u)` | inline modifier to allow escapes like `\w` to match unicode |
 | `\p{}` | Unicode character sets |
-| | see [ruby-doc: Character Properties](https://ruby-doc.org/core-2.7.1/Regexp.html#class-Regexp-label-Character+Properties) for full list and details |
+| | see [ruby-doc: Character Properties](https://ruby-doc.org/core-3.0.0/Regexp.html#class-Regexp-label-Character+Properties) for full list and details |
 | `s.codepoints` | get codepoints of characters of string `s` |
 | `\u{}` | specify characters using codepoints |
 | `.` | matches only single codepoint at a time |
@@ -4503,10 +4505,10 @@ A comprehensive discussion on regexp usage with Unicode characters is out of sco
 
 **c)** Explore the following Q&A threads.
 
-* [stackoverflow: remove emoji from string](https://stackoverflow.com/questions/24672834/how-do-i-remove-emoji-from-string)
-* [stackoverflow: why am I seeing different results for these two nearly identical regexp](https://stackoverflow.com/questions/13573136/why-am-i-seeing-different-results-for-these-two-nearly-identical-ruby-regex-patt)
-* [stackoverflow: convert unicode number to integer](https://stackoverflow.com/questions/37338708/convert-unicode-number-to-integer-in-ruby)
-* [stackoverflow: replacing %uXXXX to the corresponding unicode codepoint](https://stackoverflow.com/questions/28773392/replacing-uxxxx-to-the-corresponding-unicode-codepoint-in-ruby)
+* [stackoverflow: remove emoji from string](https://stackoverflow.com/q/24672834/4082052)
+* [stackoverflow: why am I seeing different results for these two nearly identical regexp](https://stackoverflow.com/q/13573136/4082052)
+* [stackoverflow: convert unicode number to integer](https://stackoverflow.com/q/37338708/4082052)
+* [stackoverflow: replacing %uXXXX to the corresponding unicode codepoint](https://stackoverflow.com/q/28773392/4082052)
 
 # Further Reading
 
@@ -4518,7 +4520,7 @@ A comprehensive discussion on regexp usage with Unicode characters is out of sco
 * [regexp-examples](https://github.com/tom-lord/regexp-examples) — Generate strings that match a given Ruby regular expression
 * [Awesome Regex](https://github.com/aloisdg/awesome-regex) — curated collection of libraries, tools, frameworks and software
 * [stackoverflow: ruby regexp](https://stackoverflow.com/questions/tagged/ruby+regex?sort=votes&pageSize=15)
-* [stackoverflow: regex FAQ](https://stackoverflow.com/questions/22937618/reference-what-does-this-regex-mean)
+* [stackoverflow: regex FAQ](https://stackoverflow.com/q/22937618/4082052)
     * [stackoverflow: regex tag](https://stackoverflow.com/questions/tagged/regex) is a good source of exercise questions
 * [rexegg](https://www.rexegg.com/) — tutorials, tricks and more
 * [regular-expressions](https://www.regular-expressions.info/) — tutorials and tools
@@ -4532,6 +4534,6 @@ Here's some links for specific topics:
 * [regular-expressions: matching numeric ranges](https://www.regular-expressions.info/numericranges.html)
 * [regular-expressions: Continuing at The End of The Previous Match](https://www.regular-expressions.info/continue.html), especially the second section that discusses about implementation detail
 * [regular-expressions: Zero-Length Matches](https://www.regular-expressions.info/zerolength.html)
-* [stackoverflow: Greedy vs Reluctant vs Possessive Quantifiers](https://stackoverflow.com/questions/5319840/greedy-vs-reluctant-vs-possessive-quantifiers)
+* [stackoverflow: Greedy vs Reluctant vs Possessive Quantifiers](https://stackoverflow.com/q/5319840/4082052)
 * [cloudflare: Details of the Cloudflare outage on July 2, 2019](https://blog.cloudflare.com/details-of-the-cloudflare-outage-on-july-2-2019/) — see appendix for details about CPU exhaustion caused due to regular expression backtracking
 
