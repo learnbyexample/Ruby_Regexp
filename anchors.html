@@ -1,8 +1,5 @@
-<!DOCTYPE HTML><html lang=en class="sidebar-visible no-js light"><head><meta charset=UTF-8><title>Anchors - Ruby Regexp</title><meta content="text/html; charset=utf-8"http-equiv=Content-Type><meta name=description content="Example based guide to mastering Ruby Regexp"><meta name=viewport content="width=device-width, initial-scale=1"><meta name=theme-color content=#ffffff><link rel=icon href=favicon.svg><link rel="shortcut icon"href=favicon.png><link rel=stylesheet href=css/variables.css><link rel=stylesheet href=css/general.css><link rel=stylesheet href=css/chrome.css><link rel=stylesheet href=FontAwesome/css/font-awesome.css><link rel=stylesheet href=fonts/fonts.css><link rel=stylesheet href=highlight.css><link rel=stylesheet href=tomorrow-night.css><link rel=stylesheet href=ayu-highlight.css><link rel=stylesheet href=style.css><body><script>
-            var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
-        </script><script>
-            try {
+<!doctypehtml><html class="sidebar-visible no-js light"lang=en><head><meta charset=UTF-8><title>Anchors - Understanding Ruby Regexp</title><meta content="text/html; charset=utf-8"http-equiv=Content-Type><meta content="Learn Ruby Regular Expressions step-by-step from beginner to advanced levels with hundreds of examples and exercises"name=description><meta content=width=device-width,initial-scale=1 name=viewport><meta content=#ffffff name=theme-color><meta content="Understanding Ruby Regexp"property=og:title><meta content=website property=og:type><meta content="Learn Ruby Regular Expressions step-by-step from beginner to advanced levels with hundreds of examples and exercises"property=og:description><meta content=https://learnbyexample.github.io/Ruby_Regexp/ property=og:url><meta content=https://raw.githubusercontent.com/learnbyexample/Ruby_Regexp/master/images/ruby_regexp_ls.png property=og:image><meta content=1280 property=og:image:width><meta content=720 property=og:image:height><meta content=summary_large_image property=twitter:card><meta content=@learn_byexample property=twitter:site><link href=favicon.svg rel=icon><link rel="shortcut icon"href=favicon.png><link href=css/variables.css rel=stylesheet><link href=css/general.css rel=stylesheet><link href=css/chrome.css rel=stylesheet><link href=FontAwesome/css/font-awesome.css rel=stylesheet><link href=fonts/fonts.css rel=stylesheet><link href=highlight.css rel=stylesheet><link href=tomorrow-night.css rel=stylesheet><link href=ayu-highlight.css rel=stylesheet><link href=style.css rel=stylesheet><body><script>var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";</script><script>try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
 
@@ -13,32 +10,25 @@
                 if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
                     localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
                 }
-            } catch (e) { }
-        </script><script>
-            var theme;
+            } catch (e) { }</script><script>var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
             html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
-        </script><script>
-            var html = document.querySelector('html');
+            html.classList.add('js');</script><script>var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             }
             html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
-        </script><nav id=sidebar class=sidebar aria-label="Table of contents"><div class=sidebar-scrollbox><ol class=chapter><li class="chapter-item expanded affix"><a href=cover.html>Cover</a><li class="chapter-item expanded affix"><a href=buy.html>Buy PDF/EPUB versions</a><li class="chapter-item expanded"><a href=preface.html><strong aria-hidden=true>1.</strong> Preface</a><li class="chapter-item expanded"><a href=why-is-it-needed.html><strong aria-hidden=true>2.</strong> Why is it needed?</a><li class="chapter-item expanded"><a href=regexp-introduction.html><strong aria-hidden=true>3.</strong> Regexp introduction</a><li class="chapter-item expanded"><a href=anchors.html class=active><strong aria-hidden=true>4.</strong> Anchors</a><li class="chapter-item expanded"><a href=alternation-and-grouping.html><strong aria-hidden=true>5.</strong> Alternation and Grouping</a><li class="chapter-item expanded"><a href=escaping-metacharacters.html><strong aria-hidden=true>6.</strong> Escaping metacharacters</a><li class="chapter-item expanded"><a href=dot-metacharacter-and-quantifiers.html><strong aria-hidden=true>7.</strong> Dot metacharacter and Quantifiers</a><li class="chapter-item expanded"><a href=interlude-tools-for-debugging-and-visualization.html><strong aria-hidden=true>8.</strong> Interlude: Tools for debugging and visualization</a><li class="chapter-item expanded"><a href=working-with-matched-portions.html><strong aria-hidden=true>9.</strong> Working with matched portions</a><li class="chapter-item expanded"><a href=character-class.html><strong aria-hidden=true>10.</strong> Character class</a><li class="chapter-item expanded"><a href=groupings-and-backreferences.html><strong aria-hidden=true>11.</strong> Groupings and backreferences</a><li class="chapter-item expanded"><a href=interlude-common-tasks.html><strong aria-hidden=true>12.</strong> Interlude: Common tasks</a><li class="chapter-item expanded"><a href=lookarounds.html><strong aria-hidden=true>13.</strong> Lookarounds</a><li class="chapter-item expanded"><a href=modifiers.html><strong aria-hidden=true>14.</strong> Modifiers</a><li class="chapter-item expanded"><a href=unicode.html><strong aria-hidden=true>15.</strong> Unicode</a><li class="chapter-item expanded"><a href=further-reading.html><strong aria-hidden=true>16.</strong> Further Reading</a><li class="chapter-item expanded"><a href=Exercise_solutions.html><strong aria-hidden=true>17.</strong> Exercise Solutions</a></li><br><hr><li class="chapter-item expanded"><i id=git-repository-button class="fa fa-github"></i><a href=https://github.com/learnbyexample/Ruby_Regexp>   Source code</a><li class="chapter-item expanded"><i id=home-button class="fa fa-home"></i><a href=https://learnbyexample.github.io/>   My Blog</a><li class="chapter-item expanded"><i id=book-button class="fa fa-book"></i><a href=https://learnbyexample.github.io/books/>   My Books</a><li class="chapter-item expanded"><i id=mail-button class="fa fa-envelope"></i><a href=https://learnbyexample.gumroad.com/l/learnbyexample-weekly>   learnbyexample weekly</a></ol></div><div id=sidebar-resize-handle class=sidebar-resize-handle></div></nav><div id=page-wrapper class=page-wrapper><div class=page><div id=menu-bar-hover-placeholder></div><div id=menu-bar class="menu-bar sticky bordered"><div class=left-buttons><button id=sidebar-toggle class=icon-button type=button title="Toggle Table of Contents"aria-label="Toggle Table of Contents"aria-controls=sidebar><i class="fa fa-bars"></i></button><button id=theme-toggle class=icon-button type=button title="Change theme"aria-label="Change theme"aria-haspopup=true aria-expanded=false aria-controls=theme-list><i class="fa fa-paint-brush"></i></button><ul id=theme-list class=theme-popup aria-label=Themes role=menu><li role=none><button role=menuitem class=theme id=light>Light (default)</button><li role=none><button role=menuitem class=theme id=rust>Rust</button><li role=none><button role=menuitem class=theme id=coal>Coal</button><li role=none><button role=menuitem class=theme id=navy>Navy</button><li role=none><button role=menuitem class=theme id=ayu>Ayu</button></ul><button id=search-toggle class=icon-button type=button title="Search. (Shortkey: s)"aria-label="Toggle Searchbar"aria-expanded=false aria-keyshortcuts=S aria-controls=searchbar><i class="fa fa-search"></i></button></div><h1 class=menu-title>Ruby Regexp</h1><div class=right-buttons><a href=https://learnbyexample.github.io title=Blog aria-label=Blog> <i id=home-button class="fa fa-home"></i> </a><a href=https://github.com/learnbyexample/Ruby_Regexp title="Git repository"aria-label="Git repository"> <i id=git-repository-button class="fa fa-github"></i> </a></div></div><div id=search-wrapper class=hidden><form id=searchbar-outer class=searchbar-outer><input type=search id=searchbar name=searchbar placeholder="Search this book ..."aria-controls=searchresults-outer aria-describedby=searchresults-header></form><div id=searchresults-outer class="searchresults-outer hidden"><div id=searchresults-header class=searchresults-header></div><ul id=searchresults></ul></div></div><script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+            html.classList.add("sidebar-" + sidebar);</script><nav aria-label="Table of contents"class=sidebar id=sidebar><div class=sidebar-scrollbox><ol class=chapter><li class="chapter-item expanded affix"><a href=cover.html>Cover</a><li class="chapter-item expanded affix"><a href=buy.html>Buy PDF/EPUB versions</a><li class="chapter-item expanded"><a href=preface.html><strong aria-hidden=true>1.</strong> Preface</a><li class="chapter-item expanded"><a href=why-is-it-needed.html><strong aria-hidden=true>2.</strong> Why is it needed?</a><li class="chapter-item expanded"><a href=regexp-introduction.html><strong aria-hidden=true>3.</strong> Regexp introduction</a><li class="chapter-item expanded"><a class=active href=anchors.html><strong aria-hidden=true>4.</strong> Anchors</a><li class="chapter-item expanded"><a href=alternation-and-grouping.html><strong aria-hidden=true>5.</strong> Alternation and Grouping</a><li class="chapter-item expanded"><a href=escaping-metacharacters.html><strong aria-hidden=true>6.</strong> Escaping metacharacters</a><li class="chapter-item expanded"><a href=dot-metacharacter-and-quantifiers.html><strong aria-hidden=true>7.</strong> Dot metacharacter and Quantifiers</a><li class="chapter-item expanded"><a href=interlude-tools-for-debugging-and-visualization.html><strong aria-hidden=true>8.</strong> Interlude: Tools for debugging and visualization</a><li class="chapter-item expanded"><a href=working-with-matched-portions.html><strong aria-hidden=true>9.</strong> Working with matched portions</a><li class="chapter-item expanded"><a href=character-class.html><strong aria-hidden=true>10.</strong> Character class</a><li class="chapter-item expanded"><a href=groupings-and-backreferences.html><strong aria-hidden=true>11.</strong> Groupings and backreferences</a><li class="chapter-item expanded"><a href=interlude-common-tasks.html><strong aria-hidden=true>12.</strong> Interlude: Common tasks</a><li class="chapter-item expanded"><a href=lookarounds.html><strong aria-hidden=true>13.</strong> Lookarounds</a><li class="chapter-item expanded"><a href=modifiers.html><strong aria-hidden=true>14.</strong> Modifiers</a><li class="chapter-item expanded"><a href=unicode.html><strong aria-hidden=true>15.</strong> Unicode</a><li class="chapter-item expanded"><a href=further-reading.html><strong aria-hidden=true>16.</strong> Further Reading</a><li class="chapter-item expanded"><a href=Exercise_solutions.html><strong aria-hidden=true>17.</strong> Exercise Solutions</a></li><br><hr><li class="chapter-item expanded"><i class="fa fa-github"id=git-repository-button></i><a href=https://github.com/learnbyexample/Ruby_Regexp>   Source code</a><li class="chapter-item expanded"><i class="fa fa-home"id=home-button></i><a href=https://learnbyexample.github.io/>   My Blog</a><li class="chapter-item expanded"><i class="fa fa-book"id=book-button></i><a href=https://learnbyexample.github.io/books/>   My Books</a><li class="chapter-item expanded"><i class="fa fa-envelope"id=mail-button></i><a href=https://learnbyexample.gumroad.com/l/learnbyexample-weekly>   learnbyexample weekly</a><li class="chapter-item expanded"><i class="fa fa-twitter"id=twitter-button></i><a href=https://twitter.com/learn_byexample>   Twitter</a></ol></div><div class=sidebar-resize-handle id=sidebar-resize-handle></div></nav><div class=page-wrapper id=page-wrapper><div class=page><div id=menu-bar-hover-placeholder></div><div class="menu-bar sticky bordered"id=menu-bar><div class=left-buttons><button aria-label="Toggle Table of Contents"title="Toggle Table of Contents"aria-controls=sidebar class=icon-button id=sidebar-toggle type=button><i class="fa fa-bars"></i></button><button aria-label="Change theme"title="Change theme"aria-controls=theme-list aria-expanded=false aria-haspopup=true class=icon-button id=theme-toggle type=button><i class="fa fa-paint-brush"></i></button><ul aria-label=Themes class=theme-popup id=theme-list role=menu><li role=none><button class=theme id=light role=menuitem>Light (default)</button><li role=none><button class=theme id=rust role=menuitem>Rust</button><li role=none><button class=theme id=coal role=menuitem>Coal</button><li role=none><button class=theme id=navy role=menuitem>Navy</button><li role=none><button class=theme id=ayu role=menuitem>Ayu</button></ul><button aria-label="Toggle Searchbar"title="Search. (Shortkey: s)"aria-controls=searchbar aria-expanded=false aria-keyshortcuts=S class=icon-button id=search-toggle type=button><i class="fa fa-search"></i></button></div><h1 class=menu-title>Understanding Ruby Regexp</h1><div class=right-buttons><a aria-label=Blog href=https://learnbyexample.github.io title=Blog> <i class="fa fa-home"id=home-button></i> </a><a aria-label=Twitter href=https://twitter.com/learn_byexample title=Twitter> <i class="fa fa-twitter"id=twitter-button></i> </a><a aria-label="Git repository"title="Git repository"href=https://github.com/learnbyexample/Ruby_Regexp> <i class="fa fa-github"id=git-repository-button></i> </a></div></div><div class=hidden id=search-wrapper><form class=searchbar-outer id=searchbar-outer><input placeholder="Search this book ..."aria-controls=searchresults-outer aria-describedby=searchresults-header id=searchbar name=searchbar type=search></form><div class="searchresults-outer hidden"id=searchresults-outer><div class=searchresults-header id=searchresults-header></div><ul id=searchresults></ul></div></div><script>document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
-                    });
-                </script><div id=content class=content><main><div class=sidetoc><nav class=pagetoc></nav></div><h1 id=anchors><a class=header href=#anchors>Anchors</a></h1><p>Now that you're familiar with regexp syntax and some of the methods, the next step is to know about the special features of regular expressions. In this chapter, you'll be learning about qualifying a pattern. Instead of matching anywhere in the given input string, restrictions can be specified. For now, you'll see the ones that are already part of regular expression features. In later chapters, you'll learn how to define your own rules for restriction.<p>These restrictions are made possible by assigning special meaning to certain characters and escape sequences. The characters with special meaning are known as <strong>metacharacters</strong> in regexp parlance. In case you need to match those characters literally, you need to escape them with a <code>\</code> character (discussed in <a href=./escaping-metacharacters.html#escaping-with->Escaping metacharacters</a> section).<h2 id=string-anchors><a class=header href=#string-anchors>String anchors</a></h2><p>This restriction is about qualifying a regexp to match only at start or end of an input string. These provide functionality similar to the string methods <code>start_with?</code> and <code>end_with?</code>. There are three different escape sequences related to string level regexp anchors. First up is <code>\A</code> which restricts the matching to the start of string.<pre><code class=language-ruby># \A is placed as a prefix to the search term
+                    });</script><div class=content id=content><main><div class=sidetoc><nav class=pagetoc></nav></div><h1 id=anchors><a class=header href=#anchors>Anchors</a></h1><p>Now that you're familiar with regexp syntax and some of the methods, the next step is to know about the special features of regular expressions. In this chapter, you'll be learning about qualifying a pattern. Instead of matching anywhere in the given input string, restrictions can be specified. For now, you'll see the ones that are already part of regular expression features. In later chapters, you'll learn how to define custom rules.<p>These restrictions are made possible by assigning special meaning to certain characters and escape sequences. The characters with special meaning are known as <strong>metacharacters</strong> in regexp parlance. In case you need to match those characters literally, you need to escape them with a <code>\</code> character (discussed in the <a href=./escaping-metacharacters.html#escaping-with-backslash>Escaping with backslash</a> section).<h2 id=string-anchors><a class=header href=#string-anchors>String anchors</a></h2><p>This restriction is about qualifying a regexp to match only at the start or end of an input string. These provide functionality similar to the string methods <code>start_with?</code> and <code>end_with?</code>. There are three different escape sequences related to string level regexp anchors. First up is <code>\A</code> which restricts the matching to the start of string.<pre><code class=language-ruby># \A is placed as a prefix to the search term
 >> 'cater'.match?(/\Acat/)
 => true
 >> 'concatenation'.match?(/\Acat/)
@@ -48,7 +38,7 @@
 => true
 >> "hi hello\ntop spot".match?(/\Atop/)
 => false
-</code></pre><p>To restrict the match to the end of string, <code>\z</code> is used.<pre><code class=language-ruby># \z is placed as a suffix to the search term
+</code></pre><p>To restrict the match to the end of string, <code>\z</code> (lowercase <code>z</code>) is used.<pre><code class=language-ruby># \z is placed as a suffix to the search term
 >> 'spare'.match?(/are\z/)
 => true
 >> 'nearest'.match?(/are\z/)
@@ -59,19 +49,19 @@
 => ["surrender", "newer"]
 >> words.grep(/t\z/)
 => ["pest"]
-</code></pre><p>There is another end of string anchor <code>\Z</code>. It is similar to <code>\z</code> but if newline is the last character, then <code>\Z</code> allows matching just before the newline character.<pre><code class=language-ruby># same result for both \z and \Z
+</code></pre><p>There is another end of string anchor <code>\Z</code> (uppercase). It is similar to <code>\z</code> but if newline is the last character, then <code>\Z</code> allows matching just before the newline character.<pre><code class=language-ruby># same result for both \z and \Z
 # as there is no newline character at the end of string
->> 'dare'.sub(/are\z/, 'X')
-=> "dX"
->> 'dare'.sub(/are\Z/, 'X')
-=> "dX"
+>> "spare\ndare".sub(/are\z/, 'X')
+=> "spare\ndX"
+>> "spare\ndare".sub(/are\Z/, 'X')
+=> "spare\ndX"
 
 # different results as there is a newline character at the end of string
->> "dare\n".sub(/are\z/, 'X')
-=> "dare\n"
->> "dare\n".sub(/are\Z/, 'X')
-=> "dX\n"
-</code></pre><p>Combining both the start and end string anchors, you can restrict the matching to the whole string. Similar to comparing strings using the <code>==</code> operator.<pre><code class=language-ruby>>> 'cat'.match?(/\Acat\z/)
+>> "spare\ndare\n".sub(/are\z/, 'X')
+=> "spare\ndare\n"
+>> "spare\ndare\n".sub(/are\Z/, 'X')
+=> "spare\ndX\n"
+</code></pre><p>Combining both the start and end string anchors, you can restrict the matching to the whole string. Which is similar to comparing strings using the <code>==</code> operator.<pre><code class=language-ruby>>> 'cat'.match?(/\Acat\z/)
 => true
 >> 'cater'.match?(/\Acat\z/)
 => false
@@ -86,7 +76,7 @@
 => "cater"
 >> 'hack'.sub(/\z/, 'er')
 => "hacker"
-</code></pre><h2 id=line-anchors><a class=header href=#line-anchors>Line anchors</a></h2><p>A string input may contain single or multiple lines. The newline character <code>\n</code> is used as the line separator. There are two line anchors, <code>^</code> metacharacter for matching the start of line and <code>$</code> for matching the end of line. If there are no newline characters in the input string, these will behave same as the <code>\A</code> and <code>\z</code> anchors respectively.<pre><code class=language-ruby>>> pets = 'cat and dog'
+</code></pre><h2 id=line-anchors><a class=header href=#line-anchors>Line anchors</a></h2><p>A string input may contain single or multiple lines. The newline character <code>\n</code> is considered as the line separator. There are two line anchors, <code>^</code> metacharacter for matching the start of line and <code>$</code> for matching the end of line. If there are no newline characters in the input string, these will behave exactly the same as <code>\A</code> and <code>\z</code> respectively.<pre><code class=language-ruby>>> pets = 'cat and dog'
 
 >> pets.match?(/^cat/)
 => true
@@ -95,31 +85,30 @@
 
 >> pets.match?(/dog$/)
 => true
-
 >> pets.match?(/^dog$/)
 => false
-</code></pre><p>Here's some multiline examples to distinguish line anchors from string anchors.<pre><code class=language-ruby># check if any line in the string starts with 'top'
+</code></pre><p>Here are some multiline examples to distinguish line anchors from string anchors.<pre><code class=language-ruby># check if any line in the string starts with 'top'
 >> "hi hello\ntop spot".match?(/^top/)
 => true
 
 # check if any line in the string ends with 'er'
->> "spare\npar\ndare".match?(/er$/)
+>> "spare\npar\nera\ndare".match?(/er$/)
 => false
 
-# filter all lines ending with 'are'
+# filter lines ending with 'are'
 >> "spare\npar\ndare".each_line.grep(/are$/)
 => ["spare\n", "dare"]
 
-# check if any complete line in the string is 'par'
+# check if any whole line in the string is 'par'
 >> "spare\npar\ndare".match?(/^par$/)
 => true
-</code></pre><p>Just like string anchors, you can use the line anchors by themselves as a pattern. <code>gsub</code> and <code>puts</code> will be used here to better illustrate the transformation. The <code>gsub</code> method returns an Enumerator if you don't specify a replacement string nor pass a block. That paves way to use all those wonderful Enumerator and Enumerable methods.<pre><code class=language-ruby>>> str = "catapults\nconcatenate\ncat"
+</code></pre><p>Just like string anchors, you can use the line anchors by themselves as a pattern. <code>gsub</code> and <code>puts</code> will be used here to better illustrate the transformation. The <code>gsub</code> method returns an Enumerator if you don't specify a replacement string nor pass a block. That paves a way to use all those wonderful Enumerator and Enumerable methods.<pre><code class=language-ruby>>> str = "catapults\nconcatenate\ncat"
 
 >> puts str.gsub(/^/, '1: ')
 1: catapults
 1: concatenate
 1: cat
->> puts str.gsub(/^/).with_index(1) { |m, i| "#{i}: " }
+>> puts str.gsub(/^/).with_index(1) { "#{_2}: " }
 1: catapults
 2: concatenate
 3: cat
@@ -128,38 +117,42 @@
 catapults.
 concatenate.
 cat.
-</code></pre><p>If there is a newline character at the end of string, there is an additional end of line match but no additional start of line match.<pre><code class=language-ruby>>> puts "1\n2\n".gsub(/^/, 'foo ')
-foo 1
-foo 2
->> puts "1\n\n".gsub(/^/, 'foo ')
-foo 1
-foo 
+</code></pre><p>If there is a newline character at the end of the input string, there is an additional end of line match but no additional start of line match.<pre><code class=language-ruby>>> puts "1\n2\n".gsub(/^/, 'fig ')
+fig 1
+fig 2
+>> puts "1\n\n".gsub(/^/, 'fig ')
+fig 1
+fig 
 
-# note the number of lines in output
->> puts "1\n2\n".gsub(/$/, ' baz')
-1 baz
-2 baz
- baz
->> puts "1\n\n".gsub(/$/, ' baz')
-1 baz
- baz
- baz
-</code></pre><blockquote><p><img src=images/warning.svg alt=warning> If you are dealing with Windows OS based text files, you'll have to convert <code>\r\n</code> line endings to <code>\n</code> first. Which is easily handled by many of the Ruby methods. For example, you can specify which line ending to use for <code>File.open</code> method, the <code>split</code> string method handles all whitespaces by default and so on. Or, you can handle <code>\r</code> as optional character with quantifiers (see <a href=./dot-metacharacter-and-quantifiers.html#greedy-quantifiers>Greedy quantifiers</a> section).</blockquote><h2 id=word-anchors><a class=header href=#word-anchors>Word anchors</a></h2><p>The third type of restriction is word anchors. Alphabets (irrespective of case), digits and the underscore character qualify as word characters. You might wonder why there are digits and underscores as well, why not only alphabets? This comes from variable and function naming conventions — typically alphabets, digits and underscores are allowed. So, the definition is more oriented to programming languages than natural ones.<p>The escape sequence <code>\b</code> denotes a word boundary. This works for both the start of word and end of word anchoring. Start of word means either the character prior to the word is a non-word character or there is no character (start of string). Similarly, end of word means the character after the word is a non-word character or no character (end of string). This implies that you cannot have word boundary <code>\b</code> without a word character.<pre><code class=language-ruby>>> words = 'par spar apparent spare part'
+# note the number of lines in the output
+>> puts "1\n2\n".gsub(/$/, ' banana')
+1 banana
+2 banana
+ banana
+>> puts "1\n\n".gsub(/$/, ' banana')
+1 banana
+ banana
+ banana
+</code></pre><blockquote><p><img alt=warning src=images/warning.svg> If you are dealing with Windows OS based text files, you'll have to convert the <code>\r\n</code> line endings to <code>\n</code> first. Which is easily handled by many of the Ruby methods. For example, you can specify the line ending to use for the <code>File.open</code> method, the <code>split</code> string method handles all whitespaces by default and so on. Or, you can handle <code>\r</code> as an optional character with quantifiers (see the <a href=./dot-metacharacter-and-quantifiers.html#greedy-quantifiers>Greedy quantifiers</a> section for examples).</blockquote><h2 id=word-anchors><a class=header href=#word-anchors>Word anchors</a></h2><p>The third type of restriction is word anchors. Alphabets (irrespective of case), digits and the underscore character qualify as word characters. You might wonder why there are digits and underscores as well, why not just alphabets? This comes from variable and function naming conventions — typically alphabets, digits and underscores are allowed. So, the definition is more oriented to programming languages than natural ones.<p>The escape sequence <code>\b</code> denotes a word boundary. This works for both the start and end of word anchoring. Start of word means either the character prior to the word is a non-word character or there is no character (start of string). Similarly, end of word means the character after the word is a non-word character or no character (end of string). This implies that you cannot have word boundaries without a word character.<pre><code class=language-ruby>>> words = 'par spar apparent spare part'
 
 # replace 'par' irrespective of where it occurs
 >> words.gsub(/par/, 'X')
 => "X sX apXent sXe Xt"
+
 # replace 'par' only at the start of word
 >> words.gsub(/\bpar/, 'X')
 => "X spar apparent spare Xt"
+
 # replace 'par' only at the end of word
 >> words.gsub(/par\b/, 'X')
 => "X sX apparent spare part"
+
 # replace 'par' only if it is not part of another word
 >> words.gsub(/\bpar\b/, 'X')
 => "X spar apparent spare part"
-</code></pre><p>You can get lot more creative with using word boundary as a pattern by itself:<pre><code class=language-ruby># space separated words to double quoted csv
-# note the use of 'tr' string method
+</code></pre><p>Using word boundary as a pattern by itself can yield creative solutions:<pre><code class=language-ruby># space separated words to double quoted csv
+# note the use of the 'tr' string method
+>> words = 'par spar apparent spare part'
 >> puts words.gsub(/\b/, '"').tr(' ', ',')
 "par","spar","apparent","spare","part"
 
@@ -168,27 +161,27 @@ foo
 
 # make a programming statement more readable
 # shown for illustration purpose only, won't work for all cases
->> 'foo_baz=num1+35*42/num2'.gsub(/\b/, ' ')
-=> " foo_baz = num1 + 35 * 42 / num2 "
-# excess space at start/end of string can be stripped off
+>> 'output=num1+35*42/num2'.gsub(/\b/, ' ')
+=> " output = num1 + 35 * 42 / num2 "
+# excess space at the start/end of string can be stripped off
 # later you'll learn how to add a qualifier so that strip is not needed
->> 'foo_baz=num1+35*42/num2'.gsub(/\b/, ' ').strip
-=> "foo_baz = num1 + 35 * 42 / num2"
-</code></pre><p>The word boundary has an opposite anchor too. <code>\B</code> matches wherever <code>\b</code> doesn't match. This duality will be seen with some other escape sequences too. Negative logic is handy in many text processing situations. But use it with care, you might end up matching things you didn't intend!<pre><code class=language-ruby>>> words = 'par spar apparent spare part'
+>> 'output=num1+35*42/num2'.gsub(/\b/, ' ').strip
+=> "output = num1 + 35 * 42 / num2"
+</code></pre><h2 id=opposite-word-anchors><a class=header href=#opposite-word-anchors>Opposite Word anchors</a></h2><p>The word boundary has an opposite anchor too. <code>\B</code> matches wherever <code>\b</code> doesn't match. This duality will be seen with some other escape sequences too. Negative logic is handy in many text processing situations. But use it with care, you might end up matching things you didn't intend!<pre><code class=language-ruby>>> words = 'par spar apparent spare part'
 
-# replace 'par' if it is not start of word
+# replace 'par' if it is not at the start of word
 >> words.gsub(/\Bpar/, 'X')
 => "par sX apXent sXe part"
-# replace 'par' at the end of word but not whole word 'par'
+# replace 'par' at the end of word but not the whole word 'par'
 >> words.gsub(/\Bpar\b/, 'X')
 => "par sX apparent spare part"
-# replace 'par' if it is not end of word
+# replace 'par' if it is not at the end of word
 >> words.gsub(/par\B/, 'X')
 => "par spar apXent sXe Xt"
 # replace 'par' if it is surrounded by word characters
 >> words.gsub(/\Bpar\B/, 'X')
 => "par spar apXent sXe part"
-</code></pre><p>Here's some standalone pattern usage to compare and contrast the two word anchors.<pre><code class=language-ruby>>> 'copper'.gsub(/\b/, ':')
+</code></pre><p>Here are some standalone pattern usage to compare and contrast the two word anchors.<pre><code class=language-ruby>>> 'copper'.gsub(/\b/, ':')
 => ":copper:"
 >> 'copper'.gsub(/\B/, ':')
 => "c:o:p:p:e:r"
@@ -197,7 +190,7 @@ foo
 => "----- hello -----"
 >> '-----hello-----'.gsub(/\B/, ' ')
 => " - - - - -h e l l o- - - - - "
-</code></pre><h2 id=cheatsheet-and-summary><a class=header href=#cheatsheet-and-summary>Cheatsheet and Summary</a></h2><table><thead><tr><th>Note<th>Description<tbody><tr><td><code>\A</code><td>restricts the match to the start of string<tr><td><code>\z</code><td>restricts the match to the end of string<tr><td><code>\Z</code><td>restricts the match to end or just before newline at the end of string<tr><td><code>\n</code><td>line separator, dos-style files need special attention<tr><td>metacharacter<td>characters with special meaning in regexp<tr><td><code>^</code><td>restricts the match to the start of line<tr><td><code>$</code><td>restricts the match to the end of line<tr><td><code>\b</code><td>restricts the match to the start/end of words<tr><td><td>word characters: alphabets, digits, underscore<tr><td><code>\B</code><td>matches wherever <code>\b</code> doesn't match</table><p>In this chapter, you've begun to see building blocks of regular expressions and how they can be used in interesting ways. At the same time, regular expression is but another tool for text processing. Often, you'd get simpler solution by combining regular expressions with other string and Enumerable methods. Practice, experience and imagination would help you construct creative solutions. In coming chapters, you'll see more applications of anchors as well as <a href=./lookarounds.html#g-anchor><code>\G</code> anchor</a> which is best understood in combination with other regexp features.<h2 id=exercises><a class=header href=#exercises>Exercises</a></h2><p><strong>a)</strong> Check if the given strings start with <code>be</code>.<pre><code class=language-ruby>>> line1 = 'be nice'
+</code></pre><h2 id=cheatsheet-and-summary><a class=header href=#cheatsheet-and-summary>Cheatsheet and Summary</a></h2><div class=table-wrapper><table><thead><tr><th>Note<th>Description<tbody><tr><td><code>\A</code><td>restricts the match to the start of string<tr><td><code>\z</code><td>restricts the match to the end of string<tr><td><code>\Z</code><td>restricts the match to end or just before a newline at the end of string<tr><td><code>\n</code><td>line separator<tr><td><td>DOS-style files need special attention<tr><td>metacharacter<td>characters with special meaning in regexp<tr><td><code>^</code><td>restricts the match to the start of line<tr><td><code>$</code><td>restricts the match to the end of line<tr><td><code>\b</code><td>restricts the match to the start and end of words<tr><td><td>word characters: alphabets, digits, underscore<tr><td><code>\B</code><td>matches wherever <code>\b</code> doesn't match</table></div><p>In this chapter, you've begun to see building blocks of regular expressions and how they can be used in interesting ways. At the same time, regular expression is but another tool for text processing problems. Often, you'd get simpler solution by combining regular expressions with other string and Enumerable methods. Practice, experience and imagination would help you in constructing creative solutions. In the coming chapters, you'll see more applications of anchors as well as the <a href=./lookarounds.html#g-anchor><code>\G</code> anchor</a> which is best understood in combination with other regexp features.<h2 id=exercises><a class=header href=#exercises>Exercises</a></h2><p><strong>1)</strong> Check if the given strings start with <code>be</code>.<pre><code class=language-ruby>>> line1 = 'be nice'
 >> line2 = '"best!"'
 >> line3 = 'better?'
 >> line4 = 'oh no\nbear spotted'
@@ -212,44 +205,46 @@ foo
 => true
 >> pat.match?(line4)
 => false
-</code></pre><p><strong>b)</strong> For the given input string, change only whole word <code>red</code> to <code>brown</code><pre><code class=language-ruby>>> words = 'bred red spread credible'
+</code></pre><p><strong>2)</strong> For the given input string, change only the whole word <code>red</code> to <code>brown</code>.<pre><code class=language-ruby>>> words = 'bred red spread credible red.'
 
 >> words.gsub()     ##### add your solution here
-=> "bred brown spread credible"
-</code></pre><p><strong>c)</strong> For the given input array, filter all elements containing <code>42</code> surrounded by word characters.<pre><code class=language-ruby>>> items = ['hi42bye', 'nice1423', 'bad42', 'cool_42a', 'fake4b']
+=> "bred brown spread credible brown."
+</code></pre><p><strong>3)</strong> For the given input array, filter elements that contain <code>42</code> surrounded by word characters.<pre><code class=language-ruby>>> items = ['hi42bye', 'nice1423', 'bad42', 'cool_42a', '42fake', '_42_']
 
 >> items.grep()     ##### add your solution here
-=> ["hi42bye", "nice1423", "cool_42a"]
-</code></pre><p><strong>d)</strong> For the given input array, filter all elements that start with <code>den</code> or end with <code>ly</code><pre><code class=language-ruby>>> items = ['lovely', "1\ndentist", '2 lonely', 'eden', "fly\n", 'dent']
+=> ["hi42bye", "nice1423", "cool_42a", "_42_"]
+</code></pre><p><strong>4)</strong> For the given input array, filter elements that start with <code>den</code> or end with <code>ly</code>.<pre><code class=language-ruby>>> items = ['lovely', "1\ndentist", '2 lonely', 'eden', "fly\n", 'dent']
 
 >> items.filter { }     ##### add your solution here
 => ["lovely", "2 lonely", "dent"]
-</code></pre><p><strong>e)</strong> For the given input string, change whole word <code>mall</code> to <code>1234</code> only if it is at start of line.<pre><code class=language-ruby>'> para = %q{ball fall wall tall
+</code></pre><p><strong>5)</strong> For the given input string, change whole word <code>mall</code> to <code>1234</code> only if it is at the start of a line.<pre><code class=language-ruby>'> para = %q{(mall) call ball pall
+'> ball fall wall tall
 '> mall call ball pall
 '> wall mall ball fall
->> mallet wallet malls}
+'> mallet wallet malls
+>> mall:call:ball:pall}
 
 >> puts para.gsub()     ##### add your solution here
+(mall) call ball pall
 ball fall wall tall
 1234 call ball pall
 wall mall ball fall
 mallet wallet malls
-</code></pre><p><strong>f)</strong> For the given array, filter all elements having a line starting with <code>den</code> or ending with <code>ly</code>.<pre><code class=language-ruby>>> items = ['lovely', "1\ndentist", '2 lonely', 'eden', "fly\nfar", 'dent']
+1234:call:ball:pall
+</code></pre><p><strong>6)</strong> For the given array, filter elements having a line starting with <code>den</code> or ending with <code>ly</code>.<pre><code class=language-ruby>>> items = ['lovely', "1\ndentist", '2 lonely', 'eden', "fly\nfar", 'dent']
 
 >> items.filter { }     ##### add your solution here
 => ["lovely", "1\ndentist", "2 lonely", "fly\nfar", "dent"]
-</code></pre><p><strong>g)</strong> For the given input array, filter all whole elements <code>12\nthree</code> irrespective of case.<pre><code class=language-ruby>>> items = ["12\nthree\n", "12\nThree", "12\nthree\n4", "12\nthree"]
+</code></pre><p><strong>7)</strong> For the given input array, filter all whole elements <code>12\nthree</code> irrespective of case.<pre><code class=language-ruby>>> items = ["12\nthree\n", "12\nThree", "12\nthree\n4", "12\nthree"]
 
 >> items.grep()     ##### add your solution here
 => ["12\nThree", "12\nthree"]
-</code></pre><p><strong>h)</strong> For the given input array, replace <code>hand</code> with <code>X</code> for all words that start with <code>hand</code> followed by at least one word character.<pre><code class=language-ruby>>> items = %w[handed hand handy unhanded handle hand-2]
+</code></pre><p><strong>8)</strong> For the given input array, replace <code>hand</code> with <code>X</code> for all elements that start with <code>hand</code> followed by at least one word character.<pre><code class=language-ruby>>> items = %w[handed hand handy unhanded handle hand-2]
 
 >> items.map { }        ##### add your solution here
 => ["Xed", "hand", "Xy", "unhanded", "Xle", "hand-2"]
-</code></pre><p><strong>i)</strong> For the given input array, filter all elements starting with <code>h</code>. Additionally, replace <code>e</code> with <code>X</code> for these filtered elements.<pre><code class=language-ruby>>> items = %w[handed hand handy unhanded handle hand-2]
+</code></pre><p><strong>9)</strong> For the given input array, filter all elements starting with <code>h</code>. Additionally, replace <code>e</code> with <code>X</code> for these filtered elements.<pre><code class=language-ruby>>> items = %w[handed hand handy unhanded handle hand-2]
 
 >> items.filter_map { }     ##### add your solution here
 => ["handXd", "hand", "handy", "handlX", "hand-2"]
-</code></pre></main><nav class=nav-wrapper aria-label="Page navigation"><a rel=prev href=regexp-introduction.html class="mobile-nav-chapters previous"title="Previous chapter"aria-label="Previous chapter"aria-keyshortcuts=Left> <i class="fa fa-angle-left"></i> </a><a rel=next href=alternation-and-grouping.html class="mobile-nav-chapters next"title="Next chapter"aria-label="Next chapter"aria-keyshortcuts=Right> <i class="fa fa-angle-right"></i> </a><div style="clear: both"></div></nav></div></div><nav class=nav-wide-wrapper aria-label="Page navigation"><a rel=prev href=regexp-introduction.html class="nav-chapters previous"title="Previous chapter"aria-label="Previous chapter"aria-keyshortcuts=Left> <i class="fa fa-angle-left"></i> </a><a rel=next href=alternation-and-grouping.html class="nav-chapters next"title="Next chapter"aria-label="Next chapter"aria-keyshortcuts=Right> <i class="fa fa-angle-right"></i> </a></nav></div><script>
-            window.playground_copyable = true;
-        </script><script src=elasticlunr.min.js charset=utf-8></script><script src=mark.min.js charset=utf-8></script><script src=searcher.js charset=utf-8></script><script src=clipboard.min.js charset=utf-8></script><script src=highlight.js charset=utf-8></script><script src=book.js charset=utf-8></script><script src=sidebar.js></script>
+</code></pre></main><nav aria-label="Page navigation"class=nav-wrapper><a aria-label="Previous chapter"class="mobile-nav-chapters previous"title="Previous chapter"aria-keyshortcuts=Left href=regexp-introduction.html rel=prev> <i class="fa fa-angle-left"></i> </a><a aria-label="Next chapter"class="mobile-nav-chapters next"title="Next chapter"aria-keyshortcuts=Right href=alternation-and-grouping.html rel=next> <i class="fa fa-angle-right"></i> </a><div style="clear: both"></div></nav></div></div><nav aria-label="Page navigation"class=nav-wide-wrapper><a aria-label="Previous chapter"class="nav-chapters previous"title="Previous chapter"aria-keyshortcuts=Left href=regexp-introduction.html rel=prev> <i class="fa fa-angle-left"></i> </a><a aria-label="Next chapter"class="nav-chapters next"title="Next chapter"aria-keyshortcuts=Right href=alternation-and-grouping.html rel=next> <i class="fa fa-angle-right"></i> </a></nav></div><script>window.playground_copyable = true;</script><script charset=utf-8 src=elasticlunr.min.js></script><script charset=utf-8 src=mark.min.js></script><script charset=utf-8 src=searcher.js></script><script charset=utf-8 src=clipboard.min.js></script><script charset=utf-8 src=highlight.js></script><script charset=utf-8 src=book.js></script><script src=sidebar.js></script>

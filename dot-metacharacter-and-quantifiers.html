@@ -1,8 +1,5 @@
-<!DOCTYPE HTML><html lang=en class="sidebar-visible no-js light"><head><meta charset=UTF-8><title>Dot metacharacter and Quantifiers - Ruby Regexp</title><meta content="text/html; charset=utf-8"http-equiv=Content-Type><meta name=description content="Example based guide to mastering Ruby Regexp"><meta name=viewport content="width=device-width, initial-scale=1"><meta name=theme-color content=#ffffff><link rel=icon href=favicon.svg><link rel="shortcut icon"href=favicon.png><link rel=stylesheet href=css/variables.css><link rel=stylesheet href=css/general.css><link rel=stylesheet href=css/chrome.css><link rel=stylesheet href=FontAwesome/css/font-awesome.css><link rel=stylesheet href=fonts/fonts.css><link rel=stylesheet href=highlight.css><link rel=stylesheet href=tomorrow-night.css><link rel=stylesheet href=ayu-highlight.css><link rel=stylesheet href=style.css><body><script>
-            var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
-        </script><script>
-            try {
+<!doctypehtml><html class="sidebar-visible no-js light"lang=en><head><meta charset=UTF-8><title>Dot metacharacter and Quantifiers - Understanding Ruby Regexp</title><meta content="text/html; charset=utf-8"http-equiv=Content-Type><meta content="Learn Ruby Regular Expressions step-by-step from beginner to advanced levels with hundreds of examples and exercises"name=description><meta content=width=device-width,initial-scale=1 name=viewport><meta content=#ffffff name=theme-color><meta content="Understanding Ruby Regexp"property=og:title><meta content=website property=og:type><meta content="Learn Ruby Regular Expressions step-by-step from beginner to advanced levels with hundreds of examples and exercises"property=og:description><meta content=https://learnbyexample.github.io/Ruby_Regexp/ property=og:url><meta content=https://raw.githubusercontent.com/learnbyexample/Ruby_Regexp/master/images/ruby_regexp_ls.png property=og:image><meta content=1280 property=og:image:width><meta content=720 property=og:image:height><meta content=summary_large_image property=twitter:card><meta content=@learn_byexample property=twitter:site><link href=favicon.svg rel=icon><link rel="shortcut icon"href=favicon.png><link href=css/variables.css rel=stylesheet><link href=css/general.css rel=stylesheet><link href=css/chrome.css rel=stylesheet><link href=FontAwesome/css/font-awesome.css rel=stylesheet><link href=fonts/fonts.css rel=stylesheet><link href=highlight.css rel=stylesheet><link href=tomorrow-night.css rel=stylesheet><link href=ayu-highlight.css rel=stylesheet><link href=style.css rel=stylesheet><body><script>var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";</script><script>try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
 
@@ -13,54 +10,51 @@
                 if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
                     localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
                 }
-            } catch (e) { }
-        </script><script>
-            var theme;
+            } catch (e) { }</script><script>var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
             html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
-        </script><script>
-            var html = document.querySelector('html');
+            html.classList.add('js');</script><script>var html = document.querySelector('html');
             var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             }
             html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
-        </script><nav id=sidebar class=sidebar aria-label="Table of contents"><div class=sidebar-scrollbox><ol class=chapter><li class="chapter-item expanded affix"><a href=cover.html>Cover</a><li class="chapter-item expanded affix"><a href=buy.html>Buy PDF/EPUB versions</a><li class="chapter-item expanded"><a href=preface.html><strong aria-hidden=true>1.</strong> Preface</a><li class="chapter-item expanded"><a href=why-is-it-needed.html><strong aria-hidden=true>2.</strong> Why is it needed?</a><li class="chapter-item expanded"><a href=regexp-introduction.html><strong aria-hidden=true>3.</strong> Regexp introduction</a><li class="chapter-item expanded"><a href=anchors.html><strong aria-hidden=true>4.</strong> Anchors</a><li class="chapter-item expanded"><a href=alternation-and-grouping.html><strong aria-hidden=true>5.</strong> Alternation and Grouping</a><li class="chapter-item expanded"><a href=escaping-metacharacters.html><strong aria-hidden=true>6.</strong> Escaping metacharacters</a><li class="chapter-item expanded"><a href=dot-metacharacter-and-quantifiers.html class=active><strong aria-hidden=true>7.</strong> Dot metacharacter and Quantifiers</a><li class="chapter-item expanded"><a href=interlude-tools-for-debugging-and-visualization.html><strong aria-hidden=true>8.</strong> Interlude: Tools for debugging and visualization</a><li class="chapter-item expanded"><a href=working-with-matched-portions.html><strong aria-hidden=true>9.</strong> Working with matched portions</a><li class="chapter-item expanded"><a href=character-class.html><strong aria-hidden=true>10.</strong> Character class</a><li class="chapter-item expanded"><a href=groupings-and-backreferences.html><strong aria-hidden=true>11.</strong> Groupings and backreferences</a><li class="chapter-item expanded"><a href=interlude-common-tasks.html><strong aria-hidden=true>12.</strong> Interlude: Common tasks</a><li class="chapter-item expanded"><a href=lookarounds.html><strong aria-hidden=true>13.</strong> Lookarounds</a><li class="chapter-item expanded"><a href=modifiers.html><strong aria-hidden=true>14.</strong> Modifiers</a><li class="chapter-item expanded"><a href=unicode.html><strong aria-hidden=true>15.</strong> Unicode</a><li class="chapter-item expanded"><a href=further-reading.html><strong aria-hidden=true>16.</strong> Further Reading</a><li class="chapter-item expanded"><a href=Exercise_solutions.html><strong aria-hidden=true>17.</strong> Exercise Solutions</a></li><br><hr><li class="chapter-item expanded"><i id=git-repository-button class="fa fa-github"></i><a href=https://github.com/learnbyexample/Ruby_Regexp>   Source code</a><li class="chapter-item expanded"><i id=home-button class="fa fa-home"></i><a href=https://learnbyexample.github.io/>   My Blog</a><li class="chapter-item expanded"><i id=book-button class="fa fa-book"></i><a href=https://learnbyexample.github.io/books/>   My Books</a><li class="chapter-item expanded"><i id=mail-button class="fa fa-envelope"></i><a href=https://learnbyexample.gumroad.com/l/learnbyexample-weekly>   learnbyexample weekly</a></ol></div><div id=sidebar-resize-handle class=sidebar-resize-handle></div></nav><div id=page-wrapper class=page-wrapper><div class=page><div id=menu-bar-hover-placeholder></div><div id=menu-bar class="menu-bar sticky bordered"><div class=left-buttons><button id=sidebar-toggle class=icon-button type=button title="Toggle Table of Contents"aria-label="Toggle Table of Contents"aria-controls=sidebar><i class="fa fa-bars"></i></button><button id=theme-toggle class=icon-button type=button title="Change theme"aria-label="Change theme"aria-haspopup=true aria-expanded=false aria-controls=theme-list><i class="fa fa-paint-brush"></i></button><ul id=theme-list class=theme-popup aria-label=Themes role=menu><li role=none><button role=menuitem class=theme id=light>Light (default)</button><li role=none><button role=menuitem class=theme id=rust>Rust</button><li role=none><button role=menuitem class=theme id=coal>Coal</button><li role=none><button role=menuitem class=theme id=navy>Navy</button><li role=none><button role=menuitem class=theme id=ayu>Ayu</button></ul><button id=search-toggle class=icon-button type=button title="Search. (Shortkey: s)"aria-label="Toggle Searchbar"aria-expanded=false aria-keyshortcuts=S aria-controls=searchbar><i class="fa fa-search"></i></button></div><h1 class=menu-title>Ruby Regexp</h1><div class=right-buttons><a href=https://learnbyexample.github.io title=Blog aria-label=Blog> <i id=home-button class="fa fa-home"></i> </a><a href=https://github.com/learnbyexample/Ruby_Regexp title="Git repository"aria-label="Git repository"> <i id=git-repository-button class="fa fa-github"></i> </a></div></div><div id=search-wrapper class=hidden><form id=searchbar-outer class=searchbar-outer><input type=search id=searchbar name=searchbar placeholder="Search this book ..."aria-controls=searchresults-outer aria-describedby=searchresults-header></form><div id=searchresults-outer class="searchresults-outer hidden"><div id=searchresults-header class=searchresults-header></div><ul id=searchresults></ul></div></div><script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+            html.classList.add("sidebar-" + sidebar);</script><nav aria-label="Table of contents"class=sidebar id=sidebar><div class=sidebar-scrollbox><ol class=chapter><li class="chapter-item expanded affix"><a href=cover.html>Cover</a><li class="chapter-item expanded affix"><a href=buy.html>Buy PDF/EPUB versions</a><li class="chapter-item expanded"><a href=preface.html><strong aria-hidden=true>1.</strong> Preface</a><li class="chapter-item expanded"><a href=why-is-it-needed.html><strong aria-hidden=true>2.</strong> Why is it needed?</a><li class="chapter-item expanded"><a href=regexp-introduction.html><strong aria-hidden=true>3.</strong> Regexp introduction</a><li class="chapter-item expanded"><a href=anchors.html><strong aria-hidden=true>4.</strong> Anchors</a><li class="chapter-item expanded"><a href=alternation-and-grouping.html><strong aria-hidden=true>5.</strong> Alternation and Grouping</a><li class="chapter-item expanded"><a href=escaping-metacharacters.html><strong aria-hidden=true>6.</strong> Escaping metacharacters</a><li class="chapter-item expanded"><a class=active href=dot-metacharacter-and-quantifiers.html><strong aria-hidden=true>7.</strong> Dot metacharacter and Quantifiers</a><li class="chapter-item expanded"><a href=interlude-tools-for-debugging-and-visualization.html><strong aria-hidden=true>8.</strong> Interlude: Tools for debugging and visualization</a><li class="chapter-item expanded"><a href=working-with-matched-portions.html><strong aria-hidden=true>9.</strong> Working with matched portions</a><li class="chapter-item expanded"><a href=character-class.html><strong aria-hidden=true>10.</strong> Character class</a><li class="chapter-item expanded"><a href=groupings-and-backreferences.html><strong aria-hidden=true>11.</strong> Groupings and backreferences</a><li class="chapter-item expanded"><a href=interlude-common-tasks.html><strong aria-hidden=true>12.</strong> Interlude: Common tasks</a><li class="chapter-item expanded"><a href=lookarounds.html><strong aria-hidden=true>13.</strong> Lookarounds</a><li class="chapter-item expanded"><a href=modifiers.html><strong aria-hidden=true>14.</strong> Modifiers</a><li class="chapter-item expanded"><a href=unicode.html><strong aria-hidden=true>15.</strong> Unicode</a><li class="chapter-item expanded"><a href=further-reading.html><strong aria-hidden=true>16.</strong> Further Reading</a><li class="chapter-item expanded"><a href=Exercise_solutions.html><strong aria-hidden=true>17.</strong> Exercise Solutions</a></li><br><hr><li class="chapter-item expanded"><i class="fa fa-github"id=git-repository-button></i><a href=https://github.com/learnbyexample/Ruby_Regexp>   Source code</a><li class="chapter-item expanded"><i class="fa fa-home"id=home-button></i><a href=https://learnbyexample.github.io/>   My Blog</a><li class="chapter-item expanded"><i class="fa fa-book"id=book-button></i><a href=https://learnbyexample.github.io/books/>   My Books</a><li class="chapter-item expanded"><i class="fa fa-envelope"id=mail-button></i><a href=https://learnbyexample.gumroad.com/l/learnbyexample-weekly>   learnbyexample weekly</a><li class="chapter-item expanded"><i class="fa fa-twitter"id=twitter-button></i><a href=https://twitter.com/learn_byexample>   Twitter</a></ol></div><div class=sidebar-resize-handle id=sidebar-resize-handle></div></nav><div class=page-wrapper id=page-wrapper><div class=page><div id=menu-bar-hover-placeholder></div><div class="menu-bar sticky bordered"id=menu-bar><div class=left-buttons><button aria-label="Toggle Table of Contents"title="Toggle Table of Contents"aria-controls=sidebar class=icon-button id=sidebar-toggle type=button><i class="fa fa-bars"></i></button><button aria-label="Change theme"title="Change theme"aria-controls=theme-list aria-expanded=false aria-haspopup=true class=icon-button id=theme-toggle type=button><i class="fa fa-paint-brush"></i></button><ul aria-label=Themes class=theme-popup id=theme-list role=menu><li role=none><button class=theme id=light role=menuitem>Light (default)</button><li role=none><button class=theme id=rust role=menuitem>Rust</button><li role=none><button class=theme id=coal role=menuitem>Coal</button><li role=none><button class=theme id=navy role=menuitem>Navy</button><li role=none><button class=theme id=ayu role=menuitem>Ayu</button></ul><button aria-label="Toggle Searchbar"title="Search. (Shortkey: s)"aria-controls=searchbar aria-expanded=false aria-keyshortcuts=S class=icon-button id=search-toggle type=button><i class="fa fa-search"></i></button></div><h1 class=menu-title>Understanding Ruby Regexp</h1><div class=right-buttons><a aria-label=Blog href=https://learnbyexample.github.io title=Blog> <i class="fa fa-home"id=home-button></i> </a><a aria-label=Twitter href=https://twitter.com/learn_byexample title=Twitter> <i class="fa fa-twitter"id=twitter-button></i> </a><a aria-label="Git repository"title="Git repository"href=https://github.com/learnbyexample/Ruby_Regexp> <i class="fa fa-github"id=git-repository-button></i> </a></div></div><div class=hidden id=search-wrapper><form class=searchbar-outer id=searchbar-outer><input placeholder="Search this book ..."aria-controls=searchresults-outer aria-describedby=searchresults-header id=searchbar name=searchbar type=search></form><div class="searchresults-outer hidden"id=searchresults-outer><div class=searchresults-header id=searchresults-header></div><ul id=searchresults></ul></div></div><script>document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
-                    });
-                </script><div id=content class=content><main><div class=sidetoc><nav class=pagetoc></nav></div><h1 id=dot-metacharacter-and-quantifiers><a class=header href=#dot-metacharacter-and-quantifiers>Dot metacharacter and Quantifiers</a></h1><p>This chapter introduces dot metacharacter and quantifiers. As the name implies, quantifiers allows you to specify how many times a character or grouping should be matched. With <code>*</code> string operator, you can do something like <code>'no' * 5</code> to get <code>"nonononono"</code>. This saves you manual repetition as well as gives the ability to programmatically repeat a string object as many times as you need. Quantifiers support this simple repetition as well as ways to specify a range of repetition. This range has the flexibility of being bounded or unbounded with respect to start and end values. Combined with dot metacharacter (and alternation if needed), quantifiers allow you to construct conditional AND logic between patterns.<h2 id=dot-metacharacter><a class=header href=#dot-metacharacter>Dot metacharacter</a></h2><p>The dot metacharacter matches any character except the newline character.<pre><code class=language-ruby># matches character 'c', any character and then character 't'
+                    });</script><div class=content id=content><main><div class=sidetoc><nav class=pagetoc></nav></div><h1 id=dot-metacharacter-and-quantifiers><a class=header href=#dot-metacharacter-and-quantifiers>Dot metacharacter and Quantifiers</a></h1><p>This chapter introduces the dot metacharacter and metacharacters related to quantifiers. As the name implies, quantifiers allows you to specify how many times a character or grouping should be matched. With the <code>*</code> string operator, you can do something like <code>'no' * 5</code> to get <code>'nonononono'</code>. This saves you manual repetition as well as gives the ability to programmatically repeat a string object as many times as you need. Quantifiers support this simple repetition as well as ways to specify a range of repetition. This range has the flexibility of being bounded or unbounded with respect to the start and end values. Combined with the dot metacharacter (and alternation if needed), quantifiers allow you to construct conditional AND logic between patterns.<h2 id=dot-metacharacter><a class=header href=#dot-metacharacter>Dot metacharacter</a></h2><p>The dot metacharacter serves as a placeholder to match any character except the newline character.<pre><code class=language-ruby># matches character 'c', any character and then character 't'
 >> 'tac tin c.t abc;tuv acute'.gsub(/c.t/, 'X')
 => "taXin X abXuv aXe"
 
 # matches character 'r', any two characters and then character 'd'
->> 'breadth markedly reported overrides'.gsub(/r..d/) { |s| s.upcase }
+>> 'breadth markedly reported overrides'.gsub(/r..d/) { _1.upcase }
 => "bREADth maRKEDly repoRTED oveRRIDes"
 
 # matches character '2', any character and then character '3'
->> "42\t33".sub(/2.3/, '8')
-=> "483"
-</code></pre><p>See <a href=./modifiers.html#m-modifier>m modifier</a> section to know how <code>.</code> can match newline as well. Chapter <a href=./character-class.html#character-class>Character class</a> will discuss how to define your own custom placeholder for limited set of characters.<h2 id=split-method><a class=header href=#split-method>split method</a></h2><p>This chapter will additionally use <code>split</code> method to illustrate examples. The <code>split</code> method separates the string based on given regexp (or string) and returns an array of strings.<pre><code class=language-ruby># same as: 'apple-85-mango-70'.split('-')
+>> "42\t35".sub(/2.3/, '8')
+=> "485"
+
+# by default, the dot metacharacter doesn't match the newline character
+>> "a\nb".match?(/a.b/)
+=> false
+</code></pre><p>See the <a href=./modifiers.html#m-modifier>m modifier</a> section to know how the <code>.</code> metacharacter can match newlines as well. The <a href=./character-class.html#character-class>Character class</a> chapter will discuss how to define your own custom placeholder for limited set of characters.<h2 id=split-method><a class=header href=#split-method>split method</a></h2><p>This chapter will additionally use the <code>split</code> method to illustrate examples. The <code>split</code> method separates the string based on a given regexp (or string) and returns an array of strings.<pre><code class=language-ruby># same as: 'apple-85-mango-70'.split('-')
 >> 'apple-85-mango-70'.split(/-/)
 => ["apple", "85", "mango", "70"]
 
->> 'bus:3:car:5:van'.split(/:.:/)
+>> 'bus:3:car:-:van'.split(/:.:/)
 => ["bus", "car", "van"]
 
-# optional limit can be specified as second argument
-# when limit is positive, you get maximum of limit-1 splits
+# optional limit can be specified as the second argument
+# when the limit is positive, you get a maximum of limit-1 splits
 >> 'apple-85-mango-70'.split(/-/, 2)
 => ["apple", "85-mango-70"]
-</code></pre><p>See <a href=./working-with-matched-portions.html#split-with-capture-groups>split with capture groups</a> section for details of how capture groups affect the output of <code>split</code> method.<h2 id=greedy-quantifiers><a class=header href=#greedy-quantifiers>Greedy quantifiers</a></h2><p>Quantifiers have functionality like the string repetition operator and range method. They can be applied to both characters and groupings (and more, as you'll see in later chapters). Apart from ability to specify exact quantity and bounded range, these can also match unbounded varying quantities. If the input string can satisfy a pattern with varying quantities in multiple ways, you can choose among three types of quantifiers to narrow down possibilities. In this section, <strong>greedy</strong> type of quantifiers is covered.<p>First up, the <code>?</code> metacharacter which quantifies a character or group to match <code>0</code> or <code>1</code> times. In other words, you make that character or group as something to be optionally matched. This leads to a terser regexp compared to alternation and grouping.<pre><code class=language-ruby># same as: /ear|ar/
+</code></pre><p>See the <a href=./working-with-matched-portions.html#split-with-capture-groups>split with capture groups</a> section for details of how capture groups affect the output of the <code>split</code> method.<h2 id=greedy-quantifiers><a class=header href=#greedy-quantifiers>Greedy quantifiers</a></h2><p>Quantifiers have functionality like the string repetition operator and the range method. They can be applied to characters and groupings (and more, as you'll see in later chapters). Apart from the ability to specify exact quantity and bounded range, these can also match unbounded varying quantities. If the input string can satisfy a pattern with varying quantities in multiple ways, you can choose among three types of quantifiers to narrow down possibilities. In this section, <strong>greedy</strong> type of quantifiers is covered.<p>First up, the <code>?</code> metacharacter which quantifies a character or group to match <code>0</code> or <code>1</code> times. In other words, you make that character or group as something to be optionally matched. This leads to a terser regexp compared to alternation and grouping.<pre><code class=language-ruby># same as: /ear|ar/
 >> 'far feat flare fear'.gsub(/e?ar/, 'X')
 => "fX feat flXe fX"
 
@@ -79,10 +73,9 @@
 # same as: /part|parrot|parent/
 >> 'par part parrot parent'.gsub(/par(en|ro)?t/, 'X')
 => "par X X X"
-</code></pre><p>The <code>*</code> metacharacter quantifies a character or group to match <code>0</code> or more times. There is no upper bound, more details will be discussed later in this chapter.<pre><code class=language-ruby># match 't' followed by zero or more of 'a' followed by 'r'
+</code></pre><p>The <code>*</code> metacharacter quantifies a character or group to match <code>0</code> or more times.<pre><code class=language-ruby># match 't' followed by zero or more of 'a' followed by 'r'
 >> 'tr tear tare steer sitaara'.gsub(/ta*r/, 'X')
 => "X tear Xe steer siXa"
-
 # match 't' followed by zero or more of 'e' or 'a' followed by 'r'
 >> 'tr tear tare steer sitaara'.gsub(/t(e|a)*r/, 'X')
 => "X X Xe sX siXa"
@@ -90,7 +83,7 @@
 # match zero or more of '1' followed by '2'
 >> '3111111111125111142'.gsub(/1*2/, 'X')
 => "3X511114X"
-</code></pre><p>Here's some examples with <code>split</code> and related methods. <code>partition</code> splits the input string on the first match and the text matched by the regexp is also present in the output. <code>rpartition</code> is like <code>partition</code> but splits on the last match.<pre><code class=language-ruby># note how '25' and '42' gets split, there is '1' zero times in between them
+</code></pre><p>Here are some examples with <code>split</code> and related methods. The <code>partition</code> method splits the input string on the first match and the text matched by the regexp is also present in the output. <code>rpartition</code> is like <code>partition</code> but splits on the last match.<pre><code class=language-ruby># note how '25' and '42' gets split, there is '1' zero times in between them
 >> '3111111111125111142'.split(/1*/)
 => ["3", "2", "5", "4", "2"]
 # there is '1' zero times at end of string as well, note the use of -1 for limit
@@ -99,11 +92,10 @@
 
 >> '3111111111125111142'.partition(/1*2/)
 => ["3", "11111111112", "5111142"]
-
 # last element is empty because there is nothing after 2 at the end of string
 >> '3111111111125111142'.rpartition(/1*2/)
 => ["311111111112511114", "2", ""]
-</code></pre><p>The <code>+</code> metacharacter quantifies a character or group to match <code>1</code> or more times. Similar to <code>*</code> quantifier, there is no upper bound. More importantly, this doesn't have surprises like matching empty string in between patterns or at the end of string.<pre><code class=language-ruby>>> 'tr tear tare steer sitaara'.gsub(/ta+r/, 'X')
+</code></pre><p>The <code>+</code> metacharacter quantifies a character or group to match <code>1</code> or more times. Similar to the <code>*</code> quantifier, there is no upper bound. More importantly, this doesn't have surprises like matching an empty string at unexpected places.<pre><code class=language-ruby>>> 'tr tear tare steer sitaara'.gsub(/ta+r/, 'X')
 => "tr tear Xe steer siXa"
 >> 'tr tear tare steer sitaara'.gsub(/t(e|a)+r/, 'X')
 => "tr X Xe sX siXa"
@@ -112,23 +104,31 @@
 => "3X5111142"
 >> '3111111111125111142'.split(/1+/)
 => ["3", "25", "42"]
-</code></pre><p>You can specify a range of integer numbers, both bounded and unbounded, using <code>{}</code> metacharacters. There are four ways to use this quantifier as listed below:<table><thead><tr><th>Pattern<th>Description<tbody><tr><td><code>{m,n}</code><td>match <code>m</code> to <code>n</code> times<tr><td><code>{m,}</code><td>match at least <code>m</code> times<tr><td><code>{,n}</code><td>match up to <code>n</code> times (including <code>0</code> times)<tr><td><code>{n}</code><td>match exactly <code>n</code> times</table><pre><code class=language-ruby>>> demo = %w[abc ac adc abbc xabbbcz bbb bc abbbbbc]
+</code></pre><p>You can specify a range of integer numbers, both bounded and unbounded, using the <code>{}</code> metacharacters. There are four ways to use this quantifier as shown below:<div class=table-wrapper><table><thead><tr><th>Pattern<th>Description<tbody><tr><td><code>{m,n}</code><td>match <code>m</code> to <code>n</code> times<tr><td><code>{m,}</code><td>match at least <code>m</code> times<tr><td><code>{,n}</code><td>match up to <code>n</code> times (including <code>0</code> times)<tr><td><code>{n}</code><td>match exactly <code>n</code> times</table></div><pre><code class=language-ruby>>> repeats = %w[abc ac adc abbc xabbbcz bbb bc abbbbbc]
 
->> demo.grep(/ab{1,4}c/)
+>> repeats.grep(/ab{1,4}c/)
 => ["abc", "abbc", "xabbbcz"]
->> demo.grep(/ab{3,}c/)
+>> repeats.grep(/ab{3,}c/)
 => ["xabbbcz", "abbbbbc"]
->> demo.grep(/ab{,2}c/)
+>> repeats.grep(/ab{,2}c/)
 => ["abc", "ac", "abbc"]
->> demo.grep(/ab{3}c/)
+>> repeats.grep(/ab{3}c/)
 => ["xabbbcz"]
-</code></pre><blockquote><p><img src=images/info.svg alt=info> The <code>{}</code> metacharacters have to be escaped to match them literally. However, unlike <code>()</code> metacharacters, these have lot more leeway. For example, escaping <code>{</code> alone is enough, or if it doesn't conform strictly to any of the four forms listed above, escaping is not needed at all. Also, if you are applying <code>{}</code> quantifier to <code>#</code> character, you need to escape the <code>#</code> to override interpolation.</blockquote><h2 id=and-conditional><a class=header href=#and-conditional>AND conditional</a></h2><p>Next up, how to construct AND conditional using dot metacharacter and quantifiers.<pre><code class=language-ruby># match 'Error' followed by zero or more characters followed by 'valid'
+</code></pre><blockquote><p><img alt=info src=images/info.svg> The <code>{}</code> metacharacters have to be escaped to match them literally. However, unlike the <code>()</code> metacharacters, these have more leeway. For example, escaping <code>{</code> alone is enough, or if it doesn't conform strictly to any of the four forms listed above, escaping is not needed at all. Also, if you are applying the <code>{}</code> quantifier to the <code>#</code> character, you need to escape <code>#</code> to override interpolation.<pre><code class=language-ruby>>> 'a{5} = 10'.sub(/a\{5}/, 'a{6}')
+=> "a{6} = 10"
+
+>> 'report_{a,b}.txt'.sub(/_{a,b}/, '-{c,d}')
+=> "report-{c,d}.txt"
+
+>> '# heading ### sub-heading'.gsub(/\#{2,}/, '%')
+=> "# heading % sub-heading"
+</code></pre></blockquote><h2 id=conditional-and><a class=header href=#conditional-and>Conditional AND</a></h2><p>Next up, how to construct AND conditional using the dot metacharacter and quantifiers.<pre><code class=language-ruby># match 'Error' followed by zero or more characters followed by 'valid'
 >> 'Error: not a valid input'.match?(/Error.*valid/)
 => true
 
 >> 'Error: key not found'.match?(/Error.*valid/)
 => false
-</code></pre><p>To allow matching in any order, you'll have to bring in alternation as well. That is somewhat manageable for 2 or 3 patterns. See <a href=./lookarounds.html#and-conditional-with-lookarounds>AND conditional with lookarounds</a> section for an easier approach.<pre><code class=language-ruby>>> seq1, seq2 = ['cat and dog', 'dog and cat']
+</code></pre><p>To allow matching in any order, you'll have to bring in alternation as well. That is somewhat manageable for 2 or 3 patterns. See the <a href=./lookarounds.html#conditional-and-with-lookarounds>Conditional AND with lookarounds</a> section for an easier approach.<pre><code class=language-ruby>>> seq1, seq2 = ['cat and dog', 'dog and cat']
 >> seq1.match?(/cat.*dog|dog.*cat/)
 => true
 >> seq2.match?(/cat.*dog|dog.*cat/)
@@ -136,89 +136,99 @@
 
 # if you just need true/false result, this would be a scalable approach
 >> patterns = [/cat/, /dog/]
->> patterns.all? { |re| seq1.match?(re) }
+>> patterns.all? { seq1.match?(_1) }
 => true
->> patterns.all? { |re| seq2.match?(re) }
+>> patterns.all? { seq2.match?(_1) }
 => true
-</code></pre><h2 id=what-does-greedy-mean><a class=header href=#what-does-greedy-mean>What does greedy mean?</a></h2><p>When you are using the <code>?</code> quantifier, how does Ruby decide to match <code>0</code> or <code>1</code> times, if both quantities can satisfy the regexp? For example, consider this substitution expression <code>'foot'.sub(/f.?o/, 'X')</code> — should <code>foo</code> be replaced or <code>fo</code>? It will always replace <code>foo</code> because these are <strong>greedy</strong> quantifiers, meaning they try to match as much as possible.<pre><code class=language-ruby>>> 'foot'.sub(/f.?o/, 'X')
+</code></pre><h2 id=what-does-greedy-mean><a class=header href=#what-does-greedy-mean>What does greedy mean?</a></h2><p>When you use the <code>?</code> quantifier, how does Ruby decide to match <code>0</code> or <code>1</code> times, if both quantities can satisfy the regexp? For example, consider this substitution expression <code>'foot'.sub(/f.?o/, 'X')</code> — should <code>foo</code> be replaced or <code>fo</code>? It will always replace <code>foo</code> because these are <strong>greedy</strong> quantifiers, meaning they try to match as much as possible.<pre><code class=language-ruby>>> 'foot'.sub(/f.?o/, 'X')
 => "Xt"
 
 # a more practical example
 # prefix '<' with '\' if it is not already prefixed
 # both '<' and '\<' will get replaced with '\<'
->> puts 'blah \< foo < bar \< blah < baz'.gsub(/\\?&LT/, '\<')
-blah \< foo \< bar \< blah \< baz
+>> puts 'blah \< fig < apple \< blah < cat'.gsub(/\\?&LT/, '\<')
+blah \< fig \< apple \< blah \< cat
 
 # say goodbye to /handful|handy|hand/ shenanigans
 >> 'hand handy handful'.gsub(/hand(y|ful)?/, 'X')
 => "X X X"
-</code></pre><p>But wait, then how did <code>/Error.*valid/</code> example work? Shouldn't <code>.*</code> consume all the characters after <code>Error</code>? Good question. The regular expression engine actually does consume all the characters. Then realizing that the regexp fails, it gives back one character from end of string and checks again if the overall regexp is satisfied. This process is repeated until a match is found or failure is confirmed. In regular expression parlance, this is called <strong>backtracking</strong>.<pre><code class=language-ruby>>> sentence = 'that is quite a fabricated tale'
+</code></pre><p>But wait, then how did the <code>/Error.*valid/</code> example work? Shouldn't <code>.*</code> consume all the characters after <code>Error</code>? Good question. The regular expression engine actually does consume all the characters. Then realizing that the match failed, it gives back one character from the end of string and checks again if the overall regexp is satisfied. This process is repeated until a match is found or failure is confirmed. In regular expression parlance, this is known as <strong>backtracking</strong>.<pre><code class=language-ruby>>> sentence = 'that is quite a fabricated tale'
 
-# /t.*a/ will always match from first 't' to last 'a'
-# also, note that 'sub' is being used here, not 'gsub'
+# /t.*a/ will always match from the first 't' to the last 'a'
+# which implies that there cannot be more than one match for such patterns
 >> sentence.sub(/t.*a/, 'X')
 => "Xle"
 >> 'star'.sub(/t.*a/, 'X')
 => "sXr"
 
 # matching first 't' to last 'a' for t.*a won't work for these cases
-# the regexp engine backtracks until .*q matches and so on
+# so, the engine backtracks until the overall regexp can be matched
 >> sentence.sub(/t.*a.*q.*f/, 'X')
 => "Xabricated tale"
 >> sentence.sub(/t.*a.*u/, 'X')
 => "Xite a fabricated tale"
-</code></pre><blockquote><p><img src=images/warning.svg alt=warning> Backtracking can be quite time consuming for certain corner cases (see <a href=https://ruby-doc.org/core-3.0.0/Regexp.html#class-Regexp-label-Performance>ruby-doc: Regexp Performance</a>). Or even catastrophic (see <a href=https://blog.cloudflare.com/details-of-the-cloudflare-outage-on-july-2-2019/>cloudflare: Details of the Cloudflare outage on July 2, 2019</a>).</blockquote><h2 id=non-greedy-quantifiers><a class=header href=#non-greedy-quantifiers>Non-greedy quantifiers</a></h2><p>As the name implies, these quantifiers will try to match as minimally as possible. Also known as <strong>lazy</strong> or <strong>reluctant</strong> quantifiers. Appending a <code>?</code> to greedy quantifiers makes them non-greedy.<pre><code class=language-ruby>>> 'foot'.sub(/f.??o/, 'X')
+</code></pre><h2 id=non-greedy-quantifiers><a class=header href=#non-greedy-quantifiers>Non-greedy quantifiers</a></h2><p>As the name implies, these quantifiers will try to match as minimally as possible. Also known as <strong>lazy</strong> or <strong>reluctant</strong> quantifiers. Appending a <code>?</code> to greedy quantifiers makes them non-greedy.<pre><code class=language-ruby>>> 'foot'.sub(/f.??o/, 'X')
 => "Xot"
 >> 'frost'.sub(/f.??o/, 'X')
 => "Xst"
 
 >> '123456789'.sub(/.{2,5}?/, 'X')
 => "X3456789"
+</code></pre><p>Like greedy quantifiers, lazy quantifiers will try to satisfy the overall regexp. For example, <code>.*?</code> will first start with an empty match and then move forward one character at a time until a match is found.<pre><code class=language-ruby># /:.*:/ will match from the first ':' to the last ':'
+>> 'green:3.14:teal::brown:oh!:blue'.split(/:.*:/)
+=> ["green", "blue"]
 
+# /:.*?:/ will match from ':' to the very next ':'
 >> 'green:3.14:teal::brown:oh!:blue'.split(/:.*?:/)
 => ["green", "teal", "brown", "blue"]
-</code></pre><p>Like greedy quantifiers, lazy quantifiers will try to satisfy the overall regexp.<pre><code class=language-ruby>>> sentence = 'that is quite a fabricated tale'
+</code></pre><h2 id=possessive-quantifiers><a class=header href=#possessive-quantifiers>Possessive quantifiers</a></h2><p>The difference between greedy and possessive quantifiers is that possessive will not backtrack to find a match. In other words, possessive quantifiers will always consume every character that matches the pattern on which it is applied. Syntax wise, you need to append <code>+</code> to greedy quantifiers to make it possessive, similar to adding <code>?</code> for the non-greedy case.<p>Unlike greedy and non-greedy quantifiers, a pattern like <code>:.*+apple</code> will never result in a match because <code>.*+</code> will consume rest of the line, leaving no way to match <code>apple</code>.<pre><code class=language-ruby>>> ip = 'fig:mango:pineapple:guava:apples:orange'
 
-# /t.*?a/ will always match from first 't' to first 'a'
->> sentence.sub(/t.*?a/, 'X')
-=> "Xt is quite a fabricated tale"
+>> ip.gsub(/:.*+/, 'X')
+=> "figX"
 
-# matching first 't' to first 'a' for t.*?a won't work for this case
-# so, regexp engine will move forward until .*?f matches and so on
->> sentence.sub(/t.*?a.*?f/, 'X')
-=> "Xabricated tale"
-# this matches last 'e' after 'q' to satisfy the anchor requirement
->> sentence.sub(/q.*?e$/, 'X')
-=> "that is X"
-</code></pre><h2 id=possessive-quantifiers><a class=header href=#possessive-quantifiers>Possessive quantifiers</a></h2><p>Appending a <code>+</code> to greedy quantifiers makes them possessive quantifiers. These are like greedy quantifiers, but without the backtracking. So, something like <code>/Error.*+valid/</code> will never match because <code>.*+</code> will consume all the remaining characters. If both the greedy and possessive quantifier versions are functionally equivalent, then possessive is preferred because it will fail faster for non-matching cases.<pre><code class=language-ruby># functionally equivalent greedy and possessive versions
->> %w[abc ac adc abbc xabbbcz bbb bc abbbbbc].grep(/ab*c/)
-=> ["abc", "ac", "abbc", "xabbbcz", "abbbbbc"]
->> %w[abc ac adc abbc xabbbcz bbb bc abbbbbc].grep(/ab*+c/)
-=> ["abc", "ac", "abbc", "xabbbcz", "abbbbbc"]
+>> ip.match?(/:.*+apple/)
+=> false
+</code></pre><p>Here's a more practical example. Suppose you want to match integer numbers greater than or equal to <code>100</code> where these numbers can optionally have leading zeros. This illustration will use features yet to introduced. The <a href=./working-with-matched-portions.html#scan-method>scan method</a> returns all the matched portions as an array. The pattern <code>[1-9]</code> matches any of the digits from <code>1</code> to <code>9</code> and <code>\d</code> matches digits <code>0</code> to <code>9</code>. See the <a href=./character-class.html#character-class>Character class</a> chapter for more details and the <a href=./character-class.html#escape-sequence-sets>Escape sequence sets</a> section for another practical example.<pre><code class=language-ruby>>> numbers = '42 314 001 12 00984'
 
-# different results
-# numbers >= 100 if there are leading zeros
-# \d will be discussed in a later chapter, it matches all digit characters
->> '0501 035 154 12 26 98234'.gsub(/\b0*\d{3,}\b/, 'X')
-=> "X X X 12 26 X"
->> '0501 035 154 12 26 98234'.gsub(/\b0*+\d{3,}\b/, 'X')
-=> "X 035 X 12 26 X"
-</code></pre><p>The effect of possessive quantifier can also be expressed using <strong>atomic grouping</strong>. The syntax is <code>(?>pat)</code>, where <code>pat</code> is an abbreviation for a portion of regular expression pattern. In later chapters you'll see more such special groupings.<pre><code class=language-ruby># same as: /(b|o)++/
->> 'abbbc foooooot'.gsub(/(?>(b|o)+)/, 'X')
-=> "aXc fXt"
+# this solution fails because 0* and \d{3,} can both match leading zeros
+# and greedy quantifiers give up characters to help the overall regexp succeed
+>> numbers.scan(/0*\d{3,}/)
+=> ["314", "001", "00984"]
 
-# same as: /\b0*+\d{3,}\b/
->> '0501 035 154 12 26 98234'.gsub(/\b(?>0*)\d{3,}\b/, 'X')
-=> "X 035 X 12 26 X"
-</code></pre><h2 id=cheatsheet-and-summary><a class=header href=#cheatsheet-and-summary>Cheatsheet and Summary</a></h2><table><thead><tr><th>Note<th>Description<tbody><tr><td><code>.</code><td>match any character except the newline character<tr><td>greedy<td>match as much as possible<tr><td><code>?</code><td>greedy quantifier, match <code>0</code> or <code>1</code> times<tr><td><code>*</code><td>greedy quantifier, match <code>0</code> or more times<tr><td><code>+</code><td>greedy quantifier, match <code>1</code> or more times<tr><td><code>{m,n}</code><td>greedy quantifier, match <code>m</code> to <code>n</code> times<tr><td><code>{m,}</code><td>greedy quantifier, match at least <code>m</code> times<tr><td><code>{,n}</code><td>greedy quantifier, match up to <code>n</code> times (including <code>0</code> times)<tr><td><code>{n}</code><td>greedy quantifier, match exactly <code>n</code> times<tr><td><code>pat1.*pat2</code><td>any number of characters between <code>pat1</code> and <code>pat2</code><tr><td><code>pat1.*pat2|pat2.*pat1</code><td>match both <code>pat1</code> and <code>pat2</code> in any order<tr><td>non-greedy<td>append <code>?</code> to greedy quantifier<tr><td><td>match as minimally as possible<tr><td>possessive<td>append <code>+</code> to greedy quantifier<tr><td><td>like greedy, but no backtracking<tr><td><code>(?>pat)</code><td>atomic grouping, similar to possessive quantifier<tr><td><code>s.split(/pat/)</code><td>split a string based on <code>pat</code><tr><td><td>accepts an optional limit argument to control no. of splits<tr><td><code>s.partition(/pat/)</code><td>returns array of 3 elements based on first match of <code>pat</code><tr><td><td>portion before match, matched portion, portion after match<tr><td><code>s.rpartition(/pat/)</code><td>returns array of 3 elements based on last match of <code>pat</code></table><p>This chapter introduced the concept of specifying a placeholder instead of fixed string. When combined with quantifiers, you've seen a glimpse of how a simple regexp can match wide range of text. In coming chapters, you'll learn how to create your own restricted set of placeholder characters.<h2 id=exercises><a class=header href=#exercises>Exercises</a></h2><blockquote><p><img src=images/info.svg alt=info> Since <code>.</code> metacharacter doesn't match newline character by default, assume that the input strings in the following exercises will not contain newline characters.</blockquote><p><strong>a)</strong> Replace <code>42//5</code> or <code>42/5</code> with <code>8</code> for the given input.<pre><code class=language-ruby>>> ip = 'a+42//5-c pressure*3+42/5-14256'
+# here 0*+ will never give back leading zeros
+>> numbers.scan(/0*+\d{3,}/)
+=> ["314", "00984"]
+
+# workaround with just greedy quantifiers
+>> numbers.scan(/0*[1-9]\d{2,}/)
+=> ["314", "00984"]
+</code></pre><h2 id=atomic-grouping><a class=header href=#atomic-grouping>Atomic grouping</a></h2><p><code>(?>pat)</code> is an atomic group, where <code>pat</code> is the pattern you want to safeguard from further backtracking. You can think of it as a special group that is isolated from the other parts of the regular expression.<p>Here's an example with greedy quantifier:<pre><code class=language-ruby>>> numbers = '42 314 001 12 00984'
+
+# 0* is greedy and the (?>) grouping prevents backtracking
+# same as: numbers.scan(/0*+\d{3,}/)
+>> numbers.scan(/(?>0*)\d{3,}/)
+=> ["314", "00984"]
+</code></pre><p>Here's an example with non-greedy quantifier. The <a href=./working-with-matched-portions.html#match-method>match method</a> is used here to extract only the matching portion.<pre><code class=language-ruby>>> ip = 'fig::mango::pineapple::guava::apples::orange'
+
+# this matches from the first '::' to the first occurrence of '::apple'
+>> ip.match(/::.*?::apple/)[0]
+=> "::mango::pineapple::guava::apple"
+
+# '(?>::.*?::)' will match only from '::' to the very next '::'
+# '::mango::' fails because 'apple' isn't found afterwards
+# similarly '::pineapple::' fails
+# '::guava::' succeeds because it is followed by 'apple'
+>> ip.match(/(?>::.*?::)apple/)[0]
+=> "::guava::apple"
+</code></pre><h2 id=catastrophic-backtracking><a class=header href=#catastrophic-backtracking>Catastrophic Backtracking</a></h2><p>Backtracking can become significantly time consuming for certain corner cases. Which is why some regular expression engines do not use them, at the cost of not supporting some features like lookarounds. If your application accepts user defined regexp, you might need to protect against such catastrophic patterns. From <a href=https://en.wikipedia.org/wiki/Redos>wikipedia: ReDoS</a>:<blockquote><p>A regular expression denial of service (ReDoS) is an algorithmic complexity attack that produces a denial-of-service by providing a regular expression and/or an input that takes a long time to evaluate. The attack exploits the fact that many regular expression implementations have super-linear worst-case complexity; on certain regex-input pairs, the time taken can grow polynomially or exponentially in relation to the input size. An attacker can thus cause a program to spend substantial time by providing a specially crafted regular expression and/or input. The program will then slow down or becoming unresponsive.</blockquote><p>Ruby can apply an optimization to prevent ReDoS attacks for certain cases. See <a href=https://ruby-doc.org/3.3.0/Regexp.html#class-Regexp-label-Optimization>ruby-doc: Regexp Optimization</a> for details. Another option is to set a timeout limit, either globally via <code>Regexp.timeout</code> or by setting the <code>timeout</code> keyword argument via <code>Regexp.new</code>. See <a href=https://ruby-doc.org/3.3.0/Regexp.html#class-Regexp-label-Timeouts>ruby-doc: Timeouts</a> for details. These features were introduced in Ruby 3.2 version, see <a href=https://www.ruby-lang.org/en/news/2022/12/25/ruby-3-2-0-released/>release notes</a> for details and links to proposals.<p>More examples and mitigation strategies can be found in the following links:<ul><li><a href=https://www.rexegg.com/regex-explosive-quantifiers.html>The Explosive Quantifier Trap</a><li><a href=https://www.regular-expressions.info/catastrophic.html>Runaway Regular Expressions: Catastrophic Backtracking</a><li><a href=https://blog.cloudflare.com/details-of-the-cloudflare-outage-on-july-2-2019/>Details of the Cloudflare outage on July 2, 2019</a></ul><h2 id=cheatsheet-and-summary><a class=header href=#cheatsheet-and-summary>Cheatsheet and Summary</a></h2><div class=table-wrapper><table><thead><tr><th>Note<th>Description<tbody><tr><td><code>.</code><td>match any character except the newline character<tr><td>greedy<td>match as much as possible<tr><td><code>?</code><td>greedy quantifier, match <code>0</code> or <code>1</code> times<tr><td><code>*</code><td>greedy quantifier, match <code>0</code> or more times<tr><td><code>+</code><td>greedy quantifier, match <code>1</code> or more times<tr><td><code>{m,n}</code><td>greedy quantifier, match <code>m</code> to <code>n</code> times<tr><td><code>{m,}</code><td>greedy quantifier, match at least <code>m</code> times<tr><td><code>{,n}</code><td>greedy quantifier, match up to <code>n</code> times (including <code>0</code> times)<tr><td><code>{n}</code><td>greedy quantifier, match exactly <code>n</code> times<tr><td><code>pat1.*pat2</code><td>any number of characters between <code>pat1</code> and <code>pat2</code><tr><td><code>pat1.*pat2|pat2.*pat1</code><td>match both <code>pat1</code> and <code>pat2</code> in any order<tr><td>non-greedy<td>append <code>?</code> to greedy quantifiers<tr><td><td>match as minimally as possible<tr><td>possessive<td>append <code>+</code> to greedy quantifiers<tr><td><td>like greedy, but no backtracking<tr><td><code>(?>pat)</code><td>atomic grouping, isolates <code>pat</code> from rest of the regexp<tr><td><code>s.split(/pat/)</code><td>split a string based on <code>pat</code><tr><td><td>accepts an optional limit argument to control no. of splits<tr><td><code>s.partition(/pat/)</code><td>returns array of 3 elements based on the first match<tr><td><td>portion before match, matched portion, portion after match<tr><td><code>s.rpartition(/pat/)</code><td>returns array of 3 elements based on the last match</table></div><p>This chapter introduced the concept of specifying a placeholder instead of fixed strings. When combined with quantifiers, you've seen a glimpse of how a simple regexp can match wide ranges of text. In the coming chapters, you'll learn how to create your own restricted set of placeholder characters.<h2 id=exercises><a class=header href=#exercises>Exercises</a></h2><blockquote><p><img alt=info src=images/info.svg> Since the <code>.</code> metacharacter doesn't match newline characters by default, assume that the input strings in the following exercises will not contain newline characters.</blockquote><p><strong>1)</strong> Replace <code>42//5</code> or <code>42/5</code> with <code>8</code> for the given input.<pre><code class=language-ruby>>> ip = 'a+42//5-c pressure*3+42/5-14256'
 
 >> ip.gsub()        ##### add your solution here
 => "a+8-c pressure*3+8-14256"
-</code></pre><p><strong>b)</strong> For the array <code>items</code>, filter all elements starting with <code>hand</code> and ending with at most one more character or <code>le</code>.<pre><code class=language-ruby>>> items = %w[handed hand handled handy unhand hands handle]
+</code></pre><p><strong>2)</strong> For the array <code>items</code>, filter all elements starting with <code>hand</code> and ending immediately with at most one more character or <code>le</code>.<pre><code class=language-ruby>>> items = %w[handed hand handled handy unhand hands handle]
 
 >> items.grep()     ##### add your solution here
 => ["hand", "handy", "hands", "handle"]
-</code></pre><p><strong>c)</strong> Use <code>split</code> method to get the output as shown for the given input strings.<pre><code class=language-ruby>>> eqn1 = 'a+42//5-c'
+</code></pre><p><strong>3)</strong> Use the <code>split</code> method to get the output as shown for the given input strings.<pre><code class=language-ruby>>> eqn1 = 'a+42//5-c'
 >> eqn2 = 'pressure*3+42/5-14256'
 >> eqn3 = 'r*42-5/3+42///5-42/53+a'
 
@@ -230,8 +240,9 @@ blah \< foo \< bar \< blah \< baz
 => ["pressure*3+", "-14256"]
 >> eqn3.split(pat)
 => ["r*42-5/3+42///5-", "3+a"]
-</code></pre><p><strong>d)</strong> For the given input strings, remove everything from the first occurrence of <code>i</code> till end of the string.<pre><code class=language-ruby>>> s1 = 'remove the special meaning of such constructs'
+</code></pre><p><strong>4)</strong> For the given input strings, remove everything from the first occurrence of <code>i</code> till the end of the string.<pre><code class=language-ruby>>> s1 = 'remove the special meaning of such constructs'
 >> s2 = 'characters while constructing'
+>> s3 = 'input output'
 
 >> pat =        ##### add your solution here
 
@@ -239,7 +250,9 @@ blah \< foo \< bar \< blah \< baz
 => "remove the spec"
 >> s2.sub(pat, '')
 => "characters wh"
-</code></pre><p><strong>e)</strong> For the given strings, construct a regexp to get output as shown.<pre><code class=language-ruby>>> str1 = 'a+b(addition)'
+>> s3.sub(pat, '')
+=> ""
+</code></pre><p><strong>5)</strong> For the given strings, construct a regexp to get the output as shown below.<pre><code class=language-ruby>>> str1 = 'a+b(addition)'
 >> str2 = 'a/b(division) + c%d(#modulo)'
 >> str3 = 'Hi there(greeting). Nice day(a(b)'
 
@@ -251,7 +264,7 @@ blah \< foo \< bar \< blah \< baz
 => "a/b + c%d"
 >> str3.gsub(remove_parentheses, '')
 => "Hi there. Nice day"
-</code></pre><p><strong>f)</strong> Correct the given regexp to get the expected output.<pre><code class=language-ruby>>> words = 'plink incoming tint winter in caution sentient'
+</code></pre><p><strong>6)</strong> Correct the given regexp to get the expected output.<pre><code class=language-ruby>>> words = 'plink incoming tint winter in caution sentient'
 
 # wrong output
 >> change = /int|in|ion|ing|inco|inter|ink/
@@ -262,7 +275,7 @@ blah \< foo \< bar \< blah \< baz
 >> change =     ##### add your solution here
 >> words.gsub(change, 'X')
 => "plX XmX tX wX X cautX sentient"
-</code></pre><p><strong>g)</strong> For the given greedy quantifiers, what would be the equivalent form using <code>{m,n}</code> representation?<ul><li><code>?</code> is same as<li><code>*</code> is same as<li><code>+</code> is same as</ul><p><strong>h)</strong> <code>(a*|b*)</code> is same as <code>(a|b)*</code> — true or false?<p><strong>i)</strong> For the given input strings, remove everything from the first occurrence of <code>test</code> (irrespective of case) till end of the string, provided <code>test</code> isn't at the end of the string.<pre><code class=language-ruby>>> s1 = 'this is a Test'
+</code></pre><p><strong>7)</strong> For the given greedy quantifiers, what would be the equivalent form using the <code>{m,n}</code> representation?<ul><li><code>?</code> is same as<li><code>*</code> is same as<li><code>+</code> is same as</ul><p><strong>8)</strong> <code>(a*|b*)</code> is same as <code>(a|b)*</code> — true or false?<p><strong>9)</strong> For the given input strings, remove everything from the first occurrence of <code>test</code> (irrespective of case) till the end of the string, provided <code>test</code> isn't at the end of the string.<pre><code class=language-ruby>>> s1 = 'this is a Test'
 >> s2 = 'always test your RE for corner cases'
 >> s3 = 'a TEST of skill tests?'
 
@@ -274,23 +287,23 @@ blah \< foo \< bar \< blah \< baz
 => "always "
 >> s3.sub(pat, '')
 => "a "
-</code></pre><p><strong>j)</strong> For the input array <code>words</code>, filter all elements starting with <code>s</code> and containing <code>e</code> and <code>t</code> in any order.<pre><code class=language-ruby>>> words = %w[sequoia subtle exhibit asset sets tests site]
+</code></pre><p><strong>10)</strong> For the input array <code>words</code>, filter all elements starting with <code>s</code> and containing <code>e</code> and <code>t</code> in any order.<pre><code class=language-ruby>>> words = ['sequoia', 'subtle', 'exhibit', 'a set', 'sets', 'tests', 'site']
 
 >> words.grep()     ##### add your solution here
 => ["subtle", "sets", "site"]
-</code></pre><p><strong>k)</strong> For the input array <code>words</code>, remove all elements having less than <code>6</code> characters.<pre><code class=language-ruby>>> words = %w[sequoia subtle exhibit asset sets tests site]
+</code></pre><p><strong>11)</strong> For the input array <code>words</code>, remove all elements having less than <code>6</code> characters.<pre><code class=language-ruby>>> words = %w[sequoia subtle exhibit asset sets tests site]
 
 >> words.grep()     ##### add your solution here
 => ["sequoia", "subtle", "exhibit"]
-</code></pre><p><strong>l)</strong> For the input array <code>words</code>, filter all elements starting with <code>s</code> or <code>t</code> and having a maximum of <code>6</code> characters.<pre><code class=language-ruby>>> words = %w[sequoia subtle exhibit asset sets tests site]
+</code></pre><p><strong>12)</strong> For the input array <code>words</code>, filter all elements starting with <code>s</code> or <code>t</code> and having a maximum of <code>6</code> characters.<pre><code class=language-ruby>>> words = ['sequoia', 'subtle', 'exhibit', 'asset', 'sets', 't set', 'site']
 
 >> words.grep()     ##### add your solution here
-=> ["subtle", "sets", "tests", "site"]
-</code></pre><p><strong>m)</strong> Can you reason out why this code results in the output shown? The aim was to remove all <code>&LTcharacters></code> patterns but not the <code><></code> ones. The expected result was <code>'a 1<> b 2<> c'</code>.<pre><code class=language-ruby>>> ip = 'a&LTapple> 1<> b&LTbye> 2<> c&LTcat>'
+=> ["subtle", "sets", "t set", "site"]
+</code></pre><p><strong>13)</strong> Can you reason out why this code results in the output shown? The aim was to remove all <code>&LTcharacters></code> patterns but not the <code><></code> ones. The expected result was <code>'a 1<> b 2<> c'</code>.<pre><code class=language-ruby>>> ip = 'a&LTapple> 1<> b&LTbye> 2<> c&LTcat>'
 
 >> ip.gsub(/<.+?>/, '')
 => "a 1 2"
-</code></pre><p><strong>n)</strong> Use <code>split</code> method to get the output as shown below for given input strings.<pre><code class=language-ruby>>> s1 = 'go there  ::   this :: that'
+</code></pre><p><strong>14)</strong> Use the <code>split</code> method to get the output as shown below for the given input strings.<pre><code class=language-ruby>>> s1 = 'go there  ::   this :: that'
 >> s2 = 'a::b :: c::d e::f :: 4::5'
 >> s3 = '42:: hi::bye::see :: carefully'
 
@@ -302,7 +315,7 @@ blah \< foo \< bar \< blah \< baz
 => ["a::b", "c::d e::f :: 4::5"]
 >> s3.split(pat, 2)
 => ["42:: hi::bye::see", "carefully"]
-</code></pre><p><strong>o)</strong> For the given input strings, match if the string starts with optional space characters followed by at least two <code>#</code> characters.<pre><code class=language-ruby>>> s1 = '   ## header2'
+</code></pre><p><strong>15)</strong> For the given input strings, match if the string starts with optional space characters followed by at least two <code>#</code> characters.<pre><code class=language-ruby>>> s1 = '   ## header2'
 >> s2 = '#### header4'
 >> s3 = '# comment'
 >> s4 = 'normal string'
@@ -320,6 +333,21 @@ blah \< foo \< bar \< blah \< baz
 => false
 >> s5.match?(pat)
 => false
-</code></pre></main><nav class=nav-wrapper aria-label="Page navigation"><a rel=prev href=escaping-metacharacters.html class="mobile-nav-chapters previous"title="Previous chapter"aria-label="Previous chapter"aria-keyshortcuts=Left> <i class="fa fa-angle-left"></i> </a><a rel=next href=interlude-tools-for-debugging-and-visualization.html class="mobile-nav-chapters next"title="Next chapter"aria-label="Next chapter"aria-keyshortcuts=Right> <i class="fa fa-angle-right"></i> </a><div style="clear: both"></div></nav></div></div><nav class=nav-wide-wrapper aria-label="Page navigation"><a rel=prev href=escaping-metacharacters.html class="nav-chapters previous"title="Previous chapter"aria-label="Previous chapter"aria-keyshortcuts=Left> <i class="fa fa-angle-left"></i> </a><a rel=next href=interlude-tools-for-debugging-and-visualization.html class="nav-chapters next"title="Next chapter"aria-label="Next chapter"aria-keyshortcuts=Right> <i class="fa fa-angle-right"></i> </a></nav></div><script>
-            window.playground_copyable = true;
-        </script><script src=elasticlunr.min.js charset=utf-8></script><script src=mark.min.js charset=utf-8></script><script src=searcher.js charset=utf-8></script><script src=clipboard.min.js charset=utf-8></script><script src=highlight.js charset=utf-8></script><script src=book.js charset=utf-8></script><script src=sidebar.js></script>
+</code></pre><p><strong>16)</strong> Modify the given regular expression such that it gives the expected results.<pre><code class=language-ruby>>> s1 = 'appleabcabcabcapricot'
+>> s2 = 'bananabcabcabcdelicious'
+
+# wrong output
+>> pat = /(abc)+a/
+>> pat.match?(s1)
+=> true
+>> pat.match?(s2)
+=> true
+
+# expected output
+# 'abc' shouldn't be considered when trying to match 'a' at the end
+>> pat =        ##### add your solution here
+>> pat.match?(s1)
+=> true
+>> pat.match?(s2)
+=> false
+</code></pre></main><nav aria-label="Page navigation"class=nav-wrapper><a aria-label="Previous chapter"class="mobile-nav-chapters previous"title="Previous chapter"aria-keyshortcuts=Left href=escaping-metacharacters.html rel=prev> <i class="fa fa-angle-left"></i> </a><a aria-label="Next chapter"class="mobile-nav-chapters next"title="Next chapter"aria-keyshortcuts=Right href=interlude-tools-for-debugging-and-visualization.html rel=next> <i class="fa fa-angle-right"></i> </a><div style="clear: both"></div></nav></div></div><nav aria-label="Page navigation"class=nav-wide-wrapper><a aria-label="Previous chapter"class="nav-chapters previous"title="Previous chapter"aria-keyshortcuts=Left href=escaping-metacharacters.html rel=prev> <i class="fa fa-angle-left"></i> </a><a aria-label="Next chapter"class="nav-chapters next"title="Next chapter"aria-keyshortcuts=Right href=interlude-tools-for-debugging-and-visualization.html rel=next> <i class="fa fa-angle-right"></i> </a></nav></div><script>window.playground_copyable = true;</script><script charset=utf-8 src=elasticlunr.min.js></script><script charset=utf-8 src=mark.min.js></script><script charset=utf-8 src=searcher.js></script><script charset=utf-8 src=clipboard.min.js></script><script charset=utf-8 src=highlight.js></script><script charset=utf-8 src=book.js></script><script src=sidebar.js></script>
